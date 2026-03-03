@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timberline Build Co. | Project Proposal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --forest: #19412c;
+            --bark: #614432;
+            --earth: #312509;
+            --navy: #213245;
+            --gold: #e9af3b;
+            --cream: #faf8f4;
+            --white: #ffffff;
+            --light-gold: #fdf5e0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            background: var(--cream);
+            line-height: 1.7;
+        }
+
+        a {
+            color: var(--forest);
+            text-decoration: none;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+        }
+
+        h1 { font-size: 3.5rem; }
+        h2 { font-size: 2.2rem; }
+        h3 { font-size: 1.4rem; }
+
+        .label {
+            text-transform: uppercase;
+            font-size: 0.65rem;
+            letter-spacing: 3px;
+            color: var(--gold);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-number {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            background: var(--gold);
+            color: var(--forest);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Animations */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeUp 0.8s ease-out forwards;
+        }
+
+        /* HERO */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, var(--forest) 0%, var(--earth) 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            padding: 3rem 5%;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1100px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .logo {
+            height: 60px;
+            margin-bottom: 4rem;
+        }
+
+        .hero-title {
+            color: var(--white);
+            margin-bottom: 0.5rem;
+            font-size: 3.5rem;
+        }
+
+        .hero-title .gold {
+            color: var(--gold);
+        }
+
+        .hero-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 5rem;
+            color: var(--white);
+        }
+
+        .meta-item {
+            border-left: 3px solid var(--gold);
+            padding-left: 1.5rem;
+        }
+
+        .meta-label {
+            text-transform: uppercase;
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            opacity: 0.8;
+            margin-bottom: 0.5rem;
+        }
+
+        .meta-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 6rem 5%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        section:nth-child(odd) {
+            background: var(--white);
+        }
+
+        section:nth-child(even) {
+            background: var(--cream);
+        }
+
+        .dark-section {
+            background: var(--forest);
+            color: var(--white);
+        }
+
+        .dark-section h2,
+        .dark-section h3 {
+            color: var(--white);
+        }
+
+        /* PERSONAL LETTER */
+        .letter {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .letter-text h2 {
+            color: var(--forest);
+            margin-bottom: 1.5rem;
+        }
+
+        .letter-text p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .signature {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--gold);
+            font-weight: 600;
+        }
+
+        .letter-image {
+            width: 100%;
+            height: 400px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        /* DIFFERENCE CARDS */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2.5rem;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            color: var(--gold);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .card p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* SCOPE */
+        .scope-item {
+            margin-bottom: 3rem;
+        }
+
+        .scope-item p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .note-box {
+            background: var(--light-gold);
+            border-left: 4px solid var(--gold);
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            color: var(--forest);
+        }
+
+        /* IMAGE BREAK */
+        .image-break {
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            padding: 3rem;
+        }
+
+        .image-break::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(25, 65, 44, 0.5);
+        }
+
+        .image-break-text {
+            position: relative;
+            z-index: 2;
+            color: var(--white);
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .image-break-text .gold {
+            color: var(--gold);
+        }
+
+        /* TABLE */
+        .allowances-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+        }
+
+        .allowances-table thead {
+            background: var(--forest);
+            color: var(--white);
+        }
+
+        .allowances-table th {
+            padding: 1.2rem;
+            text-align: left;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+        }
+
+        .allowances-table td {
+            padding: 1rem 1.2rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .allowances-table tr:hover {
+            background: #fafafa;
+        }
+
+        /* INVESTMENT */
+        .investment {
+            text-align: center;
+            background: var(--forest);
+            color: var(--white);
+            padding: 6rem 5%;
+        }
+
+        .investment h2 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+
+        .investment-total {
+            font-size: 3.5rem;
+            color: var(--gold);
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+        }
+
+        .investment-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 3rem;
+        }
+
+        .breakdown {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .breakdown-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+
+        .breakdown-label {
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            opacity: 0.8;
+            margin-bottom: 0.8rem;
+        }
+
+        .breakdown-amount {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--gold);
+        }
+
+        .not-included {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 8px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .not-included h3 {
+            color: var(--gold);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .not-included p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        /* TIMELINE */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-dot {
+            width: 30px;
+            height: 30px;
+            background: var(--gold);
+            border-radius: 50%;
+            position: absolute;
+            left: 60px;
+            top: 0;
+        }
+
+        .timeline-dot::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 30px;
+            width: 2px;
+            height: 100px;
+            background: var(--gold);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item:last-child .timeline-dot::before {
+            display: none;
+        }
+
+        .timeline-label {
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            color: var(--gold);
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-name {
+            font-size: 1.3rem;
+            color: var(--forest);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-duration {
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .timeline-desc {
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--earth);
+            color: var(--white);
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+        footer .logo {
+            margin-bottom: 1.5rem;
+        }
+
+        footer h3 {
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        footer p {
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .cta {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--forest);
+            padding: 1rem 2rem;
+            border-radius: 4px;
+            font-weight: 700;
+            margin-top: 1.5rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+
+            .letter,
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .investment-total {
+                font-size: 2.5rem;
+            }
+
+            .timeline-item {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-dot {
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content fade-in">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 60'%3E%3Ctext x='50' y='40' font-family='Montserrat' font-size='24' font-weight='bold' fill='white'%3ETimberline Build Co.%3C/text%3E%3C/svg%3E" alt="Timberline" class="logo">
+            <h1 class="hero-title">Full Interior <span class="gold">Remodel</span></h1>
+        </div>
+        <div class="hero-meta fade-in">
+            <div class="meta-item">
+                <div class="meta-label">Project Address</div>
+                <div class="meta-value">494 Calle Cadiz, Unit B, Laguna Woods, CA</div>
+            </div>
+            <div class="meta-item">
+                <div class="meta-label">Prepared For</div>
+                <div class="meta-value">Donna & Randy</div>
+            </div>
+            <div class="meta-item">
+                <div class="meta-label">Project Type</div>
+                <div class="meta-value">Interior Remodel</div>
+            </div>
+            <div class="meta-item">
+                <div class="meta-label">Date</div>
+                <div class="meta-value">March 2026</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PERSONAL LETTER -->
+    <section class="letter fade-in">
+        <div class="letter-text">
+            <div class="label">A Note From Us</div>
+            <h2>Hey Donna & Randy,</h2>
+            <p>First off, thank you for trusting us with your home. That means everything. We know this isn't just a "project" — it's where you live, where you relax, and where life happens. We don't take that lightly.</p>
+            <p>We're excited about what we're going to do here. A full interior refresh is a big move, and we get it — there's a lot to think about, a lot of decisions to make, and a lot of trust to place. That's why we've built this proposal to be totally transparent. What we quote is what you pay. No surprises, no hidden fees, no guessing.</p>
+            <p>Over the next few pages, you'll see exactly what we're doing, what it costs, and how long it'll take. If you have questions, we'll be here — text, call, email, doesn't matter. You'll always know what's happening on your home.</p>
+            <div class="signature">The Timberline Team<br>Timberline Build Co. | 949-229-1692</div>
+        </div>
+        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80" alt="Modern home interior" class="letter-image">
+    </section>
+
+    <!-- TIMBERLINE DIFFERENCE -->
+    <section class="dark-section fade-in">
+        <div style="max-width: 1100px; margin: 0 auto;">
+            <div class="label">Why Timberline</div>
+            <h2>The Timberline Difference</h2>
+            <div class="cards" style="margin-top: 3rem;">
+                <div class="card">
+                    <div class="card-icon">💬</div>
+                    <h3>Real Communication</h3>
+                    <p>We pick up the phone. We respond to texts. We give you updates before you have to ask. You always know what's happening, what's next, and when.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🧹</div>
+                    <h3>Clean Every Day</h3>
+                    <p>Your home is still your home during construction. We clean up at the end of every single day. No piles of debris, no dust-covered everything, no excuses.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💰</div>
+                    <h3>Transparent Pricing</h3>
+                    <p>What we quote is what you pay. We break out allowances separately so you can see exactly where your money goes. No vague line items, no surprise change orders.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SCOPE OF WORK -->
+    <section class="fade-in">
+        <div class="label">The Work</div>
+        <h2>Scope of Work</h2>
+
+        <div class="scope-item" style="margin-top: 3rem;">
+            <div class="section-number">01</div>
+            <h3>Pre-Construction & Planning</h3>
+            <p>Before we pick up a hammer, we're going to align with you on every detail. We'll finalize your design selections, get your permits pulled with the city and HOA, and make sure everyone's on the same page. This phase is critical — it's where we prevent surprises and set the project up for success. We'll handle all the coordination so you don't have to.</p>
+            <div class="note-box">
+                <strong>Note:</strong> City permit fees and HOA fees are separate and billed directly to you. We typically see pre-construction take 3–6 weeks depending on city review timelines.
+            </div>
+        </div>
+
+        <div class="scope-item">
+            <div class="section-number">02</div>
+            <h3>Whole House Demo & General</h3>
+            <p>Time to clear the slate. We'll demo everything that needs to go — old cabinetry, flooring, fixtures — and haul it all away cleanly. Then we'll install new LVP flooring throughout your home. It's durable, easy to maintain, and looks modern. We'll also remove your old baseboards and install new ones, plus take out that popcorn ceiling and smooth it out. Finally, we're painting the whole house in your selected color and installing recessed lighting in the living room, kitchen, and hallway.</p>
+        </div>
+
+        <div class="scope-item">
+            <div class="section-number">03</div>
+            <h3>Kitchen</h3>
+            <p>This is where the magic happens. We're completely gutting your kitchen and rebuilding it modern. New white shaker cabinets throughout — crisp, clean, timeless. Quartz countertops that'll never need sealing. A beautiful tile backsplash behind the stove. We'll handle all the plumbing, add angle stops where you need them, relocate the fridge water line, and hook up all your appliances. Plus new electrical to power everything safely.</p>
+        </div>
+
+        <div class="scope-item">
+            <div class="section-number">04</div>
+            <h3>Bathrooms (Both)</h3>
+            <p>Both bathrooms get a full gut renovation. New fiberglass shower pans, decorative wall panels, new valves and trim, shower glass enclosures, and all new fixtures. We'll repair any drywall damage and install fresh surfaces throughout. Both get new tile work (your selections) and fresh paint.</p>
+        </div>
+
+        <div style="margin-top: 3rem; padding: 2rem; background: var(--light-gold); border-radius: 4px;">
+            <h3 style="color: var(--forest); margin-bottom: 1rem;">+ Optional Add-On</h3>
+            <p><strong>Kitchen Wall Removal (Island Opening):</strong> $3,500</p>
+            <p style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">Opening up the wall between your kitchen and dining area to create a connected, open-concept space. Includes structural engineering review and temporary support during demo. This is a game-changer if you want more flow between rooms.</p>
+        </div>
+    </section>
+
+    <!-- IMAGE BREAK -->
+    <section style="padding: 0; margin: 0;">
+        <div class="image-break" style="background-image: url('https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=1920&q=80');">
+            <div class="image-break-text">Your dream home is closer than you <span class="gold">think.</span></div>
+        </div>
+    </section>
+
+    <!-- MATERIAL ALLOWANCES -->
+    <section class="fade-in">
+        <div class="label">Transparency</div>
+        <h2>Material Allowances</h2>
+        <p style="margin-bottom: 2rem; color: #666;">Here's what we've budgeted for your major materials. If you want to upgrade, we can adjust the cost. If you find something cheaper, we can work with that too. Full transparency, full control.</p>
+        
+        <table class="allowances-table">
+            <thead>
+                <tr>
+                    <th>Material</th>
+                    <th>Allowance</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Kitchen Cabinets</strong></td>
+                    <td>$12,000</td>
+                    <td>White shaker, all areas</td>
+                </tr>
+                <tr>
+                    <td><strong>Kitchen Countertops</strong></td>
+                    <td>$3,500</td>
+                    <td>Quartz, installed</td>
+                </tr>
+                <tr>
+                    <td><strong>Flooring (LVP)</strong></td>
+                    <td>$4,200</td>
+                    <td>Whole house, $3.30/sq ft</td>
+                </tr>
+                <tr>
+                    <td><strong>Bathroom Tile (Both)</strong></td>
+                    <td>$3,800</td>
+                    <td>Materials only, labor separate</td>
+                </tr>
+                <tr>
+                    <td><strong>Kitchen Backsplash</strong></td>
+                    <td>$1,200</td>
+                    <td>Tile, grout, adhesive included</td>
+                </tr>
+                <tr>
+                    <td><strong>Paint (Whole House)</strong></td>
+                    <td>$2,100</td>
+                    <td>Premium interior paint + labor</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- INVESTMENT -->
+    <section class="investment fade-in">
+        <h2>Your Investment</h2>
+        <p class="investment-subtitle">All labor, materials, and project management included.</p>
+        
+        <div class="investment-total">$98,740</div>
+        
+        <div class="breakdown">
+            <div class="breakdown-item">
+                <div class="breakdown-label">Pre-Construction</div>
+                <div class="breakdown-amount">$7,494</div>
+            </div>
+            <div class="breakdown-item">
+                <div class="breakdown-label">Construction</div>
+                <div class="breakdown-amount">$86,544</div>
+            </div>
+            <div class="breakdown-item">
+                <div class="breakdown-label">Project Management</div>
+                <div class="breakdown-amount">$4,702</div>
+            </div>
+        </div>
+
+        <div class="not-included">
+            <h3>What's Not Included</h3>
+            <p><strong>City permit fees, HOA review fees, structural engineering (if needed), floor prep/leveling beyond standard, electrical panel upgrades.</strong> We'll give you a heads-up on these early so there are no surprises.</p>
+        </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section class="fade-in">
+        <div class="label">Timeline</div>
+        <h2>Estimated Schedule</h2>
+        
+        <div class="timeline" style="margin-top: 3rem;">
+            <div class="timeline-item">
+                <div style="padding-left: 100px;">
+                    <div class="timeline-label">Phase 1</div>
+                    <div class="timeline-name">Pre-Construction & Permits</div>
+                    <div class="timeline-duration">3–6 Weeks</div>
+                    <div class="timeline-desc">Design finalization, permit applications, city/HOA review. We handle all the back-and-forth.</div>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+
+            <div class="timeline-item">
+                <div style="padding-left: 100px;">
+                    <div class="timeline-label">Phase 2</div>
+                    <div class="timeline-name">Demolition</div>
+                    <div class="timeline-duration">1–2 Weeks</div>
+                    <div class="timeline-desc">Complete gut of kitchen, bathrooms, and preparation of flooring areas. Daily cleanup so your home stays livable.</div>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+
+            <div class="timeline-item">
+                <div style="padding-left: 100px;">
+                    <div class="timeline-label">Phase 3</div>
+                    <div class="timeline-name">Rough Installation</div>
+                    <div class="timeline-duration">2–3 Weeks</div>
+                    <div class="timeline-desc">Plumbing, electrical, drywall, and structural work. The skeleton goes in before finishes.</div>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+
+            <div class="timeline-item">
+                <div style="padding-left: 100px;">
+                    <div class="timeline-label">Phase 4</div>
+                    <div class="timeline-name">Finishes</div>
+                    <div class="timeline-duration">2–3 Weeks</div>
+                    <div class="timeline-desc">Flooring, cabinetry, countertops, tile, lighting, and paint. The space starts to come alive.</div>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+
+            <div class="timeline-item">
+                <div style="padding-left: 100px;">
+                    <div class="timeline-label">Phase 5</div>
+                    <div class="timeline-name">Final Inspection & Walkthrough</div>
+                    <div class="timeline-duration">1–2 Weeks</div>
+                    <div class="timeline-desc">City inspections, final cleanup, and a full walkthrough together. We'll hand over your keys to a completed home.</div>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+
+            <div style="margin-top: 3rem; padding: 2rem; background: var(--light-gold); border-radius: 4px; text-align: center;">
+                <strong style="color: var(--forest);">Total Estimated Timeline: 9–14 Weeks from permit approval to completion</strong>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="fade-in">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 60'%3E%3Ctext x='30' y='40' font-family='Montserrat' font-size='18' font-weight='bold' fill='white'%3ETimberline%3C/text%3E%3C/svg%3E" alt="Timberline" class="logo" style="height: 50px;">
+        <h3>Thank You</h3>
+        <p>Thank you for considering Timberline Build Co. We can't wait to get started on your home.</p>
+        <a href="tel:9492291692" class="cta">Let's Get Started</a>
+        <p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.7;">Timberline Build Co. | 949-229-1692<br>Southern California</p>
+    </footer>
+
+    <script>
+        // Scroll reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
