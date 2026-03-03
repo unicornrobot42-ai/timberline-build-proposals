@@ -207,21 +207,35 @@
             object-fit: cover;
         }
 
-        /* WHY TIMBERLINE - COMPLETELY REDESIGNED */
+        /* WHY TIMBERLINE - BACKGROUND IMAGE WITH CARDS */
         .why-timberline {
-            background: var(--forest);
-            color: var(--white);
-            padding: 4rem 5%;
+            position: relative;
+            padding: 2.5rem 5%;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .why-timberline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(25, 65, 44, 0.75);
+            z-index: 1;
         }
 
         .why-timberline-container {
             max-width: 1100px;
             margin: 0 auto;
+            position: relative;
+            z-index: 2;
         }
 
         .why-timberline h2 {
             color: var(--white);
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             text-align: center;
         }
 
@@ -232,11 +246,8 @@
         }
 
         .value-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 2.5rem;
-            border-radius: 8px;
+            background: transparent;
             text-align: center;
-            backdrop-filter: blur(10px);
         }
 
         .value-icon {
@@ -247,20 +258,20 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 1.5rem;
+            margin: 0 auto 1rem;
         }
 
         .value-header {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 700;
             color: var(--gold);
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
         }
 
         .value-desc {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: rgba(255, 255, 255, 0.95);
-            line-height: 1.7;
+            line-height: 1.6;
         }
 
         /* SCOPE */
@@ -638,8 +649,8 @@
         <img src="kitchen-hero.png" alt="Modern kitchen" class="letter-image">
     </section>
 
-    <!-- WHY TIMBERLINE - COMPLETELY NEW -->
-    <section class="why-timberline fade-in">
+    <!-- WHY TIMBERLINE - BACKGROUND IMAGE + CARDS -->
+    <section class="why-timberline fade-in" style="background-image: url('kitchen-hero.png');">
         <div class="why-timberline-container">
             <h2>The Timberline Difference</h2>
             <div class="value-cards">
@@ -650,7 +661,7 @@
                         </svg>
                     </div>
                     <div class="value-header">Real Communication</div>
-                    <div class="value-desc">We pick up the phone, respond to texts, and keep you informed every step of the way. No surprises, no silence.</div>
+                    <div class="value-desc">We're in constant contact throughout your project. Weekly updates, immediate responses to questions, and full transparency every step of the way.</div>
                 </div>
                 <div class="value-card">
                     <div class="value-icon">
@@ -659,7 +670,7 @@
                         </svg>
                     </div>
                     <div class="value-header">Clean Every Day</div>
-                    <div class="value-desc">Your home is your sanctuary. We clean up at the end of every single day. No debris, no mess, no excuses.</div>
+                    <div class="value-desc">At the end of every single day, we clean up. Debris gone, dust settled, your home ready for family. This is respect for where you live.</div>
                 </div>
                 <div class="value-card">
                     <div class="value-icon">
@@ -669,7 +680,7 @@
                         </svg>
                     </div>
                     <div class="value-header">Transparent Pricing</div>
-                    <div class="value-desc">What we quote is what you pay. We break out every allowance so you see exactly where your money goes.</div>
+                    <div class="value-desc">We break out every line item and allowance upfront. What we quote is exactly what you'll pay—no hidden fees, no surprises.</div>
                 </div>
             </div>
         </div>
