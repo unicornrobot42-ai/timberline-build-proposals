@@ -558,23 +558,28 @@
 
         /* FOOTER */
         footer {
-            background: var(--earth);
+            background: var(--forest);
             color: var(--white);
-            padding: 3rem 5%;
+            padding: 2rem 5%;
             text-align: center;
+            border-top: 3px solid var(--gold);
         }
 
-        footer .logo {
-            font-size: 1.2rem;
-            font-weight: 900;
-            letter-spacing: 2px;
-            margin-bottom: 1rem;
+        footer .logo-img {
+            height: 45px;
+            margin-bottom: 1.5rem;
         }
 
         footer p {
             margin-bottom: 0.5rem;
-            opacity: 0.9;
-            font-size: 0.9rem;
+            opacity: 0.85;
+            font-size: 0.85rem;
+        }
+
+        footer .footer-contact {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            margin-top: 1rem;
         }
 
         @media (max-width: 768px) {
@@ -866,9 +871,9 @@
 
     <!-- FOOTER -->
     <footer class="fade-in">
-        <div class="logo">TIMBERLINE BUILD CO.</div>
+        <img src="timberline-logo.png" alt="Timberline Build Co." class="logo-img">
         <p>Southern California General Contracting</p>
-        <p style="font-size: 0.8rem; margin-top: 1rem; opacity: 0.7;">949-229-1692 | Quality Craftsmanship, Delivered</p>
+        <div class="footer-contact">949-229-1692 | Quality Craftsmanship, Delivered</div>
     </footer>
 
     <script>
