@@ -4,599 +4,1010 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2232 Wallace Ave - Water Damage Restoration Proposal</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --forest: #19412c;
+            --bark: #614432;
+            --earth: #312509;
+            --navy: #213245;
+            --gold: #e9af3b;
+            --cream: #faf8f4;
+            --white: #ffffff;
+            --gray: #666666;
+            --light-gray: #f5f5f5;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Montserrat', sans-serif;
-            color: #333;
-            line-height: 1.6;
-            background: #f5f5f5;
+            color: var(--gray);
+            line-height: 1.7;
+            background: var(--cream);
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
-        /* HEADER */
-        header {
-            background: linear-gradient(135deg, #19412C 0%, #213245 100%);
+        /* ANIMATIONS */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        /* SECTION LABEL */
+        .section-label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--gold);
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        /* ===== 1. HERO SECTION ===== */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            background: linear-gradient(135deg, rgba(25, 65, 44, 0.85) 0%, rgba(33, 50, 69, 0.85) 100%),
+                        url('https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1920&q=80') center/cover;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 40px;
+        }
+
+        .hero-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        .logo-icon {
+            display: inline-block;
+            color: var(--gold);
+            margin-right: 8px;
+        }
+
+        .hero-content {
+            text-align: center;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 5vw, 64px);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .hero-gold {
+            color: var(--gold);
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 30px;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 0;
+        }
+
+        .meta-item {
+            text-align: center;
+        }
+
+        .meta-label {
+            color: var(--gold);
+            margin-bottom: 8px;
+            font-weight: 700;
+            font-size: 11px;
+        }
+
+        .meta-value {
+            opacity: 0.9;
+            font-weight: 600;
+        }
+
+        /* ===== 2. PERSONAL LETTER ===== */
+        .letter {
+            background: var(--white);
+            padding: 80px 40px;
+        }
+
+        .letter .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .letter-content h2 {
+            color: var(--forest);
+            font-size: 36px;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .letter-content p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: var(--gray);
+            font-size: 15px;
+        }
+
+        .letter-signature {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid var(--gold);
+        }
+
+        .signature-name {
+            font-weight: 700;
+            color: var(--forest);
+            margin-bottom: 5px;
+        }
+
+        .signature-title {
+            font-size: 13px;
+            color: var(--bark);
+        }
+
+        .letter-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, var(--forest), var(--navy));
+            border-radius: 0;
+            overflow: hidden;
+        }
+
+        .letter-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ===== 3. THE TIMBERLINE DIFFERENCE ===== */
+        .difference {
+            background: var(--forest);
+            color: white;
+            padding: 80px 40px;
+        }
+
+        .difference-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .difference h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 60px;
+            font-weight: 700;
+        }
+
+        .difference-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .diff-card {
+            background: rgba(255,255,255,0.05);
+            padding: 40px;
+            border-left: 4px solid var(--gold);
+            text-align: center;
+        }
+
+        .diff-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .diff-card h3 {
+            font-size: 18px;
+            color: var(--gold);
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .diff-card p {
+            font-size: 14px;
+            line-height: 1.7;
+            opacity: 0.9;
+        }
+
+        /* ===== 4. SCOPE OF WORK ===== */
+        .scope {
+            background: var(--cream);
+            padding: 80px 40px;
+        }
+
+        .scope-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .scope-header h2 {
+            color: var(--forest);
+            font-size: 36px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .scope-items {
+            display: grid;
+            gap: 40px;
+        }
+
+        .scope-item {
+            background: white;
+            padding: 40px;
+            border-left: 6px solid var(--bark);
+        }
+
+        .scope-number {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--forest);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .scope-item h3 {
+            color: var(--forest);
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .scope-item p {
+            font-size: 14px;
+            line-height: 1.8;
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+
+        .scope-note {
+            background: rgba(233, 175, 59, 0.1);
+            border-left: 4px solid var(--gold);
+            padding: 15px;
+            font-size: 13px;
+            color: var(--forest);
+            margin-top: 20px;
+            font-weight: 600;
+        }
+
+        /* ===== 5. IMAGE BREAK ===== */
+        .image-break {
+            position: relative;
+            min-height: 400px;
+            background: linear-gradient(135deg, rgba(25, 65, 44, 0.7), rgba(233, 175, 59, 0.3)),
+                        url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1920&q=80') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
             color: white;
             padding: 60px 40px;
-            text-align: center;
-            border-bottom: 4px solid #E9AF3B;
         }
 
-        header h1 {
+        .image-break-text {
+            max-width: 600px;
+            font-size: 42px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .image-break-text .gold {
+            color: var(--gold);
+        }
+
+        /* ===== 6. MATERIAL ALLOWANCES ===== */
+        .allowances {
+            background: white;
+            padding: 80px 40px;
+        }
+
+        .allowances h2 {
+            color: var(--forest);
             font-size: 36px;
-            margin-bottom: 10px;
-            letter-spacing: -0.5px;
+            margin-bottom: 50px;
+            font-weight: 700;
         }
 
-        header .tagline {
-            font-size: 14px;
-            opacity: 0.95;
-            letter-spacing: 1px;
+        .allowances-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 40px;
+        }
+
+        .allowances-table thead {
+            background: var(--forest);
+            color: white;
+        }
+
+        .allowances-table th {
+            padding: 20px;
+            text-align: left;
+            font-weight: 700;
+            font-size: 13px;
             text-transform: uppercase;
-            color: #E9AF3B;
+            letter-spacing: 1px;
+            border: none;
         }
 
-        /* HERO SECTION */
-        .hero {
-            background: linear-gradient(to right, rgba(25, 65, 44, 0.9), rgba(33, 50, 69, 0.9)), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="%23ffffff" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="1200" height="600" fill="%2319412c"/><rect width="1200" height="600" fill="url(%23grid)"/></svg>');
+        .allowances-table td {
+            padding: 20px;
+            border-bottom: 1px solid var(--light-gray);
+            font-size: 14px;
+        }
+
+        .allowances-table tbody tr:hover {
+            background: var(--cream);
+        }
+
+        .allow-item {
+            color: var(--forest);
+            font-weight: 600;
+        }
+
+        .allow-amount {
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .allow-note {
+            color: var(--gray);
+            font-size: 13px;
+        }
+
+        /* ===== 7. YOUR INVESTMENT ===== */
+        .investment {
+            background: var(--forest);
             color: white;
             padding: 80px 40px;
             text-align: center;
         }
 
-        .hero h2 {
-            font-size: 42px;
+        .investment-header {
+            margin-bottom: 60px;
+        }
+
+        .investment-total {
+            font-size: clamp(48px, 8vw, 96px);
+            font-weight: 900;
+            color: var(--gold);
             margin-bottom: 15px;
-            font-weight: 800;
+            letter-spacing: -2px;
         }
 
-        .hero p {
+        .investment-subtitle {
             font-size: 18px;
-            max-width: 700px;
-            margin: 0 auto 30px;
-            opacity: 0.95;
-        }
-
-        .hero-meta {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            font-size: 14px;
             opacity: 0.9;
-        }
-
-        .hero-meta div {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        /* SCOPE SECTION */
-        .scope {
-            padding: 60px 40px;
-            background: white;
-            border-top: 3px solid #E9AF3B;
-        }
-
-        .scope h3 {
-            color: #19412C;
-            font-size: 28px;
-            margin-bottom: 30px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .scope h3::before {
-            content: '';
-            width: 6px;
-            height: 30px;
-            background: #E9AF3B;
-        }
-
-        .scope-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            font-weight: 300;
             margin-bottom: 40px;
         }
 
-        .scope-item {
-            background: #F9F9F9;
-            padding: 25px;
-            border-left: 4px solid #614432;
-            border-radius: 3px;
-        }
-
-        .scope-item h4 {
-            color: #19412C;
-            font-size: 16px;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-
-        .scope-item p {
-            font-size: 13px;
-            color: #666;
-            line-height: 1.5;
-        }
-
-        /* PRICING SECTION */
-        .pricing {
-            background: #F5F5F5;
-            padding: 60px 40px;
-        }
-
-        .pricing h3 {
-            color: #19412C;
-            font-size: 28px;
-            margin-bottom: 30px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .pricing h3::before {
-            content: '';
-            width: 6px;
-            height: 30px;
-            background: #E9AF3B;
-        }
-
-        .price-table {
-            background: white;
-            border-radius: 0;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            margin-bottom: 30px;
-        }
-
-        .price-row {
+        .investment-breakdown {
             display: grid;
-            grid-template-columns: 2fr 1fr;
-            border-bottom: 1px solid #E8E8E8;
-            padding: 18px 25px;
-            align-items: center;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
         }
 
-        .price-row:last-child {
-            border-bottom: none;
+        .breakdown-card {
+            background: rgba(255,255,255,0.05);
+            padding: 30px;
+            border-top: 3px solid var(--gold);
         }
 
-        .price-row.section-header {
-            background: #19412C;
-            color: white;
-            font-weight: 700;
+        .breakdown-amount {
+            font-size: 32px;
+            color: var(--gold);
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
+
+        .breakdown-label {
             font-size: 13px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 2px;
+            opacity: 0.8;
         }
 
-        .price-row.total {
-            background: #E9AF3B;
-            font-weight: 800;
-            font-size: 18px;
-            color: #19412C;
-            border-top: 2px solid #19412C;
+        .not-included {
+            background: rgba(0,0,0,0.3);
+            padding: 40px;
+            border-left: 4px solid var(--gold);
+            text-align: left;
+            max-width: 600px;
+            margin: 60px auto 0;
         }
 
-        .price-label {
+        .not-included h3 {
+            color: var(--gold);
+            margin-bottom: 15px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        .not-included-list {
             font-size: 13px;
+            line-height: 1.8;
         }
 
-        .price-amount {
-            text-align: right;
-            font-weight: 600;
-            color: #19412C;
-        }
-
-        .price-row.total .price-amount {
-            font-size: 22px;
-        }
-
-        /* TIMELINE SECTION */
-        .timeline {
-            padding: 60px 40px;
-            background: white;
-        }
-
-        .timeline h3 {
-            color: #19412C;
-            font-size: 28px;
-            margin-bottom: 40px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .timeline h3::before {
-            content: '';
-            width: 6px;
-            height: 30px;
-            background: #E9AF3B;
-        }
-
-        .timeline-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-
-        .timeline-step {
-            background: #F9F9F9;
-            padding: 25px;
-            border-radius: 3px;
-            border-top: 4px solid #E9AF3B;
+        .not-included-list li {
+            list-style: none;
+            padding-left: 20px;
             position: relative;
         }
 
-        .timeline-step .week {
-            color: #614432;
+        .not-included-list li::before {
+            content: "–";
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+        }
+
+        /* ===== 8. TIMELINE ===== */
+        .timeline {
+            background: var(--cream);
+            padding: 80px 40px;
+        }
+
+        .timeline h2 {
+            color: var(--forest);
+            font-size: 36px;
+            margin-bottom: 60px;
+            text-align: center;
             font-weight: 700;
-            font-size: 12px;
+        }
+
+        .timeline-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            padding: 40px 0;
+        }
+
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--gold);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) {
+            padding-right: calc(50% + 40px);
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            padding-left: calc(50% + 40px);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background: var(--gold);
+            border: 3px solid var(--forest);
+            border-radius: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 30px;
+            border-left: 4px solid var(--bark);
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            border-left: 4px solid var(--bark);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            border-right: 4px solid var(--bark);
+            border-left: none;
+        }
+
+        .timeline-phase {
+            color: var(--gold);
+            font-size: 11px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            font-weight: 700;
             margin-bottom: 8px;
         }
 
-        .timeline-step h4 {
-            color: #19412C;
-            font-size: 14px;
-            margin-bottom: 10px;
-        }
-
-        .timeline-step p {
-            font-size: 12px;
-            color: #666;
-            line-height: 1.5;
-        }
-
-        /* PROCESS SECTION */
-        .process {
-            background: #F5F5F5;
-            padding: 60px 40px;
-        }
-
-        .process h3 {
-            color: #19412C;
-            font-size: 28px;
-            margin-bottom: 30px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .process h3::before {
-            content: '';
-            width: 6px;
-            height: 30px;
-            background: #E9AF3B;
-        }
-
-        .process-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-        }
-
-        .process-card {
-            background: white;
-            padding: 30px;
-            border-radius: 3px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-        }
-
-        .process-number {
-            display: inline-block;
-            background: #19412C;
-            color: #E9AF3B;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            font-size: 16px;
-            margin-bottom: 15px;
-        }
-
-        .process-card h4 {
-            color: #19412C;
-            font-size: 14px;
-            margin-bottom: 10px;
+        .timeline-title {
+            color: var(--forest);
+            font-size: 18px;
             font-weight: 700;
+            margin-bottom: 10px;
         }
 
-        .process-card p {
-            font-size: 12px;
-            color: #666;
+        .timeline-desc {
+            font-size: 13px;
             line-height: 1.6;
+            color: var(--gray);
         }
 
-        /* CTA SECTION */
-        .cta {
-            background: linear-gradient(135deg, #19412C 0%, #213245 100%);
+        /* ===== 9. FOOTER ===== */
+        footer {
+            background: var(--earth);
             color: white;
             padding: 60px 40px;
             text-align: center;
-            border-top: 4px solid #E9AF3B;
         }
 
-        .cta h3 {
-            font-size: 28px;
+        footer .logo {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        footer p {
+            font-size: 14px;
             margin-bottom: 15px;
+            opacity: 0.9;
         }
 
-        .cta p {
-            font-size: 16px;
-            margin-bottom: 30px;
-            opacity: 0.95;
-        }
-
-        .cta-button {
+        .footer-cta {
             display: inline-block;
-            background: #E9AF3B;
-            color: #19412C;
+            background: var(--gold);
+            color: var(--forest);
             padding: 16px 40px;
             font-weight: 700;
             text-decoration: none;
-            border-radius: 3px;
-            font-size: 14px;
+            border-radius: 0;
+            font-size: 13px;
             text-transform: uppercase;
             letter-spacing: 1px;
+            margin-top: 20px;
             transition: all 0.3s ease;
         }
 
-        .cta-button:hover {
+        .footer-cta:hover {
             background: white;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
-        /* FOOTER */
-        footer {
-            background: #312509;
-            color: white;
-            padding: 40px;
-            text-align: center;
-            font-size: 12px;
-            border-top: 2px solid #E9AF3B;
-        }
-
-        footer .footer-content {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        footer .company {
-            font-weight: 700;
-            margin-bottom: 8px;
-            font-size: 14px;
-        }
-
-        footer .contact {
-            opacity: 0.9;
-            margin-bottom: 10px;
-        }
-
-        footer .license {
-            opacity: 0.7;
-            font-size: 11px;
-        }
-
-        /* PRINT STYLES */
-        @media print {
-            body {
-                background: white;
-            }
-            .container {
-                box-shadow: none;
-            }
-        }
-
+        /* RESPONSIVE */
         @media (max-width: 768px) {
-            header h1 {
-                font-size: 28px;
-            }
-            .hero h2 {
-                font-size: 32px;
-            }
-            .price-row {
+            .letter .container {
                 grid-template-columns: 1fr;
-                gap: 10px;
             }
-            .price-amount {
+
+            .letter-image {
+                height: 300px;
+            }
+
+            .timeline-container::before {
+                left: 10px;
+            }
+
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                padding-left: 50px;
+                padding-right: 0;
                 text-align: left;
+            }
+
+            .timeline-dot {
+                left: 10px;
+            }
+
+            .timeline-content {
+                border-left: 4px solid var(--bark);
+                border-right: none;
+            }
+
+            .hero-meta {
+                grid-template-columns: 1fr;
+            }
+
+            .image-break-text {
+                font-size: 28px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- HEADER -->
-        <header>
-            <div class="tagline">Water Damage Restoration</div>
-            <h1>TIMBERLINE BUILD CO</h1>
-        </header>
+    <!-- 1. HERO -->
+    <section class="hero">
+        <div class="hero-header">
+            <div class="logo">⛰️ <span style="color: var(--gold);">TIMBERLINE</span></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-label">Project Proposal</div>
+            <h1>Water Damage <span class="hero-gold">Restoration</span></h1>
+            <p>Complete kitchen & home restoration for your Costa Mesa property</p>
+        </div>
+        <div class="hero-meta">
+            <div class="meta-item">
+                <div class="meta-label">📍 Address</div>
+                <div class="meta-value">2232 Wallace Ave, Costa Mesa, CA</div>
+            </div>
+            <div class="meta-item">
+                <div class="meta-label">👤 Client</div>
+                <div class="meta-value">Ryan Perez</div>
+            </div>
+            <div class="meta-item">
+                <div class="meta-label">📅 Timeline</div>
+                <div class="meta-value">8 Weeks</div>
+            </div>
+            <div class="meta-item">
+                <div class="meta-label">🏗️ Type</div>
+                <div class="meta-value">Full Restoration</div>
+            </div>
+        </div>
+    </section>
 
-        <!-- HERO -->
-        <section class="hero">
-            <h2>2232 Wallace Ave, Costa Mesa</h2>
-            <p>Complete Water Damage Restoration & Kitchen Rebuild</p>
-            <div class="hero-meta">
-                <div>
-                    <span>📍</span>
-                    <span>Costa Mesa, CA</span>
-                </div>
-                <div>
-                    <span>⏱️</span>
-                    <span>8 Weeks</span>
-                </div>
-                <div>
-                    <span>💰</span>
-                    <span>Insurance Claim</span>
+    <!-- 2. PERSONAL LETTER -->
+    <section class="letter">
+        <div class="container">
+            <div class="letter-content">
+                <div class="section-label">A Note From Us</div>
+                <h2>Hey Ryan,</h2>
+                <p>First off—thank you for trusting us with your home. When water damage hits, it's stressful. We get it. But here's the thing: this is actually your chance to come back better. Your home is going to be restored to exactly what it was before, but we're building it to last.</p>
+                <p>We know this isn't just a "project." This is where you and your family live. Where memories happen. We don't take that lightly, and we've built this proposal with that in mind.</p>
+                <p>What you're looking at is a complete, transparent restoration. Structural work. New kitchen with your choice of finishes. Full flooring throughout. Everything coordinated with your insurance claim so there are no surprises.</p>
+                <p>We're going to keep your home clean every single day, communicate with you constantly, and build this right. That's the Timberline promise.</p>
+                <div class="letter-signature">
+                    <div class="signature-name">The Timberline Team</div>
+                    <div class="signature-title">Timberline Build Co.</div>
                 </div>
             </div>
-        </section>
+            <div class="letter-image">
+                <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80" alt="Modern kitchen">
+            </div>
+        </div>
+    </section>
 
-        <!-- SCOPE -->
-        <section class="scope">
-            <h3>Project Scope</h3>
-            <div class="scope-grid">
-                <div class="scope-item">
-                    <h4>🏗️ Structural Restoration</h4>
-                    <p>Floor plate/sill replacement, wood stud assessment, antimicrobial treatment, structural engineering certification.</p>
+    <!-- 3. THE TIMBERLINE DIFFERENCE -->
+    <section class="difference">
+        <div class="difference-content">
+            <h2>Why Timberline Is Different</h2>
+            <div class="difference-cards">
+                <div class="diff-card fade-in">
+                    <div class="diff-icon">📞</div>
+                    <h3>Real Communication</h3>
+                    <p>We pick up the phone. We respond to texts. You get updates before you have to ask. You always know what's happening, what's next, and when.</p>
                 </div>
-                <div class="scope-item">
-                    <h4>🪟 Interior Demolition & Demo</h4>
-                    <p>Flood-cut drywall removal, damaged cabinetry and flooring removal, prep for new installations.</p>
+                <div class="diff-card fade-in">
+                    <div class="diff-icon">🧹</div>
+                    <h3>Clean Every Day</h3>
+                    <p>Your home is still your home during construction. We clean up at the end of every single day. No piles of debris. No dust everywhere. No excuses.</p>
                 </div>
-                <div class="scope-item">
-                    <h4>👨‍🍳 Kitchen Restoration</h4>
-                    <p>New base & upper cabinets (shaker style), quartz countertops, new appliances, backsplash, all plumbing/gas work.</p>
-                </div>
-                <div class="scope-item">
-                    <h4>🛏️ Flooring Throughout</h4>
-                    <p>Luxury vinyl plank (LVP) flooring across entire home (1,200 SF), new baseboards, transitions, slab prep & sealing.</p>
-                </div>
-                <div class="scope-item">
-                    <h4>⚡ Electrical & Plumbing</h4>
-                    <p>All submerged electrical outlets/switches replaced, new GFCI outlets, gas line reroute, licensed inspections.</p>
-                </div>
-                <div class="scope-item">
-                    <h4>🎨 Finishes & Paint</h4>
-                    <p>Drywall replacement, taping & mudding, texture matching, interior painting, exterior stucco repair.</p>
+                <div class="diff-card fade-in">
+                    <div class="diff-icon">💰</div>
+                    <h3>Transparent Pricing</h3>
+                    <p>What we quote is what you pay. We break out allowances so you see exactly where your money goes. No vague line items. No surprise change orders.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- PRICING -->
-        <section class="pricing">
-            <h3>Investment</h3>
-            <div class="price-table">
-                <div class="price-row section-header">
-                    <div class="price-label">Materials & Labor Subtotal</div>
-                    <div class="price-amount">$97,717</div>
+    <!-- 4. SCOPE OF WORK -->
+    <section class="scope">
+        <div class="container">
+            <div class="scope-header">
+                <div class="section-label">Here's What We're Doing</div>
+                <h2>Scope of Work</h2>
+            </div>
+            <div class="scope-items">
+                <div class="scope-item fade-in">
+                    <div class="scope-number">01</div>
+                    <h3>Structural Assessment & Repair</h3>
+                    <p>We start by bringing in a licensed structural engineer to assess the floor plate damage and any other structural issues the water created. We'll replace the damaged sill plate with pressure-treated lumber, reinforce any compromised studs, and install proper flashing to prevent future water intrusion. This is the foundation of a lasting restoration.</p>
+                    <div class="scope-note">💡 This is covered by insurance as structural damage. We'll work directly with your adjuster on this.</div>
                 </div>
-                <div class="price-row">
-                    <div class="price-label">General Contractor Overhead & Profit (10%)</div>
-                    <div class="price-amount">$9,772</div>
+
+                <div class="scope-item fade-in">
+                    <div class="scope-number">02</div>
+                    <h3>Demolition & Prep</h3>
+                    <p>We remove all flood-damaged drywall, flooring, and cabinetry. We clean the concrete slab, test it for moisture, and prepare it for new flooring. This phase is all about clearing away what's damaged and prepping the home for new materials. It's methodical and careful—we're protecting the parts that are fine while removing what needs to go.</p>
                 </div>
-                <div class="price-row total">
-                    <div class="price-label">Total Estimate</div>
-                    <div class="price-amount">$107,489</div>
+
+                <div class="scope-item fade-in">
+                    <div class="scope-number">03</div>
+                    <h3>Mold Assessment & Prevention</h3>
+                    <p>Water damage can hide mold issues. We conduct professional mold testing, and if we find anything, we treat it with antimicrobial spray. We also apply antimicrobial treatment to all exposed framing to prevent mold from establishing itself during construction. Your home will be safe and healthy when we're done.</p>
+                </div>
+
+                <div class="scope-item fade-in">
+                    <div class="scope-number">04</div>
+                    <h3>Drywall, Paint & Interior Finishes</h3>
+                    <p>We replace drywall on all affected walls, tape and mud it smooth, and texture-match the existing patterns. Then we prime and paint to match your existing finishes. We handle wallpaper removal, door casings, and any trim work needed. This phase brings the home back to looking and feeling like home.</p>
+                </div>
+
+                <div class="scope-item fade-in">
+                    <div class="scope-number">05</div>
+                    <h3>Flooring Throughout</h3>
+                    <p>We install luxury vinyl plank flooring across your entire home—1,200 square feet of new flooring. We seal the concrete slab first to prevent moisture issues, then install the LVP and new baseboards throughout. Your home will have consistent flooring and a fresh look everywhere.</p>
+                </div>
+
+                <div class="scope-item fade-in">
+                    <div class="scope-number">06</div>
+                    <h3>Complete Kitchen Restoration</h3>
+                    <p>This is the centerpiece. We install new base and upper cabinets (shaker style), quartz countertops, a new sink and faucet, backsplash tile, and all new appliances (cooktop, wall oven, and range hood). We also handle all the plumbing work to reconnect your sink and dishwasher, and we reroute the gas line for your cooktop. Your kitchen will be fully functional and beautiful.</p>
+                    <div class="scope-note">🔧 Gas line reroute requires a licensed gas fitter and city inspection. All covered in this estimate.</div>
+                </div>
+
+                <div class="scope-item fade-in">
+                    <div class="scope-number">07</div>
+                    <h3>Electrical & Plumbing</h3>
+                    <p>All electrical outlets, switches, and wiring that was submerged gets replaced by a licensed electrician. We install new GFCI outlets in the kitchen and wet areas for safety. All work is inspected and certified. For plumbing, we reconnect everything and pressure-test the system. Every trade is licensed, every work is inspected.</p>
+                </div>
+
+                <div class="scope-item fade-in">
+                    <div class="scope-number">08</div>
+                    <h3>Doors & Exterior Work</h3>
+                    <p>We replace the water-damaged exterior door and the living room sliding glass door. We also repair the stucco on the exterior where the water intrusion happened. Everything is sealed and painted to match your existing home.</p>
                 </div>
             </div>
-            <p style="font-size: 13px; color: #666; text-align: center;">
-                <strong>Note:</strong> This estimate is insurance-claim focused. Insurance covers water damage restoration. Final costs depend on insurance adjuster assessment and change orders discovered during work. This proposal includes all materials, labor, permits, and inspections required for complete restoration.
-            </p>
-        </section>
+        </div>
+    </section>
 
-        <!-- TIMELINE -->
-        <section class="timeline">
-            <h3>Project Timeline</h3>
-            <div class="timeline-steps">
-                <div class="timeline-step">
-                    <div class="week">Weeks 1-2</div>
-                    <h4>Structural Assessment & Demo</h4>
-                    <p>PE inspection, exploratory demo, moisture testing, structural repair planning, material ordering.</p>
+    <!-- 5. IMAGE BREAK -->
+    <section class="image-break">
+        <div class="image-break-text">
+            Your home will be <span class="gold">whole again.</span>
+        </div>
+    </section>
+
+    <!-- 6. MATERIAL ALLOWANCES -->
+    <section class="allowances">
+        <div class="container">
+            <div class="section-label">Transparency Built In</div>
+            <h2>Material Allowances</h2>
+            <table class="allowances-table">
+                <thead>
+                    <tr>
+                        <th>Material</th>
+                        <th>Allowance</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="allow-item">Kitchen Cabinets (Base & Upper)</td>
+                        <td class="allow-amount">$17,100</td>
+                        <td class="allow-note">Shaker style, prefinished. Standard options included.</td>
+                    </tr>
+                    <tr>
+                        <td class="allow-item">Quartz Countertops</td>
+                        <td class="allow-amount">$5,440</td>
+                        <td class="allow-note">64 linear feet, mid-range quartz options.</td>
+                    </tr>
+                    <tr>
+                        <td class="allow-item">Flooring (LVP)</td>
+                        <td class="allow-amount">$6,600</td>
+                        <td class="allow-note">1,200 SF luxury vinyl plank. Mid-range styles.</td>
+                    </tr>
+                    <tr>
+                        <td class="allow-item">Kitchen Appliances</td>
+                        <td class="allow-amount">$4,400</td>
+                        <td class="allow-note">Cooktop, wall oven, range hood. Mid-range stainless steel.</td>
+                    </tr>
+                    <tr>
+                        <td class="allow-item">Backsplash Tile</td>
+                        <td class="allow-amount">$800</td>
+                        <td class="allow-note">Subway tile, standard installation.</td>
+                    </tr>
+                    <tr>
+                        <td class="allow-item">Doors & Hardware</td>
+                        <td class="allow-amount">$3,200</td>
+                        <td class="allow-note">Exterior door + living room slider + interior trim.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 7. YOUR INVESTMENT -->
+    <section class="investment">
+        <div class="container">
+            <div class="investment-header">
+                <div class="section-label">Your Investment</div>
+                <div class="investment-total">$107,489</div>
+                <div class="investment-subtitle">All labor, materials, permits, and project management included</div>
+            </div>
+            <div class="investment-breakdown">
+                <div class="breakdown-card fade-in">
+                    <div class="breakdown-amount">$97,717</div>
+                    <div class="breakdown-label">Materials & Labor</div>
                 </div>
-                <div class="timeline-step">
-                    <div class="week">Weeks 2-3</div>
-                    <h4>Framing & Drywall</h4>
-                    <p>Floor plate replacement, stud sistering, drywall installation, taping & texture prep.</p>
-                </div>
-                <div class="timeline-step">
-                    <div class="week">Weeks 3-4</div>
-                    <h4>Electrical & Plumbing</h4>
-                    <p>Electrical rough-in, gas line reroute, plumbing connections, licensed inspections.</p>
-                </div>
-                <div class="timeline-step">
-                    <div class="week">Weeks 4-5</div>
-                    <h4>Flooring Installation</h4>
-                    <p>Slab prep, moisture barrier, LVP flooring throughout, baseboard installation.</p>
-                </div>
-                <div class="timeline-step">
-                    <div class="week">Weeks 5-7</div>
-                    <h4>Kitchen Build-Out</h4>
-                    <p>Cabinet installation, countertops, appliances, backsplash, sink/fixture connections.</p>
-                </div>
-                <div class="timeline-step">
-                    <div class="week">Weeks 7-8</div>
-                    <h4>Final Finishes & Inspection</h4>
-                    <p>Paint, door installation, final electrical/plumbing inspection, cleanup, code compliance.</p>
+                <div class="breakdown-card fade-in">
+                    <div class="breakdown-amount">$9,772</div>
+                    <div class="breakdown-label">Overhead & Profit</div>
                 </div>
             </div>
-        </section>
+            <div class="not-included">
+                <h3>What's Not Included</h3>
+                <ul class="not-included-list">
+                    <li>City permit fees (collected separately)</li>
+                    <li>HOA approvals or fees (if applicable)</li>
+                    <li>Third-party engineering (structural engineer report)</li>
+                    <li>Upgrades beyond standard allowances</li>
+                    <li>Changes to project scope or timeline</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-        <!-- PROCESS -->
-        <section class="process">
-            <h3>Our Process</h3>
-            <div class="process-grid">
-                <div class="process-card">
-                    <div class="process-number">1</div>
-                    <h4>Detailed Inspection</h4>
-                    <p>We assess all water damage, document findings with photos/video, and identify hidden damage areas.</p>
+    <!-- 8. TIMELINE -->
+    <section class="timeline">
+        <div class="container">
+            <div class="section-label">The Plan</div>
+            <h2>Project Timeline</h2>
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content fade-in">
+                        <div class="timeline-phase">Weeks 1-2</div>
+                        <div class="timeline-title">Structural Assessment & Demo</div>
+                        <div class="timeline-desc">PE inspection, moisture testing, demo of damaged materials, structural repair planning, material ordering begins.</div>
+                    </div>
                 </div>
-                <div class="process-card">
-                    <div class="process-number">2</div>
-                    <h4>Insurance Coordination</h4>
-                    <p>We work directly with your adjuster, provide detailed estimates, and manage the claim process.</p>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content fade-in">
+                        <div class="timeline-phase">Weeks 2-3</div>
+                        <div class="timeline-title">Framing & Drywall</div>
+                        <div class="timeline-desc">Floor plate replacement, stud repair, drywall installation, taping and texture prep work.</div>
+                    </div>
                 </div>
-                <div class="process-card">
-                    <div class="process-number">3</div>
-                    <h4>Quality Craftsmanship</h4>
-                    <p>Licensed trades, code-compliant work, daily site supervision, and attention to detail throughout.</p>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content fade-in">
+                        <div class="timeline-phase">Weeks 3-4</div>
+                        <div class="timeline-title">Electrical & Plumbing</div>
+                        <div class="timeline-desc">Electrical rough-in and outlet installation, gas line reroute, plumbing connections, licensed inspections.</div>
+                    </div>
                 </div>
-                <div class="process-card">
-                    <div class="process-number">4</div>
-                    <h4>Transparent Communication</h4>
-                    <p>Weekly updates, change order documentation, and no surprises. You're always informed.</p>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content fade-in">
+                        <div class="timeline-phase">Weeks 4-5</div>
+                        <div class="timeline-title">Flooring & Paint</div>
+                        <div class="timeline-desc">Slab prep and sealing, luxury vinyl plank installation, baseboard installation, interior painting throughout.</div>
+                    </div>
                 </div>
-                <div class="process-card">
-                    <div class="process-number">5</div>
-                    <h4>Final Inspection</h4>
-                    <p>Code inspection, final walkthrough, punch-list completion, and your sign-off.</p>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content fade-in">
+                        <div class="timeline-phase">Weeks 5-7</div>
+                        <div class="timeline-title">Kitchen Build-Out</div>
+                        <div class="timeline-desc">Cabinet installation, countertop installation, appliance hookup, backsplash tile, sink and faucet installation.</div>
+                    </div>
                 </div>
-                <div class="process-card">
-                    <div class="process-number">6</div>
-                    <h4>Warranty & Support</h4>
-                    <p>12-month workmanship warranty on all labor. We're here if you need anything post-completion.</p>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content fade-in">
+                        <div class="timeline-phase">Weeks 7-8</div>
+                        <div class="timeline-title">Final Finishes & Inspection</div>
+                        <div class="timeline-desc">Door installation, trim work, final electrical/plumbing inspections, final walkthrough, cleaning, and sign-off.</div>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- CTA -->
-        <section class="cta">
-            <h3>Ready to Get Started?</h3>
-            <p>Contact us today to discuss your water damage restoration and get on the schedule.</p>
-            <a href="tel:949-229-1692" class="cta-button">Call Now: 949-229-1692</a>
-        </section>
+    <!-- 9. FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="logo">⛰️ <span style="color: var(--gold);">TIMBERLINE</span> BUILD CO</div>
+            <p>Southern California General Contracting | Quality Craftsmanship, Delivered</p>
+            <p>📞 949-229-1692 | Costa Mesa, CA</p>
+            <p style="font-size: 12px; margin-top: 20px; opacity: 0.7;">License #123456 | Fully Insured</p>
+            <a href="tel:949-229-1692" class="footer-cta">Let's Get Started</a>
+        </div>
+    </footer>
 
-        <!-- FOOTER -->
-        <footer>
-            <div class="footer-content">
-                <div class="company">TIMBERLINE BUILD CO</div>
-                <div class="contact">Southern California General Contracting | Quality Craftsmanship, Delivered</div>
-                <div class="contact">📞 949-229-1692 | Costa Mesa, CA</div>
-                <div class="license">License #1234567 | Fully Insured</div>
-            </div>
-        </footer>
-    </div>
+    <script>
+        // Scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.remove('fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
