@@ -26,22 +26,39 @@
 
 ## Budget Summary
 
-### Cost Breakdown
+### Cost Breakdown (Final — $14,000)
 | Category | Amount |
 |---|---|
-| Labor & Services | $8,500 |
+| Labor & Services | $10,815 |
 | Material Allowances | $1,700 |
-| Project Management | $3,800 |
+| Project Management & Contingency | $1,485 |
 | **TOTAL (Client Investment)** | **$14,000** |
 
-### Allowances (Client-Selectable)
-| Item | Budget |
+### Labor & Services Breakdown
+| Line Item | Charge |
 |---|---|
-| Tile — Floor Material | $600 |
-| Tile — Shower Wall Material | $700 |
-| Sink Faucet (Dual) | $250 |
-| Shower Valve & Trim | $150 |
-| **Total Allowances** | **$1,700** |
+| Demo | $800 |
+| Hot Mop | $400 |
+| Tile Floor (21 sq ft @ $35/sq ft) | $735 |
+| Tile Shower Walls (90 sq ft) | $2,000 |
+| Bathtub Install | $560 |
+| Double Sink Vanity Install | $1,680 |
+| Countertop Install | $1,120 |
+| Glass Enclosure | $1,820 |
+| Plumbing | $1,260 |
+| Electrical | $280 |
+| Drywall/Prep | $560 |
+| **Subtotal Labor** | **$10,815** |
+
+### Material Allowances (Client-Selectable)
+| Item | Budget | Notes |
+|---|---|---|
+| Tile — Floor Material | $600 | 18–24 sq ft, ceramic/porcelain |
+| Tile — Shower Wall Material | $700 | 80–100 sq ft spray zone |
+| Sink Faucet (Dual) | $250 | Mid-range quality |
+| Shower Valve & Trim | $150 | Standard valve body |
+| **Total Allowances** | **$1,700** | Pass-through, client selections |
+| Project Management & Contingency | $1,485 | Coordination, unforeseen items |
 
 ### What's Included
 ✅ Full demo & disposal
