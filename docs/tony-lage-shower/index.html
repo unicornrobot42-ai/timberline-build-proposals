@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tony Lage | Walk-In Shower Remodel | Timberline Build Co.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green: #19412c;
+            --brown: #614432;
+            --dark-brown: #312509;
+            --navy: #213245;
+            --gold: #e9af3b;
+            --light-gold: #fdf5e0;
+            --off-white: #f9f9f9;
+            --text: #333;
+            --text-light: #666;
+            --border: #e0e0e0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text);
+            background: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- Typography --- */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .text-green { color: var(--green); }
+        .text-gold { color: var(--gold); }
+        .text-navy { color: var(--navy); }
+        .text-white { color: #fff; }
+
+        /* --- Animations --- */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+        .delay-5 { animation-delay: 0.5s; }
+
+        /* --- Layout --- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 5rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* --- Header / Hero --- */
+        header {
+            background: var(--green);
+            color: #fff;
+            padding: 6rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: var(--gold);
+        }
+
+        .brand-name {
+            font-size: 1.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+            display: inline-block;
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 0.5rem;
+        }
+
+        .project-title {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-address {
+            font-size: 1.2rem;
+            font-weight: 400;
+            opacity: 0.9;
+            margin-bottom: 3rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-card {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 4px;
+            border-left: 4px solid var(--gold);
+            backdrop-filter: blur(5px);
+        }
+
+        .stat-val {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+        }
+
+        /* --- Zone Sections --- */
+        .zone-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .zone-title {
+            font-size: 2.5rem;
+            color: var(--green);
+        }
+
+        .zone-cost {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--navy);
+            background: var(--light-gold);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+        }
+
+        .zone-grid {
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+            gap: 4rem;
+        }
+
+        @media(max-width: 768px) {
+            .zone-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .project-title { font-size: 2.5rem; }
+        }
+
+        .scope-list {
+            list-style: none;
+        }
+
+        .scope-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .scope-list li::before {
+            content: '✓';
+            color: var(--gold);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .scope-list li span {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-top: 0.3rem;
+        }
+
+        .materials-card {
+            background: var(--off-white);
+            padding: 2rem;
+            border-radius: 8px;
+            border-top: 4px solid var(--navy);
+        }
+
+        .materials-title {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .material-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.8rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.8rem;
+            font-size: 0.9rem;
+        }
+        
+        .material-item:last-child { border: none; }
+        .mat-name { font-weight: 600; color: var(--dark-brown); }
+        .mat-detail { color: var(--text-light); text-align: right; }
+
+        /* --- Financial Summary --- */
+        .financial-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+        }
+
+        .financial-table th {
+            text-align: left;
+            padding: 1rem;
+            background: var(--navy);
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        .financial-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .financial-table tr:last-child td {
+            border-bottom: none;
+            font-weight: 800;
+            font-size: 1.2rem;
+            background: var(--light-gold);
+            color: var(--green);
+        }
+
+        .financial-table tr.discount-row td {
+            background: #e8f5e9;
+            color: #2d5016;
+            font-weight: 600;
+        }
+
+        /* --- Add-Ons --- */
+        .addons-title {
+            font-size: 2.5rem;
+            color: var(--green);
+            margin-bottom: 3rem;
+        }
+
+        .addon-card {
+            background: var(--light-gold);
+            padding: 1.5rem;
+            border-left: 4px solid var(--gold);
+            margin-bottom: 1rem;
+            border-radius: 4px;
+        }
+
+        .addon-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .addon-name {
+            font-weight: 700;
+            color: var(--green);
+            font-size: 1.1rem;
+        }
+
+        .addon-price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .addon-description {
+            font-size: 0.9rem;
+            color: var(--text);
+            margin-top: 0.5rem;
+            line-height: 1.5;
+        }
+
+        /* --- Warranty Badge --- */
+        .warranty-box {
+            border: 2px solid var(--green);
+            padding: 2rem;
+            text-align: center;
+            border-radius: 8px;
+            margin-top: 2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .warranty-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            background: #fdfdfd;
+        }
+
+        /* --- Render Placeholder --- */
+        .render-box {
+            width: 100%;
+            height: 400px;
+            background-color: #ddd;
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+            position: relative;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .render-tag {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(255,255,255,0.95);
+            padding: 0.5rem 1rem;
+            font-weight: 600;
+            color: var(--green);
+            border-radius: 4px;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: var(--dark-brown);
+            color: #fff;
+            text-align: center;
+            padding: 3rem 0;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="animate delay-1">
+                <img src="./logo.png" alt="Timberline Build Co." style="height: 180px; margin-bottom: 2rem;">
+            </div>
+            <div class="animate delay-2">
+                <h1 class="project-title">Walk-In Shower Remodel</h1>
+                <p class="project-address">Custom Bathroom Renovation for Tony Lage</p>
+            </div>
+            
+            <div class="stats-grid animate delay-3">
+                <div class="stat-card">
+                    <span class="stat-val">$9,347.50</span>
+                    <span class="stat-label">Total Investment (w/ Discount)</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-val">10–14 Days</span>
+                    <span class="stat-label">Est. Timeline</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-val">Complete</span>
+                    <span class="stat-label">Walk-In Conversion</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ZONE 1: DEMO & PREP -->
+    <section>
+        <div class="container">
+            <div class="zone-header animate">
+                <h2 class="zone-title">01. Demo & Preparation</h2>
+                <div class="zone-cost">$1,050</div>
+            </div>
+
+            <div class="render-box animate delay-1" style="background: url('./demo.png') center/cover; margin-bottom: 2rem; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; overflow: hidden;">
+                <div style="position: absolute; width: 100%; height: 100%; background: 
+                  linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0) 50%);
+                  pointer-events: none;"></div>
+                <span class="render-tag">PREMIUM DESIGN</span>
+            </div>
+
+            <div class="zone-grid">
+                <div class="scope animate delay-1">
+                    <h3>Scope of Work</h3>
+                    <p style="margin-bottom: 1.5rem; color: #666;">
+                        Careful removal of existing shower/tub fixtures and wall materials, with proper blocking to prevent water intrusion into surrounding structure.
+                    </p>
+                    <ul class="scope-list">
+                        <li>Remove existing tub/shower combo <span>Safe extraction of fixtures and trim</span></li>
+                        <li>Demo surrounding wall materials <span>Drywall, tile, and substrate removal</span></li>
+                        <li>Structural blocking installation <span>Prevents water damage to framing and subfloors</span></li>
+                        <li>Debris removal & site cleanup <span>Professional hauling of demo materials</span></li>
+                    </ul>
+                </div>
+
+                <div class="materials animate delay-2">
+                    <div class="materials-card">
+                        <div class="materials-title">What's Included</div>
+                        
+                        <div class="material-item">
+                            <span class="mat-name">Labor</span>
+                            <span class="mat-detail">Full demolition</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Blocking Materials</span>
+                            <span class="mat-detail">Lumber & fasteners</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Disposal</span>
+                            <span class="mat-detail">Debris removal</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ZONE 2: WATERPROOFING -->
+    <section style="background: #fafafa;">
+        <div class="container">
+            <div class="zone-header animate">
+                <h2 class="zone-title">02. Waterproofing</h2>
+                <div class="zone-cost">$525</div>
+            </div>
+
+            <div class="zone-grid">
+                <div class="scope animate delay-1">
+                    <h3>Scope of Work</h3>
+                    <p style="margin-bottom: 1.5rem; color: #666;">
+                        Professional hot-mop application creates a continuous waterproof barrier—the foundation of a durable, leak-free shower that will last for decades.
+                    </p>
+                    <ul class="scope-list">
+                        <li>Hot-mop membrane application <span>Heated rubberized bitumen applied to floor and walls</span></li>
+                        <li>All seams and transitions sealed <span>Eliminates risk of water intrusion through joints</span></li>
+                        <li>Inspection & testing <span>Verify complete coverage before tile installation</span></li>
+                    </ul>
+                </div>
+
+                <div class="materials animate delay-2">
+                    <div class="materials-card">
+                        <div class="materials-title">Protection Details</div>
+                        
+                        <div class="material-item">
+                            <span class="mat-name">Waterproof Membrane</span>
+                            <span class="mat-detail">Hot-mop bitumen</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Coverage Area</span>
+                            <span class="mat-detail">Floor & walls</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Durability</span>
+                            <span class="mat-detail">25+ year lifespan</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ZONE 3: PLUMBING -->
+    <section>
+        <div class="container">
+            <div class="zone-header animate">
+                <h2 class="zone-title">03. Plumbing</h2>
+                <div class="zone-cost">$1,200</div>
+            </div>
+
+            <div class="zone-grid">
+                <div class="scope animate delay-1">
+                    <h3>Scope of Work</h3>
+                    <p style="margin-bottom: 1.5rem; color: #666;">
+                        Complete supply and drain plumbing rough-in with proper venting and shutoff controls. Ensures optimal water pressure and drainage throughout your new shower.
+                    </p>
+                    <ul class="scope-list">
+                        <li>Hot/cold water supply lines <span>Properly sized copper or PEX, test-pressured</span></li>
+                        <li>Shower valve rough-in <span>Pressure-balanced valve for safety and comfort</span></li>
+                        <li>Drain & vent installation <span>Properly sloped drain with secondary backup protection</span></li>
+                        <li>Shutoff valve installation <span>Independent control for maintenance & emergency</span></li>
+                    </ul>
+                </div>
+
+                <div class="materials animate delay-2">
+                    <div class="materials-card">
+                        <div class="materials-title">System Components</div>
+                        
+                        <div class="material-item">
+                            <span class="mat-name">Supply Lines</span>
+                            <span class="mat-detail">Copper/PEX</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Valve Type</span>
+                            <span class="mat-detail">Pressure-balanced</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Drain</span>
+                            <span class="mat-detail">Properly vented</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Shutoff</span>
+                            <span class="mat-detail">Ball valve</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ZONE 4: TILE & FINISHES -->
+    <section style="background: #fafafa;">
+        <div class="container">
+            <div class="zone-header animate">
+                <h2 class="zone-title">04. Tile & Finishes</h2>
+                <div class="zone-cost">$3,300 (labor) + $700 (allowance)</div>
+            </div>
+
+            <div class="render-box animate delay-1" style="background: url('./tile.png') center/cover; margin-bottom: 2rem; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; overflow: hidden;">
+                <div style="position: absolute; width: 100%; height: 100%; background: 
+                  linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0) 50%);
+                  pointer-events: none;"></div>
+                <span class="render-tag">PREMIUM FINISHES</span>
+            </div>
+
+            <div class="zone-grid">
+                <div class="scope animate delay-1">
+                    <h3>Scope of Work</h3>
+                    <p style="margin-bottom: 1.5rem; color: #666;">
+                        Expert tilework by seasoned installers. Professional layout, cutting, grouting, and sealing ensures a flawless finish that will look beautiful for decades.
+                    </p>
+                    <ul class="scope-list">
+                        <li>Tile layout & design <span>Optimized pattern for visual impact and durability</span></li>
+                        <li>Wall & floor tile installation <span>Industry-best setting methods, properly spaced</span></li>
+                        <li>Grout application <span>Premium grout with proper curing time</span></li>
+                        <li>Sealing & caulking <span>All grout lines sealed against moisture & mold</span></li>
+                    </ul>
+                </div>
+
+                <div class="materials animate delay-2">
+                    <div class="materials-card">
+                        <div class="materials-title">Materials (Allowance)</div>
+                        
+                        <div class="material-item">
+                            <span class="mat-name">Tile & Trim</span>
+                            <span class="mat-detail">$700 allowance</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Options</span>
+                            <span class="mat-detail">Ceramic, porcelain, stone</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Selection</span>
+                            <span class="mat-detail">Your choice or we source</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ZONE 5: ENCLOSURE & FIXTURES -->
+    <section>
+        <div class="container">
+            <div class="zone-header animate">
+                <h2 class="zone-title">05. Shower Enclosure & Fixtures</h2>
+                <div class="zone-cost">$2,700 (door) + $750 (allowance)</div>
+            </div>
+
+            <div class="zone-grid">
+                <div class="scope animate delay-1">
+                    <h3>Scope of Work</h3>
+                    <p style="margin-bottom: 1.5rem; color: #666;">
+                        Premium frameless or semi-frameless glass enclosure paired with your choice of fixtures. Creates a modern, spacious aesthetic with full water control.
+                    </p>
+                    <ul class="scope-list">
+                        <li>Frameless glass enclosure <span>Tempered glass with quality hinges and seals</span></li>
+                        <li>Showerhead installation <span>Wall-mounted or rainfall design, your choice</span></li>
+                        <li>Valve trim installation <span>Finish options: brushed nickel, chrome, matte black, gold</span></li>
+                        <li>Grab bars & accessories <span>Installed per ADA accessibility standards</span></li>
+                    </ul>
+                </div>
+
+                <div class="materials animate delay-2">
+                    <div class="materials-card">
+                        <div class="materials-title">Fixtures (Allowance)</div>
+                        
+                        <div class="material-item">
+                            <span class="mat-name">Showerhead</span>
+                            <span class="mat-detail">Your selection</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Trim Kit</span>
+                            <span class="mat-detail">Valve handles & escutcheon</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Grab Bars</span>
+                            <span class="mat-detail">Safety & accessibility</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Hardware</span>
+                            <span class="mat-detail">$750 allowance</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINANCIAL SUMMARY -->
+    <section style="background: #fafafa;">
+        <div class="container">
+            <h2 class="zone-title" style="text-align: center; margin-bottom: 3rem;">Investment Summary</h2>
+            
+            <div class="animate delay-1">
+                <table class="financial-table">
+                    <thead>
+                        <tr>
+                            <th>Cost Category</th>
+                            <th style="text-align: right;">Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Demo & Preparation</strong></td>
+                            <td style="text-align: right;">$1,050.00</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Waterproofing</strong></td>
+                            <td style="text-align: right;">$525.00</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Plumbing</strong></td>
+                            <td style="text-align: right;">$1,200.00</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tile & Finishes (Labor)</strong></td>
+                            <td style="text-align: right;">$3,300.00</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Shower Enclosure & Fixtures (Door)</strong></td>
+                            <td style="text-align: right;">$2,700.00</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tile & Trim Materials (Allowance)</strong></td>
+                            <td style="text-align: right;">$700.00</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Fixtures (Allowance)</strong></td>
+                            <td style="text-align: right;">$750.00</td>
+                        </tr>
+                        <tr style="background: #fdf5e0; font-weight: 600;">
+                            <td><strong>Subtotal</strong></td>
+                            <td style="text-align: right;">$10,225.00</td>
+                        </tr>
+                        <tr class="discount-row">
+                            <td><strong>10% Compass Bible Church Member Discount</strong></td>
+                            <td style="text-align: right;">-$877.50</td>
+                        </tr>
+                        <tr>
+                            <td>TOTAL PROJECT INVESTMENT</td>
+                            <td style="text-align: right;">$9,347.50</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- OPTIONAL ADD-ONS -->
+    <section>
+        <div class="container">
+            <h2 class="addons-title animate">Enhance Your Shower</h2>
+            <p class="animate delay-1" style="margin-bottom: 2rem; color: #666; font-size: 1.1rem;">Optional upgrades to personalize your experience</p>
+
+            <div class="animate delay-2">
+                <div class="addon-card">
+                    <div class="addon-header">
+                        <span class="addon-name">Design Consultation</span>
+                        <span class="addon-price">$550</span>
+                    </div>
+                    <div class="addon-description">Our designer collaborates with you to understand your style preferences, then curates premium tile, glass, and fixture options. Ensures a cohesive, high-quality result you'll love for years to come.</div>
+                </div>
+
+                <div class="addon-card">
+                    <div class="addon-header">
+                        <span class="addon-name">Standard-Size Niche</span>
+                        <span class="addon-price">$300</span>
+                    </div>
+                    <div class="addon-description">Recessed shelf built into the shower wall. Perfect for storing shampoo, soap, and accessories. Eliminates need for external shelving and keeps your shower looking clean and organized.</div>
+                </div>
+
+                <div class="addon-card">
+                    <div class="addon-header">
+                        <span class="addon-name">Hardware Finishes Upgrade</span>
+                        <span class="addon-price">$250–$450</span>
+                    </div>
+                    <div class="addon-description">Upgrade hardware finishes: choose from brushed nickel, polished chrome, matte black, or brushed gold. Creates a cohesive, high-end look that complements your tile and overall design.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p><strong>Timberline Build Co.</strong></p>
+            <p>Residential Remodeling Specialists | Orange County, CA</p>
+            <p style="margin-top: 1rem; font-size: 0.8rem; opacity: 0.6;">© 2026 Timberline Build Co. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Intersection Observer to trigger animations on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                    entry.target.style.opacity = '1';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.animate').forEach(el => {
+            el.style.animationPlayState = 'paused';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
