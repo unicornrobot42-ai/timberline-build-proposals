@@ -129,20 +129,9 @@
             height: 380px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.15);
         }
-        .overview-placeholder {
-            width: 100%; height: 380px; border-radius: 12px;
-            background: linear-gradient(135deg, #b8d4c8 0%, #8fbfaa 100%);
-            display: flex; align-items: center; justify-content: center;
-            flex-direction: column; gap: 1rem;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.12);
-        }
-        .overview-placeholder p { color: rgba(255,255,255,0.9); font-weight: 600; font-size: 1.1rem; margin: 0; }
 
         /* ZONE SECTIONS */
         .zone-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
             margin-bottom: 2.5rem;
             padding-bottom: 1.5rem;
             border-bottom: 2px solid var(--border);
@@ -152,16 +141,6 @@
             text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem;
         }
         .zone-title { font-size: 1.8rem; color: var(--green); }
-        .zone-cost {
-            font-size: 1.1rem; font-weight: 700; color: var(--brown);
-            background: var(--light-gold);
-            padding: 0.6rem 1.2rem; border-radius: 8px;
-            white-space: nowrap; margin-top: 0.25rem;
-        }
-        .zone-cost.allowance {
-            background: #e8f4ee; color: var(--green);
-            border: 1px solid rgba(25,65,44,0.2);
-        }
 
         .zone-grid {
             display: grid;
@@ -178,12 +157,13 @@
             display: flex;
             flex-direction: column;
             gap: 0.2rem;
+            font-weight: 600;
+            font-size: 0.95rem;
         }
         .scope-list li:last-child { border-bottom: none; }
         .scope-list li span {
             font-size: 0.8rem; color: var(--text-light); font-weight: 400;
         }
-        .scope-list li { font-weight: 600; font-size: 0.95rem; }
         .scope-list li::before {
             content: '✓';
             color: var(--gold);
@@ -210,7 +190,7 @@
         }
         .material-item:last-child { border-bottom: none; }
         .mat-name { font-weight: 600; font-size: 0.85rem; }
-        .mat-detail { font-size: 0.8rem; color: var(--text-light); text-align: right; max-width: 50%; }
+        .mat-detail { font-size: 0.8rem; color: var(--text-light); text-align: right; max-width: 55%; }
         .mat-detail.allowance-tag {
             background: var(--light-gold); color: var(--brown);
             padding: 0.2rem 0.6rem; border-radius: 4px;
@@ -250,12 +230,8 @@
             padding: 1.5rem;
             box-shadow: 0 2px 10px rgba(0,0,0,0.04);
         }
-        .not-included-card::before {
-            content: '✕';
-            color: #c0392b;
-            font-weight: 800;
-            font-size: 0.9rem;
-            margin-right: 0.5rem;
+        .not-included-card .x-icon {
+            color: #c0392b; font-weight: 800; font-size: 0.9rem; margin-right: 0.4rem;
         }
         .not-included-card h4 { font-size: 0.95rem; display: inline; }
         .not-included-card p { font-size: 0.82rem; color: var(--text-light); margin-top: 0.5rem; margin-bottom: 0; }
@@ -280,8 +256,7 @@
             font-size: 0.9rem;
         }
         .allowances-table tr:last-child td { border-bottom: none; }
-        .allowances-table tr:nth-child(even) td { background: var(--off-white); }
-        .allowances-table .amount { font-weight: 700; color: var(--green); text-align: right; }
+        .allowances-table .amount { font-weight: 700; color: var(--green); text-align: right; white-space: nowrap; }
         .allowances-note {
             font-size: 0.82rem; color: var(--text-light);
             margin-top: 1rem; padding: 1rem; background: var(--off-white); border-radius: 8px;
@@ -293,19 +268,11 @@
             height: 450px; box-shadow: 0 20px 60px rgba(0,0,0,0.15);
             margin-bottom: 2rem;
         }
-        .render-placeholder {
-            width: 100%; height: 450px; border-radius: 12px; margin-bottom: 2rem;
-            background: linear-gradient(135deg, #c5dbd3 0%, #97bfaf 100%);
-            display: flex; align-items: center; justify-content: center; flex-direction: column;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.12);
-        }
-        .render-placeholder p { color: rgba(255,255,255,0.9); font-weight: 700; font-size: 1.5rem; margin: 0; }
-        .render-placeholder span { color: rgba(255,255,255,0.7); font-size: 0.85rem; margin-top: 0.5rem; }
 
         /* TIMELINE */
         .timeline-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1.5rem;
         }
         .timeline-item {
@@ -334,33 +301,26 @@
         .timeline-task { font-size: 0.9rem; font-weight: 700; color: var(--green); }
         .timeline-desc { font-size: 0.78rem; color: var(--text-light); margin-top: 0.25rem; }
 
-        /* FINANCIAL TABLE */
-        .financial-table {
-            width: 100%; border-collapse: collapse;
-            background: #fff;
-            border-radius: 12px; overflow: hidden;
-            box-shadow: 0 6px 30px rgba(0,0,0,0.08);
+        /* FINANCIAL */
+        .total-box {
+            background: var(--green);
+            color: #fff;
+            border-radius: 12px;
+            padding: 3rem;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(25,65,44,0.25);
         }
-        .financial-table th {
-            background: var(--green); color: #fff;
-            padding: 1rem 1.5rem; text-align: left;
-            font-size: 0.8rem; letter-spacing: 1.5px; text-transform: uppercase;
+        .total-label {
+            font-size: 0.8rem; font-weight: 700; letter-spacing: 3px;
+            text-transform: uppercase; opacity: 0.75; margin-bottom: 1rem;
         }
-        .financial-table th:last-child { text-align: right; }
-        .financial-table td {
-            padding: 1.1rem 1.5rem;
-            border-bottom: 1px solid var(--border);
-            font-size: 0.92rem;
+        .total-amount {
+            font-size: 4rem; font-weight: 800; color: var(--gold);
+            letter-spacing: -2px; line-height: 1;
         }
-        .financial-table td small { color: var(--text-light); font-size: 0.78rem; display: block; margin-top: 0.2rem; }
-        .financial-table td.amount { text-align: right; font-weight: 700; white-space: nowrap; }
-        .financial-table tr.total-row td {
-            background: var(--green); color: #fff;
-            font-weight: 800; font-size: 1.05rem;
-            border-bottom: none;
+        .total-note {
+            font-size: 0.85rem; opacity: 0.7; margin-top: 1rem;
         }
-        .financial-table tr.allowance-row td { background: #f0f8f4; }
-        .financial-table tr.allowance-row td .mat-detail { color: var(--green); }
 
         /* PAYMENT */
         .payment-grid {
@@ -383,22 +343,6 @@
         .payment-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--gold); margin-bottom: 0.5rem; }
         .payment-desc { font-size: 0.85rem; color: var(--text-light); margin: 0; }
 
-        /* SIGNATURE */
-        .signature-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-        @media (max-width: 600px) { .signature-grid { grid-template-columns: 1fr; } }
-        .sig-block { border-top: 2px solid var(--text); padding-top: 1rem; }
-        .sig-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-light); }
-        .sig-name { font-weight: 700; font-size: 1rem; margin-top: 0.25rem; }
-        .sig-line {
-            width: 100%; height: 50px; margin: 1.5rem 0 0.5rem;
-            border-bottom: 1px solid #ccc;
-        }
-
         /* FOOTER */
         footer {
             background: var(--dark-brown);
@@ -415,7 +359,6 @@
             border-radius: 2px;
         }
 
-        /* PRINT */
         @media print {
             header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
             .animate { opacity: 1 !important; animation: none !important; }
@@ -441,12 +384,8 @@
                     <span class="stat-label">Total Investment</span>
                 </div>
                 <div class="stat-card">
-                    <span class="stat-val">3–5 Weeks</span>
+                    <span class="stat-val">2–3 Weeks</span>
                     <span class="stat-label">Est. Timeline</span>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-val">Full Demo</span>
-                    <span class="stat-label">Scope</span>
                 </div>
                 <div class="stat-card">
                     <span class="stat-val">1 Year</span>
@@ -465,12 +404,11 @@
                 <span class="section-label">Project Overview</span>
                 <h2 class="section-title">Full Bathroom Transformation</h2>
                 <p>We're doing a complete gut-and-rebuild of the bathroom at 25351 Yacht Drive — full demo, new tub/shower tile surround, 60" wainscot tile throughout, vanity install, heated floors, a new exterior window, and updated electrical. A fresh start from the studs out.</p>
-                <p>All plumbing rough-in and fixture setting is handled by the homeowner. All tile, finishes, and vanity materials are owner-supplied. We handle the skilled labor, framing, and coordination.</p>
-                <p style="margin-bottom: 0;">This estimate is valid for 30 days from the date above. Material costs subject to change.</p>
+                <p>All plumbing rough-in and fixture setting is handled by the homeowner. All tile and vanity materials are owner-supplied. We handle the skilled labor, waterproofing, framing, and coordination.</p>
+                <p style="margin-bottom: 0;">This estimate is valid for 30 days from the date above.</p>
             </div>
             <div class="animate delay-2">
-                <img src="./render.png" alt="Bathroom Remodel Concept" class="overview-img"
-                     onerror="this.outerHTML='<div class=\'overview-placeholder\'><p>Bathroom Concept</p><span>Dana Point · 2026</span></div>'">
+                <img src="./render.png" alt="Bathroom Remodel Concept" class="overview-img">
             </div>
         </div>
     </div>
@@ -480,16 +418,13 @@
 <section>
     <div class="container">
         <div class="zone-header animate">
-            <div>
-                <div class="zone-number">Zone 01</div>
-                <h2 class="zone-title">Demolition & Haul-Away</h2>
-            </div>
-            <div class="zone-cost">$1,330</div>
+            <div class="zone-number">Zone 01</div>
+            <h2 class="zone-title">Demolition & Haul-Away</h2>
         </div>
         <div class="zone-grid">
             <div class="animate delay-1">
                 <h3 style="margin-bottom: 1rem;">Scope of Work</h3>
-                <p style="color: var(--text-light); margin-bottom: 1.5rem;">Complete strip-out of existing bathroom, careful removal of all surfaces, and professional site preparation. All debris hauled and disposed off-site.</p>
+                <p style="color: var(--text-light); margin-bottom: 1.5rem;">Complete strip-out of the existing bathroom. All debris hauled and disposed off-site.</p>
                 <ul class="scope-list">
                     <li>Remove existing tub <span>Full extraction including fixtures and surround</span></li>
                     <li>Demo all existing flooring <span>Full removal down to subfloor</span></li>
@@ -527,38 +462,37 @@
 <section>
     <div class="container">
         <div class="zone-header animate">
-            <div>
-                <div class="zone-number">Zone 02</div>
-                <h2 class="zone-title">Tile Work — Shower, Wainscot & Floor</h2>
-            </div>
-            <div class="zone-cost">$5,180 <span style="font-size: 0.75rem; font-weight: 400; display: block; text-align: right; margin-top: 0.2rem;">(labor only)</span></div>
+            <div class="zone-number">Zone 02</div>
+            <h2 class="zone-title">Tile Work — Shower, Wainscot & Floor</h2>
         </div>
 
-        <!-- Render -->
         <div style="margin-bottom: 2.5rem;">
-            <img src="./render.png" alt="Tile Work Concept" class="render-img animate delay-1"
-                 onerror="this.outerHTML='<div class=\'render-placeholder\'><p>Tile Work Concept</p><span>Full surround &amp; wainscot</span></div>'">
+            <img src="./render.png" alt="Tile Work Concept" class="render-img animate delay-1">
         </div>
 
         <div class="zone-grid">
             <div class="animate delay-1">
                 <h3 style="margin-bottom: 1rem;">Scope of Work</h3>
-                <p style="color: var(--text-light); margin-bottom: 1.5rem;">Expert tilework throughout the entire bathroom. Jose, our dedicated tile specialist, handles the full installation — from the tub surround up to the ceiling, to wainscot paneling on all walls, to the finished floor.</p>
+                <p style="color: var(--text-light); margin-bottom: 1.5rem;">Expert tilework throughout the entire bathroom by our dedicated tile specialist. Full waterproofing system installed before any tile goes up — done right from the start.</p>
                 <ul class="scope-list">
-                    <li>Shower/tub wall tile — full height surround <span>60"×32" alcove; tiled from tub rim to ~96" (approx 82" of tile height)</span></li>
-                    <li>Wainscot tile — all walls, 60" high <span>Complete perimeter; creates cohesive, water-resistant look throughout</span></li>
-                    <li>Floor tile installation <span>Full bathroom floor; thin-set, grouting, and sealing included</span></li>
-                    <li>Hot mop — tub/shower pan <span>Waterproof membrane before tile; standard for tub surrounds</span></li>
-                    <li>All setting materials <span>Thin-set, grout, backer board, sealant</span></li>
+                    <li>Shower wall waterproofing <span>Cement board substrate; black waterproof paper behind; RedGard membrane applied to all shower walls</span></li>
+                    <li>Shower/tub wall tile — full height surround <span>60"×32" alcove; tiled from tub rim to ceiling</span></li>
+                    <li>Wainscot tile — all walls, 60" high <span>Complete perimeter; cohesive, water-resistant look throughout</span></li>
+                    <li>Floor tile installation <span>Full bathroom floor; setting materials included</span></li>
+                    <li>Grouting, sealing & finishing <span>All joints grouted, sealed, and inspected</span></li>
                 </ul>
                 <div class="allowance-box" style="margin-top: 1.5rem;">
-                    <h4>⚠ Owner-Supplied Materials</h4>
-                    <p>All tile, grout color, and trim pieces are supplied by the owner. This scope is <strong>labor only</strong>. Timberline coordinates the install schedule once materials are on-site.</p>
+                    <h4>⚠ Owner-Supplied Tile Materials</h4>
+                    <p>All tile, grout, and trim pieces are supplied by the owner. Setting materials (thin-set, backer board, RedGard, sealant) are included in our scope.</p>
                 </div>
             </div>
             <div class="animate delay-2">
                 <div class="materials-card">
                     <div class="materials-title">Included (Labor)</div>
+                    <div class="material-item">
+                        <span class="mat-name">Shower Wall Waterproofing</span>
+                        <span class="mat-detail">Cement board, paper, RedGard</span>
+                    </div>
                     <div class="material-item">
                         <span class="mat-name">Shower Walls</span>
                         <span class="mat-detail">~83 sq ft</span>
@@ -572,15 +506,11 @@
                         <span class="mat-detail">~46 sq ft</span>
                     </div>
                     <div class="material-item">
-                        <span class="mat-name">Hot Mop</span>
-                        <span class="mat-detail">Tub pan waterproof</span>
-                    </div>
-                    <div class="material-item">
                         <span class="mat-name">Setting Materials</span>
-                        <span class="mat-detail">Included</span>
+                        <span class="mat-detail allowance-tag">Included</span>
                     </div>
                     <div class="material-item">
-                        <span class="mat-name">Tile Material</span>
+                        <span class="mat-name">Tile, Grout & Trim</span>
                         <span class="mat-detail excluded-tag">Owner Provides</span>
                     </div>
                 </div>
@@ -593,25 +523,22 @@
 <section>
     <div class="container">
         <div class="zone-header animate">
-            <div>
-                <div class="zone-number">Zone 03</div>
-                <h2 class="zone-title">Vanity Installation</h2>
-            </div>
-            <div class="zone-cost">$840 <span style="font-size: 0.75rem; font-weight: 400; display: block; text-align: right; margin-top: 0.2rem;">(labor only)</span></div>
+            <div class="zone-number">Zone 03</div>
+            <h2 class="zone-title">Vanity Installation</h2>
         </div>
         <div class="zone-grid">
             <div class="animate delay-1">
                 <h3 style="margin-bottom: 1rem;">Scope of Work</h3>
-                <p style="color: var(--text-light); margin-bottom: 1.5rem;">Professional installation of owner-supplied vanity cabinet and countertop. Precise leveling, secure anchoring, and finish trim to ensure a clean, permanent install.</p>
+                <p style="color: var(--text-light); margin-bottom: 1.5rem;">Professional installation of owner-supplied vanity cabinet. Precise leveling, secure wall anchoring, and clean finish trim.</p>
                 <ul class="scope-list">
                     <li>Vanity cabinet set and level <span>Secure to wall framing; shimmed plumb and true</span></li>
-                    <li>Countertop set <span>Proper support, caulk seal at walls</span></li>
-                    <li>Mirror / medicine cabinet <span>If wall-mount; coordinate with owner on location</span></li>
-                    <li>Final trim and touch-up <span>Scribe, caulk, and clean</span></li>
+                    <li>Countertop installation <span>TBD depending on vanity style; scope confirmed on-site</span></li>
+                    <li>Mirror installation <span>If owner provides mirror, we install it</span></li>
+                    <li>Caulk and finish trim <span>Clean, paint-ready edges</span></li>
                 </ul>
                 <div class="allowance-box" style="margin-top: 1.5rem;">
                     <h4>⚠ Owner-Supplied</h4>
-                    <p>Vanity cabinet, countertop, and mirror are <strong>owner-supplied and owner-purchased</strong>. This line item is installation labor only. Countertop scope TBD depending on vanity type.</p>
+                    <p>Vanity cabinet, countertop, and mirror are <strong>owner-purchased</strong>. This scope is installation labor. Countertop labor scope confirmed once vanity style is selected.</p>
                 </div>
             </div>
             <div class="animate delay-2">
@@ -623,7 +550,11 @@
                     </div>
                     <div class="material-item">
                         <span class="mat-name">Countertop Labor</span>
-                        <span class="mat-detail">Set & seal</span>
+                        <span class="mat-detail">TBD / vanity style</span>
+                    </div>
+                    <div class="material-item">
+                        <span class="mat-name">Mirror Install</span>
+                        <span class="mat-detail">If owner provides</span>
                     </div>
                     <div class="material-item">
                         <span class="mat-name">Cabinet Material</span>
@@ -631,7 +562,7 @@
                     </div>
                     <div class="material-item">
                         <span class="mat-name">Countertop Material</span>
-                        <span class="mat-detail excluded-tag">Owner Provides / TBD</span>
+                        <span class="mat-detail excluded-tag">Owner Provides</span>
                     </div>
                 </div>
             </div>
@@ -643,20 +574,17 @@
 <section>
     <div class="container">
         <div class="zone-header animate">
-            <div>
-                <div class="zone-number">Zone 04</div>
-                <h2 class="zone-title">Heated Floor System</h2>
-            </div>
-            <div class="zone-cost allowance">$1,400 <span style="font-size: 0.75rem; font-weight: 400; display: block; text-align: right; margin-top: 0.2rem;">(incl. mat + labor)</span></div>
+            <div class="zone-number">Zone 04</div>
+            <h2 class="zone-title">Heated Floor System</h2>
         </div>
         <div class="zone-grid">
             <div class="animate delay-1">
                 <h3 style="margin-bottom: 1rem;">Scope of Work</h3>
-                <p style="color: var(--text-light); margin-bottom: 1.5rem;">In-floor electric radiant heat system installed beneath the tile floor. We supply the heating mat and thermostat, install the system, and wire it to a dedicated circuit. Walk into a warm floor every morning.</p>
+                <p style="color: var(--text-light); margin-bottom: 1.5rem;">In-floor electric radiant heat installed beneath the tile. We supply and embed the heating element in thin-set before tile goes down, then connect the thermostat. Walk into a warm floor every morning.</p>
                 <ul class="scope-list">
-                    <li>Electric heating mat installation <span>Embedded in thin-set under tile; ~46 sq ft</span></li>
+                    <li>Electric heating element installation <span>Embedded in thin-set under tile; ~46 sq ft coverage</span></li>
                     <li>Thermostat installation <span>Wall-mounted programmable thermostat</span></li>
-                    <li>Dedicated electrical circuit <span>Proper breaker and wiring for heating system</span></li>
+                    <li>Electrical connection <span>Tapped into existing outlet power source; if dedicated outlet is needed it will be priced as a change order</span></li>
                     <li>System test before tile <span>Verified functional before covering</span></li>
                 </ul>
             </div>
@@ -664,7 +592,7 @@
                 <div class="materials-card">
                     <div class="materials-title">System Details</div>
                     <div class="material-item">
-                        <span class="mat-name">Heating Mat</span>
+                        <span class="mat-name">Heating Element</span>
                         <span class="mat-detail allowance-tag">Included</span>
                     </div>
                     <div class="material-item">
@@ -676,8 +604,8 @@
                         <span class="mat-detail">~46 sq ft</span>
                     </div>
                     <div class="material-item">
-                        <span class="mat-name">Wiring</span>
-                        <span class="mat-detail">Dedicated circuit</span>
+                        <span class="mat-name">Electrical</span>
+                        <span class="mat-detail">Existing source</span>
                     </div>
                 </div>
             </div>
@@ -689,16 +617,13 @@
 <section>
     <div class="container">
         <div class="zone-header animate">
-            <div>
-                <div class="zone-number">Zone 05</div>
-                <h2 class="zone-title">New Exterior Window Installation</h2>
-            </div>
-            <div class="zone-cost">$3,640 <span style="font-size: 0.75rem; font-weight: 400; display: block; text-align: right; margin-top: 0.2rem;">(incl. $840 window allowance)</span></div>
+            <div class="zone-number">Zone 05</div>
+            <h2 class="zone-title">New Exterior Window Installation</h2>
         </div>
         <div class="zone-grid">
             <div class="animate delay-1">
                 <h3 style="margin-bottom: 1rem;">Scope of Work</h3>
-                <p style="color: var(--text-light); margin-bottom: 1.5rem;">New window opening cut to exterior with full framing, waterproofing, and finish work inside and out. Brings in natural light and fresh air — a significant upgrade for this space.</p>
+                <p style="color: var(--text-light); margin-bottom: 1.5rem;">New window opening cut to exterior with full framing, waterproofing, and finish work inside and out. Brings in natural light and fresh air.</p>
                 <ul class="scope-list">
                     <li>Opening framing and header <span>Structural framing for approx. 60"×24" rough opening</span></li>
                     <li>Window unit installation <span>Set, level, shim, and flash; fully weathertight</span></li>
@@ -708,7 +633,7 @@
                 </ul>
                 <div class="allowance-box" style="margin-top: 1.5rem;">
                     <h4>📋 Window Unit — $600 Material Allowance</h4>
-                    <p>This estimate includes a <strong>$600 allowance for the window unit</strong> (approx. 60"×24" standard vinyl or aluminum window). The labor to install is fixed. If the final window selection costs <strong>more than $600</strong>, the difference is billed as a change order. If it costs <strong>less</strong>, the savings pass to you. Final window spec to be confirmed prior to order.</p>
+                    <p>This estimate includes a <strong>$600 allowance for the window unit itself</strong> (approx. 60"×24" standard vinyl or aluminum). Labor to install is fixed. If the selected window costs <strong>more than $600</strong>, the difference is a change order. If it costs <strong>less</strong>, the savings pass to you. Final spec confirmed before order.</p>
                 </div>
             </div>
             <div class="animate delay-2">
@@ -744,25 +669,21 @@
 <section>
     <div class="container">
         <div class="zone-header animate">
-            <div>
-                <div class="zone-number">Zone 06</div>
-                <h2 class="zone-title">Electrical</h2>
-            </div>
-            <div class="zone-cost">$1,260</div>
+            <div class="zone-number">Zone 06</div>
+            <h2 class="zone-title">Electrical</h2>
         </div>
         <div class="zone-grid">
             <div class="animate delay-1">
                 <h3 style="margin-bottom: 1rem;">Scope of Work</h3>
-                <p style="color: var(--text-light); margin-bottom: 1.5rem;">Complete electrical work for all bathroom upgrades — bidet outlet, four fixture swaps, vent fan combo, and heated floor circuit. All work to code; owner supplies light fixtures.</p>
+                <p style="color: var(--text-light); margin-bottom: 1.5rem;">All electrical work for bathroom upgrades. All work to code. Owner supplies all light fixtures.</p>
                 <ul class="scope-list">
                     <li>GFCI outlet near toilet for bidet <span>Code-compliant ground-fault protection</span></li>
-                    <li>4 light fixture swaps — labor <span>Owner provides all fixtures; we install</span></li>
+                    <li>4 light fixture swaps — labor only <span>Owner provides all 4 fixtures; we install</span></li>
                     <li>Vent fan / light combo <span>1 of the 4 fixtures; includes duct rough-in to exterior</span></li>
-                    <li>Heated floor dedicated circuit <span>Proper breaker sized for radiant system</span></li>
                 </ul>
                 <div class="allowance-box" style="margin-top: 1.5rem;">
                     <h4>⚠ Owner-Supplied Fixtures</h4>
-                    <p>All 4 light fixtures (including the vent/fan combo unit) are owner-supplied. Labor to install is included. Ductwork for the exhaust fan is included.</p>
+                    <p>All 4 light fixtures (including the vent/fan combo unit) are owner-supplied. Electrical labor to install is included. Ductwork for the exhaust fan is included.</p>
                 </div>
             </div>
             <div class="animate delay-2">
@@ -780,10 +701,6 @@
                         <span class="mat-name">Vent Fan Duct</span>
                         <span class="mat-detail">Rough-in to exterior</span>
                     </div>
-                    <div class="material-item">
-                        <span class="mat-name">Heated Floor Circuit</span>
-                        <span class="mat-detail">Dedicated breaker</span>
-                    </div>
                 </div>
             </div>
         </div>
@@ -794,21 +711,17 @@
 <section>
     <div class="container">
         <div class="zone-header animate">
-            <div>
-                <div class="zone-number">Zone 07</div>
-                <h2 class="zone-title">Drywall Repair, Baseboards & Finish Work</h2>
-            </div>
-            <div class="zone-cost">$2,520</div>
+            <div class="zone-number">Zone 07</div>
+            <h2 class="zone-title">Drywall Repair, Baseboards & Finish Work</h2>
         </div>
         <div class="zone-grid">
             <div class="animate delay-1">
                 <h3 style="margin-bottom: 1rem;">Scope of Work</h3>
-                <p style="color: var(--text-light); margin-bottom: 1.5rem;">Wallpaper removal typically leaves the drywall damaged — we'll skim coat and repair all surfaces throughout the bathroom. New baseboards complete the clean, finished look.</p>
+                <p style="color: var(--text-light); margin-bottom: 1.5rem;">Wallpaper removal leaves drywall damaged throughout — we'll skim coat and repair all surfaces. New baseboards tie it all together for a clean, finished look.</p>
                 <ul class="scope-list">
                     <li>Drywall repair throughout <span>Patch, skim coat, and sand all surfaces post-wallpaper strip</span></li>
-                    <li>Moisture-resistant drywall where needed <span>Any exposed areas in wet zones get green board</span></li>
                     <li>Baseboard installation <span>New baseboard supplied and installed throughout</span></li>
-                    <li>All surfaces paint-ready <span>Final finish is smooth and primed for owner's painter</span></li>
+                    <li>All surfaces paint-ready <span>Smooth, primed finish — ready for owner's painter</span></li>
                 </ul>
             </div>
             <div class="animate delay-2">
@@ -821,10 +734,6 @@
                     <div class="material-item">
                         <span class="mat-name">Skim Coat</span>
                         <span class="mat-detail">Full perimeter</span>
-                    </div>
-                    <div class="material-item">
-                        <span class="mat-name">Moisture-Resistant Board</span>
-                        <span class="mat-detail">Wet zones</span>
                     </div>
                     <div class="material-item">
                         <span class="mat-name">Baseboard Material</span>
@@ -845,31 +754,31 @@
     <div class="container">
         <span class="section-label animate">Exclusions</span>
         <h2 class="section-title animate">What's NOT Included</h2>
-        <p class="animate delay-1" style="color: var(--text-light); margin-bottom: 2.5rem;">The following are explicitly outside of this proposal. Any additions require a signed change order.</p>
+        <p class="animate delay-1" style="color: var(--text-light); margin-bottom: 2.5rem;">The following are explicitly outside this proposal. Any additions require a signed change order before work begins.</p>
         <div class="not-included-grid">
             <div class="not-included-card animate delay-1">
-                <h4>All Plumbing</h4>
-                <p>Homeowner installs shower valve, sink angle stops, sets tub, and connects drain. Timberline does not perform any plumbing work on this project.</p>
+                <span class="x-icon">✕</span><h4>All Plumbing</h4>
+                <p>Homeowner installs shower valve, sink angle stops, sets tub, and connects drain. Timberline does not perform plumbing work on this project.</p>
             </div>
             <div class="not-included-card animate delay-2">
-                <h4>All Tile & Tile Materials</h4>
-                <p>Owner purchases and supplies all tile, grout, trim pieces, and setting materials. Timberline provides installation labor only.</p>
+                <span class="x-icon">✕</span><h4>Tile, Grout & Trim</h4>
+                <p>Owner purchases and supplies all tile, grout, and trim pieces. Timberline provides all setting materials and installation labor.</p>
             </div>
             <div class="not-included-card animate delay-3">
-                <h4>Vanity Cabinet & Countertop</h4>
-                <p>Owner purchases vanity cabinet, mirror, and countertop. Countertop install scope TBD pending vanity selection.</p>
+                <span class="x-icon">✕</span><h4>Vanity Cabinet & Countertop</h4>
+                <p>Owner purchases vanity cabinet, countertop, and mirror. Installation labor is included.</p>
             </div>
             <div class="not-included-card animate delay-4">
-                <h4>Light Fixtures</h4>
-                <p>All 4 fixtures (including vent fan/light combo) are owner-supplied. Electrical labor to install is included.</p>
+                <span class="x-icon">✕</span><h4>Light Fixtures</h4>
+                <p>All 4 fixtures (including vent/fan combo) are owner-supplied. Electrical labor to install is included.</p>
             </div>
             <div class="not-included-card animate delay-1">
-                <h4>Interior Paint</h4>
+                <span class="x-icon">✕</span><h4>Interior Paint</h4>
                 <p>Walls will be left clean, patched, and paint-ready. Painting is not included in this scope.</p>
             </div>
             <div class="not-included-card animate delay-2">
-                <h4>Permits</h4>
-                <p>Permit applications and fees are not included in this estimate. Dana Point typically requires permits for this scope; budget approximately $800–$1,500 separately.</p>
+                <span class="x-icon">✕</span><h4>Permits</h4>
+                <p>Permit applications and fees are not included. Dana Point typically requires permits for this scope — budget approximately $800–$1,500 separately.</p>
             </div>
         </div>
     </div>
@@ -880,130 +789,77 @@
     <div class="container">
         <span class="section-label animate">Transparency</span>
         <h2 class="section-title animate">Material Allowances</h2>
-        <p class="animate delay-1" style="color: var(--text-light); margin-bottom: 2.5rem;">Some items are priced as <em>allowances</em> — a budgeted amount that covers the expected cost. If actual costs come in higher or lower, we true up at completion.</p>
+        <p class="animate delay-1" style="color: var(--text-light); margin-bottom: 2.5rem;">One item in this proposal is priced as an <em>allowance</em> — a budgeted amount for the material. If the actual cost comes in higher or lower, we true up at completion.</p>
 
         <table class="allowances-table animate delay-2">
             <thead>
                 <tr>
                     <th>Item</th>
-                    <th>Allowance Amount</th>
+                    <th>Allowance</th>
                     <th>Notes</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td><strong>Heated Floor Mat + Thermostat</strong><br><small>Electric radiant system, ~46 sq ft</small></td>
-                    <td class="amount">$1,400</td>
-                    <td>We supply and install. Final mat selection may vary by brand. This allowance covers the system.</td>
-                </tr>
-                <tr>
-                    <td><strong>Window Unit</strong><br><small>Approx. 60"×24", vinyl or aluminum</small></td>
-                    <td class="amount">$840</td>
-                    <td>$600 cost allowance (billed at 40% markup = $840). If the final window unit costs more than $600, the overage is a change order. If it costs less, you save the difference. Window spec to be confirmed before order.</td>
+                    <td><strong>Window Unit</strong><br><small>Approx. 60"×24" standard vinyl or aluminum window</small></td>
+                    <td class="amount">$600</td>
+                    <td>$600 covers the window unit itself. Labor to install is a fixed cost separate from this allowance. If the selected window costs more than $600, the overage is a change order. If it costs less, you save the difference. Final spec confirmed before we order.</td>
                 </tr>
             </tbody>
         </table>
 
         <p class="allowances-note animate delay-3">
-            All other materials in this proposal are either fixed-price or owner-supplied (noted in each zone above). There are no hidden material costs beyond the two items above.
+            All other materials are either fixed-price or owner-supplied (noted in each zone above). There are no other material cost variables in this estimate.
         </p>
     </div>
 </section>
 
 <!-- TIMELINE -->
-<section>
+<section style="background: var(--off-white);">
     <div class="container">
         <span class="section-label animate">Schedule</span>
         <h2 class="section-title animate">Estimated Project Timeline</h2>
-        <p class="animate delay-1" style="color: var(--text-light); margin-bottom: 2.5rem;">3–5 weeks total. Actual timing depends on material lead times, permit processing, and homeowner plumbing schedule. All tile material must be on-site before tile work begins.</p>
+        <p class="animate delay-1" style="color: var(--text-light); margin-bottom: 2.5rem;">2–3 weeks total. All tile material must be on-site before tile work begins. Homeowner plumbing work must be complete before we tile wet areas.</p>
 
         <div class="timeline-grid animate delay-2">
             <div class="timeline-item">
                 <div class="timeline-week">Week 1</div>
-                <div class="timeline-task">Demo</div>
-                <div class="timeline-desc">Full strip-out, site prep, open walls for window</div>
+                <div class="timeline-task">Demo & Rough Work</div>
+                <div class="timeline-desc">Full strip-out, window framing, drywall repair, waterproofing</div>
             </div>
             <div class="timeline-item">
-                <div class="timeline-week">Week 2</div>
-                <div class="timeline-task">Rough Work</div>
-                <div class="timeline-desc">Window frame, drywall repair, hot mop, heated floor prep</div>
+                <div class="timeline-week">Weeks 1–2</div>
+                <div class="timeline-task">Tile Installation</div>
+                <div class="timeline-desc">Shower walls, wainscot, floor, heated element embed</div>
             </div>
             <div class="timeline-item">
-                <div class="timeline-week">Weeks 3–4</div>
-                <div class="timeline-task">Tile & Finishes</div>
-                <div class="timeline-desc">Tile setting (Jose), wainscot, shower walls, floor</div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-week">Week 4–5</div>
+                <div class="timeline-week">Week 2–3</div>
                 <div class="timeline-task">Fixtures & Close-Out</div>
-                <div class="timeline-desc">Vanity install, electrical finish, baseboards, window trim, clean-up</div>
+                <div class="timeline-desc">Vanity, electrical, window trim, baseboards, final clean</div>
             </div>
         </div>
         <p style="font-size: 0.82rem; color: var(--text-light); margin-top: 1.5rem;">
-            * Pending material lead times and permit processing. Homeowner plumbing work must be complete before Timberline installs tile in wet areas.
+            * Timing subject to material lead times and permit processing if required.
         </p>
     </div>
 </section>
 
 <!-- INVESTMENT SUMMARY -->
-<section style="background: var(--off-white);">
+<section>
     <div class="container">
         <span class="section-label animate">Investment</span>
-        <h2 class="section-title animate" style="margin-bottom: 2.5rem;">Project Investment Summary</h2>
+        <h2 class="section-title animate" style="margin-bottom: 2.5rem;">Total Project Investment</h2>
 
-        <div class="animate delay-1">
-            <table class="financial-table">
-                <thead>
-                    <tr>
-                        <th>Scope</th>
-                        <th>Amount</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Demo & Haul-Away</strong><br><small>Full bathroom strip-out, wallpaper removal, debris hauled</small></td>
-                        <td class="amount">$1,330</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Tile Work — Shower, Wainscot & Floor</strong><br><small>Labor only; all tile supplied by owner</small></td>
-                        <td class="amount">$5,180</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Vanity Installation</strong><br><small>Labor only; cabinet and countertop owner-supplied</small></td>
-                        <td class="amount">$840</td>
-                    </tr>
-                    <tr class="allowance-row">
-                        <td><strong>Heated Floor System</strong><br><small>Mat, thermostat, and labor included — material allowance</small></td>
-                        <td class="amount">$1,400</td>
-                    </tr>
-                    <tr class="allowance-row">
-                        <td><strong>New Exterior Window</strong><br><small>Includes $840 window unit allowance + full install labor</small></td>
-                        <td class="amount">$3,640</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Electrical</strong><br><small>Bidet outlet, 4 fixture swaps (owner fixtures), vent duct, heated floor circuit</small></td>
-                        <td class="amount">$1,260</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Drywall Repair, Baseboards & Finishes</strong><br><small>Post-wallpaper skim coat, moisture board, baseboard supply & install</small></td>
-                        <td class="amount">$2,520</td>
-                    </tr>
-                    <tr class="total-row">
-                        <td>TOTAL PROJECT INVESTMENT</td>
-                        <td class="amount">$16,170</td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="total-box animate delay-1" style="max-width: 500px; margin: 0 auto;">
+            <div class="total-label">Total Project Investment</div>
+            <div class="total-amount">$16,170</div>
+            <div class="total-note">Includes all labor, setting materials, heated floor system, window unit allowance, and baseboards. Does not include permits, tile/grout/trim, vanity, countertop, or light fixtures.</div>
         </div>
-
-        <p style="font-size: 0.82rem; color: var(--text-light); margin-top: 1.5rem;">
-            This total does not include permits (estimated $800–$1,500 separately), owner-purchased tile, vanity, countertop, or light fixtures. Allowance items subject to change order if actuals exceed the budgeted amount.
-        </p>
     </div>
 </section>
 
 <!-- PAYMENT TERMS -->
-<section>
+<section style="background: var(--off-white);">
     <div class="container">
         <span class="section-label animate">Payment Terms</span>
         <h2 class="section-title animate">How We Work</h2>
@@ -1011,14 +867,14 @@
 
         <div class="payment-grid animate delay-2">
             <div class="payment-card">
-                <span class="payment-label">Deposit</span>
+                <span class="payment-label">Day 1 of Construction</span>
                 <span class="payment-pct">30%</span>
-                <p class="payment-desc">Due at contract signing. Covers mobilization, materials procurement, and crew scheduling.</p>
+                <p class="payment-desc">Due on first day of construction. Covers mobilization, materials, and crew scheduling.</p>
             </div>
             <div class="payment-card">
                 <span class="payment-label">Midpoint</span>
                 <span class="payment-pct">40%</span>
-                <p class="payment-desc">Due when rough work is complete — demo done, window framed, drywall repaired, tile work underway.</p>
+                <p class="payment-desc">Due when rough work is complete — demo done, window framed, waterproofing in, tile work underway.</p>
             </div>
             <div class="payment-card">
                 <span class="payment-label">Completion</span>
@@ -1030,14 +886,14 @@
 </section>
 
 <!-- WARRANTY & TERMS -->
-<section style="background: var(--off-white);">
+<section>
     <div class="container">
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;">
             <div class="animate">
                 <span class="section-label">Warranty</span>
                 <h2 class="section-title">Our Guarantee</h2>
                 <p>Timberline Build Co. warrants all labor for <strong>1 year from project completion</strong>. Any defects in workmanship will be repaired at no charge.</p>
-                <p style="margin-bottom: 0;">Manufacturer warranties apply to all materials and fixtures we supply (heated floor system, window unit). We'll provide documentation at close-out.</p>
+                <p style="margin-bottom: 0;">Manufacturer warranties apply to all materials we supply (heated floor system, window unit). Documentation provided at close-out.</p>
             </div>
             <div class="animate delay-2">
                 <span class="section-label">Terms</span>
@@ -1049,30 +905,6 @@
                     <li style="padding: 0.6rem 0; border-bottom: 1px solid var(--border); font-size: 0.9rem;">✓ Hidden damage discovered during demo billed as change order</li>
                     <li style="padding: 0.6rem 0; font-size: 0.9rem;">✓ Licensed &amp; Insured · Orange County, CA</li>
                 </ul>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- SIGNATURE -->
-<section>
-    <div class="container">
-        <span class="section-label animate">Authorization</span>
-        <h2 class="section-title animate">Accept This Proposal</h2>
-        <p class="animate delay-1" style="color: var(--text-light);">Signing below indicates acceptance of the scope, pricing, and terms outlined in this proposal. A 30% deposit is required to secure your start date.</p>
-
-        <div class="signature-grid animate delay-2">
-            <div class="sig-block">
-                <div class="sig-label">Homeowner Signature</div>
-                <div class="sig-line"></div>
-                <div class="sig-name">Terri Whitney</div>
-                <div style="font-size: 0.8rem; color: var(--text-light); margin-top: 0.5rem;">Date: ___________________</div>
-            </div>
-            <div class="sig-block">
-                <div class="sig-label">Contractor</div>
-                <div class="sig-line"></div>
-                <div class="sig-name">Justin Sherman — Timberline Build Co.</div>
-                <div style="font-size: 0.8rem; color: var(--text-light); margin-top: 0.5rem;">949-229-1692 &nbsp;·&nbsp; timberlinebuild.co</div>
             </div>
         </div>
     </div>
