@@ -10,325 +10,1695 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   
+  <!-- Premium fonts - Playfair Display + Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  
   <!-- Preload critical hero image -->
   <link rel="preload" as="image" href="images/hero-bathroom.webp" type="image/webp">
   
   <!-- Critical CSS - Inlined for fastest FCP -->
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{--green:#19412c;--gold:#e9af3b;--cream:#faf8f4;--navy:#213245;--text:#333}
-    html{font-size:16px;-webkit-text-size-adjust:100%}
-    body{font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.6;color:var(--text);background:var(--cream)}
-    img{max-width:100%;height:auto;display:block}
     
-    /* Hero - Critical Path */
-    .hero{position:relative;min-height:90vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;overflow:hidden}
-    .hero-bg{position:absolute;inset:0;background:#19412c}
-    .hero-bg img{width:100%;height:100%;object-fit:cover;opacity:0.7}
-    .hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(25,65,44,0.6) 0%,rgba(25,65,44,0.8) 100%)}
-    .hero-content{position:relative;z-index:2;max-width:800px;padding:2rem}
-    .hero h1{font-size:clamp(1.75rem,5vw,3rem);font-weight:700;margin-bottom:0.5rem;text-shadow:0 2px 4px rgba(0,0,0,0.3)}
-    .hero-sub{font-size:clamp(0.9rem,2vw,1.25rem);margin-bottom:1.5rem;letter-spacing:0.1em}
-    .btn{display:inline-block;padding:1rem 2rem;font-size:1rem;font-weight:600;text-decoration:none;border-radius:4px;transition:transform 0.2s,box-shadow 0.2s;cursor:pointer;border:none}
-    .btn-gold{background:var(--gold);color:var(--navy)}
-    .btn-gold:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.2)}
+    :root {
+      --green: #19412c;
+      --green-dark: #0f2a1c;
+      --green-light: #1f5237;
+      --gold: #e9af3b;
+      --gold-hover: #f5c04a;
+      --gold-light: rgba(233, 175, 59, 0.15);
+      --cream: #faf8f4;
+      --cream-dark: #f3f0e8;
+      --navy: #213245;
+      --navy-light: #2a3f55;
+      --text: #1a1a1a;
+      --text-muted: #666;
+      --white: #ffffff;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+      --shadow-md: 0 4px 20px rgba(0,0,0,0.08);
+      --shadow-lg: 0 8px 40px rgba(0,0,0,0.12);
+      --shadow-gold: 0 4px 20px rgba(233, 175, 59, 0.35);
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
     
-    /* Prevent CLS - reserve space for below-fold */
-    .section{padding:4rem 1.5rem}
-    .container{max-width:1100px;margin:0 auto}
+    html {
+      font-size: 16px;
+      -webkit-text-size-adjust: 100%;
+      scroll-behavior: smooth;
+    }
     
-    /* About Section */
-    .about{background:#fff}
-    .about-content{display:grid;gap:2rem;align-items:center}
-    .about h2{color:var(--green);font-size:clamp(1.5rem,3vw,2rem);margin-bottom:1rem}
-    .about p{color:#555;margin-bottom:1rem}
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      line-height: 1.7;
+      color: var(--text);
+      background: var(--cream);
+      overflow-x: hidden;
+    }
     
-    /* Value Props Grid */
-    .values{background:var(--cream)}
-    .values h2{text-align:center;color:var(--green);font-size:clamp(1.5rem,3vw,2rem);margin-bottom:2rem}
-    .values-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
-    .value-card{background:#fff;padding:1.5rem;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.08);border-left:4px solid var(--gold)}
-    .value-card h3{color:var(--green);font-size:1.1rem;margin-bottom:0.5rem}
-    .value-card p{color:#666;font-size:0.95rem}
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
     
-    /* Gallery */
-    .gallery{background:#fff}
-    .gallery h2{text-align:center;color:var(--green);margin-bottom:2rem}
-    .gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem}
-    .gallery-item{position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:8px}
-    .gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.3s}
-    .gallery-item:hover img{transform:scale(1.05)}
-    .gallery-label{position:absolute;bottom:0;left:0;right:0;padding:0.5rem;background:rgba(25,65,44,0.9);color:#fff;font-size:0.85rem;text-align:center}
+    /* Typography */
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
     
-    /* CTA Section */
-    .cta-section{background:var(--green);color:#fff;text-align:center}
-    .cta-section h2{font-size:clamp(1.5rem,3vw,2rem);margin-bottom:1rem}
-    .cta-buttons{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-top:1.5rem}
-    .btn-outline{background:transparent;border:2px solid var(--gold);color:var(--gold)}
-    .btn-outline:hover{background:var(--gold);color:var(--navy)}
+    /* Fade-in animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
     
-    /* Footer */
-    footer{background:var(--navy);color:#fff;padding:2rem 1.5rem;text-align:center}
-    footer p{font-size:0.9rem;opacity:0.8}
-    footer a{color:var(--gold);text-decoration:none}
-    footer a:hover{text-decoration:underline}
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
     
     /* ============================================
-       TYPEFORM-STYLE ESTIMATE MODAL
+       HERO SECTION - Premium & Dramatic
        ============================================ */
-    .form-modal{display:none;position:fixed;inset:0;z-index:1000;background:var(--green);align-items:center;justify-content:center;overflow:hidden}
-    .form-modal.active{display:flex}
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--white);
+      overflow: hidden;
+    }
     
-    .form-container{width:100%;height:100%;max-width:100%;display:flex;flex-direction:column;position:relative}
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: var(--green);
+    }
+    
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.5;
+      transform: scale(1.05);
+    }
+    
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(15, 42, 28, 0.85) 0%,
+        rgba(25, 65, 44, 0.7) 50%,
+        rgba(15, 42, 28, 0.9) 100%
+      );
+    }
+    
+    /* Subtle animated gradient shimmer */
+    .hero-overlay::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        45deg,
+        transparent 30%,
+        rgba(233, 175, 59, 0.03) 50%,
+        transparent 70%
+      );
+      animation: shimmer 8s ease-in-out infinite;
+    }
+    
+    @keyframes shimmer {
+      0%, 100% { transform: translateX(-100%); }
+      50% { transform: translateX(100%); }
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      padding: 2rem;
+    }
+    
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.25rem;
+      background: rgba(233, 175, 59, 0.15);
+      border: 1px solid rgba(233, 175, 59, 0.4);
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.75rem;
+      backdrop-filter: blur(10px);
+    }
+    
+    .hero h1 {
+      font-size: clamp(2.25rem, 6vw, 4rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-shadow: 0 4px 30px rgba(0,0,0,0.3);
+    }
+    
+    .hero h1 span {
+      color: var(--gold);
+    }
+    
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      font-weight: 400;
+      margin-bottom: 2.5rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
+    }
+    
+    .hero-cta-group {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+    }
+    
+    /* Premium Button Styling */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      padding: 1.125rem 2.5rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: var(--radius-sm);
+      transition: all var(--transition);
+      cursor: pointer;
+      border: none;
+      letter-spacing: 0.02em;
+    }
+    
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold) 0%, #d9a033 100%);
+      color: var(--navy);
+      box-shadow: var(--shadow-gold), inset 0 1px 0 rgba(255,255,255,0.2);
+    }
+    
+    .btn-gold:hover {
+      background: linear-gradient(135deg, var(--gold-hover) 0%, var(--gold) 100%);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(233, 175, 59, 0.45), inset 0 1px 0 rgba(255,255,255,0.2);
+    }
+    
+    .btn-gold:active {
+      transform: translateY(-1px);
+    }
+    
+    .hero-trust {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.15);
+    }
+    
+    .trust-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    
+    .trust-icon {
+      font-size: 1.5rem;
+    }
+    
+    .trust-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0.85;
+    }
+    
+    /* ============================================
+       ABOUT SECTION
+       ============================================ */
+    .section {
+      padding: 6rem 2rem;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .about {
+      background: var(--white);
+    }
+    
+    .about-wrapper {
+      display: grid;
+      gap: 4rem;
+      align-items: center;
+    }
+    
+    .about-image {
+      position: relative;
+    }
+    
+    .about-image img {
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .about-image::before {
+      content: '';
+      position: absolute;
+      top: 1.5rem;
+      left: 1.5rem;
+      right: -1.5rem;
+      bottom: -1.5rem;
+      border: 2px solid var(--gold);
+      border-radius: var(--radius-lg);
+      z-index: -1;
+    }
+    
+    .about-content {
+      max-width: 540px;
+    }
+    
+    .section-label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    
+    .about h2 {
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      color: var(--green);
+      margin-bottom: 1.5rem;
+    }
+    
+    .about p {
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+      font-size: 1.05rem;
+    }
+    
+    .about-signature {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #eee;
+    }
+    
+    .signature-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--green);
+      font-style: italic;
+    }
+    
+    .signature-title {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+    }
+    
+    /* ============================================
+       VALUE PROPS - Premium Layout
+       ============================================ */
+    .values {
+      background: var(--navy);
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .values::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 60%;
+      height: 200%;
+      background: radial-gradient(ellipse, rgba(233, 175, 59, 0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    
+    .values-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 4rem;
+    }
+    
+    .values-header .section-label {
+      color: var(--gold);
+    }
+    
+    .values h2 {
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+    
+    .values-header p {
+      color: rgba(255,255,255,0.7);
+      font-size: 1.1rem;
+    }
+    
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    
+    .value-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-md);
+      padding: 2.25rem;
+      transition: all var(--transition);
+    }
+    
+    .value-card:hover {
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(233, 175, 59, 0.3);
+      transform: translateY(-4px);
+    }
+    
+    .value-icon {
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--gold) 0%, #d9a033 100%);
+      border-radius: var(--radius-sm);
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .value-card h3 {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: var(--white);
+    }
+    
+    .value-card p {
+      color: rgba(255,255,255,0.65);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+    
+    /* ============================================
+       GALLERY - Before/After Slider
+       ============================================ */
+    .gallery {
+      background: var(--cream);
+    }
+    
+    .gallery-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 3rem;
+    }
+    
+    .gallery h2 {
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      color: var(--green);
+      margin-bottom: 1rem;
+    }
+    
+    .gallery-header p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+    }
+    
+    /* Before/After Slider */
+    .ba-slider-container {
+      margin-bottom: 3rem;
+    }
+    
+    .ba-slider {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      aspect-ratio: 16/10;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      cursor: ew-resize;
+    }
+    
+    .ba-image {
+      position: absolute;
+      inset: 0;
+    }
+    
+    .ba-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .ba-after {
+      clip-path: inset(0 50% 0 0);
+    }
+    
+    .ba-handle {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 4px;
+      background: var(--white);
+      transform: translateX(-50%);
+      cursor: ew-resize;
+      z-index: 10;
+    }
+    
+    .ba-handle::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 52px;
+      height: 52px;
+      background: var(--white);
+      border-radius: 50%;
+      box-shadow: var(--shadow-md);
+    }
+    
+    .ba-handle::after {
+      content: '⟨ ⟩';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--green);
+      letter-spacing: 0.3em;
+    }
+    
+    .ba-label {
+      position: absolute;
+      bottom: 1.25rem;
+      padding: 0.5rem 1rem;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(10px);
+      color: var(--white);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      border-radius: 4px;
+      z-index: 5;
+    }
+    
+    .ba-label-before { left: 1.25rem; }
+    .ba-label-after { right: 1.25rem; }
+    
+    /* Gallery Grid */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+    
+    .gallery-item {
+      position: relative;
+      aspect-ratio: 1;
+      overflow: hidden;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .gallery-item::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(25, 65, 44, 0.85) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+    
+    .gallery-item:hover img {
+      transform: scale(1.08);
+    }
+    
+    .gallery-item:hover::after {
+      opacity: 1;
+    }
+    
+    .gallery-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1.25rem;
+      color: var(--white);
+      font-size: 0.9rem;
+      font-weight: 600;
+      z-index: 2;
+      transform: translateY(100%);
+      transition: transform var(--transition);
+    }
+    
+    .gallery-item:hover .gallery-label {
+      transform: translateY(0);
+    }
+    
+    /* ============================================
+       CTA SECTION
+       ============================================ */
+    .cta-section {
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
+      color: var(--white);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    
+    .cta-content {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    .cta-section .section-label {
+      color: var(--gold);
+    }
+    
+    .cta-section h2 {
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      margin-bottom: 1rem;
+    }
+    
+    .cta-section > .container > p {
+      color: rgba(255,255,255,0.8);
+      font-size: 1.1rem;
+      margin-bottom: 2.5rem;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+    
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--gold);
+      color: var(--gold);
+    }
+    
+    .btn-outline:hover {
+      background: var(--gold);
+      color: var(--navy);
+      transform: translateY(-3px);
+    }
+    
+    /* ============================================
+       FOOTER - Premium
+       ============================================ */
+    footer {
+      background: var(--navy);
+      color: var(--white);
+      padding: 4rem 2rem 2rem;
+    }
+    
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .footer-brand h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .footer-brand p {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.95rem;
+      max-width: 300px;
+      line-height: 1.7;
+    }
+    
+    .footer-column h4 {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.25rem;
+    }
+    
+    .footer-column a {
+      display: block;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 0.95rem;
+      padding: 0.4rem 0;
+      transition: color var(--transition);
+    }
+    
+    .footer-column a:hover {
+      color: var(--gold);
+    }
+    
+    .footer-badges {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    
+    .footer-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 0.75rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-sm);
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.7);
+    }
+    
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 2rem;
+    }
+    
+    .footer-bottom p {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+    }
+    
+    /* ============================================
+       RESPONSIVE
+       ============================================ */
+    @media(min-width: 768px) {
+      .about-wrapper {
+        grid-template-columns: 1fr 1fr;
+      }
+      
+      .hero {
+        min-height: 100vh;
+      }
+      
+      .hero-cta-group {
+        flex-direction: row;
+      }
+      
+      .hero-trust {
+        gap: 3rem;
+      }
+    }
+    
+    @media(max-width: 1024px) {
+      .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .footer-top {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    
+    @media(max-width: 768px) {
+      .section {
+        padding: 4rem 1.5rem;
+      }
+      
+      .hero-trust {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      
+      .trust-item {
+        flex-direction: row;
+        gap: 0.75rem;
+      }
+      
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      
+      .footer-bottom {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+    }
+    
+    /* ============================================
+       TYPEFORM-STYLE ESTIMATE MODAL - Premium
+       ============================================ */
+    .form-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    
+    .form-modal.active {
+      display: flex;
+    }
+    
+    .form-container {
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    
+    /* Decorative elements */
+    .form-container::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -15%;
+      width: 50%;
+      height: 80%;
+      background: radial-gradient(ellipse, rgba(233, 175, 59, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
     
     /* Header bar */
-    .form-header{display:flex;justify-content:space-between;align-items:center;padding:1rem 1.5rem;background:rgba(0,0,0,0.15)}
-    .form-logo{color:#fff;font-weight:700;font-size:1.1rem;letter-spacing:0.05em}
-    .form-close{background:none;border:none;color:rgba(255,255,255,0.7);font-size:1.5rem;cursor:pointer;padding:0.5rem;transition:color 0.2s}
-    .form-close:hover{color:#fff}
+    .form-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 2rem;
+      background: rgba(0,0,0,0.2);
+      backdrop-filter: blur(10px);
+    }
     
-    /* Progress */
-    .form-progress{padding:0 1.5rem;padding-top:1rem}
-    .progress-bar{background:rgba(255,255,255,0.2);height:4px;border-radius:2px;overflow:hidden}
-    .progress-fill{background:var(--gold);height:100%;transition:width 0.4s ease}
-    .progress-text{color:rgba(255,255,255,0.6);font-size:0.8rem;margin-top:0.5rem;text-align:right}
+    .form-logo {
+      font-family: 'Playfair Display', serif;
+      color: var(--white);
+      font-weight: 600;
+      font-size: 1.1rem;
+      letter-spacing: 0.05em;
+    }
+    
+    .form-close {
+      background: rgba(255,255,255,0.1);
+      border: none;
+      color: rgba(255,255,255,0.8);
+      font-size: 1.25rem;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .form-close:hover {
+      background: rgba(255,255,255,0.2);
+      color: var(--white);
+    }
+    
+    /* Progress - Premium Segmented */
+    .form-progress {
+      padding: 1.5rem 2rem;
+    }
+    
+    .progress-wrapper {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+    
+    .progress-segment {
+      flex: 1;
+      height: 4px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    
+    .progress-segment-fill {
+      width: 0;
+      height: 100%;
+      background: linear-gradient(90deg, var(--gold) 0%, var(--gold-hover) 100%);
+      transition: width 0.4s ease;
+    }
+    
+    .progress-segment.filled .progress-segment-fill {
+      width: 100%;
+    }
+    
+    .progress-segment.current .progress-segment-fill {
+      width: 50%;
+    }
+    
+    .progress-text {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.8rem;
+      font-weight: 500;
+      text-align: right;
+    }
     
     /* Main content area */
-    .form-main{flex:1;display:flex;align-items:center;justify-content:center;padding:2rem;overflow-y:auto}
-    .form-screen{display:none;width:100%;max-width:600px;animation:slideIn 0.4s ease}
-    .form-screen.active{display:block}
+    .form-main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      overflow-y: auto;
+    }
     
-    @keyframes slideIn{
-      from{opacity:0;transform:translateY(30px)}
-      to{opacity:1;transform:translateY(0)}
+    .form-screen {
+      display: none;
+      width: 100%;
+      max-width: 640px;
+      animation: slideIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .form-screen.active {
+      display: block;
+    }
+    
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
     
     /* Question styling */
-    .question-number{color:var(--gold);font-size:0.9rem;font-weight:600;margin-bottom:0.75rem;letter-spacing:0.1em}
-    .question-title{color:#fff;font-size:clamp(1.5rem,4vw,2rem);font-weight:600;margin-bottom:0.5rem;line-height:1.3}
-    .question-subtitle{color:rgba(255,255,255,0.7);font-size:1rem;margin-bottom:2rem}
+    .question-number {
+      color: var(--gold);
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      letter-spacing: 0.2em;
+    }
     
-    /* Option cards - large clickable areas */
-    .options-list{display:flex;flex-direction:column;gap:0.75rem}
-    .option-btn{background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.15);border-radius:8px;padding:1.25rem 1.5rem;text-align:left;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;gap:1rem}
-    .option-btn:hover{background:rgba(255,255,255,0.12);border-color:rgba(255,255,255,0.3);transform:translateX(4px)}
-    .option-btn.selected{background:rgba(233,175,59,0.15);border-color:var(--gold)}
-    .option-key{width:32px;height:32px;border-radius:4px;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;font-weight:600;color:rgba(255,255,255,0.7);font-size:0.85rem;flex-shrink:0}
-    .option-btn.selected .option-key{background:var(--gold);color:var(--navy)}
-    .option-content{flex:1}
-    .option-label{color:#fff;font-size:1.1rem;font-weight:500}
-    .option-desc{color:rgba(255,255,255,0.6);font-size:0.9rem;margin-top:0.25rem}
-    .option-price{color:var(--gold);font-size:0.85rem;margin-top:0.25rem;font-weight:500}
+    .question-title {
+      font-family: 'Playfair Display', serif;
+      color: var(--white);
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      line-height: 1.25;
+    }
+    
+    .question-subtitle {
+      color: rgba(255,255,255,0.6);
+      font-size: 1.05rem;
+      margin-bottom: 2.5rem;
+    }
+    
+    /* Option cards - Premium styling */
+    .options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.875rem;
+    }
+    
+    .option-btn {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      text-align: left;
+      cursor: pointer;
+      transition: all var(--transition);
+      display: flex;
+      align-items: flex-start;
+      gap: 1.25rem;
+    }
+    
+    .option-btn:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.25);
+      transform: translateX(6px);
+    }
+    
+    .option-btn.selected {
+      background: rgba(233, 175, 59, 0.12);
+      border-color: var(--gold);
+      box-shadow: 0 0 0 1px var(--gold);
+    }
+    
+    .option-key {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: rgba(255,255,255,0.6);
+      font-size: 0.85rem;
+      flex-shrink: 0;
+      transition: all var(--transition);
+    }
+    
+    .option-btn.selected .option-key {
+      background: var(--gold);
+      color: var(--navy);
+    }
+    
+    .option-content {
+      flex: 1;
+      padding-top: 0.15rem;
+    }
+    
+    .option-label {
+      color: var(--white);
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+    
+    .option-desc {
+      color: rgba(255,255,255,0.55);
+      font-size: 0.9rem;
+      margin-top: 0.35rem;
+    }
+    
+    .option-price {
+      color: var(--gold);
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+      font-weight: 600;
+    }
     
     /* Slider styling */
-    .slider-wrap{padding:1.5rem 0}
-    .slider-display{text-align:center;margin-bottom:2rem}
-    .slider-value{font-size:4rem;font-weight:700;color:#fff;line-height:1}
-    .slider-unit{font-size:1.25rem;color:rgba(255,255,255,0.6);margin-left:0.5rem}
-    .slider-context{color:rgba(255,255,255,0.5);font-size:0.9rem;margin-top:0.5rem}
+    .slider-wrap {
+      padding: 2rem 0;
+    }
     
-    input[type="range"]{width:100%;height:8px;border-radius:4px;background:rgba(255,255,255,0.2);outline:none;-webkit-appearance:none;cursor:pointer}
-    input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:28px;height:28px;border-radius:50%;background:var(--gold);cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.3)}
-    input[type="range"]::-moz-range-thumb{width:28px;height:28px;border-radius:50%;background:var(--gold);cursor:pointer;border:none}
+    .slider-display {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
     
-    .slider-labels{display:flex;justify-content:space-between;margin-top:0.75rem;color:rgba(255,255,255,0.5);font-size:0.85rem}
+    .slider-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 5rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1;
+    }
+    
+    .slider-unit {
+      font-size: 1.5rem;
+      color: rgba(255,255,255,0.5);
+      margin-left: 0.5rem;
+    }
+    
+    .slider-context {
+      color: var(--gold);
+      font-size: 0.95rem;
+      margin-top: 0.75rem;
+      font-weight: 500;
+    }
+    
+    input[type="range"] {
+      width: 100%;
+      height: 8px;
+      border-radius: 4px;
+      background: rgba(255,255,255,0.15);
+      outline: none;
+      -webkit-appearance: none;
+      cursor: pointer;
+    }
+    
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold) 0%, #d9a033 100%);
+      cursor: pointer;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3), 0 0 0 4px rgba(233, 175, 59, 0.2);
+      transition: box-shadow var(--transition);
+    }
+    
+    input[type="range"]::-webkit-slider-thumb:hover {
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4), 0 0 0 6px rgba(233, 175, 59, 0.3);
+    }
+    
+    input[type="range"]::-moz-range-thumb {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold) 0%, #d9a033 100%);
+      cursor: pointer;
+      border: none;
+    }
+    
+    .slider-labels {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1rem;
+      color: rgba(255,255,255,0.4);
+      font-size: 0.85rem;
+    }
     
     /* Photo upload */
-    .upload-area{border:2px dashed rgba(255,255,255,0.3);border-radius:12px;padding:3rem 2rem;text-align:center;cursor:pointer;transition:all 0.2s;position:relative}
-    .upload-area:hover{border-color:var(--gold);background:rgba(255,255,255,0.05)}
-    .upload-area.has-image{border-style:solid;border-color:var(--gold)}
-    .upload-icon{font-size:3rem;margin-bottom:1rem}
-    .upload-text{color:#fff;font-size:1.1rem;margin-bottom:0.5rem}
-    .upload-hint{color:rgba(255,255,255,0.5);font-size:0.9rem}
-    .upload-input{position:absolute;inset:0;opacity:0;cursor:pointer}
-    .upload-preview{max-width:100%;max-height:200px;border-radius:8px;margin:0 auto}
-    .upload-remove{background:rgba(0,0,0,0.5);color:#fff;border:none;padding:0.5rem 1rem;border-radius:4px;margin-top:1rem;cursor:pointer;font-size:0.85rem}
-    .upload-remove:hover{background:rgba(0,0,0,0.7)}
+    .upload-area {
+      border: 2px dashed rgba(255,255,255,0.25);
+      border-radius: var(--radius-lg);
+      padding: 3.5rem 2rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all var(--transition);
+      position: relative;
+      background: rgba(255,255,255,0.02);
+    }
+    
+    .upload-area:hover {
+      border-color: var(--gold);
+      background: rgba(255,255,255,0.05);
+    }
+    
+    .upload-area.has-image {
+      border-style: solid;
+      border-color: var(--gold);
+    }
+    
+    .upload-icon {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .upload-text {
+      color: var(--white);
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+    
+    .upload-hint {
+      color: rgba(255,255,255,0.45);
+      font-size: 0.9rem;
+    }
+    
+    .upload-input {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: pointer;
+    }
+    
+    .upload-preview {
+      max-width: 100%;
+      max-height: 220px;
+      border-radius: var(--radius-md);
+      margin: 0 auto;
+    }
+    
+    .upload-remove {
+      background: rgba(0,0,0,0.5);
+      color: var(--white);
+      border: none;
+      padding: 0.6rem 1.25rem;
+      border-radius: var(--radius-sm);
+      margin-top: 1.25rem;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: background var(--transition);
+    }
+    
+    .upload-remove:hover {
+      background: rgba(0,0,0,0.7);
+    }
     
     /* Navigation */
-    .form-nav{padding:1.5rem;display:flex;justify-content:space-between;align-items:center;gap:1rem}
-    .nav-back{background:transparent;border:none;color:rgba(255,255,255,0.7);font-size:0.95rem;cursor:pointer;padding:0.75rem 1rem;display:flex;align-items:center;gap:0.5rem;transition:color 0.2s}
-    .nav-back:hover{color:#fff}
-    .nav-back:disabled{opacity:0.3;cursor:not-allowed}
-    .nav-next{background:var(--gold);color:var(--navy);border:none;padding:0.875rem 2rem;border-radius:4px;font-size:1rem;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:0.5rem;transition:transform 0.2s,box-shadow 0.2s}
-    .nav-next:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.2)}
-    .nav-next:disabled{opacity:0.5;cursor:not-allowed;transform:none}
+    .form-nav {
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      background: rgba(0,0,0,0.1);
+    }
     
-    /* Results screen */
-    .results-screen{max-width:700px}
-    .result-header{text-align:center;margin-bottom:2rem}
-    .result-badge{display:inline-block;background:var(--gold);color:var(--navy);padding:0.5rem 1rem;border-radius:20px;font-size:0.85rem;font-weight:600;margin-bottom:1rem}
-    .result-title{color:#fff;font-size:1.25rem;margin-bottom:0.5rem}
-    .result-price{font-size:clamp(2.5rem,8vw,3.5rem);font-weight:700;color:#fff;margin-bottom:0.25rem}
-    .result-range{color:rgba(255,255,255,0.7);font-size:1rem}
+    .nav-back {
+      background: transparent;
+      border: none;
+      color: rgba(255,255,255,0.6);
+      font-size: 0.95rem;
+      font-weight: 500;
+      cursor: pointer;
+      padding: 0.875rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all var(--transition);
+      border-radius: var(--radius-sm);
+    }
     
-    .result-timeline{background:rgba(255,255,255,0.1);border-radius:8px;padding:1rem 1.5rem;margin:1.5rem 0;display:flex;align-items:center;gap:1rem}
-    .timeline-icon{font-size:1.5rem}
-    .timeline-text{color:#fff;font-size:0.95rem}
-    .timeline-text strong{color:var(--gold)}
+    .nav-back:hover {
+      color: var(--white);
+      background: rgba(255,255,255,0.08);
+    }
     
-    .breakdown-card{background:rgba(255,255,255,0.95);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem}
-    .breakdown-title{color:var(--green);font-size:1rem;font-weight:600;margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem}
-    .breakdown-item{display:flex;justify-content:space-between;padding:0.6rem 0;border-bottom:1px solid #eee;font-size:0.95rem}
-    .breakdown-item:last-child{border-bottom:none}
-    .breakdown-item span:first-child{color:#555}
-    .breakdown-item span:last-child{color:var(--green);font-weight:600}
+    .nav-back:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+    
+    .nav-next {
+      background: linear-gradient(135deg, var(--gold) 0%, #d9a033 100%);
+      color: var(--navy);
+      border: none;
+      padding: 1rem 2.25rem;
+      border-radius: var(--radius-sm);
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all var(--transition);
+      box-shadow: var(--shadow-gold);
+    }
+    
+    .nav-next:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(233, 175, 59, 0.45);
+    }
+    
+    .nav-next:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+    
+    /* Results screen - Premium */
+    .results-screen {
+      max-width: 720px;
+    }
+    
+    .result-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    
+    .result-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, var(--gold) 0%, #d9a033 100%);
+      color: var(--navy);
+      padding: 0.6rem 1.25rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      margin-bottom: 1.5rem;
+    }
+    
+    .result-title {
+      color: rgba(255,255,255,0.7);
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+    }
+    
+    .result-price {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.75rem, 8vw, 4rem);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.25rem;
+      letter-spacing: -0.02em;
+    }
+    
+    .result-range {
+      color: rgba(255,255,255,0.55);
+      font-size: 0.95rem;
+    }
+    
+    .result-timeline {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.5rem;
+      margin: 2rem 0;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .timeline-icon {
+      font-size: 1.75rem;
+    }
+    
+    .timeline-text {
+      color: var(--white);
+      font-size: 1rem;
+    }
+    
+    .timeline-text strong {
+      color: var(--gold);
+    }
+    
+    .breakdown-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .breakdown-title {
+      color: var(--green);
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    
+    .breakdown-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 0.95rem;
+    }
+    
+    .breakdown-item:last-child {
+      border-bottom: none;
+    }
+    
+    .breakdown-item span:first-child {
+      color: var(--text-muted);
+    }
+    
+    .breakdown-item span:last-child {
+      color: var(--green);
+      font-weight: 600;
+    }
     
     /* Contact form in results */
-    .contact-card{background:#fff;border-radius:12px;padding:1.5rem;box-shadow:0 4px 20px rgba(0,0,0,0.15)}
-    .contact-card h3{color:var(--green);font-size:1.1rem;margin-bottom:0.5rem}
-    .contact-card>p{color:#666;font-size:0.9rem;margin-bottom:1.25rem}
-    .form-row{display:grid;gap:1rem;margin-bottom:1rem}
-    .form-row.two-col{grid-template-columns:1fr 1fr}
-    .form-field label{display:block;font-size:0.85rem;color:#555;margin-bottom:0.35rem;font-weight:500}
-    .form-field input{width:100%;padding:0.75rem 1rem;border:2px solid #e0e0e0;border-radius:6px;font-size:1rem;transition:border-color 0.2s}
-    .form-field input:focus{outline:none;border-color:var(--gold)}
-    .form-field.optional label::after{content:' (optional)';font-weight:400;color:#999}
-    .btn-submit{width:100%;background:var(--gold);color:var(--navy);border:none;padding:1rem;border-radius:6px;font-size:1.05rem;font-weight:600;cursor:pointer;transition:transform 0.2s}
-    .btn-submit:hover{transform:translateY(-2px)}
-    .form-note{text-align:center;font-size:0.8rem;color:#888;margin-top:1rem}
+    .contact-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .contact-card h3 {
+      font-family: 'Playfair Display', serif;
+      color: var(--green);
+      font-size: 1.35rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .contact-card > p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-row {
+      display: grid;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    
+    .form-row.two-col {
+      grid-template-columns: 1fr 1fr;
+    }
+    
+    .form-field label {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .form-field input {
+      width: 100%;
+      padding: 0.9rem 1rem;
+      border: 2px solid #e8e8e8;
+      border-radius: var(--radius-sm);
+      font-size: 1rem;
+      font-family: 'Inter', sans-serif;
+      transition: all var(--transition);
+      background: #fafafa;
+    }
+    
+    .form-field input:focus {
+      outline: none;
+      border-color: var(--gold);
+      background: var(--white);
+      box-shadow: 0 0 0 3px rgba(233, 175, 59, 0.15);
+    }
+    
+    .form-field.optional label::after {
+      content: ' (optional)';
+      font-weight: 400;
+      color: #aaa;
+      text-transform: none;
+    }
+    
+    .btn-submit {
+      width: 100%;
+      background: linear-gradient(135deg, var(--gold) 0%, #d9a033 100%);
+      color: var(--navy);
+      border: none;
+      padding: 1.1rem;
+      border-radius: var(--radius-sm);
+      font-size: 1.05rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all var(--transition);
+      box-shadow: var(--shadow-gold);
+    }
+    
+    .btn-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(233, 175, 59, 0.45);
+    }
+    
+    .form-note {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #999;
+      margin-top: 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+    }
     
     /* Success state */
-    .success-content{text-align:center;padding:2rem}
-    .success-icon{font-size:5rem;margin-bottom:1.5rem}
-    .success-title{color:#fff;font-size:1.75rem;margin-bottom:0.75rem}
-    .success-text{color:rgba(255,255,255,0.8);font-size:1rem;margin-bottom:2rem;max-width:400px;margin-left:auto;margin-right:auto}
+    .success-content {
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+    
+    .success-icon {
+      font-size: 5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .success-title {
+      font-family: 'Playfair Display', serif;
+      color: var(--white);
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    
+    .success-text {
+      color: rgba(255,255,255,0.75);
+      font-size: 1.05rem;
+      margin-bottom: 2.5rem;
+      max-width: 420px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
+    }
     
     /* Responsive */
-    @media(min-width:768px){
-      .about-content{grid-template-columns:1fr 1fr}
-      .hero{min-height:80vh}
-      .form-main{padding:3rem}
+    @media(min-width: 768px) {
+      .form-main {
+        padding: 3rem;
+      }
     }
-    @media(max-width:600px){
-      .form-row.two-col{grid-template-columns:1fr}
-      .form-nav{flex-direction:column-reverse;gap:0.75rem}
-      .nav-next{width:100%;justify-content:center}
-      .nav-back{width:100%;justify-content:center}
-      .result-price{font-size:2.25rem}
+    
+    @media(max-width: 600px) {
+      .form-row.two-col {
+        grid-template-columns: 1fr;
+      }
+      
+      .form-nav {
+        flex-direction: column-reverse;
+        gap: 0.75rem;
+      }
+      
+      .nav-next {
+        width: 100%;
+        justify-content: center;
+      }
+      
+      .nav-back {
+        width: 100%;
+        justify-content: center;
+      }
+      
+      .result-price {
+        font-size: 2.5rem;
+      }
+      
+      .slider-value {
+        font-size: 3.5rem;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Hero Section -->
+  <!-- Hero Section - Premium & Dramatic -->
   <section class="hero">
     <div class="hero-bg">
       <picture>
-        <source srcset="images/hero-bathroom-mobile.webp 480w, images/hero-bathroom-tablet.webp 1024w, images/hero-bathroom.webp 1920w" type="image/webp" sizes="100vw">
-        <source srcset="images/hero-bathroom-mobile.jpg 480w, images/hero-bathroom-tablet.jpg 1024w, images/hero-bathroom.jpg 1920w" sizes="100vw">
+        <source srcset="images/hero-bathroom.webp" type="image/webp">
         <img src="images/hero-bathroom.jpg" alt="Modern bathroom remodel" width="1920" height="1080" fetchpriority="high">
       </picture>
     </div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <h1>Orange County's Premier Kitchen and Bathroom Remodeler</h1>
-      <p class="hero-sub">Licensed • Insured • Expert Craftsmanship</p>
-      <button class="btn btn-gold" data-open-form aria-label="Get an instant estimate">GET YOUR INSTANT ESTIMATE</button>
+      <div class="hero-badge">
+        ✦ Orange County's Premier Remodeler
+      </div>
+      <h1>Transform Your Bathroom Into a <span>Sanctuary</span></h1>
+      <p class="hero-sub">Expert craftsmanship meets elegant design. We create stunning bathroom remodels that exceed expectations — on time and on budget.</p>
+      <div class="hero-cta-group">
+        <button class="btn btn-gold" data-open-form aria-label="Get an instant estimate">
+          Get Your Instant Estimate
+          <span>→</span>
+        </button>
+      </div>
+      <div class="hero-trust">
+        <div class="trust-item">
+          <span class="trust-icon">🛡️</span>
+          <span class="trust-label">Licensed & Insured</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon">⭐</span>
+          <span class="trust-label">5-Star Reviews</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon">🏆</span>
+          <span class="trust-label">10+ Years Experience</span>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- About Section -->
   <section class="section about">
-    <div class="container about-content">
-      <div>
-        <h2>Hi, I'm Justin...</h2>
-        <p>The owner of Timberline Build Co — previously known as Contractor Orange County. I've dedicated myself to bringing exceptional quality and customer satisfaction to every project.</p>
-        <p>I believe in open communication, meticulous attention to detail, and building lasting relationships with my clients. I'm passionate about creating beautiful and functional spaces that exceed your expectations.</p>
-      </div>
-      <div>
-        <picture>
-          <source srcset="images/justin-portrait.webp" type="image/webp">
-          <img src="images/justin-portrait.jpg" alt="Justin, owner of Timberline Build Co" width="500" height="600" loading="lazy">
-        </picture>
+    <div class="container">
+      <div class="about-wrapper fade-in">
+        <div class="about-image">
+          <picture>
+            <source srcset="images/justin-portrait.webp" type="image/webp">
+            <img src="images/justin-portrait.jpg" alt="Justin, owner of Timberline Build Co" width="500" height="600" loading="lazy">
+          </picture>
+        </div>
+        <div class="about-content">
+          <span class="section-label">Meet the Owner</span>
+          <h2>Hi, I'm Justin</h2>
+          <p>The owner of Timberline Build Co — previously known as Contractor Orange County. I've dedicated myself to bringing exceptional quality and customer satisfaction to every project.</p>
+          <p>I believe in open communication, meticulous attention to detail, and building lasting relationships with my clients. I'm passionate about creating beautiful and functional spaces that exceed your expectations.</p>
+          <div class="about-signature">
+            <span class="signature-name">Justin</span>
+            <span class="signature-title">Owner, Timberline Build Co</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Value Propositions -->
+  <!-- Value Propositions - Premium Dark Section -->
   <section class="section values">
     <div class="container">
-      <h2>Why Choose Timberline Build Co?</h2>
+      <div class="values-header fade-in">
+        <span class="section-label">Why Choose Us</span>
+        <h2>The Timberline Difference</h2>
+        <p>We're not just contractors — we're craftsmen dedicated to transforming your vision into reality.</p>
+      </div>
       <div class="values-grid">
-        <div class="value-card">
+        <div class="value-card fade-in">
+          <div class="value-icon">✨</div>
           <h3>Personalized Approach</h3>
-          <p>We treat every project as unique, tailoring our solutions to your specific needs and budget.</p>
+          <p>Every project is unique. We tailor our solutions to your specific needs, style, and budget.</p>
         </div>
-        <div class="value-card">
-          <h3>Craftsmanship You Can Trust</h3>
-          <p>Our team of skilled professionals delivers meticulous workmanship with every detail executed to perfection.</p>
+        <div class="value-card fade-in">
+          <div class="value-icon">🔨</div>
+          <h3>Expert Craftsmanship</h3>
+          <p>Our skilled team delivers meticulous workmanship with every detail executed to perfection.</p>
         </div>
-        <div class="value-card">
-          <h3>Commitment to Quality</h3>
-          <p>We use only the finest materials and employ the latest techniques for long-lasting beauty and durability.</p>
+        <div class="value-card fade-in">
+          <div class="value-icon">💎</div>
+          <h3>Premium Materials</h3>
+          <p>We use only the finest materials for long-lasting beauty and durability you can trust.</p>
         </div>
-        <div class="value-card">
+        <div class="value-card fade-in">
+          <div class="value-icon">📋</div>
           <h3>Transparent Pricing</h3>
-          <p>We provide upfront and honest pricing with no hidden costs or surprise fees.</p>
+          <p>Upfront, honest pricing with no hidden costs or surprise fees. Know your investment from day one.</p>
         </div>
-        <div class="value-card">
-          <h3>Exceptional Customer Service</h3>
-          <p>Your satisfaction is our top priority. We're always available to answer questions and address concerns.</p>
+        <div class="value-card fade-in">
+          <div class="value-icon">💬</div>
+          <h3>Clear Communication</h3>
+          <p>We keep you informed every step of the way. Your questions answered, concerns addressed.</p>
         </div>
-        <div class="value-card">
-          <h3>Timely Project Completion</h3>
-          <p>We respect your time and ensure projects are completed on schedule without compromising quality.</p>
+        <div class="value-card fade-in">
+          <div class="value-icon">⏰</div>
+          <h3>On-Time Delivery</h3>
+          <p>We respect your time. Projects completed on schedule without compromising quality.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Gallery Section -->
+  <!-- Gallery Section - Before/After Slider -->
   <section class="section gallery">
     <div class="container">
-      <h2>Our Work</h2>
+      <div class="gallery-header fade-in">
+        <span class="section-label">Our Portfolio</span>
+        <h2>Transformations That Inspire</h2>
+        <p>See the dramatic difference expert remodeling makes. Drag the slider to reveal the transformation.</p>
+      </div>
+      
+      <!-- Before/After Slider -->
+      <div class="ba-slider-container fade-in">
+        <div class="ba-slider" id="baSlider">
+          <div class="ba-image ba-before">
+            <picture>
+              <source srcset="images/gallery-1.webp" type="image/webp">
+              <img src="images/gallery-1.jpg" alt="Before renovation" loading="lazy">
+            </picture>
+          </div>
+          <div class="ba-image ba-after">
+            <picture>
+              <source srcset="images/gallery-2.webp" type="image/webp">
+              <img src="images/gallery-2.jpg" alt="After renovation" loading="lazy">
+            </picture>
+          </div>
+          <div class="ba-handle" id="baHandle"></div>
+          <span class="ba-label ba-label-before">Before</span>
+          <span class="ba-label ba-label-after">After</span>
+        </div>
+      </div>
+      
+      <!-- Gallery Grid -->
       <div class="gallery-grid">
-        <div class="gallery-item">
+        <div class="gallery-item fade-in">
           <picture>
-            <source srcset="images/gallery-1-mobile.webp 280w, images/gallery-1-tablet.webp 400w, images/gallery-1.webp 600w" type="image/webp" sizes="(max-width: 600px) 280px, (max-width: 1024px) 400px, 600px">
-            <source srcset="images/gallery-1-mobile.jpg 280w, images/gallery-1-tablet.jpg 400w, images/gallery-1.jpg 600w" sizes="(max-width: 600px) 280px, (max-width: 1024px) 400px, 600px">
-            <img src="images/gallery-1.jpg" alt="Luxury bathroom remodel" width="600" height="450" loading="lazy">
+            <source srcset="images/gallery-1.webp" type="image/webp">
+            <img src="images/gallery-1.jpg" alt="Bathroom transformation" loading="lazy">
           </picture>
-          <span class="gallery-label">Luxury Remodel</span>
+          <span class="gallery-label">Master Bath Renovation</span>
         </div>
-        <div class="gallery-item">
+        <div class="gallery-item fade-in">
           <picture>
-            <source srcset="images/gallery-2-mobile.webp 280w, images/gallery-2-tablet.webp 400w, images/gallery-2.webp 600w" type="image/webp" sizes="(max-width: 600px) 280px, (max-width: 1024px) 400px, 600px">
-            <source srcset="images/gallery-2-mobile.jpg 280w, images/gallery-2-tablet.jpg 400w, images/gallery-2.jpg 600w" sizes="(max-width: 600px) 280px, (max-width: 1024px) 400px, 600px">
-            <img src="images/gallery-2.jpg" alt="Modern shower installation" width="600" height="450" loading="lazy">
+            <source srcset="images/gallery-2.webp" type="image/webp">
+            <img src="images/gallery-2.jpg" alt="Modern shower installation" loading="lazy">
           </picture>
-          <span class="gallery-label">Modern Shower</span>
+          <span class="gallery-label">Modern Walk-In Shower</span>
         </div>
-        <div class="gallery-item">
+        <div class="gallery-item fade-in">
           <picture>
-            <source srcset="images/gallery-3-mobile.webp 280w, images/gallery-3-tablet.webp 400w, images/gallery-3.webp 600w" type="image/webp" sizes="(max-width: 600px) 280px, (max-width: 1024px) 400px, 600px">
-            <source srcset="images/gallery-3-mobile.jpg 280w, images/gallery-3-tablet.jpg 400w, images/gallery-3.jpg 600w" sizes="(max-width: 600px) 280px, (max-width: 1024px) 400px, 600px">
-            <img src="images/gallery-3.jpg" alt="Custom vanity design" width="600" height="450" loading="lazy">
+            <source srcset="images/gallery-3.webp" type="image/webp">
+            <img src="images/gallery-3.jpg" alt="Custom vanity design" loading="lazy">
           </picture>
-          <span class="gallery-label">Custom Vanity</span>
+          <span class="gallery-label">Custom Vanity Design</span>
         </div>
-        <div class="gallery-item">
+        <div class="gallery-item fade-in">
           <picture>
-            <source srcset="images/gallery-4-mobile.webp 280w, images/gallery-4-tablet.webp 400w, images/gallery-4.webp 600w" type="image/webp" sizes="(max-width: 600px) 280px, (max-width: 1024px) 400px, 600px">
-            <source srcset="images/gallery-4-mobile.jpg 280w, images/gallery-4-tablet.jpg 400w, images/gallery-4.jpg 600w" sizes="(max-width: 600px) 280px, (max-width: 1024px) 400px, 600px">
-            <img src="images/gallery-4.jpg" alt="Marble vanity" width="600" height="450" loading="lazy">
+            <source srcset="images/gallery-4.webp" type="image/webp">
+            <img src="images/gallery-4.jpg" alt="Luxury bathroom remodel" loading="lazy">
           </picture>
-          <span class="gallery-label">Marble Vanity</span>
-        </div>
-        <div class="gallery-item">
-          <picture>
-            <source srcset="images/gallery-5-mobile.webp 280w, images/gallery-5-tablet.webp 400w, images/gallery-5.webp 600w" type="image/webp" sizes="(max-width: 600px) 280px, (max-width: 1024px) 400px, 600px">
-            <source srcset="images/gallery-5-mobile.jpg 280w, images/gallery-5-tablet.jpg 400w, images/gallery-5.jpg 600w" sizes="(max-width: 600px) 280px, (max-width: 1024px) 400px, 600px">
-            <img src="images/gallery-5.jpg" alt="Spa bathroom" width="600" height="450" loading="lazy">
-          </picture>
-          <span class="gallery-label">Spa Bathroom</span>
-        </div>
-        <div class="gallery-item">
-          <picture>
-            <source srcset="images/gallery-6-mobile.webp 280w, images/gallery-6-tablet.webp 400w, images/gallery-6.webp 600w" type="image/webp" sizes="(max-width: 600px) 280px, (max-width: 1024px) 400px, 600px">
-            <source srcset="images/gallery-6-mobile.jpg 280w, images/gallery-6-tablet.jpg 400w, images/gallery-6.jpg 600w" sizes="(max-width: 600px) 280px, (max-width: 1024px) 400px, 600px">
-            <img src="images/gallery-6.jpg" alt="Master bathroom" width="600" height="450" loading="lazy">
-          </picture>
-          <span class="gallery-label">Master Bathroom</span>
+          <span class="gallery-label">Luxury Full Remodel</span>
         </div>
       </div>
     </div>
@@ -337,22 +1707,49 @@
   <!-- CTA Section -->
   <section class="section cta-section">
     <div class="container">
-      <h2>Ready to Transform Your Bathroom?</h2>
-      <p>Get an instant estimate in under 60 seconds — or call us now to speak with Justin directly.</p>
-      <div class="cta-buttons">
-        <button class="btn btn-gold" data-open-form>Get Your Instant Estimate</button>
-        <a href="tel:+17149001234" class="btn btn-outline callrail-swap">(714) 900-1234</a>
+      <div class="cta-content fade-in">
+        <span class="section-label">Ready to Start?</span>
+        <h2>Transform Your Bathroom Today</h2>
+        <p>Get an instant estimate in under 60 seconds — or call us now to speak with Justin directly.</p>
+        <div class="cta-buttons">
+          <button class="btn btn-gold" data-open-form>Get Your Instant Estimate</button>
+          <a href="tel:+17149001234" class="btn btn-outline callrail-swap">(714) 900-1234</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- Footer - Premium -->
   <footer>
     <div class="container">
-      <p><strong>Timberline Build Co</strong> — Orange County's Trusted Remodeler</p>
-      <p>Licensed • Insured • Serving Orange County, CA</p>
-      <p style="margin-top:0.75rem"><a href="tel:+17149001234" class="callrail-swap">(714) 900-1234</a></p>
-      <p style="margin-top:1rem;opacity:0.6">Copyright ©2025 All Rights Reserved.</p>
+      <div class="footer-top">
+        <div class="footer-brand">
+          <h3>Timberline Build Co</h3>
+          <p>Orange County's trusted bathroom and kitchen remodeler. Expert craftsmanship, exceptional results.</p>
+          <div class="footer-badges">
+            <span class="footer-badge">🛡️ Licensed</span>
+            <span class="footer-badge">✓ Insured</span>
+            <span class="footer-badge">⭐ 5-Star</span>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h4>Services</h4>
+          <a href="#" data-open-form>Bathroom Remodels</a>
+          <a href="#" data-open-form>Shower Conversions</a>
+          <a href="#" data-open-form>Custom Vanities</a>
+          <a href="#" data-open-form>Flooring</a>
+        </div>
+        <div class="footer-column">
+          <h4>Contact</h4>
+          <a href="tel:+17149001234" class="callrail-swap">(714) 900-1234</a>
+          <a href="mailto:info@timberlinebuild.co">info@timberlinebuild.co</a>
+          <a href="#">Orange County, CA</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Timberline Build Co. All rights reserved.</p>
+        <p>Proudly serving Orange County homeowners</p>
+      </div>
     </div>
   </footer>
 
@@ -364,16 +1761,23 @@
       
       <!-- Header -->
       <div class="form-header">
-        <span class="form-logo">TIMBERLINE BUILD CO</span>
-        <button class="form-close" aria-label="Close">&times;</button>
+        <span class="form-logo">Timberline Build Co</span>
+        <button class="form-close" aria-label="Close">✕</button>
       </div>
       
-      <!-- Progress Bar -->
+      <!-- Progress Bar - Segmented -->
       <div class="form-progress">
-        <div class="progress-bar">
-          <div class="progress-fill" id="progressFill" style="width:12.5%"></div>
+        <div class="progress-wrapper" id="progressWrapper">
+          <div class="progress-segment"><div class="progress-segment-fill"></div></div>
+          <div class="progress-segment"><div class="progress-segment-fill"></div></div>
+          <div class="progress-segment"><div class="progress-segment-fill"></div></div>
+          <div class="progress-segment"><div class="progress-segment-fill"></div></div>
+          <div class="progress-segment"><div class="progress-segment-fill"></div></div>
+          <div class="progress-segment"><div class="progress-segment-fill"></div></div>
+          <div class="progress-segment"><div class="progress-segment-fill"></div></div>
+          <div class="progress-segment"><div class="progress-segment-fill"></div></div>
         </div>
-        <div class="progress-text" id="progressText">1 of 8</div>
+        <div class="progress-text" id="progressText">Step 1 of 8</div>
       </div>
       
       <!-- Main Content Area -->
@@ -381,7 +1785,7 @@
         
         <!-- Screen 1: Project Type -->
         <div class="form-screen active" data-screen="1">
-          <div class="question-number">QUESTION 1</div>
+          <div class="question-number">QUESTION 01</div>
           <h2 class="question-title">What are we working on?</h2>
           <p class="question-subtitle">This helps us give you the most accurate estimate</p>
           
@@ -415,7 +1819,7 @@
         
         <!-- Screen 2: Main Fixture -->
         <div class="form-screen" data-screen="2">
-          <div class="question-number">QUESTION 2</div>
+          <div class="question-number">QUESTION 02</div>
           <h2 class="question-title">What's the main fixture?</h2>
           <p class="question-subtitle">The centerpiece of your new bathroom</p>
           
@@ -446,7 +1850,7 @@
         
         <!-- Screen 3: Current Condition -->
         <div class="form-screen" data-screen="3">
-          <div class="question-number">QUESTION 3</div>
+          <div class="question-number">QUESTION 03</div>
           <h2 class="question-title">Current bathroom condition?</h2>
           <p class="question-subtitle">This affects demo and prep costs</p>
           
@@ -477,7 +1881,7 @@
         
         <!-- Screen 4: Flooring -->
         <div class="form-screen" data-screen="4">
-          <div class="question-number">QUESTION 4</div>
+          <div class="question-number">QUESTION 04</div>
           <h2 class="question-title">What about flooring?</h2>
           <p class="question-subtitle">One of the biggest visual impacts</p>
           
@@ -501,6 +1905,7 @@
             <button type="button" class="option-btn" data-value="none">
               <span class="option-key">C</span>
               <div class="option-content">
+
                 <div class="option-label">No flooring changes</div>
                 <div class="option-desc">Keep existing floors</div>
               </div>
@@ -510,7 +1915,7 @@
         
         <!-- Screen 5: Fixture Quality -->
         <div class="form-screen" data-screen="5">
-          <div class="question-number">QUESTION 5</div>
+          <div class="question-number">QUESTION 05</div>
           <h2 class="question-title">Fixture quality level?</h2>
           <p class="question-subtitle">This significantly impacts your investment</p>
           
@@ -541,7 +1946,7 @@
         
         <!-- Screen 6: Plumbing -->
         <div class="form-screen" data-screen="6">
-          <div class="question-number">QUESTION 6</div>
+          <div class="question-number">QUESTION 06</div>
           <h2 class="question-title">Any plumbing work needed?</h2>
           <p class="question-subtitle">Moving pipes adds to the scope</p>
           
@@ -574,7 +1979,7 @@
         
         <!-- Screen 7: Square Footage -->
         <div class="form-screen" data-screen="7">
-          <div class="question-number">QUESTION 7</div>
+          <div class="question-number">QUESTION 07</div>
           <h2 class="question-title">Bathroom size?</h2>
           <p class="question-subtitle">Drag the slider to estimate square footage</p>
           
@@ -594,7 +1999,7 @@
         
         <!-- Screen 8: Photo Upload -->
         <div class="form-screen" data-screen="8">
-          <div class="question-number">QUESTION 8 — OPTIONAL</div>
+          <div class="question-number">QUESTION 08 — OPTIONAL</div>
           <h2 class="question-title">Got a photo?</h2>
           <p class="question-subtitle">Helps us give you an even better estimate (not required)</p>
           
@@ -692,80 +2097,123 @@
   </div>
 
   <!-- ============================================
-       PRICING ENGINE + FORM LOGIC
+       JAVASCRIPT - Form Logic + Animations
        ============================================ -->
   <script>
     (function() {
       'use strict';
       
+      // === FADE IN ON SCROLL ===
+      function initFadeIn() {
+        var fadeEls = document.querySelectorAll('.fade-in');
+        
+        var observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+            }
+          });
+        }, {
+          threshold: 0.1,
+          rootMargin: '0px 0px -50px 0px'
+        });
+        
+        fadeEls.forEach(function(el) {
+          observer.observe(el);
+        });
+      }
+      
+      // === BEFORE/AFTER SLIDER ===
+      function initBASlider() {
+        var slider = document.getElementById('baSlider');
+        var handle = document.getElementById('baHandle');
+        var afterImg = slider.querySelector('.ba-after');
+        var isDragging = false;
+        
+        function updateSlider(x) {
+          var rect = slider.getBoundingClientRect();
+          var percent = Math.max(0, Math.min(100, ((x - rect.left) / rect.width) * 100));
+          handle.style.left = percent + '%';
+          afterImg.style.clipPath = 'inset(0 ' + (100 - percent) + '% 0 0)';
+        }
+        
+        function startDrag(e) {
+          isDragging = true;
+          e.preventDefault();
+        }
+        
+        function stopDrag() {
+          isDragging = false;
+        }
+        
+        function onDrag(e) {
+          if (!isDragging) return;
+          var x = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+          updateSlider(x);
+        }
+        
+        handle.addEventListener('mousedown', startDrag);
+        handle.addEventListener('touchstart', startDrag, { passive: false });
+        
+        document.addEventListener('mousemove', onDrag);
+        document.addEventListener('touchmove', onDrag, { passive: true });
+        
+        document.addEventListener('mouseup', stopDrag);
+        document.addEventListener('touchend', stopDrag);
+        
+        slider.addEventListener('click', function(e) {
+          updateSlider(e.clientX);
+        });
+      }
+      
       // === STATE ===
       var state = {
         screen: 1,
-        projectType: null,    // shower-only, full-remodel, bath-flooring
-        fixture: null,        // shower, tub-shower, tub-only
-        condition: null,      // full-demo, partial, cosmetic
-        flooring: null,       // vinyl, tile, none
-        quality: null,        // budget, mid, premium
-        plumbing: null,       // none, minor, major
+        projectType: null,
+        fixture: null,
+        condition: null,
+        flooring: null,
+        quality: null,
+        plumbing: null,
         sqft: 50,
         photo: null
       };
       
       // === PRICING ENGINE ===
-      // All prices are CLIENT-FACING (40% markup already applied)
-      // Based on Justin's actual pricing + web research validation
       var pricing = {
-        // Base prices by project type
         base: {
-          'shower-only': 10000,    // Tub-to-shower or shower update
-          'full-remodel': 15000,   // Shower + vanity + fixtures
-          'bath-flooring': 18000   // Full remodel + floors
+          'shower-only': 10000,
+          'full-remodel': 15000,
+          'bath-flooring': 18000
         },
-        
-        // Tile labor: $35/sq ft for shower walls (standard 32×60×96 = ~65 sq ft of tile)
-        // This is premium OC contractor pricing
         showerTileSqFt: 35,
         standardShowerTileSqFt: 65,
-        
-        // Glass enclosure
         glassEnclosure: 2000,
-        
-        // Vanity by quality tier
         vanity: {
           budget: 800,
           mid: 1500,
           premium: 3000
         },
-        
-        // Flooring per sq ft installed
         flooringRate: {
           vinyl: 10,
           tile: 25,
           none: 0
         },
-        
-        // Demo costs by condition
         demo: {
           'full-demo': 1500,
           'partial': 800,
           'cosmetic': 300
         },
-        
-        // Plumbing work
         plumbingAdder: {
           none: 0,
           minor: 2000,
           major: 4000
         },
-        
-        // Quality multipliers
         qualityMult: {
           budget: 0.85,
           mid: 1.0,
           premium: 1.35
         },
-        
-        // Fixture type adjustments
         fixtureAdj: {
           'shower': 0,
           'tub-shower': 1500,
@@ -777,7 +2225,6 @@
         var low = 0, high = 0;
         var breakdown = [];
         
-        // 1. Base cost by project type
         var base = pricing.base[state.projectType] || 10000;
         low += base;
         high += base * 1.3;
@@ -792,7 +2239,6 @@
           value: '$' + base.toLocaleString()
         });
         
-        // 2. Fixture type adjustment
         var fixtureAdj = pricing.fixtureAdj[state.fixture] || 0;
         if (fixtureAdj > 0) {
           low += fixtureAdj;
@@ -807,7 +2253,6 @@
           });
         }
         
-        // 3. Demo costs
         var demo = pricing.demo[state.condition] || 800;
         low += demo;
         high += demo * 1.4;
@@ -816,7 +2261,6 @@
           value: '$' + demo.toLocaleString()
         });
         
-        // 4. Glass enclosure (for shower types)
         if (state.fixture === 'shower' || state.fixture === 'tub-shower') {
           low += pricing.glassEnclosure;
           high += pricing.glassEnclosure * 1.5;
@@ -826,7 +2270,6 @@
           });
         }
         
-        // 5. Tile work (shower walls - use standard 65 sq ft)
         var tileCost = pricing.showerTileSqFt * pricing.standardShowerTileSqFt;
         low += tileCost;
         high += tileCost * 1.25;
@@ -835,7 +2278,6 @@
           value: '$' + tileCost.toLocaleString()
         });
         
-        // 6. Vanity (for full remodels)
         if (state.projectType !== 'shower-only') {
           var vanityCost = pricing.vanity[state.quality] || pricing.vanity.mid;
           low += vanityCost;
@@ -846,7 +2288,6 @@
           });
         }
         
-        // 7. Flooring
         if (state.flooring !== 'none' && state.flooring) {
           var floorRate = pricing.flooringRate[state.flooring] || 0;
           var floorCost = floorRate * state.sqft;
@@ -860,7 +2301,6 @@
           }
         }
         
-        // 8. Plumbing
         var plumbingCost = pricing.plumbingAdder[state.plumbing] || 0;
         if (plumbingCost > 0) {
           low += plumbingCost;
@@ -871,16 +2311,13 @@
           });
         }
         
-        // 9. Apply quality multiplier
         var mult = pricing.qualityMult[state.quality] || 1.0;
         low = Math.round(low * mult);
         high = Math.round(high * mult);
         
-        // 10. Round to nearest 100
         low = Math.round(low / 100) * 100;
         high = Math.round(high / 100) * 100;
         
-        // Ensure minimum spread
         if (high < low * 1.2) {
           high = Math.round(low * 1.25 / 100) * 100;
         }
@@ -904,7 +2341,8 @@
       // === DOM ELEMENTS ===
       var modal = document.getElementById('formModal');
       var screens = document.querySelectorAll('.form-screen');
-      var progressFill = document.getElementById('progressFill');
+      var progressWrapper = document.getElementById('progressWrapper');
+      var progressSegments = progressWrapper.querySelectorAll('.progress-segment');
       var progressText = document.getElementById('progressText');
       var navBack = document.getElementById('navBack');
       var navNext = document.getElementById('navNext');
@@ -924,26 +2362,29 @@
           }
         });
         
-        // Progress
+        // Progress - segmented
         if (typeof n === 'number' && n <= 8) {
-          progressFill.style.width = (n * 12.5) + '%';
-          progressText.textContent = n + ' of 8';
-          progressFill.parentElement.parentElement.style.display = '';
+          progressSegments.forEach(function(seg, i) {
+            seg.classList.remove('filled', 'current');
+            if (i < n - 1) {
+              seg.classList.add('filled');
+            } else if (i === n - 1) {
+              seg.classList.add('current');
+            }
+          });
+          progressText.textContent = 'Step ' + n + ' of 8';
+          progressWrapper.parentElement.style.display = '';
           formNav.style.display = '';
         } else {
-          progressFill.parentElement.parentElement.style.display = 'none';
+          progressWrapper.parentElement.style.display = 'none';
           if (n === 'success') {
             formNav.style.display = 'none';
           }
         }
         
-        // Back button
         navBack.disabled = (n === 1);
-        
-        // Next button state
         updateNextButton();
         
-        // Results
         if (n === 9) {
           showResults();
           formNav.style.display = 'none';
@@ -960,12 +2401,11 @@
         else if (screen === 4) enabled = !!state.flooring;
         else if (screen === 5) enabled = !!state.quality;
         else if (screen === 6) enabled = !!state.plumbing;
-        else if (screen === 7) enabled = true; // Slider always has value
-        else if (screen === 8) enabled = true; // Photo optional
+        else if (screen === 7) enabled = true;
+        else if (screen === 8) enabled = true;
         
         navNext.disabled = !enabled;
         
-        // Change button text
         if (screen === 8) {
           navNext.textContent = state.photo ? 'See My Estimate →' : 'Skip & See Estimate →';
         } else if (screen >= 1 && screen <= 7) {
@@ -994,15 +2434,10 @@
         
         buttons.forEach(function(btn) {
           btn.addEventListener('click', function() {
-            // Deselect others
             buttons.forEach(function(b) { b.classList.remove('selected'); });
-            // Select this one
             btn.classList.add('selected');
-            // Update state
             state[stateKey] = btn.dataset.value;
-            // Enable next
             updateNextButton();
-            // Auto-advance after short delay
             setTimeout(function() {
               if (state.screen < 8) {
                 showScreen(state.screen + 1);
@@ -1012,7 +2447,6 @@
         });
       }
       
-      // Setup all option screens
       setupOptionButtons(1, 'projectType');
       setupOptionButtons(2, 'fixture');
       setupOptionButtons(3, 'condition');
@@ -1025,7 +2459,6 @@
         state.sqft = parseInt(this.value);
         sqftValue.textContent = this.value;
         
-        // Context text
         var context = 'Powder room';
         if (state.sqft >= 35) context = 'Small bathroom';
         if (state.sqft >= 50) context = 'Average full bathroom';
@@ -1078,7 +2511,6 @@
         }
       });
       
-      // Keyboard navigation
       document.addEventListener('keydown', function(e) {
         if (!modal.classList.contains('active')) return;
         
@@ -1087,7 +2519,6 @@
           showScreen(state.screen + 1);
         }
         
-        // A/B/C shortcuts for options
         if (state.screen >= 1 && state.screen <= 6) {
           var key = e.key.toLowerCase();
           var index = {'a': 0, 'b': 1, 'c': 2}[key];
@@ -1122,7 +2553,6 @@
           estimate_high: est.high
         };
         
-        // Build params for GHL
         var params = new URLSearchParams();
         params.append('full_name', formData.name);
         params.append('phone', formData.phone);
@@ -1141,14 +2571,12 @@
         submitBtn.textContent = 'Submitting...';
         submitBtn.disabled = true;
         
-        // Submit to GHL
         fetch('https://link.apisystem.tech/widget/form/T6mcisYXB0t5PDUQaAsP?' + params.toString(), {
           method: 'POST',
           mode: 'no-cors'
         }).then(function() {
           showScreen('success');
         }).catch(function() {
-          // Fallback
           window.open('https://link.apisystem.tech/widget/form/T6mcisYXB0t5PDUQaAsP?' + params.toString(), '_blank');
           showScreen('success');
         });
@@ -1159,7 +2587,6 @@
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
         
-        // Reset state
         state = {
           screen: 1,
           projectType: null,
@@ -1172,7 +2599,6 @@
           photo: null
         };
         
-        // Reset UI
         screens.forEach(function(s) {
           s.classList.remove('active');
           s.querySelectorAll('.option-btn').forEach(function(b) {
@@ -1202,12 +2628,10 @@
         document.body.style.overflow = '';
       };
       
-      // Open triggers
       document.querySelectorAll('[data-open-form]').forEach(function(btn) {
         btn.addEventListener('click', openModal);
       });
       
-      // Close triggers
       modal.querySelector('.form-close').addEventListener('click', closeModal);
       
       document.addEventListener('keydown', function(e) {
@@ -1215,6 +2639,10 @@
           closeModal();
         }
       });
+      
+      // === INIT ===
+      initFadeIn();
+      initBASlider();
       
     })();
   </script>
