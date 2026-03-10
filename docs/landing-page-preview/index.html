@@ -73,112 +73,139 @@
     footer a{color:var(--gold);text-decoration:none}
     footer a:hover{text-decoration:underline}
     
-    /* Form Modal */
-    .form-modal{display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,0.85);align-items:center;justify-content:center;padding:1rem}
+    /* ============================================
+       TYPEFORM-STYLE ESTIMATE MODAL
+       ============================================ */
+    .form-modal{display:none;position:fixed;inset:0;z-index:1000;background:var(--green);align-items:center;justify-content:center;overflow:hidden}
     .form-modal.active{display:flex}
-    .form-container{background:var(--cream);border-radius:12px;max-width:560px;width:100%;max-height:90vh;overflow:auto;position:relative;box-shadow:0 25px 50px rgba(0,0,0,0.3)}
-    .form-close{position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.75rem;cursor:pointer;color:#666;z-index:10;width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:50%;transition:background 0.2s}
-    .form-close:hover{background:rgba(0,0,0,0.1)}
     
-    /* Estimate Calculator Styles */
-    .estimate-form{padding:2rem}
-    .estimate-header{text-align:center;margin-bottom:1.5rem}
-    .estimate-header h2{color:var(--green);font-size:1.5rem;margin-bottom:0.5rem}
-    .estimate-header p{color:#666;font-size:0.95rem}
+    .form-container{width:100%;height:100%;max-width:100%;display:flex;flex-direction:column;position:relative}
     
-    /* Progress Bar */
-    .progress-bar{background:#e0e0e0;height:6px;border-radius:3px;margin-bottom:2rem;overflow:hidden}
-    .progress-fill{background:var(--gold);height:100%;border-radius:3px;transition:width 0.3s ease}
-    .progress-text{text-align:center;font-size:0.85rem;color:#888;margin-top:0.5rem}
+    /* Header bar */
+    .form-header{display:flex;justify-content:space-between;align-items:center;padding:1rem 1.5rem;background:rgba(0,0,0,0.15)}
+    .form-logo{color:#fff;font-weight:700;font-size:1.1rem;letter-spacing:0.05em}
+    .form-close{background:none;border:none;color:rgba(255,255,255,0.7);font-size:1.5rem;cursor:pointer;padding:0.5rem;transition:color 0.2s}
+    .form-close:hover{color:#fff}
     
-    /* Question Steps */
-    .question-step{display:none;animation:fadeIn 0.3s ease}
-    .question-step.active{display:block}
-    @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+    /* Progress */
+    .form-progress{padding:0 1.5rem;padding-top:1rem}
+    .progress-bar{background:rgba(255,255,255,0.2);height:4px;border-radius:2px;overflow:hidden}
+    .progress-fill{background:var(--gold);height:100%;transition:width 0.4s ease}
+    .progress-text{color:rgba(255,255,255,0.6);font-size:0.8rem;margin-top:0.5rem;text-align:right}
     
-    .question-title{color:var(--green);font-size:1.25rem;margin-bottom:1.25rem;font-weight:600}
+    /* Main content area */
+    .form-main{flex:1;display:flex;align-items:center;justify-content:center;padding:2rem;overflow-y:auto}
+    .form-screen{display:none;width:100%;max-width:600px;animation:slideIn 0.4s ease}
+    .form-screen.active{display:block}
     
-    /* Option Cards */
-    .option-grid{display:grid;gap:0.75rem}
-    .option-card{background:#fff;border:2px solid #e0e0e0;border-radius:8px;padding:1rem 1.25rem;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;gap:0.75rem}
-    .option-card:hover{border-color:var(--gold);background:#fffdf8}
-    .option-card.selected{border-color:var(--green);background:#f0f7f3}
-    .option-card input{display:none}
-    .option-radio{width:20px;height:20px;border:2px solid #ccc;border-radius:50%;flex-shrink:0;position:relative;transition:all 0.2s}
-    .option-card.selected .option-radio{border-color:var(--green);background:var(--green)}
-    .option-card.selected .option-radio::after{content:'';position:absolute;inset:4px;background:#fff;border-radius:50%}
-    .option-checkbox{width:20px;height:20px;border:2px solid #ccc;border-radius:4px;flex-shrink:0;position:relative;transition:all 0.2s;display:flex;align-items:center;justify-content:center}
-    .option-card.selected .option-checkbox{border-color:var(--green);background:var(--green)}
-    .option-card.selected .option-checkbox::after{content:'✓';color:#fff;font-size:14px;font-weight:bold}
-    .option-text{font-size:1rem;color:var(--text)}
-    .option-desc{font-size:0.85rem;color:#888;margin-top:0.25rem}
+    @keyframes slideIn{
+      from{opacity:0;transform:translateY(30px)}
+      to{opacity:1;transform:translateY(0)}
+    }
     
-    /* Slider */
-    .slider-container{padding:1rem 0}
-    .slider-value{text-align:center;font-size:2rem;font-weight:700;color:var(--green);margin-bottom:1rem}
-    .slider-value span{font-size:1rem;font-weight:400;color:#666}
-    input[type="range"]{width:100%;height:8px;border-radius:4px;background:#e0e0e0;outline:none;-webkit-appearance:none;cursor:pointer}
-    input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;background:var(--gold);cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,0.2)}
-    input[type="range"]::-moz-range-thumb{width:24px;height:24px;border-radius:50%;background:var(--gold);cursor:pointer;border:none}
-    .slider-labels{display:flex;justify-content:space-between;font-size:0.85rem;color:#888;margin-top:0.5rem}
+    /* Question styling */
+    .question-number{color:var(--gold);font-size:0.9rem;font-weight:600;margin-bottom:0.75rem;letter-spacing:0.1em}
+    .question-title{color:#fff;font-size:clamp(1.5rem,4vw,2rem);font-weight:600;margin-bottom:0.5rem;line-height:1.3}
+    .question-subtitle{color:rgba(255,255,255,0.7);font-size:1rem;margin-bottom:2rem}
     
-    /* Navigation Buttons */
-    .nav-buttons{display:flex;gap:1rem;margin-top:2rem}
-    .btn-back{background:#e0e0e0;color:#666;flex:0 0 auto;padding:0.875rem 1.5rem}
-    .btn-back:hover{background:#d0d0d0;transform:none;box-shadow:none}
-    .btn-next{flex:1}
-    .btn-next:disabled{background:#ccc;cursor:not-allowed;transform:none}
+    /* Option cards - large clickable areas */
+    .options-list{display:flex;flex-direction:column;gap:0.75rem}
+    .option-btn{background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.15);border-radius:8px;padding:1.25rem 1.5rem;text-align:left;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;gap:1rem}
+    .option-btn:hover{background:rgba(255,255,255,0.12);border-color:rgba(255,255,255,0.3);transform:translateX(4px)}
+    .option-btn.selected{background:rgba(233,175,59,0.15);border-color:var(--gold)}
+    .option-key{width:32px;height:32px;border-radius:4px;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;font-weight:600;color:rgba(255,255,255,0.7);font-size:0.85rem;flex-shrink:0}
+    .option-btn.selected .option-key{background:var(--gold);color:var(--navy)}
+    .option-content{flex:1}
+    .option-label{color:#fff;font-size:1.1rem;font-weight:500}
+    .option-desc{color:rgba(255,255,255,0.6);font-size:0.9rem;margin-top:0.25rem}
+    .option-price{color:var(--gold);font-size:0.85rem;margin-top:0.25rem;font-weight:500}
     
-    /* Results Section */
-    .estimate-result{text-align:center}
-    .result-badge{display:inline-block;background:var(--green);color:#fff;padding:0.5rem 1rem;border-radius:20px;font-size:0.85rem;margin-bottom:1rem}
-    .result-price{font-size:2.5rem;font-weight:700;color:var(--green);margin-bottom:0.5rem}
-    .result-price-range{font-size:1.1rem;color:#666;margin-bottom:1.5rem}
-    .result-timeline{background:#fff;border-radius:8px;padding:1rem;margin-bottom:1.5rem;border-left:4px solid var(--gold)}
-    .result-timeline strong{color:var(--green)}
+    /* Slider styling */
+    .slider-wrap{padding:1.5rem 0}
+    .slider-display{text-align:center;margin-bottom:2rem}
+    .slider-value{font-size:4rem;font-weight:700;color:#fff;line-height:1}
+    .slider-unit{font-size:1.25rem;color:rgba(255,255,255,0.6);margin-left:0.5rem}
+    .slider-context{color:rgba(255,255,255,0.5);font-size:0.9rem;margin-top:0.5rem}
     
-    /* Breakdown */
-    .estimate-breakdown{background:#fff;border-radius:8px;padding:1rem;margin-bottom:1.5rem;text-align:left}
-    .estimate-breakdown h4{color:var(--green);margin-bottom:0.75rem;font-size:0.95rem}
-    .breakdown-item{display:flex;justify-content:space-between;padding:0.5rem 0;border-bottom:1px solid #eee;font-size:0.9rem}
+    input[type="range"]{width:100%;height:8px;border-radius:4px;background:rgba(255,255,255,0.2);outline:none;-webkit-appearance:none;cursor:pointer}
+    input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:28px;height:28px;border-radius:50%;background:var(--gold);cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.3)}
+    input[type="range"]::-moz-range-thumb{width:28px;height:28px;border-radius:50%;background:var(--gold);cursor:pointer;border:none}
+    
+    .slider-labels{display:flex;justify-content:space-between;margin-top:0.75rem;color:rgba(255,255,255,0.5);font-size:0.85rem}
+    
+    /* Photo upload */
+    .upload-area{border:2px dashed rgba(255,255,255,0.3);border-radius:12px;padding:3rem 2rem;text-align:center;cursor:pointer;transition:all 0.2s;position:relative}
+    .upload-area:hover{border-color:var(--gold);background:rgba(255,255,255,0.05)}
+    .upload-area.has-image{border-style:solid;border-color:var(--gold)}
+    .upload-icon{font-size:3rem;margin-bottom:1rem}
+    .upload-text{color:#fff;font-size:1.1rem;margin-bottom:0.5rem}
+    .upload-hint{color:rgba(255,255,255,0.5);font-size:0.9rem}
+    .upload-input{position:absolute;inset:0;opacity:0;cursor:pointer}
+    .upload-preview{max-width:100%;max-height:200px;border-radius:8px;margin:0 auto}
+    .upload-remove{background:rgba(0,0,0,0.5);color:#fff;border:none;padding:0.5rem 1rem;border-radius:4px;margin-top:1rem;cursor:pointer;font-size:0.85rem}
+    .upload-remove:hover{background:rgba(0,0,0,0.7)}
+    
+    /* Navigation */
+    .form-nav{padding:1.5rem;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+    .nav-back{background:transparent;border:none;color:rgba(255,255,255,0.7);font-size:0.95rem;cursor:pointer;padding:0.75rem 1rem;display:flex;align-items:center;gap:0.5rem;transition:color 0.2s}
+    .nav-back:hover{color:#fff}
+    .nav-back:disabled{opacity:0.3;cursor:not-allowed}
+    .nav-next{background:var(--gold);color:var(--navy);border:none;padding:0.875rem 2rem;border-radius:4px;font-size:1rem;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:0.5rem;transition:transform 0.2s,box-shadow 0.2s}
+    .nav-next:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.2)}
+    .nav-next:disabled{opacity:0.5;cursor:not-allowed;transform:none}
+    
+    /* Results screen */
+    .results-screen{max-width:700px}
+    .result-header{text-align:center;margin-bottom:2rem}
+    .result-badge{display:inline-block;background:var(--gold);color:var(--navy);padding:0.5rem 1rem;border-radius:20px;font-size:0.85rem;font-weight:600;margin-bottom:1rem}
+    .result-title{color:#fff;font-size:1.25rem;margin-bottom:0.5rem}
+    .result-price{font-size:clamp(2.5rem,8vw,3.5rem);font-weight:700;color:#fff;margin-bottom:0.25rem}
+    .result-range{color:rgba(255,255,255,0.7);font-size:1rem}
+    
+    .result-timeline{background:rgba(255,255,255,0.1);border-radius:8px;padding:1rem 1.5rem;margin:1.5rem 0;display:flex;align-items:center;gap:1rem}
+    .timeline-icon{font-size:1.5rem}
+    .timeline-text{color:#fff;font-size:0.95rem}
+    .timeline-text strong{color:var(--gold)}
+    
+    .breakdown-card{background:rgba(255,255,255,0.95);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem}
+    .breakdown-title{color:var(--green);font-size:1rem;font-weight:600;margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem}
+    .breakdown-item{display:flex;justify-content:space-between;padding:0.6rem 0;border-bottom:1px solid #eee;font-size:0.95rem}
     .breakdown-item:last-child{border-bottom:none}
+    .breakdown-item span:first-child{color:#555}
     .breakdown-item span:last-child{color:var(--green);font-weight:600}
     
-    /* Lead Form */
-    .lead-form{background:#fff;border-radius:8px;padding:1.5rem;margin-top:1.5rem;text-align:left}
-    .lead-form h3{color:var(--green);margin-bottom:0.5rem;font-size:1.1rem}
-    .lead-form p{color:#666;font-size:0.9rem;margin-bottom:1rem}
-    .form-group{margin-bottom:1rem}
-    .form-group label{display:block;font-size:0.9rem;color:#555;margin-bottom:0.35rem;font-weight:500}
-    .form-group input{width:100%;padding:0.75rem 1rem;border:2px solid #e0e0e0;border-radius:6px;font-size:1rem;transition:border-color 0.2s}
-    .form-group input:focus{outline:none;border-color:var(--gold)}
-    .form-group input::placeholder{color:#aaa}
-    .form-group.optional label::after{content:' (optional)';font-weight:400;color:#999}
-    .btn-submit{width:100%;margin-top:0.5rem}
+    /* Contact form in results */
+    .contact-card{background:#fff;border-radius:12px;padding:1.5rem;box-shadow:0 4px 20px rgba(0,0,0,0.15)}
+    .contact-card h3{color:var(--green);font-size:1.1rem;margin-bottom:0.5rem}
+    .contact-card>p{color:#666;font-size:0.9rem;margin-bottom:1.25rem}
+    .form-row{display:grid;gap:1rem;margin-bottom:1rem}
+    .form-row.two-col{grid-template-columns:1fr 1fr}
+    .form-field label{display:block;font-size:0.85rem;color:#555;margin-bottom:0.35rem;font-weight:500}
+    .form-field input{width:100%;padding:0.75rem 1rem;border:2px solid #e0e0e0;border-radius:6px;font-size:1rem;transition:border-color 0.2s}
+    .form-field input:focus{outline:none;border-color:var(--gold)}
+    .form-field.optional label::after{content:' (optional)';font-weight:400;color:#999}
+    .btn-submit{width:100%;background:var(--gold);color:var(--navy);border:none;padding:1rem;border-radius:6px;font-size:1.05rem;font-weight:600;cursor:pointer;transition:transform 0.2s}
+    .btn-submit:hover{transform:translateY(-2px)}
     .form-note{text-align:center;font-size:0.8rem;color:#888;margin-top:1rem}
     
-    /* Success State */
-    .success-state{text-align:center;padding:2rem 0}
-    .success-icon{font-size:4rem;margin-bottom:1rem}
-    .success-state h3{color:var(--green);margin-bottom:0.5rem}
-    .success-state p{color:#666}
-    
-    /* Loading */
-    .spinner{width:40px;height:40px;border:3px solid #eee;border-top-color:var(--gold);border-radius:50%;animation:spin 0.8s linear infinite;margin:1rem auto}
-    @keyframes spin{to{transform:rotate(360deg)}}
+    /* Success state */
+    .success-content{text-align:center;padding:2rem}
+    .success-icon{font-size:5rem;margin-bottom:1.5rem}
+    .success-title{color:#fff;font-size:1.75rem;margin-bottom:0.75rem}
+    .success-text{color:rgba(255,255,255,0.8);font-size:1rem;margin-bottom:2rem;max-width:400px;margin-left:auto;margin-right:auto}
     
     /* Responsive */
     @media(min-width:768px){
       .about-content{grid-template-columns:1fr 1fr}
       .hero{min-height:80vh}
-      .estimate-form{padding:2.5rem}
+      .form-main{padding:3rem}
     }
-    @media(max-width:480px){
-      .estimate-form{padding:1.5rem}
-      .result-price{font-size:2rem}
-      .nav-buttons{flex-direction:column}
-      .btn-back{order:2}
-      .btn-next{order:1}
+    @media(max-width:600px){
+      .form-row.two-col{grid-template-columns:1fr}
+      .form-nav{flex-direction:column-reverse;gap:0.75rem}
+      .nav-next{width:100%;justify-content:center}
+      .nav-back{width:100%;justify-content:center}
+      .result-price{font-size:2.25rem}
     }
   </style>
 </head>
@@ -187,7 +214,8 @@
   <section class="hero">
     <div class="hero-bg">
       <picture>
-        <source srcset="images/hero-bathroom.webp" type="image/webp">
+        <source srcset="images/hero-bathroom-mobile.webp 480w, images/hero-bathroom-tablet.webp 1024w, images/hero-bathroom.webp 1920w" type="image/webp" sizes="100vw">
+        <source srcset="images/hero-bathroom-mobile.jpg 480w, images/hero-bathroom-tablet.jpg 1024w, images/hero-bathroom.jpg 1920w" sizes="100vw">
         <img src="images/hero-bathroom.jpg" alt="Modern bathroom remodel" width="1920" height="1080" fetchpriority="high">
       </picture>
     </div>
@@ -256,31 +284,51 @@
       <div class="gallery-grid">
         <div class="gallery-item">
           <picture>
-            <source srcset="images/gallery-1.webp" type="image/webp">
-            <img src="images/gallery-1.jpg" alt="Before and after bathroom transformation" width="600" height="450" loading="lazy">
+            <source srcset="images/gallery-1-mobile.webp 280w, images/gallery-1-tablet.webp 400w, images/gallery-1.webp 600w" type="image/webp" sizes="(max-width: 600px) 280px, (max-width: 1024px) 400px, 600px">
+            <source srcset="images/gallery-1-mobile.jpg 280w, images/gallery-1-tablet.jpg 400w, images/gallery-1.jpg 600w" sizes="(max-width: 600px) 280px, (max-width: 1024px) 400px, 600px">
+            <img src="images/gallery-1.jpg" alt="Luxury bathroom remodel" width="600" height="450" loading="lazy">
           </picture>
-          <span class="gallery-label">Before & After</span>
+          <span class="gallery-label">Luxury Remodel</span>
         </div>
         <div class="gallery-item">
           <picture>
-            <source srcset="images/gallery-2.webp" type="image/webp">
+            <source srcset="images/gallery-2-mobile.webp 280w, images/gallery-2-tablet.webp 400w, images/gallery-2.webp 600w" type="image/webp" sizes="(max-width: 600px) 280px, (max-width: 1024px) 400px, 600px">
+            <source srcset="images/gallery-2-mobile.jpg 280w, images/gallery-2-tablet.jpg 400w, images/gallery-2.jpg 600w" sizes="(max-width: 600px) 280px, (max-width: 1024px) 400px, 600px">
             <img src="images/gallery-2.jpg" alt="Modern shower installation" width="600" height="450" loading="lazy">
           </picture>
           <span class="gallery-label">Modern Shower</span>
         </div>
         <div class="gallery-item">
           <picture>
-            <source srcset="images/gallery-3.webp" type="image/webp">
+            <source srcset="images/gallery-3-mobile.webp 280w, images/gallery-3-tablet.webp 400w, images/gallery-3.webp 600w" type="image/webp" sizes="(max-width: 600px) 280px, (max-width: 1024px) 400px, 600px">
+            <source srcset="images/gallery-3-mobile.jpg 280w, images/gallery-3-tablet.jpg 400w, images/gallery-3.jpg 600w" sizes="(max-width: 600px) 280px, (max-width: 1024px) 400px, 600px">
             <img src="images/gallery-3.jpg" alt="Custom vanity design" width="600" height="450" loading="lazy">
           </picture>
           <span class="gallery-label">Custom Vanity</span>
         </div>
         <div class="gallery-item">
           <picture>
-            <source srcset="images/gallery-4.webp" type="image/webp">
-            <img src="images/gallery-4.jpg" alt="Luxury bathroom remodel" width="600" height="450" loading="lazy">
+            <source srcset="images/gallery-4-mobile.webp 280w, images/gallery-4-tablet.webp 400w, images/gallery-4.webp 600w" type="image/webp" sizes="(max-width: 600px) 280px, (max-width: 1024px) 400px, 600px">
+            <source srcset="images/gallery-4-mobile.jpg 280w, images/gallery-4-tablet.jpg 400w, images/gallery-4.jpg 600w" sizes="(max-width: 600px) 280px, (max-width: 1024px) 400px, 600px">
+            <img src="images/gallery-4.jpg" alt="Marble vanity" width="600" height="450" loading="lazy">
           </picture>
-          <span class="gallery-label">Luxury Remodel</span>
+          <span class="gallery-label">Marble Vanity</span>
+        </div>
+        <div class="gallery-item">
+          <picture>
+            <source srcset="images/gallery-5-mobile.webp 280w, images/gallery-5-tablet.webp 400w, images/gallery-5.webp 600w" type="image/webp" sizes="(max-width: 600px) 280px, (max-width: 1024px) 400px, 600px">
+            <source srcset="images/gallery-5-mobile.jpg 280w, images/gallery-5-tablet.jpg 400w, images/gallery-5.jpg 600w" sizes="(max-width: 600px) 280px, (max-width: 1024px) 400px, 600px">
+            <img src="images/gallery-5.jpg" alt="Spa bathroom" width="600" height="450" loading="lazy">
+          </picture>
+          <span class="gallery-label">Spa Bathroom</span>
+        </div>
+        <div class="gallery-item">
+          <picture>
+            <source srcset="images/gallery-6-mobile.webp 280w, images/gallery-6-tablet.webp 400w, images/gallery-6.webp 600w" type="image/webp" sizes="(max-width: 600px) 280px, (max-width: 1024px) 400px, 600px">
+            <source srcset="images/gallery-6-mobile.jpg 280w, images/gallery-6-tablet.jpg 400w, images/gallery-6.jpg 600w" sizes="(max-width: 600px) 280px, (max-width: 1024px) 400px, 600px">
+            <img src="images/gallery-6.jpg" alt="Master bathroom" width="600" height="450" loading="lazy">
+          </picture>
+          <span class="gallery-label">Master Bathroom</span>
         </div>
       </div>
     </div>
@@ -308,499 +356,752 @@
     </div>
   </footer>
 
-  <!-- Estimate Calculator Modal -->
-  <div class="form-modal" id="formModal" role="dialog" aria-modal="true" aria-labelledby="formTitle">
+  <!-- ============================================
+       TYPEFORM-STYLE ESTIMATE MODAL
+       ============================================ -->
+  <div class="form-modal" id="formModal" role="dialog" aria-modal="true">
     <div class="form-container">
-      <button class="form-close" aria-label="Close form">&times;</button>
       
-      <div class="estimate-form" id="estimateForm">
-        <!-- Header -->
-        <div class="estimate-header">
-          <h2 id="formTitle">Get Your Instant Estimate</h2>
-          <p>Answer a few quick questions to see your personalized bathroom remodel investment.</p>
-        </div>
-        
-        <!-- Progress Bar -->
+      <!-- Header -->
+      <div class="form-header">
+        <span class="form-logo">TIMBERLINE BUILD CO</span>
+        <button class="form-close" aria-label="Close">&times;</button>
+      </div>
+      
+      <!-- Progress Bar -->
+      <div class="form-progress">
         <div class="progress-bar">
-          <div class="progress-fill" id="progressFill" style="width:20%"></div>
+          <div class="progress-fill" id="progressFill" style="width:12.5%"></div>
         </div>
-        <p class="progress-text" id="progressText">Question 1 of 5</p>
+        <div class="progress-text" id="progressText">1 of 8</div>
+      </div>
+      
+      <!-- Main Content Area -->
+      <div class="form-main">
         
-        <!-- Question 1: Project Scope -->
-        <div class="question-step active" data-step="1">
-          <h3 class="question-title">What's your project scope?</h3>
-          <div class="option-grid">
-            <label class="option-card" data-value="half">
-              <input type="radio" name="scope">
-              <span class="option-radio"></span>
-              <div>
-                <span class="option-text">Half Bathroom</span>
-                <p class="option-desc">Powder room / guest bath (toilet + vanity)</p>
+        <!-- Screen 1: Project Type -->
+        <div class="form-screen active" data-screen="1">
+          <div class="question-number">QUESTION 1</div>
+          <h2 class="question-title">What are we working on?</h2>
+          <p class="question-subtitle">This helps us give you the most accurate estimate</p>
+          
+          <div class="options-list">
+            <button type="button" class="option-btn" data-value="shower-only">
+              <span class="option-key">A</span>
+              <div class="option-content">
+                <div class="option-label">Just shower or tub conversion</div>
+                <div class="option-desc">Convert tub to shower, or update existing shower</div>
+                <div class="option-price">Starting at $10,000</div>
               </div>
-            </label>
-            <label class="option-card" data-value="full">
-              <input type="radio" name="scope">
-              <span class="option-radio"></span>
-              <div>
-                <span class="option-text">Full Bathroom Remodel</span>
-                <p class="option-desc">Standard full bath with shower/tub</p>
+            </button>
+            <button type="button" class="option-btn" data-value="full-remodel">
+              <span class="option-key">B</span>
+              <div class="option-content">
+                <div class="option-label">Full bathroom remodel</div>
+                <div class="option-desc">Shower, vanity, fixtures — the whole room</div>
+                <div class="option-price">Starting at $15,000</div>
               </div>
-            </label>
-            <label class="option-card" data-value="master">
-              <input type="radio" name="scope">
-              <span class="option-radio"></span>
-              <div>
-                <span class="option-text">Master Bathroom</span>
-                <p class="option-desc">Primary bath with expanded features</p>
+            </button>
+            <button type="button" class="option-btn" data-value="bath-flooring">
+              <span class="option-key">C</span>
+              <div class="option-content">
+                <div class="option-label">Bathroom + flooring</div>
+                <div class="option-desc">Complete remodel with new floors throughout</div>
+                <div class="option-price">Starting at $18,000</div>
               </div>
-            </label>
-            <label class="option-card" data-value="multiple">
-              <input type="radio" name="scope">
-              <span class="option-radio"></span>
-              <div>
-                <span class="option-text">Multiple Bathrooms</span>
-                <p class="option-desc">2+ bathrooms in scope</p>
-              </div>
-            </label>
-          </div>
-          <div class="nav-buttons">
-            <button class="btn btn-gold btn-next" disabled>Continue</button>
+            </button>
           </div>
         </div>
         
-        <!-- Question 2: Condition -->
-        <div class="question-step" data-step="2">
-          <h3 class="question-title">What condition is the bathroom in now?</h3>
-          <div class="option-grid">
-            <label class="option-card" data-value="gut">
-              <input type="radio" name="condition">
-              <span class="option-radio"></span>
-              <div>
-                <span class="option-text">Needs Gut Renovation</span>
-                <p class="option-desc">Everything comes out — demo to studs</p>
+        <!-- Screen 2: Main Fixture -->
+        <div class="form-screen" data-screen="2">
+          <div class="question-number">QUESTION 2</div>
+          <h2 class="question-title">What's the main fixture?</h2>
+          <p class="question-subtitle">The centerpiece of your new bathroom</p>
+          
+          <div class="options-list">
+            <button type="button" class="option-btn" data-value="shower">
+              <span class="option-key">A</span>
+              <div class="option-content">
+                <div class="option-label">Walk-in shower enclosure</div>
+                <div class="option-desc">Modern, spacious, easy to maintain</div>
               </div>
-            </label>
-            <label class="option-card" data-value="partial">
-              <input type="radio" name="condition">
-              <span class="option-radio"></span>
-              <div>
-                <span class="option-text">Partial Renovation</span>
-                <p class="option-desc">Keep some fixtures, update others</p>
+            </button>
+            <button type="button" class="option-btn" data-value="tub-shower">
+              <span class="option-key">B</span>
+              <div class="option-content">
+                <div class="option-label">Tub + shower combo</div>
+                <div class="option-desc">Best of both worlds</div>
               </div>
-            </label>
-            <label class="option-card" data-value="cosmetic">
-              <input type="radio" name="condition">
-              <span class="option-radio"></span>
-              <div>
-                <span class="option-text">Cosmetic Updates Only</span>
-                <p class="option-desc">New finishes, minor changes</p>
+            </button>
+            <button type="button" class="option-btn" data-value="tub-only">
+              <span class="option-key">C</span>
+              <div class="option-content">
+                <div class="option-label">Soaking tub only</div>
+                <div class="option-desc">Freestanding or built-in tub</div>
               </div>
-            </label>
-          </div>
-          <div class="nav-buttons">
-            <button class="btn btn-back">Back</button>
-            <button class="btn btn-gold btn-next" disabled>Continue</button>
+            </button>
           </div>
         </div>
         
-        <!-- Question 3: Features (Multi-select) -->
-        <div class="question-step" data-step="3">
-          <h3 class="question-title">Which features are you including?</h3>
-          <p style="color:#666;font-size:0.9rem;margin-bottom:1rem">Select all that apply</p>
-          <div class="option-grid">
-            <label class="option-card" data-value="tile-shower">
-              <input type="checkbox" name="features">
-              <span class="option-checkbox"></span>
-              <span class="option-text">Tile Shower / Tub Surround</span>
-            </label>
-            <label class="option-card" data-value="tub">
-              <input type="checkbox" name="features">
-              <span class="option-checkbox"></span>
-              <span class="option-text">Freestanding Tub</span>
-            </label>
-            <label class="option-card" data-value="vanity">
-              <input type="checkbox" name="features">
-              <span class="option-checkbox"></span>
-              <span class="option-text">Custom Vanity</span>
-            </label>
-            <label class="option-card" data-value="plumbing">
-              <input type="checkbox" name="features">
-              <span class="option-checkbox"></span>
-              <span class="option-text">New Plumbing</span>
-            </label>
-            <label class="option-card" data-value="electrical">
-              <input type="checkbox" name="features">
-              <span class="option-checkbox"></span>
-              <span class="option-text">Electrical Upgrades</span>
-            </label>
-            <label class="option-card" data-value="glass">
-              <input type="checkbox" name="features">
-              <span class="option-checkbox"></span>
-              <span class="option-text">Glass Shower Enclosure</span>
-            </label>
-          </div>
-          <div class="nav-buttons">
-            <button class="btn btn-back">Back</button>
-            <button class="btn btn-gold btn-next">Continue</button>
+        <!-- Screen 3: Current Condition -->
+        <div class="form-screen" data-screen="3">
+          <div class="question-number">QUESTION 3</div>
+          <h2 class="question-title">Current bathroom condition?</h2>
+          <p class="question-subtitle">This affects demo and prep costs</p>
+          
+          <div class="options-list">
+            <button type="button" class="option-btn" data-value="full-demo">
+              <span class="option-key">A</span>
+              <div class="option-content">
+                <div class="option-label">Needs full demo</div>
+                <div class="option-desc">Down to the studs, start fresh</div>
+              </div>
+            </button>
+            <button type="button" class="option-btn" data-value="partial">
+              <span class="option-key">B</span>
+              <div class="option-content">
+                <div class="option-label">Partial gut</div>
+                <div class="option-desc">Keep some fixtures, remove others</div>
+              </div>
+            </button>
+            <button type="button" class="option-btn" data-value="cosmetic">
+              <span class="option-key">C</span>
+              <div class="option-content">
+                <div class="option-label">Cosmetic update only</div>
+                <div class="option-desc">Light refresh, minimal demo</div>
+              </div>
+            </button>
           </div>
         </div>
         
-        <!-- Question 4: Finish Level -->
-        <div class="question-step" data-step="4">
-          <h3 class="question-title">What's your finish level preference?</h3>
-          <div class="option-grid">
-            <label class="option-card" data-value="basic">
-              <input type="radio" name="finish">
-              <span class="option-radio"></span>
-              <div>
-                <span class="option-text">Builder-Grade</span>
-                <p class="option-desc">Quality materials, cost-conscious choices</p>
+        <!-- Screen 4: Flooring -->
+        <div class="form-screen" data-screen="4">
+          <div class="question-number">QUESTION 4</div>
+          <h2 class="question-title">What about flooring?</h2>
+          <p class="question-subtitle">One of the biggest visual impacts</p>
+          
+          <div class="options-list">
+            <button type="button" class="option-btn" data-value="vinyl">
+              <span class="option-key">A</span>
+              <div class="option-content">
+                <div class="option-label">Luxury vinyl plank</div>
+                <div class="option-desc">Waterproof, durable, budget-friendly</div>
+                <div class="option-price">~$10/sq ft installed</div>
               </div>
-            </label>
-            <label class="option-card" data-value="mid">
-              <input type="radio" name="finish">
-              <span class="option-radio"></span>
-              <div>
-                <span class="option-text">Mid-Range</span>
-                <p class="option-desc">Upgraded finishes, quality fixtures</p>
+            </button>
+            <button type="button" class="option-btn" data-value="tile">
+              <span class="option-key">B</span>
+              <div class="option-content">
+                <div class="option-label">Tile flooring</div>
+                <div class="option-desc">Premium look, endless design options</div>
+                <div class="option-price">~$25/sq ft installed</div>
               </div>
-            </label>
-            <label class="option-card" data-value="luxury">
-              <input type="radio" name="finish">
-              <span class="option-radio"></span>
-              <div>
-                <span class="option-text">Luxury</span>
-                <p class="option-desc">Premium materials, designer selections</p>
+            </button>
+            <button type="button" class="option-btn" data-value="none">
+              <span class="option-key">C</span>
+              <div class="option-content">
+                <div class="option-label">No flooring changes</div>
+                <div class="option-desc">Keep existing floors</div>
               </div>
-            </label>
-          </div>
-          <div class="nav-buttons">
-            <button class="btn btn-back">Back</button>
-            <button class="btn btn-gold btn-next" disabled>Continue</button>
+            </button>
           </div>
         </div>
         
-        <!-- Question 5: Square Footage -->
-        <div class="question-step" data-step="5">
-          <h3 class="question-title">Approximate square footage?</h3>
-          <div class="slider-container">
-            <div class="slider-value"><span id="sqftValue">60</span> <span>sq ft</span></div>
-            <input type="range" id="sqftSlider" min="20" max="150" value="60" step="5">
+        <!-- Screen 5: Fixture Quality -->
+        <div class="form-screen" data-screen="5">
+          <div class="question-number">QUESTION 5</div>
+          <h2 class="question-title">Fixture quality level?</h2>
+          <p class="question-subtitle">This significantly impacts your investment</p>
+          
+          <div class="options-list">
+            <button type="button" class="option-btn" data-value="budget">
+              <span class="option-key">A</span>
+              <div class="option-content">
+                <div class="option-label">Budget</div>
+                <div class="option-desc">Basic fixtures, simple tile, cost-conscious</div>
+              </div>
+            </button>
+            <button type="button" class="option-btn" data-value="mid">
+              <span class="option-key">B</span>
+              <div class="option-content">
+                <div class="option-label">Mid-range</div>
+                <div class="option-desc">Nice quality, contemporary finishes</div>
+              </div>
+            </button>
+            <button type="button" class="option-btn" data-value="premium">
+              <span class="option-key">C</span>
+              <div class="option-content">
+                <div class="option-label">Premium</div>
+                <div class="option-desc">High-end fixtures, luxury tile, designer look</div>
+              </div>
+            </button>
+          </div>
+        </div>
+        
+        <!-- Screen 6: Plumbing -->
+        <div class="form-screen" data-screen="6">
+          <div class="question-number">QUESTION 6</div>
+          <h2 class="question-title">Any plumbing work needed?</h2>
+          <p class="question-subtitle">Moving pipes adds to the scope</p>
+          
+          <div class="options-list">
+            <button type="button" class="option-btn" data-value="none">
+              <span class="option-key">A</span>
+              <div class="option-content">
+                <div class="option-label">Already roughed in</div>
+                <div class="option-desc">No moving, just connect new fixtures</div>
+              </div>
+            </button>
+            <button type="button" class="option-btn" data-value="minor">
+              <span class="option-key">B</span>
+              <div class="option-content">
+                <div class="option-label">Minor relocations</div>
+                <div class="option-desc">Some fixtures need to move slightly</div>
+                <div class="option-price">+$1,500–$2,500</div>
+              </div>
+            </button>
+            <button type="button" class="option-btn" data-value="major">
+              <span class="option-key">C</span>
+              <div class="option-content">
+                <div class="option-label">Major rework</div>
+                <div class="option-desc">Significant pipe relocation needed</div>
+                <div class="option-price">+$3,000–$5,000</div>
+              </div>
+            </button>
+          </div>
+        </div>
+        
+        <!-- Screen 7: Square Footage -->
+        <div class="form-screen" data-screen="7">
+          <div class="question-number">QUESTION 7</div>
+          <h2 class="question-title">Bathroom size?</h2>
+          <p class="question-subtitle">Drag the slider to estimate square footage</p>
+          
+          <div class="slider-wrap">
+            <div class="slider-display">
+              <span class="slider-value" id="sqftValue">50</span>
+              <span class="slider-unit">sq ft</span>
+              <div class="slider-context" id="sqftContext">Average full bathroom</div>
+            </div>
+            <input type="range" id="sqftSlider" min="20" max="150" value="50" step="5">
             <div class="slider-labels">
               <span>20 sq ft</span>
               <span>150 sq ft</span>
             </div>
           </div>
-          <div class="nav-buttons">
-            <button class="btn btn-back">Back</button>
-            <button class="btn btn-gold btn-next" id="calculateBtn">See My Estimate</button>
+        </div>
+        
+        <!-- Screen 8: Photo Upload -->
+        <div class="form-screen" data-screen="8">
+          <div class="question-number">QUESTION 8 — OPTIONAL</div>
+          <h2 class="question-title">Got a photo?</h2>
+          <p class="question-subtitle">Helps us give you an even better estimate (not required)</p>
+          
+          <div class="upload-area" id="uploadArea">
+            <input type="file" accept="image/*" class="upload-input" id="photoInput">
+            <div class="upload-icon">📷</div>
+            <div class="upload-text">Click or drag to upload</div>
+            <div class="upload-hint">JPG, PNG up to 10MB</div>
+          </div>
+          <div id="photoPreview" style="display:none;text-align:center">
+            <img class="upload-preview" id="previewImg" alt="Preview">
+            <button type="button" class="upload-remove" id="removePhoto">Remove photo</button>
           </div>
         </div>
         
-        <!-- Results Step -->
-        <div class="question-step" data-step="result">
-          <div class="estimate-result">
-            <span class="result-badge">✓ Your Personalized Estimate</span>
-            <div class="result-price" id="resultPrice">$24,500 – $38,000</div>
-            <p class="result-price-range">Estimated investment for your bathroom remodel</p>
+        <!-- Screen 9: Results -->
+        <div class="form-screen" data-screen="9">
+          <div class="results-screen">
+            <div class="result-header">
+              <span class="result-badge">✓ Your Personalized Estimate</span>
+              <div class="result-title">Estimated investment</div>
+              <div class="result-price" id="resultPrice">$16,800 – $24,500</div>
+              <div class="result-range">Based on your selections</div>
+            </div>
             
             <div class="result-timeline">
-              <strong>Typical Timeline:</strong> <span id="resultTimeline">2–4 weeks</span>
+              <span class="timeline-icon">📅</span>
+              <span class="timeline-text"><strong>Typical timeline:</strong> <span id="resultTimeline">2–3 weeks</span></span>
             </div>
             
-            <div class="estimate-breakdown" id="estimateBreakdown">
-              <h4>What's Included:</h4>
-              <!-- Populated by JS -->
+            <div class="breakdown-card">
+              <div class="breakdown-title">📋 What's Included</div>
+              <div id="breakdownList">
+                <!-- Populated by JS -->
+              </div>
             </div>
-          </div>
-          
-          <div class="lead-form" id="leadForm">
-            <h3>Get Your Exact Quote</h3>
-            <p>We'll reach out within 24 hours to discuss your project in detail.</p>
             
-            <form id="contactForm">
-              <div class="form-group">
-                <label for="leadName">Your Name</label>
-                <input type="text" id="leadName" name="name" required placeholder="John Smith">
-              </div>
-              <div class="form-group">
-                <label for="leadPhone">Phone Number</label>
-                <input type="tel" id="leadPhone" name="phone" required placeholder="(714) 555-1234">
-              </div>
-              <div class="form-group">
-                <label for="leadEmail">Email Address</label>
-                <input type="email" id="leadEmail" name="email" required placeholder="john@example.com">
-              </div>
-              <div class="form-group optional">
-                <label for="leadAddress">Project Address</label>
-                <input type="text" id="leadAddress" name="address" placeholder="123 Main St, Costa Mesa, CA">
-              </div>
-              <button type="submit" class="btn btn-gold btn-submit">Get My Exact Quote</button>
-            </form>
-            <p class="form-note">🔒 Your information is secure and never shared.</p>
+            <div class="contact-card">
+              <h3>Get Your Exact Quote</h3>
+              <p>We'll reach out within 24 hours to discuss your project.</p>
+              
+              <form id="contactForm">
+                <div class="form-row two-col">
+                  <div class="form-field">
+                    <label for="leadName">Name</label>
+                    <input type="text" id="leadName" name="name" required placeholder="Your name">
+                  </div>
+                  <div class="form-field">
+                    <label for="leadPhone">Phone</label>
+                    <input type="tel" id="leadPhone" name="phone" required placeholder="(714) 555-1234">
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-field">
+                    <label for="leadEmail">Email</label>
+                    <input type="email" id="leadEmail" name="email" required placeholder="you@email.com">
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-field optional">
+                    <label for="leadAddress">Project Address</label>
+                    <input type="text" id="leadAddress" name="address" placeholder="123 Main St, Costa Mesa, CA">
+                  </div>
+                </div>
+                <button type="submit" class="btn-submit">Get My Exact Quote →</button>
+              </form>
+              <p class="form-note">🔒 Your information is secure and never shared.</p>
+            </div>
           </div>
         </div>
         
-        <!-- Success State -->
-        <div class="question-step" data-step="success">
-          <div class="success-state">
+        <!-- Success Screen -->
+        <div class="form-screen" data-screen="success">
+          <div class="success-content">
             <div class="success-icon">🎉</div>
-            <h3>You're All Set!</h3>
-            <p>Justin will personally review your project details and reach out within 24 hours with an exact quote.</p>
-            <p style="margin-top:1rem;color:var(--green);font-weight:600">We're excited to help transform your bathroom!</p>
-            <button class="btn btn-gold" style="margin-top:1.5rem" onclick="document.getElementById('formModal').classList.remove('active');document.body.style.overflow='';">Close</button>
+            <h2 class="success-title">You're All Set!</h2>
+            <p class="success-text">Justin will personally review your project and reach out within 24 hours with an exact quote. We're excited to help transform your bathroom!</p>
+            <button class="nav-next" onclick="closeModal()">Close</button>
           </div>
         </div>
+        
       </div>
+      
+      <!-- Navigation -->
+      <div class="form-nav" id="formNav">
+        <button type="button" class="nav-back" id="navBack" disabled>
+          ← Back
+        </button>
+        <button type="button" class="nav-next" id="navNext" disabled>
+          Continue →
+        </button>
+      </div>
+      
     </div>
   </div>
 
-  <!-- Estimate Calculator Logic -->
+  <!-- ============================================
+       PRICING ENGINE + FORM LOGIC
+       ============================================ -->
   <script>
     (function() {
       'use strict';
       
-      // State
+      // === STATE ===
       var state = {
-        step: 1,
-        scope: null,
-        condition: null,
-        features: [],
-        finish: null,
-        sqft: 60
+        screen: 1,
+        projectType: null,    // shower-only, full-remodel, bath-flooring
+        fixture: null,        // shower, tub-shower, tub-only
+        condition: null,      // full-demo, partial, cosmetic
+        flooring: null,       // vinyl, tile, none
+        quality: null,        // budget, mid, premium
+        plumbing: null,       // none, minor, major
+        sqft: 50,
+        photo: null
       };
       
-      // Pricing data (with 40% markup built in)
-      // Base costs × 1.4 = client price
+      // === PRICING ENGINE ===
+      // All prices are CLIENT-FACING (40% markup already applied)
+      // Based on Justin's actual pricing + web research validation
       var pricing = {
-        // Base costs by scope
-        scopeBase: {
-          half: { low: 8000, high: 15000 },
-          full: { low: 25000, high: 40000 },
-          master: { low: 40000, high: 60000 },
-          multiple: { low: 50000, high: 85000 }
+        // Base prices by project type
+        base: {
+          'shower-only': 10000,    // Tub-to-shower or shower update
+          'full-remodel': 15000,   // Shower + vanity + fixtures
+          'bath-flooring': 18000   // Full remodel + floors
         },
+        
+        // Tile labor: $35/sq ft for shower walls (standard 32×60×96 = ~65 sq ft of tile)
+        // This is premium OC contractor pricing
+        showerTileSqFt: 35,
+        standardShowerTileSqFt: 65,
+        
+        // Glass enclosure
+        glassEnclosure: 2000,
+        
+        // Vanity by quality tier
+        vanity: {
+          budget: 800,
+          mid: 1500,
+          premium: 3000
+        },
+        
+        // Flooring per sq ft installed
+        flooringRate: {
+          vinyl: 10,
+          tile: 25,
+          none: 0
+        },
+        
         // Demo costs by condition
         demo: {
-          gut: { low: 2800, high: 4900 },      // $2000-$3500 × 1.4
-          partial: { low: 1400, high: 2800 },  // $1000-$2000 × 1.4
-          cosmetic: { low: 560, high: 1120 }   // $400-$800 × 1.4
+          'full-demo': 1500,
+          'partial': 800,
+          'cosmetic': 300
         },
-        // Feature add-ons (already with markup)
-        features: {
-          'tile-shower': { low: 5600, high: 11200, label: 'Tile Shower' },    // $4000-$8000 × 1.4
-          'tub': { low: 2800, high: 7000, label: 'Freestanding Tub' },        // $2000-$5000 × 1.4
-          'vanity': { low: 2100, high: 4200, label: 'Custom Vanity' },        // $1500-$3000 × 1.4
-          'plumbing': { low: 910, high: 1960, label: 'Plumbing' },            // $650-$1400 × 1.4
-          'electrical': { low: 420, high: 560, label: 'Electrical' },         // $300-$400 × 1.4
-          'glass': { low: 1680, high: 4900, label: 'Glass Enclosure' }        // $1200-$3500 × 1.4
+        
+        // Plumbing work
+        plumbingAdder: {
+          none: 0,
+          minor: 2000,
+          major: 4000
         },
-        // Finish level multipliers
-        finishMultiplier: {
-          basic: 0.85,
+        
+        // Quality multipliers
+        qualityMult: {
+          budget: 0.85,
           mid: 1.0,
-          luxury: 1.25
+          premium: 1.35
         },
-        // Sqft adjustment (per sqft over 50)
-        sqftRate: { low: 50, high: 100 }
+        
+        // Fixture type adjustments
+        fixtureAdj: {
+          'shower': 0,
+          'tub-shower': 1500,
+          'tub-only': 2500
+        }
       };
       
-      // DOM elements
-      var modal = document.getElementById('formModal');
-      var progressFill = document.getElementById('progressFill');
-      var progressText = document.getElementById('progressText');
-      var steps = document.querySelectorAll('.question-step');
-      var sqftSlider = document.getElementById('sqftSlider');
-      var sqftValue = document.getElementById('sqftValue');
-      
-      // Calculate estimate
       function calculateEstimate() {
         var low = 0, high = 0;
         var breakdown = [];
         
-        // Base scope
-        if (state.scope && pricing.scopeBase[state.scope]) {
-          var base = pricing.scopeBase[state.scope];
-          low += base.low;
-          high += base.high;
-          
-          var scopeLabels = {
-            half: 'Half Bath Base',
-            full: 'Full Bath Base', 
-            master: 'Master Bath Base',
-            multiple: 'Multi-Bath Base'
-          };
-          breakdown.push({ label: scopeLabels[state.scope], low: base.low, high: base.high });
-        }
+        // 1. Base cost by project type
+        var base = pricing.base[state.projectType] || 10000;
+        low += base;
+        high += base * 1.3;
         
-        // Demo/condition costs
-        if (state.condition && pricing.demo[state.condition]) {
-          var demo = pricing.demo[state.condition];
-          low += demo.low;
-          high += demo.high;
-          breakdown.push({ label: 'Demo & Prep', low: demo.low, high: demo.high });
-        }
-        
-        // Features
-        state.features.forEach(function(f) {
-          if (pricing.features[f]) {
-            var feat = pricing.features[f];
-            low += feat.low;
-            high += feat.high;
-            breakdown.push({ label: feat.label, low: feat.low, high: feat.high });
-          }
+        var projectLabels = {
+          'shower-only': 'Shower/Tub Conversion',
+          'full-remodel': 'Full Bathroom Remodel',
+          'bath-flooring': 'Bathroom + Flooring'
+        };
+        breakdown.push({
+          label: projectLabels[state.projectType] || 'Base Project',
+          value: '$' + base.toLocaleString()
         });
         
-        // Sqft adjustment (for larger bathrooms)
-        if (state.sqft > 50) {
-          var extraSqft = state.sqft - 50;
-          var sqftLow = extraSqft * pricing.sqftRate.low;
-          var sqftHigh = extraSqft * pricing.sqftRate.high;
-          low += sqftLow;
-          high += sqftHigh;
-          if (extraSqft > 20) {
-            breakdown.push({ label: 'Large Space Adjustment', low: sqftLow, high: sqftHigh });
+        // 2. Fixture type adjustment
+        var fixtureAdj = pricing.fixtureAdj[state.fixture] || 0;
+        if (fixtureAdj > 0) {
+          low += fixtureAdj;
+          high += fixtureAdj * 1.2;
+          var fixtureLabels = {
+            'tub-shower': 'Tub + Shower Combo',
+            'tub-only': 'Soaking Tub'
+          };
+          breakdown.push({
+            label: fixtureLabels[state.fixture],
+            value: '+$' + fixtureAdj.toLocaleString()
+          });
+        }
+        
+        // 3. Demo costs
+        var demo = pricing.demo[state.condition] || 800;
+        low += demo;
+        high += demo * 1.4;
+        breakdown.push({
+          label: 'Demo & Prep',
+          value: '$' + demo.toLocaleString()
+        });
+        
+        // 4. Glass enclosure (for shower types)
+        if (state.fixture === 'shower' || state.fixture === 'tub-shower') {
+          low += pricing.glassEnclosure;
+          high += pricing.glassEnclosure * 1.5;
+          breakdown.push({
+            label: 'Glass Enclosure',
+            value: '$' + pricing.glassEnclosure.toLocaleString()
+          });
+        }
+        
+        // 5. Tile work (shower walls - use standard 65 sq ft)
+        var tileCost = pricing.showerTileSqFt * pricing.standardShowerTileSqFt;
+        low += tileCost;
+        high += tileCost * 1.25;
+        breakdown.push({
+          label: 'Tile Installation',
+          value: '$' + tileCost.toLocaleString()
+        });
+        
+        // 6. Vanity (for full remodels)
+        if (state.projectType !== 'shower-only') {
+          var vanityCost = pricing.vanity[state.quality] || pricing.vanity.mid;
+          low += vanityCost;
+          high += vanityCost * 1.3;
+          breakdown.push({
+            label: 'Vanity & Fixtures',
+            value: '$' + vanityCost.toLocaleString()
+          });
+        }
+        
+        // 7. Flooring
+        if (state.flooring !== 'none' && state.flooring) {
+          var floorRate = pricing.flooringRate[state.flooring] || 0;
+          var floorCost = floorRate * state.sqft;
+          if (floorCost > 0) {
+            low += floorCost;
+            high += floorCost * 1.2;
+            breakdown.push({
+              label: state.flooring === 'vinyl' ? 'Vinyl Flooring' : 'Tile Flooring',
+              value: '$' + floorCost.toLocaleString()
+            });
           }
         }
         
-        // Finish level multiplier
-        if (state.finish && pricing.finishMultiplier[state.finish]) {
-          var mult = pricing.finishMultiplier[state.finish];
-          low = Math.round(low * mult);
-          high = Math.round(high * mult);
+        // 8. Plumbing
+        var plumbingCost = pricing.plumbingAdder[state.plumbing] || 0;
+        if (plumbingCost > 0) {
+          low += plumbingCost;
+          high += plumbingCost * 1.25;
+          breakdown.push({
+            label: 'Plumbing Work',
+            value: '+$' + plumbingCost.toLocaleString()
+          });
         }
         
-        // Round to nearest 500
-        low = Math.round(low / 500) * 500;
-        high = Math.round(high / 500) * 500;
+        // 9. Apply quality multiplier
+        var mult = pricing.qualityMult[state.quality] || 1.0;
+        low = Math.round(low * mult);
+        high = Math.round(high * mult);
+        
+        // 10. Round to nearest 100
+        low = Math.round(low / 100) * 100;
+        high = Math.round(high / 100) * 100;
+        
+        // Ensure minimum spread
+        if (high < low * 1.2) {
+          high = Math.round(low * 1.25 / 100) * 100;
+        }
         
         return { low: low, high: high, breakdown: breakdown };
       }
       
-      // Format currency
-      function formatCurrency(n) {
-        return '$' + n.toLocaleString();
+      function getTimeline() {
+        var weeks = 2;
+        if (state.projectType === 'full-remodel') weeks = 3;
+        if (state.projectType === 'bath-flooring') weeks = 4;
+        if (state.condition === 'full-demo') weeks += 1;
+        if (state.plumbing === 'major') weeks += 1;
+        if (state.quality === 'premium') weeks += 0.5;
+        
+        var low = Math.floor(weeks);
+        var high = Math.ceil(weeks * 1.3);
+        return low + '–' + high + ' weeks';
       }
       
-      // Show step
-      function showStep(n) {
-        var stepId = n === 'result' ? 'result' : n === 'success' ? 'success' : n;
-        steps.forEach(function(s) {
+      // === DOM ELEMENTS ===
+      var modal = document.getElementById('formModal');
+      var screens = document.querySelectorAll('.form-screen');
+      var progressFill = document.getElementById('progressFill');
+      var progressText = document.getElementById('progressText');
+      var navBack = document.getElementById('navBack');
+      var navNext = document.getElementById('navNext');
+      var formNav = document.getElementById('formNav');
+      var sqftSlider = document.getElementById('sqftSlider');
+      var sqftValue = document.getElementById('sqftValue');
+      var sqftContext = document.getElementById('sqftContext');
+      
+      // === SCREEN MANAGEMENT ===
+      function showScreen(n) {
+        state.screen = n;
+        
+        screens.forEach(function(s) {
           s.classList.remove('active');
-          if (s.dataset.step == stepId) s.classList.add('active');
+          if (s.dataset.screen == n || s.dataset.screen === n) {
+            s.classList.add('active');
+          }
         });
         
-        if (typeof n === 'number') {
-          state.step = n;
-          progressFill.style.width = (n * 20) + '%';
-          progressText.textContent = 'Question ' + n + ' of 5';
-          progressText.style.display = '';
-          progressFill.parentElement.style.display = '';
+        // Progress
+        if (typeof n === 'number' && n <= 8) {
+          progressFill.style.width = (n * 12.5) + '%';
+          progressText.textContent = n + ' of 8';
+          progressFill.parentElement.parentElement.style.display = '';
+          formNav.style.display = '';
         } else {
-          progressText.style.display = 'none';
-          progressFill.parentElement.style.display = 'none';
+          progressFill.parentElement.parentElement.style.display = 'none';
+          if (n === 'success') {
+            formNav.style.display = 'none';
+          }
         }
         
-        // Show results
-        if (n === 'result') {
-          var est = calculateEstimate();
-          document.getElementById('resultPrice').textContent = formatCurrency(est.low) + ' – ' + formatCurrency(est.high);
-          
-          // Timeline based on scope
-          var timelines = {
-            half: '1–2 weeks',
-            full: '2–3 weeks',
-            master: '3–5 weeks',
-            multiple: '4–8 weeks'
-          };
-          document.getElementById('resultTimeline').textContent = timelines[state.scope] || '2–4 weeks';
-          
-          // Breakdown
-          var breakdownHtml = est.breakdown.map(function(item) {
-            return '<div class="breakdown-item"><span>' + item.label + '</span><span>' + formatCurrency(item.low) + ' – ' + formatCurrency(item.high) + '</span></div>';
-          }).join('');
-          document.getElementById('estimateBreakdown').innerHTML = '<h4>What\'s Included:</h4>' + breakdownHtml;
+        // Back button
+        navBack.disabled = (n === 1);
+        
+        // Next button state
+        updateNextButton();
+        
+        // Results
+        if (n === 9) {
+          showResults();
+          formNav.style.display = 'none';
         }
       }
       
-      // Handle option selection (radio)
-      function handleRadioSelect(stepNum, fieldName, container) {
-        var cards = container.querySelectorAll('.option-card');
-        cards.forEach(function(card) {
-          card.addEventListener('click', function() {
-            cards.forEach(function(c) { c.classList.remove('selected'); });
-            card.classList.add('selected');
-            state[fieldName] = card.dataset.value;
-            
-            // Enable next button
-            var nextBtn = container.querySelector('.btn-next');
-            if (nextBtn) nextBtn.disabled = false;
-          });
-        });
+      function updateNextButton() {
+        var screen = state.screen;
+        var enabled = false;
+        
+        if (screen === 1) enabled = !!state.projectType;
+        else if (screen === 2) enabled = !!state.fixture;
+        else if (screen === 3) enabled = !!state.condition;
+        else if (screen === 4) enabled = !!state.flooring;
+        else if (screen === 5) enabled = !!state.quality;
+        else if (screen === 6) enabled = !!state.plumbing;
+        else if (screen === 7) enabled = true; // Slider always has value
+        else if (screen === 8) enabled = true; // Photo optional
+        
+        navNext.disabled = !enabled;
+        
+        // Change button text
+        if (screen === 8) {
+          navNext.textContent = state.photo ? 'See My Estimate →' : 'Skip & See Estimate →';
+        } else if (screen >= 1 && screen <= 7) {
+          navNext.textContent = 'Continue →';
+        }
       }
       
-      // Handle checkbox selection
-      function handleCheckboxSelect(container) {
-        var cards = container.querySelectorAll('.option-card');
-        cards.forEach(function(card) {
-          card.addEventListener('click', function() {
-            card.classList.toggle('selected');
-            
-            // Update features array
-            state.features = [];
-            cards.forEach(function(c) {
-              if (c.classList.contains('selected')) {
-                state.features.push(c.dataset.value);
+      function showResults() {
+        var est = calculateEstimate();
+        
+        document.getElementById('resultPrice').textContent = 
+          '$' + est.low.toLocaleString() + ' – $' + est.high.toLocaleString();
+        
+        document.getElementById('resultTimeline').textContent = getTimeline();
+        
+        var breakdownHtml = est.breakdown.map(function(item) {
+          return '<div class="breakdown-item"><span>' + item.label + '</span><span>' + item.value + '</span></div>';
+        }).join('');
+        document.getElementById('breakdownList').innerHTML = breakdownHtml;
+      }
+      
+      // === OPTION SELECTION ===
+      function setupOptionButtons(screenNum, stateKey) {
+        var screen = document.querySelector('[data-screen="' + screenNum + '"]');
+        var buttons = screen.querySelectorAll('.option-btn');
+        
+        buttons.forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            // Deselect others
+            buttons.forEach(function(b) { b.classList.remove('selected'); });
+            // Select this one
+            btn.classList.add('selected');
+            // Update state
+            state[stateKey] = btn.dataset.value;
+            // Enable next
+            updateNextButton();
+            // Auto-advance after short delay
+            setTimeout(function() {
+              if (state.screen < 8) {
+                showScreen(state.screen + 1);
               }
-            });
+            }, 300);
           });
         });
       }
       
-      // Initialize option handlers
-      var step1 = document.querySelector('[data-step="1"]');
-      var step2 = document.querySelector('[data-step="2"]');
-      var step3 = document.querySelector('[data-step="3"]');
-      var step4 = document.querySelector('[data-step="4"]');
+      // Setup all option screens
+      setupOptionButtons(1, 'projectType');
+      setupOptionButtons(2, 'fixture');
+      setupOptionButtons(3, 'condition');
+      setupOptionButtons(4, 'flooring');
+      setupOptionButtons(5, 'quality');
+      setupOptionButtons(6, 'plumbing');
       
-      handleRadioSelect(1, 'scope', step1);
-      handleRadioSelect(2, 'condition', step2);
-      handleCheckboxSelect(step3);
-      handleRadioSelect(4, 'finish', step4);
-      
-      // Sqft slider
+      // === SLIDER ===
       sqftSlider.addEventListener('input', function() {
         state.sqft = parseInt(this.value);
         sqftValue.textContent = this.value;
+        
+        // Context text
+        var context = 'Powder room';
+        if (state.sqft >= 35) context = 'Small bathroom';
+        if (state.sqft >= 50) context = 'Average full bathroom';
+        if (state.sqft >= 75) context = 'Large bathroom';
+        if (state.sqft >= 100) context = 'Master bathroom';
+        if (state.sqft >= 125) context = 'Luxury master suite';
+        sqftContext.textContent = context;
       });
       
-      // Navigation
-      document.querySelectorAll('.btn-next').forEach(function(btn) {
-        btn.addEventListener('click', function() {
-          if (btn.disabled) return;
-          
-          var currentStep = parseInt(btn.closest('.question-step').dataset.step);
-          
-          if (currentStep === 5) {
-            showStep('result');
-          } else {
-            showStep(currentStep + 1);
+      // === PHOTO UPLOAD ===
+      var photoInput = document.getElementById('photoInput');
+      var uploadArea = document.getElementById('uploadArea');
+      var photoPreview = document.getElementById('photoPreview');
+      var previewImg = document.getElementById('previewImg');
+      var removePhoto = document.getElementById('removePhoto');
+      
+      photoInput.addEventListener('change', function(e) {
+        var file = e.target.files[0];
+        if (file) {
+          state.photo = file;
+          var reader = new FileReader();
+          reader.onload = function(e) {
+            previewImg.src = e.target.result;
+            uploadArea.style.display = 'none';
+            photoPreview.style.display = 'block';
+            updateNextButton();
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+      
+      removePhoto.addEventListener('click', function() {
+        state.photo = null;
+        photoInput.value = '';
+        uploadArea.style.display = '';
+        photoPreview.style.display = 'none';
+        updateNextButton();
+      });
+      
+      // === NAVIGATION ===
+      navBack.addEventListener('click', function() {
+        if (state.screen > 1) {
+          showScreen(state.screen - 1);
+        }
+      });
+      
+      navNext.addEventListener('click', function() {
+        if (!navNext.disabled && state.screen <= 8) {
+          showScreen(state.screen + 1);
+        }
+      });
+      
+      // Keyboard navigation
+      document.addEventListener('keydown', function(e) {
+        if (!modal.classList.contains('active')) return;
+        
+        if (e.key === 'Enter' && !navNext.disabled && state.screen <= 8) {
+          e.preventDefault();
+          showScreen(state.screen + 1);
+        }
+        
+        // A/B/C shortcuts for options
+        if (state.screen >= 1 && state.screen <= 6) {
+          var key = e.key.toLowerCase();
+          var index = {'a': 0, 'b': 1, 'c': 2}[key];
+          if (index !== undefined) {
+            var screen = document.querySelector('.form-screen.active');
+            var buttons = screen.querySelectorAll('.option-btn');
+            if (buttons[index]) {
+              buttons[index].click();
+            }
           }
-        });
+        }
       });
       
-      document.querySelectorAll('.btn-back').forEach(function(btn) {
-        btn.addEventListener('click', function() {
-          var currentStep = btn.closest('.question-step').dataset.step;
-          if (currentStep === 'result') {
-            showStep(5);
-          } else {
-            showStep(parseInt(currentStep) - 1);
-          }
-        });
-      });
-      
-      // Form submission
+      // === FORM SUBMISSION ===
       document.getElementById('contactForm').addEventListener('submit', function(e) {
         e.preventDefault();
         
@@ -810,83 +1111,111 @@
           phone: document.getElementById('leadPhone').value,
           email: document.getElementById('leadEmail').value,
           address: document.getElementById('leadAddress').value,
-          scope: state.scope,
+          projectType: state.projectType,
+          fixture: state.fixture,
           condition: state.condition,
-          features: state.features.join(', '),
-          finish: state.finish,
+          flooring: state.flooring,
+          quality: state.quality,
+          plumbing: state.plumbing,
           sqft: state.sqft,
           estimate_low: est.low,
           estimate_high: est.high
         };
         
-        // Build URL params for GoHighLevel
+        // Build params for GHL
         var params = new URLSearchParams();
         params.append('full_name', formData.name);
         params.append('phone', formData.phone);
         params.append('email', formData.email);
         if (formData.address) params.append('address', formData.address);
-        params.append('project_scope', formData.scope);
-        params.append('project_condition', formData.condition);
-        params.append('features', formData.features);
-        params.append('finish_level', formData.finish);
+        params.append('project_type', formData.projectType);
+        params.append('main_fixture', formData.fixture);
+        params.append('condition', formData.condition);
+        params.append('flooring', formData.flooring);
+        params.append('quality_level', formData.quality);
+        params.append('plumbing_work', formData.plumbing);
         params.append('sqft', formData.sqft);
-        params.append('estimate_range', formatCurrency(formData.estimate_low) + ' - ' + formatCurrency(formData.estimate_high));
+        params.append('estimate_range', '$' + formData.estimate_low.toLocaleString() + ' - $' + formData.estimate_high.toLocaleString());
         
-        // Submit to GoHighLevel
         var submitBtn = this.querySelector('.btn-submit');
-        var originalText = submitBtn.textContent;
         submitBtn.textContent = 'Submitting...';
         submitBtn.disabled = true;
         
-        // Use fetch to POST to GoHighLevel
+        // Submit to GHL
         fetch('https://link.apisystem.tech/widget/form/T6mcisYXB0t5PDUQaAsP?' + params.toString(), {
           method: 'POST',
           mode: 'no-cors'
         }).then(function() {
-          showStep('success');
+          showScreen('success');
         }).catch(function() {
-          // Fallback: redirect with params
+          // Fallback
           window.open('https://link.apisystem.tech/widget/form/T6mcisYXB0t5PDUQaAsP?' + params.toString(), '_blank');
-          showStep('success');
+          showScreen('success');
         });
       });
       
-      // Modal controls
+      // === MODAL CONTROLS ===
       function openModal() {
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
-        // Reset to step 1
-        state = { step: 1, scope: null, condition: null, features: [], finish: null, sqft: 60 };
-        steps.forEach(function(s) { 
+        
+        // Reset state
+        state = {
+          screen: 1,
+          projectType: null,
+          fixture: null,
+          condition: null,
+          flooring: null,
+          quality: null,
+          plumbing: null,
+          sqft: 50,
+          photo: null
+        };
+        
+        // Reset UI
+        screens.forEach(function(s) {
           s.classList.remove('active');
-          s.querySelectorAll('.option-card').forEach(function(c) { c.classList.remove('selected'); });
-          var nextBtn = s.querySelector('.btn-next');
-          if (nextBtn && s.dataset.step !== '3' && s.dataset.step !== '5') nextBtn.disabled = true;
+          s.querySelectorAll('.option-btn').forEach(function(b) {
+            b.classList.remove('selected');
+          });
         });
-        sqftSlider.value = 60;
-        sqftValue.textContent = '60';
+        
+        sqftSlider.value = 50;
+        sqftValue.textContent = '50';
+        sqftContext.textContent = 'Average full bathroom';
+        
+        uploadArea.style.display = '';
+        photoPreview.style.display = 'none';
+        photoInput.value = '';
+        
         document.getElementById('contactForm').reset();
-        showStep(1);
+        var submitBtn = document.querySelector('.btn-submit');
+        submitBtn.textContent = 'Get My Exact Quote →';
+        submitBtn.disabled = false;
+        
+        formNav.style.display = '';
+        showScreen(1);
       }
       
-      function closeModal() {
+      window.closeModal = function() {
         modal.classList.remove('active');
         document.body.style.overflow = '';
-      }
+      };
       
+      // Open triggers
       document.querySelectorAll('[data-open-form]').forEach(function(btn) {
         btn.addEventListener('click', openModal);
       });
       
+      // Close triggers
       modal.querySelector('.form-close').addEventListener('click', closeModal);
       
-      modal.addEventListener('click', function(e) {
-        if (e.target === modal) closeModal();
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+          closeModal();
+        }
       });
       
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
-      });
     })();
   </script>
 
