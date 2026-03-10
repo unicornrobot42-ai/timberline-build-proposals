@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bathroom Remodel Orange County | Timberline Build Co</title>
+  <meta name="description" content="Orange County's Premier Kitchen and Bathroom Remodeler. Licensed, Insured, Expert Craftsmanship. Get a free estimate today.">
+  
+  <!-- Preconnect to external domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Preload critical hero image -->
+  <link rel="preload" as="image" href="images/hero-bathroom.webp" type="image/webp">
+  
+  <!-- Critical CSS - Inlined for fastest FCP -->
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--green:#19412c;--gold:#e9af3b;--cream:#faf8f4;--navy:#213245;--text:#333}
+    html{font-size:16px;-webkit-text-size-adjust:100%}
+    body{font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.6;color:var(--text);background:var(--cream)}
+    img{max-width:100%;height:auto;display:block}
+    
+    /* Hero - Critical Path */
+    .hero{position:relative;min-height:90vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;overflow:hidden}
+    .hero-bg{position:absolute;inset:0;background:#19412c}
+    .hero-bg img{width:100%;height:100%;object-fit:cover;opacity:0.7}
+    .hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(25,65,44,0.6) 0%,rgba(25,65,44,0.8) 100%)}
+    .hero-content{position:relative;z-index:2;max-width:800px;padding:2rem}
+    .hero h1{font-size:clamp(1.75rem,5vw,3rem);font-weight:700;margin-bottom:0.5rem;text-shadow:0 2px 4px rgba(0,0,0,0.3)}
+    .hero-sub{font-size:clamp(0.9rem,2vw,1.25rem);margin-bottom:1.5rem;letter-spacing:0.1em}
+    .btn{display:inline-block;padding:1rem 2rem;font-size:1rem;font-weight:600;text-decoration:none;border-radius:4px;transition:transform 0.2s,box-shadow 0.2s;cursor:pointer;border:none}
+    .btn-gold{background:var(--gold);color:var(--navy)}
+    .btn-gold:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.2)}
+    
+    /* Prevent CLS - reserve space for below-fold */
+    .section{padding:4rem 1.5rem}
+    .container{max-width:1100px;margin:0 auto}
+    
+    /* About Section */
+    .about{background:#fff}
+    .about-content{display:grid;gap:2rem;align-items:center}
+    .about h2{color:var(--green);font-size:clamp(1.5rem,3vw,2rem);margin-bottom:1rem}
+    .about p{color:#555;margin-bottom:1rem}
+    
+    /* Value Props Grid */
+    .values{background:var(--cream)}
+    .values h2{text-align:center;color:var(--green);font-size:clamp(1.5rem,3vw,2rem);margin-bottom:2rem}
+    .values-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+    .value-card{background:#fff;padding:1.5rem;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.08);border-left:4px solid var(--gold)}
+    .value-card h3{color:var(--green);font-size:1.1rem;margin-bottom:0.5rem}
+    .value-card p{color:#666;font-size:0.95rem}
+    
+    /* Gallery */
+    .gallery{background:#fff}
+    .gallery h2{text-align:center;color:var(--green);margin-bottom:2rem}
+    .gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem}
+    .gallery-item{position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:8px}
+    .gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.3s}
+    .gallery-item:hover img{transform:scale(1.05)}
+    .gallery-label{position:absolute;bottom:0;left:0;right:0;padding:0.5rem;background:rgba(25,65,44,0.9);color:#fff;font-size:0.85rem;text-align:center}
+    
+    /* CTA Section */
+    .cta-section{background:var(--green);color:#fff;text-align:center}
+    .cta-section h2{font-size:clamp(1.5rem,3vw,2rem);margin-bottom:1rem}
+    .cta-buttons{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-top:1.5rem}
+    .btn-outline{background:transparent;border:2px solid var(--gold);color:var(--gold)}
+    .btn-outline:hover{background:var(--gold);color:var(--navy)}
+    
+    /* Footer */
+    footer{background:var(--navy);color:#fff;padding:2rem 1.5rem;text-align:center}
+    footer p{font-size:0.9rem;opacity:0.8}
+    footer a{color:var(--gold);text-decoration:none}
+    footer a:hover{text-decoration:underline}
+    
+    /* Form Modal */
+    .form-modal{display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,0.85);align-items:center;justify-content:center;padding:1rem}
+    .form-modal.active{display:flex}
+    .form-container{background:var(--cream);border-radius:12px;max-width:560px;width:100%;max-height:90vh;overflow:auto;position:relative;box-shadow:0 25px 50px rgba(0,0,0,0.3)}
+    .form-close{position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.75rem;cursor:pointer;color:#666;z-index:10;width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:50%;transition:background 0.2s}
+    .form-close:hover{background:rgba(0,0,0,0.1)}
+    
+    /* Estimate Calculator Styles */
+    .estimate-form{padding:2rem}
+    .estimate-header{text-align:center;margin-bottom:1.5rem}
+    .estimate-header h2{color:var(--green);font-size:1.5rem;margin-bottom:0.5rem}
+    .estimate-header p{color:#666;font-size:0.95rem}
+    
+    /* Progress Bar */
+    .progress-bar{background:#e0e0e0;height:6px;border-radius:3px;margin-bottom:2rem;overflow:hidden}
+    .progress-fill{background:var(--gold);height:100%;border-radius:3px;transition:width 0.3s ease}
+    .progress-text{text-align:center;font-size:0.85rem;color:#888;margin-top:0.5rem}
+    
+    /* Question Steps */
+    .question-step{display:none;animation:fadeIn 0.3s ease}
+    .question-step.active{display:block}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+    
+    .question-title{color:var(--green);font-size:1.25rem;margin-bottom:1.25rem;font-weight:600}
+    
+    /* Option Cards */
+    .option-grid{display:grid;gap:0.75rem}
+    .option-card{background:#fff;border:2px solid #e0e0e0;border-radius:8px;padding:1rem 1.25rem;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;gap:0.75rem}
+    .option-card:hover{border-color:var(--gold);background:#fffdf8}
+    .option-card.selected{border-color:var(--green);background:#f0f7f3}
+    .option-card input{display:none}
+    .option-radio{width:20px;height:20px;border:2px solid #ccc;border-radius:50%;flex-shrink:0;position:relative;transition:all 0.2s}
+    .option-card.selected .option-radio{border-color:var(--green);background:var(--green)}
+    .option-card.selected .option-radio::after{content:'';position:absolute;inset:4px;background:#fff;border-radius:50%}
+    .option-checkbox{width:20px;height:20px;border:2px solid #ccc;border-radius:4px;flex-shrink:0;position:relative;transition:all 0.2s;display:flex;align-items:center;justify-content:center}
+    .option-card.selected .option-checkbox{border-color:var(--green);background:var(--green)}
+    .option-card.selected .option-checkbox::after{content:'✓';color:#fff;font-size:14px;font-weight:bold}
+    .option-text{font-size:1rem;color:var(--text)}
+    .option-desc{font-size:0.85rem;color:#888;margin-top:0.25rem}
+    
+    /* Slider */
+    .slider-container{padding:1rem 0}
+    .slider-value{text-align:center;font-size:2rem;font-weight:700;color:var(--green);margin-bottom:1rem}
+    .slider-value span{font-size:1rem;font-weight:400;color:#666}
+    input[type="range"]{width:100%;height:8px;border-radius:4px;background:#e0e0e0;outline:none;-webkit-appearance:none;cursor:pointer}
+    input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;background:var(--gold);cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,0.2)}
+    input[type="range"]::-moz-range-thumb{width:24px;height:24px;border-radius:50%;background:var(--gold);cursor:pointer;border:none}
+    .slider-labels{display:flex;justify-content:space-between;font-size:0.85rem;color:#888;margin-top:0.5rem}
+    
+    /* Navigation Buttons */
+    .nav-buttons{display:flex;gap:1rem;margin-top:2rem}
+    .btn-back{background:#e0e0e0;color:#666;flex:0 0 auto;padding:0.875rem 1.5rem}
+    .btn-back:hover{background:#d0d0d0;transform:none;box-shadow:none}
+    .btn-next{flex:1}
+    .btn-next:disabled{background:#ccc;cursor:not-allowed;transform:none}
+    
+    /* Results Section */
+    .estimate-result{text-align:center}
+    .result-badge{display:inline-block;background:var(--green);color:#fff;padding:0.5rem 1rem;border-radius:20px;font-size:0.85rem;margin-bottom:1rem}
+    .result-price{font-size:2.5rem;font-weight:700;color:var(--green);margin-bottom:0.5rem}
+    .result-price-range{font-size:1.1rem;color:#666;margin-bottom:1.5rem}
+    .result-timeline{background:#fff;border-radius:8px;padding:1rem;margin-bottom:1.5rem;border-left:4px solid var(--gold)}
+    .result-timeline strong{color:var(--green)}
+    
+    /* Breakdown */
+    .estimate-breakdown{background:#fff;border-radius:8px;padding:1rem;margin-bottom:1.5rem;text-align:left}
+    .estimate-breakdown h4{color:var(--green);margin-bottom:0.75rem;font-size:0.95rem}
+    .breakdown-item{display:flex;justify-content:space-between;padding:0.5rem 0;border-bottom:1px solid #eee;font-size:0.9rem}
+    .breakdown-item:last-child{border-bottom:none}
+    .breakdown-item span:last-child{color:var(--green);font-weight:600}
+    
+    /* Lead Form */
+    .lead-form{background:#fff;border-radius:8px;padding:1.5rem;margin-top:1.5rem;text-align:left}
+    .lead-form h3{color:var(--green);margin-bottom:0.5rem;font-size:1.1rem}
+    .lead-form p{color:#666;font-size:0.9rem;margin-bottom:1rem}
+    .form-group{margin-bottom:1rem}
+    .form-group label{display:block;font-size:0.9rem;color:#555;margin-bottom:0.35rem;font-weight:500}
+    .form-group input{width:100%;padding:0.75rem 1rem;border:2px solid #e0e0e0;border-radius:6px;font-size:1rem;transition:border-color 0.2s}
+    .form-group input:focus{outline:none;border-color:var(--gold)}
+    .form-group input::placeholder{color:#aaa}
+    .form-group.optional label::after{content:' (optional)';font-weight:400;color:#999}
+    .btn-submit{width:100%;margin-top:0.5rem}
+    .form-note{text-align:center;font-size:0.8rem;color:#888;margin-top:1rem}
+    
+    /* Success State */
+    .success-state{text-align:center;padding:2rem 0}
+    .success-icon{font-size:4rem;margin-bottom:1rem}
+    .success-state h3{color:var(--green);margin-bottom:0.5rem}
+    .success-state p{color:#666}
+    
+    /* Loading */
+    .spinner{width:40px;height:40px;border:3px solid #eee;border-top-color:var(--gold);border-radius:50%;animation:spin 0.8s linear infinite;margin:1rem auto}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    
+    /* Responsive */
+    @media(min-width:768px){
+      .about-content{grid-template-columns:1fr 1fr}
+      .hero{min-height:80vh}
+      .estimate-form{padding:2.5rem}
+    }
+    @media(max-width:480px){
+      .estimate-form{padding:1.5rem}
+      .result-price{font-size:2rem}
+      .nav-buttons{flex-direction:column}
+      .btn-back{order:2}
+      .btn-next{order:1}
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-bg">
+      <picture>
+        <source srcset="images/hero-bathroom.webp" type="image/webp">
+        <img src="images/hero-bathroom.jpg" alt="Modern bathroom remodel" width="1920" height="1080" fetchpriority="high">
+      </picture>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Orange County's Premier Kitchen and Bathroom Remodeler</h1>
+      <p class="hero-sub">Licensed • Insured • Expert Craftsmanship</p>
+      <button class="btn btn-gold" data-open-form aria-label="Get an instant estimate">GET YOUR INSTANT ESTIMATE</button>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section about">
+    <div class="container about-content">
+      <div>
+        <h2>Hi, I'm Justin...</h2>
+        <p>The owner of Timberline Build Co — previously known as Contractor Orange County. I've dedicated myself to bringing exceptional quality and customer satisfaction to every project.</p>
+        <p>I believe in open communication, meticulous attention to detail, and building lasting relationships with my clients. I'm passionate about creating beautiful and functional spaces that exceed your expectations.</p>
+      </div>
+      <div>
+        <picture>
+          <source srcset="images/justin-portrait.webp" type="image/webp">
+          <img src="images/justin-portrait.jpg" alt="Justin, owner of Timberline Build Co" width="500" height="600" loading="lazy">
+        </picture>
+      </div>
+    </div>
+  </section>
+
+  <!-- Value Propositions -->
+  <section class="section values">
+    <div class="container">
+      <h2>Why Choose Timberline Build Co?</h2>
+      <div class="values-grid">
+        <div class="value-card">
+          <h3>Personalized Approach</h3>
+          <p>We treat every project as unique, tailoring our solutions to your specific needs and budget.</p>
+        </div>
+        <div class="value-card">
+          <h3>Craftsmanship You Can Trust</h3>
+          <p>Our team of skilled professionals delivers meticulous workmanship with every detail executed to perfection.</p>
+        </div>
+        <div class="value-card">
+          <h3>Commitment to Quality</h3>
+          <p>We use only the finest materials and employ the latest techniques for long-lasting beauty and durability.</p>
+        </div>
+        <div class="value-card">
+          <h3>Transparent Pricing</h3>
+          <p>We provide upfront and honest pricing with no hidden costs or surprise fees.</p>
+        </div>
+        <div class="value-card">
+          <h3>Exceptional Customer Service</h3>
+          <p>Your satisfaction is our top priority. We're always available to answer questions and address concerns.</p>
+        </div>
+        <div class="value-card">
+          <h3>Timely Project Completion</h3>
+          <p>We respect your time and ensure projects are completed on schedule without compromising quality.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="section gallery">
+    <div class="container">
+      <h2>Our Work</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <picture>
+            <source srcset="images/gallery-1.webp" type="image/webp">
+            <img src="images/gallery-1.jpg" alt="Before and after bathroom transformation" width="600" height="450" loading="lazy">
+          </picture>
+          <span class="gallery-label">Before & After</span>
+        </div>
+        <div class="gallery-item">
+          <picture>
+            <source srcset="images/gallery-2.webp" type="image/webp">
+            <img src="images/gallery-2.jpg" alt="Modern shower installation" width="600" height="450" loading="lazy">
+          </picture>
+          <span class="gallery-label">Modern Shower</span>
+        </div>
+        <div class="gallery-item">
+          <picture>
+            <source srcset="images/gallery-3.webp" type="image/webp">
+            <img src="images/gallery-3.jpg" alt="Custom vanity design" width="600" height="450" loading="lazy">
+          </picture>
+          <span class="gallery-label">Custom Vanity</span>
+        </div>
+        <div class="gallery-item">
+          <picture>
+            <source srcset="images/gallery-4.webp" type="image/webp">
+            <img src="images/gallery-4.jpg" alt="Luxury bathroom remodel" width="600" height="450" loading="lazy">
+          </picture>
+          <span class="gallery-label">Luxury Remodel</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section cta-section">
+    <div class="container">
+      <h2>Ready to Transform Your Bathroom?</h2>
+      <p>Get an instant estimate in under 60 seconds — or call us now to speak with Justin directly.</p>
+      <div class="cta-buttons">
+        <button class="btn btn-gold" data-open-form>Get Your Instant Estimate</button>
+        <a href="tel:+17149001234" class="btn btn-outline callrail-swap">(714) 900-1234</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p><strong>Timberline Build Co</strong> — Orange County's Trusted Remodeler</p>
+      <p>Licensed • Insured • Serving Orange County, CA</p>
+      <p style="margin-top:0.75rem"><a href="tel:+17149001234" class="callrail-swap">(714) 900-1234</a></p>
+      <p style="margin-top:1rem;opacity:0.6">Copyright ©2025 All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Estimate Calculator Modal -->
+  <div class="form-modal" id="formModal" role="dialog" aria-modal="true" aria-labelledby="formTitle">
+    <div class="form-container">
+      <button class="form-close" aria-label="Close form">&times;</button>
+      
+      <div class="estimate-form" id="estimateForm">
+        <!-- Header -->
+        <div class="estimate-header">
+          <h2 id="formTitle">Get Your Instant Estimate</h2>
+          <p>Answer a few quick questions to see your personalized bathroom remodel investment.</p>
+        </div>
+        
+        <!-- Progress Bar -->
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill" style="width:20%"></div>
+        </div>
+        <p class="progress-text" id="progressText">Question 1 of 5</p>
+        
+        <!-- Question 1: Project Scope -->
+        <div class="question-step active" data-step="1">
+          <h3 class="question-title">What's your project scope?</h3>
+          <div class="option-grid">
+            <label class="option-card" data-value="half">
+              <input type="radio" name="scope">
+              <span class="option-radio"></span>
+              <div>
+                <span class="option-text">Half Bathroom</span>
+                <p class="option-desc">Powder room / guest bath (toilet + vanity)</p>
+              </div>
+            </label>
+            <label class="option-card" data-value="full">
+              <input type="radio" name="scope">
+              <span class="option-radio"></span>
+              <div>
+                <span class="option-text">Full Bathroom Remodel</span>
+                <p class="option-desc">Standard full bath with shower/tub</p>
+              </div>
+            </label>
+            <label class="option-card" data-value="master">
+              <input type="radio" name="scope">
+              <span class="option-radio"></span>
+              <div>
+                <span class="option-text">Master Bathroom</span>
+                <p class="option-desc">Primary bath with expanded features</p>
+              </div>
+            </label>
+            <label class="option-card" data-value="multiple">
+              <input type="radio" name="scope">
+              <span class="option-radio"></span>
+              <div>
+                <span class="option-text">Multiple Bathrooms</span>
+                <p class="option-desc">2+ bathrooms in scope</p>
+              </div>
+            </label>
+          </div>
+          <div class="nav-buttons">
+            <button class="btn btn-gold btn-next" disabled>Continue</button>
+          </div>
+        </div>
+        
+        <!-- Question 2: Condition -->
+        <div class="question-step" data-step="2">
+          <h3 class="question-title">What condition is the bathroom in now?</h3>
+          <div class="option-grid">
+            <label class="option-card" data-value="gut">
+              <input type="radio" name="condition">
+              <span class="option-radio"></span>
+              <div>
+                <span class="option-text">Needs Gut Renovation</span>
+                <p class="option-desc">Everything comes out — demo to studs</p>
+              </div>
+            </label>
+            <label class="option-card" data-value="partial">
+              <input type="radio" name="condition">
+              <span class="option-radio"></span>
+              <div>
+                <span class="option-text">Partial Renovation</span>
+                <p class="option-desc">Keep some fixtures, update others</p>
+              </div>
+            </label>
+            <label class="option-card" data-value="cosmetic">
+              <input type="radio" name="condition">
+              <span class="option-radio"></span>
+              <div>
+                <span class="option-text">Cosmetic Updates Only</span>
+                <p class="option-desc">New finishes, minor changes</p>
+              </div>
+            </label>
+          </div>
+          <div class="nav-buttons">
+            <button class="btn btn-back">Back</button>
+            <button class="btn btn-gold btn-next" disabled>Continue</button>
+          </div>
+        </div>
+        
+        <!-- Question 3: Features (Multi-select) -->
+        <div class="question-step" data-step="3">
+          <h3 class="question-title">Which features are you including?</h3>
+          <p style="color:#666;font-size:0.9rem;margin-bottom:1rem">Select all that apply</p>
+          <div class="option-grid">
+            <label class="option-card" data-value="tile-shower">
+              <input type="checkbox" name="features">
+              <span class="option-checkbox"></span>
+              <span class="option-text">Tile Shower / Tub Surround</span>
+            </label>
+            <label class="option-card" data-value="tub">
+              <input type="checkbox" name="features">
+              <span class="option-checkbox"></span>
+              <span class="option-text">Freestanding Tub</span>
+            </label>
+            <label class="option-card" data-value="vanity">
+              <input type="checkbox" name="features">
+              <span class="option-checkbox"></span>
+              <span class="option-text">Custom Vanity</span>
+            </label>
+            <label class="option-card" data-value="plumbing">
+              <input type="checkbox" name="features">
+              <span class="option-checkbox"></span>
+              <span class="option-text">New Plumbing</span>
+            </label>
+            <label class="option-card" data-value="electrical">
+              <input type="checkbox" name="features">
+              <span class="option-checkbox"></span>
+              <span class="option-text">Electrical Upgrades</span>
+            </label>
+            <label class="option-card" data-value="glass">
+              <input type="checkbox" name="features">
+              <span class="option-checkbox"></span>
+              <span class="option-text">Glass Shower Enclosure</span>
+            </label>
+          </div>
+          <div class="nav-buttons">
+            <button class="btn btn-back">Back</button>
+            <button class="btn btn-gold btn-next">Continue</button>
+          </div>
+        </div>
+        
+        <!-- Question 4: Finish Level -->
+        <div class="question-step" data-step="4">
+          <h3 class="question-title">What's your finish level preference?</h3>
+          <div class="option-grid">
+            <label class="option-card" data-value="basic">
+              <input type="radio" name="finish">
+              <span class="option-radio"></span>
+              <div>
+                <span class="option-text">Builder-Grade</span>
+                <p class="option-desc">Quality materials, cost-conscious choices</p>
+              </div>
+            </label>
+            <label class="option-card" data-value="mid">
+              <input type="radio" name="finish">
+              <span class="option-radio"></span>
+              <div>
+                <span class="option-text">Mid-Range</span>
+                <p class="option-desc">Upgraded finishes, quality fixtures</p>
+              </div>
+            </label>
+            <label class="option-card" data-value="luxury">
+              <input type="radio" name="finish">
+              <span class="option-radio"></span>
+              <div>
+                <span class="option-text">Luxury</span>
+                <p class="option-desc">Premium materials, designer selections</p>
+              </div>
+            </label>
+          </div>
+          <div class="nav-buttons">
+            <button class="btn btn-back">Back</button>
+            <button class="btn btn-gold btn-next" disabled>Continue</button>
+          </div>
+        </div>
+        
+        <!-- Question 5: Square Footage -->
+        <div class="question-step" data-step="5">
+          <h3 class="question-title">Approximate square footage?</h3>
+          <div class="slider-container">
+            <div class="slider-value"><span id="sqftValue">60</span> <span>sq ft</span></div>
+            <input type="range" id="sqftSlider" min="20" max="150" value="60" step="5">
+            <div class="slider-labels">
+              <span>20 sq ft</span>
+              <span>150 sq ft</span>
+            </div>
+          </div>
+          <div class="nav-buttons">
+            <button class="btn btn-back">Back</button>
+            <button class="btn btn-gold btn-next" id="calculateBtn">See My Estimate</button>
+          </div>
+        </div>
+        
+        <!-- Results Step -->
+        <div class="question-step" data-step="result">
+          <div class="estimate-result">
+            <span class="result-badge">✓ Your Personalized Estimate</span>
+            <div class="result-price" id="resultPrice">$24,500 – $38,000</div>
+            <p class="result-price-range">Estimated investment for your bathroom remodel</p>
+            
+            <div class="result-timeline">
+              <strong>Typical Timeline:</strong> <span id="resultTimeline">2–4 weeks</span>
+            </div>
+            
+            <div class="estimate-breakdown" id="estimateBreakdown">
+              <h4>What's Included:</h4>
+              <!-- Populated by JS -->
+            </div>
+          </div>
+          
+          <div class="lead-form" id="leadForm">
+            <h3>Get Your Exact Quote</h3>
+            <p>We'll reach out within 24 hours to discuss your project in detail.</p>
+            
+            <form id="contactForm">
+              <div class="form-group">
+                <label for="leadName">Your Name</label>
+                <input type="text" id="leadName" name="name" required placeholder="John Smith">
+              </div>
+              <div class="form-group">
+                <label for="leadPhone">Phone Number</label>
+                <input type="tel" id="leadPhone" name="phone" required placeholder="(714) 555-1234">
+              </div>
+              <div class="form-group">
+                <label for="leadEmail">Email Address</label>
+                <input type="email" id="leadEmail" name="email" required placeholder="john@example.com">
+              </div>
+              <div class="form-group optional">
+                <label for="leadAddress">Project Address</label>
+                <input type="text" id="leadAddress" name="address" placeholder="123 Main St, Costa Mesa, CA">
+              </div>
+              <button type="submit" class="btn btn-gold btn-submit">Get My Exact Quote</button>
+            </form>
+            <p class="form-note">🔒 Your information is secure and never shared.</p>
+          </div>
+        </div>
+        
+        <!-- Success State -->
+        <div class="question-step" data-step="success">
+          <div class="success-state">
+            <div class="success-icon">🎉</div>
+            <h3>You're All Set!</h3>
+            <p>Justin will personally review your project details and reach out within 24 hours with an exact quote.</p>
+            <p style="margin-top:1rem;color:var(--green);font-weight:600">We're excited to help transform your bathroom!</p>
+            <button class="btn btn-gold" style="margin-top:1.5rem" onclick="document.getElementById('formModal').classList.remove('active');document.body.style.overflow='';">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Estimate Calculator Logic -->
+  <script>
+    (function() {
+      'use strict';
+      
+      // State
+      var state = {
+        step: 1,
+        scope: null,
+        condition: null,
+        features: [],
+        finish: null,
+        sqft: 60
+      };
+      
+      // Pricing data (with 40% markup built in)
+      // Base costs × 1.4 = client price
+      var pricing = {
+        // Base costs by scope
+        scopeBase: {
+          half: { low: 8000, high: 15000 },
+          full: { low: 25000, high: 40000 },
+          master: { low: 40000, high: 60000 },
+          multiple: { low: 50000, high: 85000 }
+        },
+        // Demo costs by condition
+        demo: {
+          gut: { low: 2800, high: 4900 },      // $2000-$3500 × 1.4
+          partial: { low: 1400, high: 2800 },  // $1000-$2000 × 1.4
+          cosmetic: { low: 560, high: 1120 }   // $400-$800 × 1.4
+        },
+        // Feature add-ons (already with markup)
+        features: {
+          'tile-shower': { low: 5600, high: 11200, label: 'Tile Shower' },    // $4000-$8000 × 1.4
+          'tub': { low: 2800, high: 7000, label: 'Freestanding Tub' },        // $2000-$5000 × 1.4
+          'vanity': { low: 2100, high: 4200, label: 'Custom Vanity' },        // $1500-$3000 × 1.4
+          'plumbing': { low: 910, high: 1960, label: 'Plumbing' },            // $650-$1400 × 1.4
+          'electrical': { low: 420, high: 560, label: 'Electrical' },         // $300-$400 × 1.4
+          'glass': { low: 1680, high: 4900, label: 'Glass Enclosure' }        // $1200-$3500 × 1.4
+        },
+        // Finish level multipliers
+        finishMultiplier: {
+          basic: 0.85,
+          mid: 1.0,
+          luxury: 1.25
+        },
+        // Sqft adjustment (per sqft over 50)
+        sqftRate: { low: 50, high: 100 }
+      };
+      
+      // DOM elements
+      var modal = document.getElementById('formModal');
+      var progressFill = document.getElementById('progressFill');
+      var progressText = document.getElementById('progressText');
+      var steps = document.querySelectorAll('.question-step');
+      var sqftSlider = document.getElementById('sqftSlider');
+      var sqftValue = document.getElementById('sqftValue');
+      
+      // Calculate estimate
+      function calculateEstimate() {
+        var low = 0, high = 0;
+        var breakdown = [];
+        
+        // Base scope
+        if (state.scope && pricing.scopeBase[state.scope]) {
+          var base = pricing.scopeBase[state.scope];
+          low += base.low;
+          high += base.high;
+          
+          var scopeLabels = {
+            half: 'Half Bath Base',
+            full: 'Full Bath Base', 
+            master: 'Master Bath Base',
+            multiple: 'Multi-Bath Base'
+          };
+          breakdown.push({ label: scopeLabels[state.scope], low: base.low, high: base.high });
+        }
+        
+        // Demo/condition costs
+        if (state.condition && pricing.demo[state.condition]) {
+          var demo = pricing.demo[state.condition];
+          low += demo.low;
+          high += demo.high;
+          breakdown.push({ label: 'Demo & Prep', low: demo.low, high: demo.high });
+        }
+        
+        // Features
+        state.features.forEach(function(f) {
+          if (pricing.features[f]) {
+            var feat = pricing.features[f];
+            low += feat.low;
+            high += feat.high;
+            breakdown.push({ label: feat.label, low: feat.low, high: feat.high });
+          }
+        });
+        
+        // Sqft adjustment (for larger bathrooms)
+        if (state.sqft > 50) {
+          var extraSqft = state.sqft - 50;
+          var sqftLow = extraSqft * pricing.sqftRate.low;
+          var sqftHigh = extraSqft * pricing.sqftRate.high;
+          low += sqftLow;
+          high += sqftHigh;
+          if (extraSqft > 20) {
+            breakdown.push({ label: 'Large Space Adjustment', low: sqftLow, high: sqftHigh });
+          }
+        }
+        
+        // Finish level multiplier
+        if (state.finish && pricing.finishMultiplier[state.finish]) {
+          var mult = pricing.finishMultiplier[state.finish];
+          low = Math.round(low * mult);
+          high = Math.round(high * mult);
+        }
+        
+        // Round to nearest 500
+        low = Math.round(low / 500) * 500;
+        high = Math.round(high / 500) * 500;
+        
+        return { low: low, high: high, breakdown: breakdown };
+      }
+      
+      // Format currency
+      function formatCurrency(n) {
+        return '$' + n.toLocaleString();
+      }
+      
+      // Show step
+      function showStep(n) {
+        var stepId = n === 'result' ? 'result' : n === 'success' ? 'success' : n;
+        steps.forEach(function(s) {
+          s.classList.remove('active');
+          if (s.dataset.step == stepId) s.classList.add('active');
+        });
+        
+        if (typeof n === 'number') {
+          state.step = n;
+          progressFill.style.width = (n * 20) + '%';
+          progressText.textContent = 'Question ' + n + ' of 5';
+          progressText.style.display = '';
+          progressFill.parentElement.style.display = '';
+        } else {
+          progressText.style.display = 'none';
+          progressFill.parentElement.style.display = 'none';
+        }
+        
+        // Show results
+        if (n === 'result') {
+          var est = calculateEstimate();
+          document.getElementById('resultPrice').textContent = formatCurrency(est.low) + ' – ' + formatCurrency(est.high);
+          
+          // Timeline based on scope
+          var timelines = {
+            half: '1–2 weeks',
+            full: '2–3 weeks',
+            master: '3–5 weeks',
+            multiple: '4–8 weeks'
+          };
+          document.getElementById('resultTimeline').textContent = timelines[state.scope] || '2–4 weeks';
+          
+          // Breakdown
+          var breakdownHtml = est.breakdown.map(function(item) {
+            return '<div class="breakdown-item"><span>' + item.label + '</span><span>' + formatCurrency(item.low) + ' – ' + formatCurrency(item.high) + '</span></div>';
+          }).join('');
+          document.getElementById('estimateBreakdown').innerHTML = '<h4>What\'s Included:</h4>' + breakdownHtml;
+        }
+      }
+      
+      // Handle option selection (radio)
+      function handleRadioSelect(stepNum, fieldName, container) {
+        var cards = container.querySelectorAll('.option-card');
+        cards.forEach(function(card) {
+          card.addEventListener('click', function() {
+            cards.forEach(function(c) { c.classList.remove('selected'); });
+            card.classList.add('selected');
+            state[fieldName] = card.dataset.value;
+            
+            // Enable next button
+            var nextBtn = container.querySelector('.btn-next');
+            if (nextBtn) nextBtn.disabled = false;
+          });
+        });
+      }
+      
+      // Handle checkbox selection
+      function handleCheckboxSelect(container) {
+        var cards = container.querySelectorAll('.option-card');
+        cards.forEach(function(card) {
+          card.addEventListener('click', function() {
+            card.classList.toggle('selected');
+            
+            // Update features array
+            state.features = [];
+            cards.forEach(function(c) {
+              if (c.classList.contains('selected')) {
+                state.features.push(c.dataset.value);
+              }
+            });
+          });
+        });
+      }
+      
+      // Initialize option handlers
+      var step1 = document.querySelector('[data-step="1"]');
+      var step2 = document.querySelector('[data-step="2"]');
+      var step3 = document.querySelector('[data-step="3"]');
+      var step4 = document.querySelector('[data-step="4"]');
+      
+      handleRadioSelect(1, 'scope', step1);
+      handleRadioSelect(2, 'condition', step2);
+      handleCheckboxSelect(step3);
+      handleRadioSelect(4, 'finish', step4);
+      
+      // Sqft slider
+      sqftSlider.addEventListener('input', function() {
+        state.sqft = parseInt(this.value);
+        sqftValue.textContent = this.value;
+      });
+      
+      // Navigation
+      document.querySelectorAll('.btn-next').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          if (btn.disabled) return;
+          
+          var currentStep = parseInt(btn.closest('.question-step').dataset.step);
+          
+          if (currentStep === 5) {
+            showStep('result');
+          } else {
+            showStep(currentStep + 1);
+          }
+        });
+      });
+      
+      document.querySelectorAll('.btn-back').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var currentStep = btn.closest('.question-step').dataset.step;
+          if (currentStep === 'result') {
+            showStep(5);
+          } else {
+            showStep(parseInt(currentStep) - 1);
+          }
+        });
+      });
+      
+      // Form submission
+      document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        var est = calculateEstimate();
+        var formData = {
+          name: document.getElementById('leadName').value,
+          phone: document.getElementById('leadPhone').value,
+          email: document.getElementById('leadEmail').value,
+          address: document.getElementById('leadAddress').value,
+          scope: state.scope,
+          condition: state.condition,
+          features: state.features.join(', '),
+          finish: state.finish,
+          sqft: state.sqft,
+          estimate_low: est.low,
+          estimate_high: est.high
+        };
+        
+        // Build URL params for GoHighLevel
+        var params = new URLSearchParams();
+        params.append('full_name', formData.name);
+        params.append('phone', formData.phone);
+        params.append('email', formData.email);
+        if (formData.address) params.append('address', formData.address);
+        params.append('project_scope', formData.scope);
+        params.append('project_condition', formData.condition);
+        params.append('features', formData.features);
+        params.append('finish_level', formData.finish);
+        params.append('sqft', formData.sqft);
+        params.append('estimate_range', formatCurrency(formData.estimate_low) + ' - ' + formatCurrency(formData.estimate_high));
+        
+        // Submit to GoHighLevel
+        var submitBtn = this.querySelector('.btn-submit');
+        var originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Submitting...';
+        submitBtn.disabled = true;
+        
+        // Use fetch to POST to GoHighLevel
+        fetch('https://link.apisystem.tech/widget/form/T6mcisYXB0t5PDUQaAsP?' + params.toString(), {
+          method: 'POST',
+          mode: 'no-cors'
+        }).then(function() {
+          showStep('success');
+        }).catch(function() {
+          // Fallback: redirect with params
+          window.open('https://link.apisystem.tech/widget/form/T6mcisYXB0t5PDUQaAsP?' + params.toString(), '_blank');
+          showStep('success');
+        });
+      });
+      
+      // Modal controls
+      function openModal() {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        // Reset to step 1
+        state = { step: 1, scope: null, condition: null, features: [], finish: null, sqft: 60 };
+        steps.forEach(function(s) { 
+          s.classList.remove('active');
+          s.querySelectorAll('.option-card').forEach(function(c) { c.classList.remove('selected'); });
+          var nextBtn = s.querySelector('.btn-next');
+          if (nextBtn && s.dataset.step !== '3' && s.dataset.step !== '5') nextBtn.disabled = true;
+        });
+        sqftSlider.value = 60;
+        sqftValue.textContent = '60';
+        document.getElementById('contactForm').reset();
+        showStep(1);
+      }
+      
+      function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+      
+      document.querySelectorAll('[data-open-form]').forEach(function(btn) {
+        btn.addEventListener('click', openModal);
+      });
+      
+      modal.querySelector('.form-close').addEventListener('click', closeModal);
+      
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) closeModal();
+      });
+      
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+      });
+    })();
+  </script>
+
+  <!-- CallRail Phone Swap Script -->
+  <script type="text/javascript" src="//cdn.callrail.com/companies/720151291/736f2af7a945563179a7/12/swap.js"></script>
+</body>
+</html>
