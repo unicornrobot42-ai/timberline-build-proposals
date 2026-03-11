@@ -155,10 +155,9 @@
 
     .render-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
+      grid-template-columns: 1fr;
+      gap: 24px;
     }
-    @media (max-width: 600px) { .render-grid { grid-template-columns: 1fr; } }
 
     .render-card {
       border-radius: 10px;
@@ -167,9 +166,8 @@
     }
     .render-card img {
       width: 100%;
+      height: auto;
       display: block;
-      aspect-ratio: 4/3;
-      object-fit: cover;
     }
     .render-label {
       position: absolute;
