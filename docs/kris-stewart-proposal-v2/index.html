@@ -183,10 +183,12 @@
         /* ── FULL BLEED IMAGE BREAK ── */
         .img-break {
             width: 100%;
-            height: 420px;
+            aspect-ratio: 16 / 5;
             object-fit: cover;
-            object-position: top;
+            object-position: center;
             display: block;
+            min-height: 200px;
+            max-height: 480px;
         }
 
         .img-break-caption {
@@ -239,10 +241,12 @@
 
         .phase-img {
             width: 100%;
-            height: 300px;
+            aspect-ratio: 16 / 7;
             object-fit: cover;
-            object-position: top;
+            object-position: center;
             display: block;
+            min-height: 180px;
+            max-height: 380px;
         }
 
         .phase-header {
@@ -392,14 +396,19 @@
         /* ── GALLERY ── */
         .gallery {
             display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 4px;
-            background: #000;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 6px;
+            background: var(--cream);
+            padding: 0;
         }
 
-        .gallery img { width: 100%; height: 320px; object-fit: cover; object-position: top; display: block; }
-        .gallery-col { display: flex; flex-direction: column; gap: 4px; }
-        .gallery-col img { flex: 1; height: 158px; object-fit: cover; object-position: top; }
+        .gallery img {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
 
         /* ── NOT INCLUDED ── */
         .not-included-list {
@@ -492,8 +501,6 @@
             .total-block { padding: 2rem 1.5rem; }
             .tf-range { font-size: 1.7rem; }
             .gallery { grid-template-columns: 1fr; }
-            .gallery img, .gallery-col img { height: 220px; }
-            .img-break { height: 260px; }
             .img-break-caption { padding: 0.75rem 1.5rem; }
         }
     </style>
@@ -713,10 +720,8 @@
 <!-- ── GALLERY BREAK ── -->
 <div class="gallery">
     <img src="phase2-kitchen.jpg" alt="Kitchen render">
-    <div class="gallery-col">
-        <img src="phase3-bath.jpg" alt="Bathroom render">
-        <img src="phase1-living.jpg" alt="Living room render">
-    </div>
+    <img src="phase3-bath.jpg" alt="Bathroom render">
+    <img src="phase1-living.jpg" alt="Living room render">
 </div>
 
 <div class="section-divider" style="margin-top:0;"></div>
