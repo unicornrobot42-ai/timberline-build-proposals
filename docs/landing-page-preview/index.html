@@ -9,12 +9,13 @@
   <!-- Preconnect to external domains -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com">
   
   <!-- Premium fonts - Playfair Display + Inter -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
   
   <!-- Preload critical hero image -->
-  <link rel="preload" as="image" href="images/hero-bathroom.webp" type="image/webp">
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=1920&q=85&auto=format" type="image/webp">
   
   <!-- Critical CSS - Inlined for fastest FCP -->
   <style>
@@ -85,6 +86,32 @@
     }
     
     /* ============================================
+       CUSTOM SVG ICONS
+       ============================================ */
+    .icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+    }
+    
+    .icon svg {
+      width: 100%;
+      height: 100%;
+    }
+    
+    .icon-lg {
+      width: 32px;
+      height: 32px;
+    }
+    
+    .icon-xl {
+      width: 56px;
+      height: 56px;
+    }
+    
+    /* ============================================
        HERO SECTION - Premium & Dramatic
        ============================================ */
     .hero {
@@ -108,8 +135,8 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      opacity: 0.5;
-      transform: scale(1.05);
+      opacity: 0.6;
+      transform: scale(1.02);
     }
     
     .hero-overlay {
@@ -117,9 +144,9 @@
       inset: 0;
       background: linear-gradient(
         135deg,
-        rgba(15, 42, 28, 0.85) 0%,
-        rgba(25, 65, 44, 0.7) 50%,
-        rgba(15, 42, 28, 0.9) 100%
+        rgba(15, 42, 28, 0.75) 0%,
+        rgba(25, 65, 44, 0.5) 50%,
+        rgba(15, 42, 28, 0.8) 100%
       );
     }
     
@@ -142,11 +169,32 @@
       50% { transform: translateX(100%); }
     }
     
+    /* Logo in header */
+    .hero-logo {
+      position: absolute;
+      top: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+    }
+    
+    .hero-logo svg {
+      height: 48px;
+      width: auto;
+    }
+    
+    @media(min-width: 768px) {
+      .hero-logo svg {
+        height: 56px;
+      }
+    }
+    
     .hero-content {
       position: relative;
       z-index: 2;
       max-width: 900px;
       padding: 2rem;
+      padding-top: 6rem;
     }
     
     .hero-badge {
@@ -164,6 +212,11 @@
       color: var(--gold);
       margin-bottom: 1.75rem;
       backdrop-filter: blur(10px);
+    }
+    
+    .hero-badge .icon {
+      width: 16px;
+      height: 16px;
     }
     
     .hero h1 {
@@ -243,11 +296,13 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 0.35rem;
+      gap: 0.5rem;
     }
     
-    .trust-icon {
-      font-size: 1.5rem;
+    .trust-item .icon {
+      width: 28px;
+      height: 28px;
+      color: var(--gold);
     }
     
     .trust-label {
@@ -287,6 +342,8 @@
     .about-image img {
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow-lg);
+      aspect-ratio: 4/5;
+      object-fit: cover;
     }
     
     .about-image::before {
@@ -344,6 +401,32 @@
       font-size: 0.85rem;
       color: var(--text-muted);
       margin-top: 0.25rem;
+    }
+    
+    /* Family photo placeholder - ready for Justin's photo */
+    .family-photo-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--cream) 0%, var(--cream-dark) 100%);
+      border: 2px dashed var(--gold);
+      border-radius: var(--radius-lg);
+      aspect-ratio: 4/5;
+      text-align: center;
+      padding: 2rem;
+    }
+    
+    .family-photo-placeholder .icon {
+      width: 64px;
+      height: 64px;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    
+    .family-photo-placeholder p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
     }
     
     /* ============================================
@@ -416,8 +499,13 @@
       justify-content: center;
       background: linear-gradient(135deg, var(--gold) 0%, #d9a033 100%);
       border-radius: var(--radius-sm);
-      font-size: 1.5rem;
       margin-bottom: 1.5rem;
+      color: var(--navy);
+    }
+    
+    .value-icon svg {
+      width: 28px;
+      height: 28px;
     }
     
     .value-card h3 {
@@ -435,7 +523,7 @@
     }
     
     /* ============================================
-       GALLERY - Before/After Slider
+       GALLERY - Stunning Bathroom Showcase
        ============================================ */
     .gallery {
       background: var(--cream);
@@ -458,126 +546,58 @@
       font-size: 1.1rem;
     }
     
-    /* Before/After Slider */
-    .ba-slider-container {
-      margin-bottom: 3rem;
-    }
-    
-    .ba-slider {
-      position: relative;
-      width: 100%;
-      max-width: 900px;
-      margin: 0 auto;
-      aspect-ratio: 16/10;
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      box-shadow: var(--shadow-lg);
-      cursor: ew-resize;
-    }
-    
-    .ba-image {
-      position: absolute;
-      inset: 0;
-    }
-    
-    .ba-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    
-    .ba-after {
-      clip-path: inset(0 50% 0 0);
-    }
-    
-    .ba-handle {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 50%;
-      width: 4px;
-      background: var(--white);
-      transform: translateX(-50%);
-      cursor: ew-resize;
-      z-index: 10;
-    }
-    
-    .ba-handle::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 52px;
-      height: 52px;
-      background: var(--white);
-      border-radius: 50%;
-      box-shadow: var(--shadow-md);
-    }
-    
-    .ba-handle::after {
-      content: '⟨ ⟩';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--green);
-      letter-spacing: 0.3em;
-    }
-    
-    .ba-label {
-      position: absolute;
-      bottom: 1.25rem;
-      padding: 0.5rem 1rem;
-      background: rgba(0,0,0,0.7);
-      backdrop-filter: blur(10px);
-      color: var(--white);
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      border-radius: 4px;
-      z-index: 5;
-    }
-    
-    .ba-label-before { left: 1.25rem; }
-    .ba-label-after { right: 1.25rem; }
-    
-    /* Gallery Grid */
-    .gallery-grid {
+    /* Premium Showcase Grid */
+    .gallery-showcase {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1rem;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    
+    @media(min-width: 768px) {
+      .gallery-showcase {
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: auto auto;
+      }
+      
+      .gallery-showcase .gallery-item:first-child {
+        grid-row: span 2;
+      }
     }
     
     .gallery-item {
       position: relative;
-      aspect-ratio: 1;
       overflow: hidden;
-      border-radius: var(--radius-md);
-      box-shadow: var(--shadow-sm);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
     }
     
     .gallery-item img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.5s ease;
+      transition: transform 0.6s ease;
+    }
+    
+    .gallery-item:first-child {
+      min-height: 500px;
+    }
+    
+    .gallery-item:not(:first-child) {
+      min-height: 240px;
     }
     
     .gallery-item::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(25, 65, 44, 0.85) 0%, transparent 50%);
+      background: linear-gradient(to top, rgba(25, 65, 44, 0.7) 0%, transparent 40%);
       opacity: 0;
       transition: opacity var(--transition);
     }
     
     .gallery-item:hover img {
-      transform: scale(1.08);
+      transform: scale(1.05);
     }
     
     .gallery-item:hover::after {
@@ -589,9 +609,9 @@
       bottom: 0;
       left: 0;
       right: 0;
-      padding: 1.25rem;
+      padding: 1.5rem;
       color: var(--white);
-      font-size: 0.9rem;
+      font-size: 1rem;
       font-weight: 600;
       z-index: 2;
       transform: translateY(100%);
@@ -679,10 +699,15 @@
       border-bottom: 1px solid rgba(255,255,255,0.1);
     }
     
-    .footer-brand h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .footer-logo svg {
+      height: 40px;
+      width: auto;
     }
     
     .footer-brand p {
@@ -718,7 +743,7 @@
     .footer-badges {
       display: flex;
       gap: 1rem;
-      margin-top: 1.5rem;
+      margin-top: 1rem;
     }
     
     .footer-badge {
@@ -731,6 +756,12 @@
       border-radius: var(--radius-sm);
       font-size: 0.75rem;
       color: rgba(255,255,255,0.7);
+    }
+    
+    .footer-badge .icon {
+      width: 16px;
+      height: 16px;
+      color: var(--gold);
     }
     
     .footer-bottom {
@@ -795,10 +826,6 @@
         grid-template-columns: 1fr;
       }
       
-      .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      
       .footer-top {
         grid-template-columns: 1fr;
         gap: 2rem;
@@ -860,12 +887,9 @@
       backdrop-filter: blur(10px);
     }
     
-    .form-logo {
-      font-family: 'Playfair Display', serif;
-      color: var(--white);
-      font-weight: 600;
-      font-size: 1.1rem;
-      letter-spacing: 0.05em;
+    .form-logo svg {
+      height: 32px;
+      width: auto;
     }
     
     .form-close {
@@ -1054,155 +1078,6 @@
       margin-top: 0.35rem;
     }
     
-    .option-price {
-      color: var(--gold);
-      font-size: 0.85rem;
-      margin-top: 0.5rem;
-      font-weight: 600;
-    }
-    
-    /* Slider styling */
-    .slider-wrap {
-      padding: 2rem 0;
-    }
-    
-    .slider-display {
-      text-align: center;
-      margin-bottom: 2.5rem;
-    }
-    
-    .slider-value {
-      font-family: 'Playfair Display', serif;
-      font-size: 5rem;
-      font-weight: 700;
-      color: var(--white);
-      line-height: 1;
-    }
-    
-    .slider-unit {
-      font-size: 1.5rem;
-      color: rgba(255,255,255,0.5);
-      margin-left: 0.5rem;
-    }
-    
-    .slider-context {
-      color: var(--gold);
-      font-size: 0.95rem;
-      margin-top: 0.75rem;
-      font-weight: 500;
-    }
-    
-    input[type="range"] {
-      width: 100%;
-      height: 8px;
-      border-radius: 4px;
-      background: rgba(255,255,255,0.15);
-      outline: none;
-      -webkit-appearance: none;
-      cursor: pointer;
-    }
-    
-    input[type="range"]::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--gold) 0%, #d9a033 100%);
-      cursor: pointer;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.3), 0 0 0 4px rgba(233, 175, 59, 0.2);
-      transition: box-shadow var(--transition);
-    }
-    
-    input[type="range"]::-webkit-slider-thumb:hover {
-      box-shadow: 0 4px 15px rgba(0,0,0,0.4), 0 0 0 6px rgba(233, 175, 59, 0.3);
-    }
-    
-    input[type="range"]::-moz-range-thumb {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--gold) 0%, #d9a033 100%);
-      cursor: pointer;
-      border: none;
-    }
-    
-    .slider-labels {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 1rem;
-      color: rgba(255,255,255,0.4);
-      font-size: 0.85rem;
-    }
-    
-    /* Photo upload */
-    .upload-area {
-      border: 2px dashed rgba(255,255,255,0.25);
-      border-radius: var(--radius-lg);
-      padding: 3.5rem 2rem;
-      text-align: center;
-      cursor: pointer;
-      transition: all var(--transition);
-      position: relative;
-      background: rgba(255,255,255,0.02);
-    }
-    
-    .upload-area:hover {
-      border-color: var(--gold);
-      background: rgba(255,255,255,0.05);
-    }
-    
-    .upload-area.has-image {
-      border-style: solid;
-      border-color: var(--gold);
-    }
-    
-    .upload-icon {
-      font-size: 3.5rem;
-      margin-bottom: 1rem;
-    }
-    
-    .upload-text {
-      color: var(--white);
-      font-size: 1.1rem;
-      font-weight: 500;
-      margin-bottom: 0.5rem;
-    }
-    
-    .upload-hint {
-      color: rgba(255,255,255,0.45);
-      font-size: 0.9rem;
-    }
-    
-    .upload-input {
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-      cursor: pointer;
-    }
-    
-    .upload-preview {
-      max-width: 100%;
-      max-height: 220px;
-      border-radius: var(--radius-md);
-      margin: 0 auto;
-    }
-    
-    .upload-remove {
-      background: rgba(0,0,0,0.5);
-      color: var(--white);
-      border: none;
-      padding: 0.6rem 1.25rem;
-      border-radius: var(--radius-sm);
-      margin-top: 1.25rem;
-      cursor: pointer;
-      font-size: 0.85rem;
-      transition: background var(--transition);
-    }
-    
-    .upload-remove:hover {
-      background: rgba(0,0,0,0.7);
-    }
-    
     /* Navigation */
     .form-nav {
       padding: 1.5rem 2rem;
@@ -1266,9 +1141,11 @@
       box-shadow: none;
     }
     
-    /* Results screen - Premium */
+    /* ============================================
+       RESULTS SCREEN - Premium
+       ============================================ */
     .results-screen {
-      max-width: 720px;
+      max-width: 800px;
     }
     
     .result-header {
@@ -1301,76 +1178,29 @@
       font-size: clamp(2.75rem, 8vw, 4rem);
       font-weight: 700;
       color: var(--white);
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.5rem;
       letter-spacing: -0.02em;
     }
     
-    .result-range {
-      color: rgba(255,255,255,0.55);
-      font-size: 0.95rem;
+    .result-disclaimer {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.85rem;
+      max-width: 400px;
+      margin: 0 auto;
     }
     
-    .result-timeline {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: var(--radius-md);
-      padding: 1.25rem 1.5rem;
-      margin: 2rem 0;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-    
-    .timeline-icon {
-      font-size: 1.75rem;
-    }
-    
-    .timeline-text {
-      color: var(--white);
-      font-size: 1rem;
-    }
-    
-    .timeline-text strong {
-      color: var(--gold);
-    }
-    
-    .breakdown-card {
-      background: var(--white);
+    /* Bathroom image in results */
+    .result-image {
       border-radius: var(--radius-lg);
-      padding: 1.75rem;
-      margin-bottom: 1.5rem;
+      overflow: hidden;
+      margin: 2rem 0;
       box-shadow: var(--shadow-lg);
     }
     
-    .breakdown-title {
-      color: var(--green);
-      font-size: 1rem;
-      font-weight: 700;
-      margin-bottom: 1.25rem;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-    
-    .breakdown-item {
-      display: flex;
-      justify-content: space-between;
-      padding: 0.75rem 0;
-      border-bottom: 1px solid #f0f0f0;
-      font-size: 0.95rem;
-    }
-    
-    .breakdown-item:last-child {
-      border-bottom: none;
-    }
-    
-    .breakdown-item span:first-child {
-      color: var(--text-muted);
-    }
-    
-    .breakdown-item span:last-child {
-      color: var(--green);
-      font-weight: 600;
+    .result-image img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
     }
     
     /* Contact form in results */
@@ -1412,6 +1242,10 @@
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.05em;
+    }
+    
+    .form-field label .required {
+      color: #e74c3c;
     }
     
     .form-field input {
@@ -1458,6 +1292,12 @@
       box-shadow: 0 6px 25px rgba(233, 175, 59, 0.45);
     }
     
+    .btn-submit:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+    
     .form-note {
       text-align: center;
       font-size: 0.8rem;
@@ -1469,32 +1309,171 @@
       gap: 0.4rem;
     }
     
-    /* Success state */
-    .success-content {
+    .form-note .icon {
+      width: 14px;
+      height: 14px;
+      color: var(--gold);
+    }
+    
+    /* ============================================
+       SUCCESS/CONFIRMATION SCREEN - Premium
+       ============================================ */
+    .success-screen {
+      max-width: 720px;
       text-align: center;
-      padding: 3rem 2rem;
+    }
+    
+    .success-header {
+      margin-bottom: 2rem;
     }
     
     .success-icon {
-      font-size: 5rem;
-      margin-bottom: 1.5rem;
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, var(--gold) 0%, #d9a033 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+    }
+    
+    .success-icon svg {
+      width: 40px;
+      height: 40px;
+      color: var(--navy);
     }
     
     .success-title {
       font-family: 'Playfair Display', serif;
       color: var(--white);
-      font-size: 2rem;
-      margin-bottom: 1rem;
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      margin-bottom: 0.75rem;
     }
     
-    .success-text {
-      color: rgba(255,255,255,0.75);
-      font-size: 1.05rem;
-      margin-bottom: 2.5rem;
-      max-width: 420px;
-      margin-left: auto;
-      margin-right: auto;
-      line-height: 1.7;
+    .success-subtitle {
+      color: rgba(255,255,255,0.7);
+      font-size: 1.1rem;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    
+    /* Estimate card on success */
+    .estimate-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      margin: 2rem 0;
+      text-align: left;
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .estimate-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .estimate-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+    }
+    
+    .estimate-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--green);
+    }
+    
+    /* Discount banner */
+    .discount-banner {
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .discount-banner .icon {
+      width: 40px;
+      height: 40px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    
+    .discount-banner .icon svg {
+      width: 20px;
+      height: 20px;
+      color: var(--navy);
+    }
+    
+    .discount-content {
+      flex: 1;
+    }
+    
+    .discount-amount {
+      color: var(--gold);
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+    
+    .discount-text {
+      color: rgba(255,255,255,0.8);
+      font-size: 0.9rem;
+    }
+    
+    .discount-expires {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.8rem;
+      margin-top: 0.25rem;
+    }
+    
+    /* CTA in success */
+    .success-cta {
+      margin-top: 1.5rem;
+    }
+    
+    .success-cta .btn {
+      width: 100%;
+      padding: 1.25rem;
+      font-size: 1.1rem;
+    }
+    
+    .estimate-disclaimer {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      margin-top: 1rem;
+      font-style: italic;
+    }
+    
+    /* Close button on success */
+    .close-modal-btn {
+      margin-top: 1.5rem;
+      background: transparent;
+      border: none;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.9rem;
+      cursor: pointer;
+      padding: 0.75rem 1.5rem;
+      transition: color var(--transition);
+    }
+    
+    .close-modal-btn:hover {
+      color: var(--white);
     }
     
     /* Responsive */
@@ -1528,8 +1507,9 @@
         font-size: 2.5rem;
       }
       
-      .slider-value {
-        font-size: 3.5rem;
+      .estimate-card-header {
+        flex-direction: column;
+        gap: 1rem;
       }
     }
   </style>
@@ -1537,16 +1517,43 @@
 <body>
   <!-- Hero Section - Premium & Dramatic -->
   <section class="hero">
+    <!-- Logo at top -->
+    <div class="hero-logo">
+      <svg viewBox="0 0 240 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Timberline Build Co. Logo -->
+        <path d="M8 12h24v4H22v28h-4V16H8v-4z" fill="#e9af3b"/>
+        <path d="M36 12h4v32h-4V12z" fill="#e9af3b"/>
+        <path d="M46 12h5l6 14 6-14h5v32h-4V22l-5.5 13h-3L50 22v22h-4V12z" fill="#e9af3b"/>
+        <path d="M74 12h10c4.4 0 8 3.6 8 8 0 3-1.7 5.6-4.2 7l5.2 17h-4.5l-4.7-16H78v16h-4V12zm4 12h6c2.2 0 4-1.8 4-4s-1.8-4-4-4h-6v8z" fill="#e9af3b"/>
+        <path d="M96 12h12c4.4 0 8 3.6 8 8s-3.6 8-8 8h-8v16h-4V12zm4 12h8c2.2 0 4-1.8 4-4s-1.8-4-4-4h-8v8z" fill="#fff"/>
+        <path d="M120 12h4v28h14v4h-18V12z" fill="#fff"/>
+        <path d="M142 12h4v32h-4V12z" fill="#fff"/>
+        <path d="M152 12h5l11 22V12h4v32h-5l-11-22v22h-4V12z" fill="#fff"/>
+        <path d="M178 12h18v4h-14v10h12v4h-12v10h14v4h-18V12z" fill="#fff"/>
+        <!-- Tree icon -->
+        <path d="M212 44V32l-8 12h6v0h4zm0-12l-6-9 4 0 2-3 2 3 4 0-6 9zm-2-14l2-4 2 4h-4z" fill="#e9af3b"/>
+        <path d="M224 50h-24v-4h24v4z" fill="#e9af3b"/>
+        <!-- BUILD CO. text -->
+        <text x="200" y="52" font-family="Inter, sans-serif" font-size="8" font-weight="600" fill="#fff" letter-spacing="0.1em">BUILD CO.</text>
+      </svg>
+    </div>
+    
     <div class="hero-bg">
-      <picture>
-        <source srcset="images/hero-bathroom.webp" type="image/webp">
-        <img src="images/hero-bathroom.jpg" alt="Modern bathroom remodel" width="1920" height="1080" fetchpriority="high">
-      </picture>
+      <!-- Stunning high-end bathroom hero image -->
+      <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=1920&q=85&auto=format" 
+           alt="Luxury modern bathroom with marble finishes and rain shower" 
+           width="1920" height="1080" 
+           fetchpriority="high">
     </div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <div class="hero-badge">
-        ✦ Orange County's Premier Remodeler
+        <span class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+        </span>
+        Orange County's Premier Remodeler
       </div>
       <h1>Transform Your Bathroom Into a <span>Sanctuary</span></h1>
       <p class="hero-sub">Expert craftsmanship meets elegant design. We create stunning bathroom remodels that exceed expectations — on time and on budget.</p>
@@ -1558,15 +1565,29 @@
       </div>
       <div class="hero-trust">
         <div class="trust-item">
-          <span class="trust-icon">🛡️</span>
+          <span class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <path d="M9 12l2 2 4-4"/>
+            </svg>
+          </span>
           <span class="trust-label">Licensed & Insured</span>
         </div>
         <div class="trust-item">
-          <span class="trust-icon">⭐</span>
+          <span class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+          </span>
           <span class="trust-label">5-Star Reviews</span>
         </div>
         <div class="trust-item">
-          <span class="trust-icon">🏆</span>
+          <span class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="8" r="6"/>
+              <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
+            </svg>
+          </span>
           <span class="trust-label">10+ Years Experience</span>
         </div>
       </div>
@@ -1578,10 +1599,13 @@
     <div class="container">
       <div class="about-wrapper fade-in">
         <div class="about-image">
-          <picture>
-            <source srcset="images/justin-portrait.webp" type="image/webp">
-            <img src="images/justin-portrait.jpg" alt="Justin, owner of Timberline Build Co" width="500" height="600" loading="lazy">
-          </picture>
+          <!-- Placeholder for Justin's family photo - replace src when provided -->
+          <img src="justin-family-photo.png" 
+               alt="Justin and family - Timberline Build Co" 
+               width="500" height="600" 
+               loading="lazy"
+               id="family-photo">
+          <!-- Note: Replace the above image with Justin's actual family photo when provided -->
         </div>
         <div class="about-content">
           <span class="section-label">Meet the Owner</span>
@@ -1607,32 +1631,61 @@
       </div>
       <div class="values-grid">
         <div class="value-card fade-in">
-          <div class="value-icon">✨</div>
+          <div class="value-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </div>
           <h3>Personalized Approach</h3>
           <p>Every project is unique. We tailor our solutions to your specific needs, style, and budget.</p>
         </div>
         <div class="value-card fade-in">
-          <div class="value-icon">🔨</div>
+          <div class="value-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+            </svg>
+          </div>
           <h3>Expert Craftsmanship</h3>
           <p>Our skilled team delivers meticulous workmanship with every detail executed to perfection.</p>
         </div>
         <div class="value-card fade-in">
-          <div class="value-icon">💎</div>
+          <div class="value-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+              <polyline points="2 17 12 22 22 17"/>
+              <polyline points="2 12 12 17 22 12"/>
+            </svg>
+          </div>
           <h3>Premium Materials</h3>
           <p>We use only the finest materials for long-lasting beauty and durability you can trust.</p>
         </div>
         <div class="value-card fade-in">
-          <div class="value-icon">📋</div>
+          <div class="value-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+              <line x1="8" y1="21" x2="16" y2="21"/>
+              <line x1="12" y1="17" x2="12" y2="21"/>
+            </svg>
+          </div>
           <h3>Transparent Pricing</h3>
           <p>Upfront, honest pricing with no hidden costs or surprise fees. Know your investment from day one.</p>
         </div>
         <div class="value-card fade-in">
-          <div class="value-icon">💬</div>
+          <div class="value-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+          </div>
           <h3>Clear Communication</h3>
           <p>We keep you informed every step of the way. Your questions answered, concerns addressed.</p>
         </div>
         <div class="value-card fade-in">
-          <div class="value-icon">⏰</div>
+          <div class="value-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
           <h3>On-Time Delivery</h3>
           <p>We respect your time. Projects completed on schedule without compromising quality.</p>
         </div>
@@ -1640,65 +1693,34 @@
     </div>
   </section>
 
-  <!-- Gallery Section - Before/After Slider -->
+  <!-- Gallery Section - Stunning Bathroom Showcase -->
   <section class="section gallery">
     <div class="container">
       <div class="gallery-header fade-in">
         <span class="section-label">Our Portfolio</span>
-        <h2>Transformations That Inspire</h2>
-        <p>See the dramatic difference expert remodeling makes. Drag the slider to reveal the transformation.</p>
+        <h2>Stunning Transformations</h2>
+        <p>See the dramatic difference expert remodeling makes. Premium finishes, impeccable craftsmanship.</p>
       </div>
       
-      <!-- Before/After Slider -->
-      <div class="ba-slider-container fade-in">
-        <div class="ba-slider" id="baSlider">
-          <div class="ba-image ba-before">
-            <picture>
-              <source srcset="images/gallery-1.webp" type="image/webp">
-              <img src="images/gallery-1.jpg" alt="Before renovation" loading="lazy">
-            </picture>
-          </div>
-          <div class="ba-image ba-after">
-            <picture>
-              <source srcset="images/gallery-2.webp" type="image/webp">
-              <img src="images/gallery-2.jpg" alt="After renovation" loading="lazy">
-            </picture>
-          </div>
-          <div class="ba-handle" id="baHandle"></div>
-          <span class="ba-label ba-label-before">Before</span>
-          <span class="ba-label ba-label-after">After</span>
-        </div>
-      </div>
-      
-      <!-- Gallery Grid -->
-      <div class="gallery-grid">
+      <!-- Premium Showcase Grid -->
+      <div class="gallery-showcase">
         <div class="gallery-item fade-in">
-          <picture>
-            <source srcset="images/gallery-1.webp" type="image/webp">
-            <img src="images/gallery-1.jpg" alt="Bathroom transformation" loading="lazy">
-          </picture>
-          <span class="gallery-label">Master Bath Renovation</span>
+          <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=1200&h=900&fit=crop&q=85" 
+               alt="Luxury master bathroom with freestanding tub and marble walls" 
+               loading="lazy">
+          <span class="gallery-label">Luxury Master Suite</span>
         </div>
         <div class="gallery-item fade-in">
-          <picture>
-            <source srcset="images/gallery-2.webp" type="image/webp">
-            <img src="images/gallery-2.jpg" alt="Modern shower installation" loading="lazy">
-          </picture>
+          <img src="https://images.unsplash.com/photo-1620626011761-996317b8d101?w=600&h=450&fit=crop&q=85" 
+               alt="Modern walk-in shower with frameless glass" 
+               loading="lazy">
           <span class="gallery-label">Modern Walk-In Shower</span>
         </div>
         <div class="gallery-item fade-in">
-          <picture>
-            <source srcset="images/gallery-3.webp" type="image/webp">
-            <img src="images/gallery-3.jpg" alt="Custom vanity design" loading="lazy">
-          </picture>
-          <span class="gallery-label">Custom Vanity Design</span>
-        </div>
-        <div class="gallery-item fade-in">
-          <picture>
-            <source srcset="images/gallery-4.webp" type="image/webp">
-            <img src="images/gallery-4.jpg" alt="Luxury bathroom remodel" loading="lazy">
-          </picture>
-          <span class="gallery-label">Luxury Full Remodel</span>
+          <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&h=450&fit=crop&q=85" 
+               alt="Contemporary bathroom vanity with premium fixtures" 
+               loading="lazy">
+          <span class="gallery-label">Designer Vanity</span>
         </div>
       </div>
     </div>
@@ -1724,12 +1746,46 @@
     <div class="container">
       <div class="footer-top">
         <div class="footer-brand">
-          <h3>Timberline Build Co</h3>
+          <div class="footer-logo">
+            <svg viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 8h18v3H16v22h-3V11H6V8z" fill="#e9af3b"/>
+              <path d="M27 8h3v25h-3V8z" fill="#e9af3b"/>
+              <path d="M35 8h4l5 11 5-11h4v25h-3V15l-4.5 10h-3L38 15v18h-3V8z" fill="#e9af3b"/>
+              <path d="M58 8h8c3.3 0 6 2.7 6 6 0 2.2-1.2 4.2-3 5.3l4 13.7h-3.4l-3.5-12H61v12h-3V8zm3 9h5c1.7 0 3-1.3 3-3s-1.3-3-3-3h-5v6z" fill="#e9af3b"/>
+              <path d="M76 8h9c3.3 0 6 2.7 6 6s-2.7 6-6 6h-6v13h-3V8zm3 9h6c1.7 0 3-1.3 3-3s-1.3-3-3-3h-6v6z" fill="#fff"/>
+              <path d="M94 8h3v22h10v3H94V8z" fill="#fff"/>
+              <path d="M110 8h3v25h-3V8z" fill="#fff"/>
+              <path d="M118 8h4l8 17V8h3v25h-4l-8-17v17h-3V8z" fill="#fff"/>
+              <path d="M138 8h14v3h-11v8h9v3h-9v8h11v3h-14V8z" fill="#fff"/>
+              <text x="160" y="38" font-family="Inter, sans-serif" font-size="6" font-weight="600" fill="#fff" letter-spacing="0.08em">BUILD CO.</text>
+            </svg>
+          </div>
           <p>Orange County's trusted bathroom and kitchen remodeler. Expert craftsmanship, exceptional results.</p>
           <div class="footer-badges">
-            <span class="footer-badge">🛡️ Licensed</span>
-            <span class="footer-badge">✓ Insured</span>
-            <span class="footer-badge">⭐ 5-Star</span>
+            <span class="footer-badge">
+              <span class="icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+              </span>
+              Licensed
+            </span>
+            <span class="footer-badge">
+              <span class="icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </span>
+              Insured
+            </span>
+            <span class="footer-badge">
+              <span class="icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                </svg>
+              </span>
+              5-Star
+            </span>
           </div>
         </div>
         <div class="footer-column">
@@ -1761,11 +1817,29 @@
       
       <!-- Header -->
       <div class="form-header">
-        <span class="form-logo">Timberline Build Co</span>
-        <button class="form-close" aria-label="Close">✕</button>
+        <div class="form-logo">
+          <svg viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 8h18v3H16v22h-3V11H6V8z" fill="#e9af3b"/>
+            <path d="M27 8h3v25h-3V8z" fill="#e9af3b"/>
+            <path d="M35 8h4l5 11 5-11h4v25h-3V15l-4.5 10h-3L38 15v18h-3V8z" fill="#e9af3b"/>
+            <path d="M58 8h8c3.3 0 6 2.7 6 6 0 2.2-1.2 4.2-3 5.3l4 13.7h-3.4l-3.5-12H61v12h-3V8zm3 9h5c1.7 0 3-1.3 3-3s-1.3-3-3-3h-5v6z" fill="#e9af3b"/>
+            <path d="M76 8h9c3.3 0 6 2.7 6 6s-2.7 6-6 6h-6v13h-3V8zm3 9h6c1.7 0 3-1.3 3-3s-1.3-3-3-3h-6v6z" fill="#fff"/>
+            <path d="M94 8h3v22h10v3H94V8z" fill="#fff"/>
+            <path d="M110 8h3v25h-3V8z" fill="#fff"/>
+            <path d="M118 8h4l8 17V8h3v25h-4l-8-17v17h-3V8z" fill="#fff"/>
+            <path d="M138 8h14v3h-11v8h9v3h-9v8h11v3h-14V8z" fill="#fff"/>
+            <text x="160" y="38" font-family="Inter, sans-serif" font-size="6" font-weight="600" fill="#fff" letter-spacing="0.08em">BUILD CO.</text>
+          </svg>
+        </div>
+        <button class="form-close" aria-label="Close">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
       </div>
       
-      <!-- Progress Bar - Segmented -->
+      <!-- Progress Bar - 7 Segments -->
       <div class="form-progress">
         <div class="progress-wrapper" id="progressWrapper">
           <div class="progress-segment"><div class="progress-segment-fill"></div></div>
@@ -1775,148 +1849,110 @@
           <div class="progress-segment"><div class="progress-segment-fill"></div></div>
           <div class="progress-segment"><div class="progress-segment-fill"></div></div>
           <div class="progress-segment"><div class="progress-segment-fill"></div></div>
-          <div class="progress-segment"><div class="progress-segment-fill"></div></div>
         </div>
-        <div class="progress-text" id="progressText">Step 1 of 8</div>
+        <div class="progress-text" id="progressText">Step 1 of 7</div>
       </div>
       
       <!-- Main Content Area -->
       <div class="form-main">
         
-        <!-- Screen 1: Project Type -->
+        <!-- Screen 1: Project Type (2 options only) -->
         <div class="form-screen active" data-screen="1">
           <div class="question-number">QUESTION 01</div>
           <h2 class="question-title">What are we working on?</h2>
           <p class="question-subtitle">This helps us give you the most accurate estimate</p>
           
           <div class="options-list">
-            <button type="button" class="option-btn" data-value="shower-only">
+            <button type="button" class="option-btn" data-value="tub-conversion">
               <span class="option-key">A</span>
               <div class="option-content">
-                <div class="option-label">Just shower or tub conversion</div>
-                <div class="option-desc">Convert tub to shower, or update existing shower</div>
-                <div class="option-price">Starting at $10,000</div>
+                <div class="option-label">Tub to walk-in shower conversion</div>
+                <div class="option-desc">Convert your existing tub into a modern, accessible walk-in shower</div>
               </div>
             </button>
             <button type="button" class="option-btn" data-value="full-remodel">
               <span class="option-key">B</span>
               <div class="option-content">
-                <div class="option-label">Full bathroom remodel</div>
-                <div class="option-desc">Shower, vanity, fixtures — the whole room</div>
-                <div class="option-price">Starting at $15,000</div>
-              </div>
-            </button>
-            <button type="button" class="option-btn" data-value="bath-flooring">
-              <span class="option-key">C</span>
-              <div class="option-content">
-                <div class="option-label">Bathroom + flooring</div>
-                <div class="option-desc">Complete remodel with new floors throughout</div>
-                <div class="option-price">Starting at $18,000</div>
+                <div class="option-label">Full bathroom renovation</div>
+                <div class="option-desc">Complete transformation — shower, vanity, fixtures, the whole room</div>
               </div>
             </button>
           </div>
         </div>
         
-        <!-- Screen 2: Main Fixture -->
+        <!-- Screen 2: Current Bathroom Condition -->
         <div class="form-screen" data-screen="2">
           <div class="question-number">QUESTION 02</div>
-          <h2 class="question-title">What's the main fixture?</h2>
-          <p class="question-subtitle">The centerpiece of your new bathroom</p>
-          
-          <div class="options-list">
-            <button type="button" class="option-btn" data-value="shower">
-              <span class="option-key">A</span>
-              <div class="option-content">
-                <div class="option-label">Walk-in shower enclosure</div>
-                <div class="option-desc">Modern, spacious, easy to maintain</div>
-              </div>
-            </button>
-            <button type="button" class="option-btn" data-value="tub-shower">
-              <span class="option-key">B</span>
-              <div class="option-content">
-                <div class="option-label">Tub + shower combo</div>
-                <div class="option-desc">Best of both worlds</div>
-              </div>
-            </button>
-            <button type="button" class="option-btn" data-value="tub-only">
-              <span class="option-key">C</span>
-              <div class="option-content">
-                <div class="option-label">Soaking tub only</div>
-                <div class="option-desc">Freestanding or built-in tub</div>
-              </div>
-            </button>
-          </div>
-        </div>
-        
-        <!-- Screen 3: Current Condition -->
-        <div class="form-screen" data-screen="3">
-          <div class="question-number">QUESTION 03</div>
           <h2 class="question-title">Current bathroom condition?</h2>
-          <p class="question-subtitle">This affects demo and prep costs</p>
+          <p class="question-subtitle">This affects the scope and prep work needed</p>
           
           <div class="options-list">
-            <button type="button" class="option-btn" data-value="full-demo">
+            <button type="button" class="option-btn" data-value="pull-replace">
               <span class="option-key">A</span>
               <div class="option-content">
-                <div class="option-label">Needs full demo</div>
-                <div class="option-desc">Down to the studs, start fresh</div>
+                <div class="option-label">Pull and replace refresh</div>
+                <div class="option-desc">Remove existing fixtures, install new in same locations</div>
               </div>
             </button>
-            <button type="button" class="option-btn" data-value="partial">
+            <button type="button" class="option-btn" data-value="full-redesign">
               <span class="option-key">B</span>
               <div class="option-content">
-                <div class="option-label">Partial gut</div>
-                <div class="option-desc">Keep some fixtures, remove others</div>
+                <div class="option-label">Full Redesign</div>
+                <div class="option-desc">Complete layout change, moving fixtures and plumbing</div>
               </div>
             </button>
             <button type="button" class="option-btn" data-value="cosmetic">
               <span class="option-key">C</span>
               <div class="option-content">
-                <div class="option-label">Cosmetic update only</div>
-                <div class="option-desc">Light refresh, minimal demo</div>
+                <div class="option-label">Cosmetic Upgrade</div>
+                <div class="option-desc">Surface-level updates — paint, hardware, minor changes</div>
               </div>
             </button>
           </div>
         </div>
         
-        <!-- Screen 4: Flooring -->
-        <div class="form-screen" data-screen="4">
-          <div class="question-number">QUESTION 04</div>
-          <h2 class="question-title">What about flooring?</h2>
-          <p class="question-subtitle">One of the biggest visual impacts</p>
+        <!-- Screen 3: Flooring -->
+        <div class="form-screen" data-screen="3">
+          <div class="question-number">QUESTION 03</div>
+          <h2 class="question-title">What kind of flooring?</h2>
+          <p class="question-subtitle">What kind of flooring do you plan on using?</p>
           
           <div class="options-list">
-            <button type="button" class="option-btn" data-value="vinyl">
+            <button type="button" class="option-btn" data-value="tile">
               <span class="option-key">A</span>
               <div class="option-content">
-                <div class="option-label">Luxury vinyl plank</div>
-                <div class="option-desc">Waterproof, durable, budget-friendly</div>
-                <div class="option-price">~$10/sq ft installed</div>
+                <div class="option-label">Tile</div>
+                <div class="option-desc">Premium look, endless design options, highly durable</div>
               </div>
             </button>
-            <button type="button" class="option-btn" data-value="tile">
+            <button type="button" class="option-btn" data-value="lvp">
               <span class="option-key">B</span>
               <div class="option-content">
-                <div class="option-label">Tile flooring</div>
-                <div class="option-desc">Premium look, endless design options</div>
-                <div class="option-price">~$25/sq ft installed</div>
+                <div class="option-label">Luxury Vinyl Plank</div>
+                <div class="option-desc">Waterproof, durable, budget-friendly with great looks</div>
               </div>
             </button>
-            <button type="button" class="option-btn" data-value="none">
+            <button type="button" class="option-btn" data-value="keep">
               <span class="option-key">C</span>
               <div class="option-content">
-
-                <div class="option-label">No flooring changes</div>
-                <div class="option-desc">Keep existing floors</div>
+                <div class="option-label">Keep as-is</div>
+                <div class="option-desc">Existing floors are in good condition</div>
+              </div>
+            </button>
+            <button type="button" class="option-btn" data-value="other">
+              <span class="option-key">D</span>
+              <div class="option-content">
+                <div class="option-label">Other</div>
+                <div class="option-desc">Different material or haven't decided yet</div>
               </div>
             </button>
           </div>
         </div>
         
-        <!-- Screen 5: Fixture Quality -->
-        <div class="form-screen" data-screen="5">
-          <div class="question-number">QUESTION 05</div>
-          <h2 class="question-title">Fixture quality level?</h2>
+        <!-- Screen 4: Fixture/Material Quality Level -->
+        <div class="form-screen" data-screen="4">
+          <div class="question-number">QUESTION 04</div>
+          <h2 class="question-title">Fixture & material quality?</h2>
           <p class="question-subtitle">This significantly impacts your investment</p>
           
           <div class="options-list">
@@ -1924,160 +1960,182 @@
               <span class="option-key">A</span>
               <div class="option-content">
                 <div class="option-label">Budget</div>
-                <div class="option-desc">Basic fixtures, simple tile, cost-conscious</div>
+                <div class="option-desc">Basic fixtures, simple tile, cost-conscious approach</div>
               </div>
             </button>
             <button type="button" class="option-btn" data-value="mid">
               <span class="option-key">B</span>
               <div class="option-content">
                 <div class="option-label">Mid-range</div>
-                <div class="option-desc">Nice quality, contemporary finishes</div>
+                <div class="option-desc">Nice quality fixtures, contemporary tile options</div>
               </div>
             </button>
             <button type="button" class="option-btn" data-value="premium">
               <span class="option-key">C</span>
               <div class="option-content">
                 <div class="option-label">Premium</div>
-                <div class="option-desc">High-end fixtures, luxury tile, designer look</div>
+                <div class="option-desc">High-end fixtures, luxury tile, designer finishes</div>
               </div>
             </button>
           </div>
         </div>
         
-        <!-- Screen 6: Plumbing -->
-        <div class="form-screen" data-screen="6">
-          <div class="question-number">QUESTION 06</div>
+        <!-- Screen 5: Plumbing Work -->
+        <div class="form-screen" data-screen="5">
+          <div class="question-number">QUESTION 05</div>
           <h2 class="question-title">Any plumbing work needed?</h2>
           <p class="question-subtitle">Moving pipes adds to the scope</p>
           
           <div class="options-list">
-            <button type="button" class="option-btn" data-value="none">
+            <button type="button" class="option-btn" data-value="keep">
               <span class="option-key">A</span>
               <div class="option-content">
-                <div class="option-label">Already roughed in</div>
-                <div class="option-desc">No moving, just connect new fixtures</div>
+                <div class="option-label">Keep as is</div>
+                <div class="option-desc">Plumbing stays in current locations</div>
               </div>
             </button>
             <button type="button" class="option-btn" data-value="minor">
               <span class="option-key">B</span>
               <div class="option-content">
-                <div class="option-label">Minor relocations</div>
-                <div class="option-desc">Some fixtures need to move slightly</div>
-                <div class="option-price">+$1,500–$2,500</div>
+                <div class="option-label">Minor Relocations</div>
+                <div class="option-desc">Small adjustments to fixture positions</div>
               </div>
             </button>
             <button type="button" class="option-btn" data-value="major">
               <span class="option-key">C</span>
               <div class="option-content">
-                <div class="option-label">Major rework</div>
-                <div class="option-desc">Significant pipe relocation needed</div>
-                <div class="option-price">+$3,000–$5,000</div>
+                <div class="option-label">Major Overhaul</div>
+                <div class="option-desc">Significant pipe relocation or rerouting</div>
               </div>
             </button>
           </div>
         </div>
         
-        <!-- Screen 7: Square Footage -->
+        <!-- Screen 6: Shower Glass or Curtain -->
+        <div class="form-screen" data-screen="6">
+          <div class="question-number">QUESTION 06</div>
+          <h2 class="question-title">Shower enclosure preference?</h2>
+          <p class="question-subtitle">Glass makes a dramatic impact on the finished look</p>
+          
+          <div class="options-list">
+            <button type="button" class="option-btn" data-value="frameless">
+              <span class="option-key">A</span>
+              <div class="option-content">
+                <div class="option-label">Frameless glass enclosure</div>
+                <div class="option-desc">Premium, modern look with seamless glass panels</div>
+              </div>
+            </button>
+            <button type="button" class="option-btn" data-value="semi-frameless">
+              <span class="option-key">B</span>
+              <div class="option-content">
+                <div class="option-label">Semi-frameless glass</div>
+                <div class="option-desc">Clean lines with minimal framing</div>
+              </div>
+            </button>
+            <button type="button" class="option-btn" data-value="curtain">
+              <span class="option-key">C</span>
+              <div class="option-content">
+                <div class="option-label">Shower curtain / Budget option</div>
+                <div class="option-desc">Simple rod and curtain setup</div>
+              </div>
+            </button>
+          </div>
+        </div>
+        
+        <!-- Screen 7: Contact Info (Email & Phone REQUIRED) -->
         <div class="form-screen" data-screen="7">
-          <div class="question-number">QUESTION 07</div>
-          <h2 class="question-title">Bathroom size?</h2>
-          <p class="question-subtitle">Drag the slider to estimate square footage</p>
+          <div class="question-number">FINAL STEP</div>
+          <h2 class="question-title">Where should we send your estimate?</h2>
+          <p class="question-subtitle">Enter your details to see your personalized price range</p>
           
-          <div class="slider-wrap">
-            <div class="slider-display">
-              <span class="slider-value" id="sqftValue">50</span>
-              <span class="slider-unit">sq ft</span>
-              <div class="slider-context" id="sqftContext">Average full bathroom</div>
-            </div>
-            <input type="range" id="sqftSlider" min="20" max="150" value="50" step="5">
-            <div class="slider-labels">
-              <span>20 sq ft</span>
-              <span>150 sq ft</span>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Screen 8: Photo Upload -->
-        <div class="form-screen" data-screen="8">
-          <div class="question-number">QUESTION 08 — OPTIONAL</div>
-          <h2 class="question-title">Got a photo?</h2>
-          <p class="question-subtitle">Helps us give you an even better estimate (not required)</p>
-          
-          <div class="upload-area" id="uploadArea">
-            <input type="file" accept="image/*" class="upload-input" id="photoInput">
-            <div class="upload-icon">📷</div>
-            <div class="upload-text">Click or drag to upload</div>
-            <div class="upload-hint">JPG, PNG up to 10MB</div>
-          </div>
-          <div id="photoPreview" style="display:none;text-align:center">
-            <img class="upload-preview" id="previewImg" alt="Preview">
-            <button type="button" class="upload-remove" id="removePhoto">Remove photo</button>
-          </div>
-        </div>
-        
-        <!-- Screen 9: Results -->
-        <div class="form-screen" data-screen="9">
-          <div class="results-screen">
-            <div class="result-header">
-              <span class="result-badge">✓ Your Personalized Estimate</span>
-              <div class="result-title">Estimated investment</div>
-              <div class="result-price" id="resultPrice">$16,800 – $24,500</div>
-              <div class="result-range">Based on your selections</div>
-            </div>
-            
-            <div class="result-timeline">
-              <span class="timeline-icon">📅</span>
-              <span class="timeline-text"><strong>Typical timeline:</strong> <span id="resultTimeline">2–3 weeks</span></span>
-            </div>
-            
-            <div class="breakdown-card">
-              <div class="breakdown-title">📋 What's Included</div>
-              <div id="breakdownList">
-                <!-- Populated by JS -->
+          <div class="contact-card" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
+            <div class="form-row">
+              <div class="form-field optional">
+                <label for="leadName" style="color: rgba(255,255,255,0.7);">Name</label>
+                <input type="text" id="leadName" name="name" placeholder="Your name" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: #fff;">
               </div>
             </div>
-            
-            <div class="contact-card">
-              <h3>Get Your Exact Quote</h3>
-              <p>We'll reach out within 24 hours to discuss your project.</p>
-              
-              <form id="contactForm">
-                <div class="form-row two-col">
-                  <div class="form-field">
-                    <label for="leadName">Name</label>
-                    <input type="text" id="leadName" name="name" required placeholder="Your name">
-                  </div>
-                  <div class="form-field">
-                    <label for="leadPhone">Phone</label>
-                    <input type="tel" id="leadPhone" name="phone" required placeholder="(714) 555-1234">
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="form-field">
-                    <label for="leadEmail">Email</label>
-                    <input type="email" id="leadEmail" name="email" required placeholder="you@email.com">
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="form-field optional">
-                    <label for="leadAddress">Project Address</label>
-                    <input type="text" id="leadAddress" name="address" placeholder="123 Main St, Costa Mesa, CA">
-                  </div>
-                </div>
-                <button type="submit" class="btn-submit">Get My Exact Quote →</button>
-              </form>
-              <p class="form-note">🔒 Your information is secure and never shared.</p>
+            <div class="form-row two-col">
+              <div class="form-field">
+                <label for="leadEmail" style="color: rgba(255,255,255,0.7);">Email <span class="required">*</span></label>
+                <input type="email" id="leadEmail" name="email" required placeholder="you@email.com" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: #fff;">
+              </div>
+              <div class="form-field">
+                <label for="leadPhone" style="color: rgba(255,255,255,0.7);">Phone <span class="required">*</span></label>
+                <input type="tel" id="leadPhone" name="phone" required placeholder="(714) 555-1234" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: #fff;">
+              </div>
             </div>
+            <div class="form-row">
+              <div class="form-field optional">
+                <label for="leadAddress" style="color: rgba(255,255,255,0.7);">Project Address</label>
+                <input type="text" id="leadAddress" name="address" placeholder="123 Main St, Costa Mesa, CA" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: #fff;">
+              </div>
+            </div>
+            <p class="form-note" style="color: rgba(255,255,255,0.5);">
+              <span class="icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                </svg>
+              </span>
+              Your information is secure and never shared.
+            </p>
           </div>
         </div>
         
-        <!-- Success Screen -->
-        <div class="form-screen" data-screen="success">
-          <div class="success-content">
-            <div class="success-icon">🎉</div>
-            <h2 class="success-title">You're All Set!</h2>
-            <p class="success-text">Justin will personally review your project and reach out within 24 hours with an exact quote. We're excited to help transform your bathroom!</p>
-            <button class="nav-next" onclick="closeModal()">Close</button>
+        <!-- Screen 8: Results (After Form Submit) -->
+        <div class="form-screen" data-screen="8">
+          <div class="success-screen">
+            <div class="success-header">
+              <div class="success-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+              <h2 class="success-title">Your Estimate is Ready!</h2>
+              <p class="success-subtitle">Based on your selections, here's your personalized investment range.</p>
+            </div>
+            
+            <div class="estimate-card">
+              <div class="estimate-card-header">
+                <div>
+                  <div class="estimate-label">Your Estimated Investment</div>
+                  <div class="estimate-value" id="finalPrice">$18,500 – $28,000</div>
+                </div>
+              </div>
+              
+              <!-- $1,500 Discount Banner -->
+              <div class="discount-banner">
+                <div class="icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                  </svg>
+                </div>
+                <div class="discount-content">
+                  <div class="discount-amount">Save $1,500</div>
+                  <div class="discount-text">Schedule your free measure within 1 week</div>
+                  <div class="discount-expires" id="discountExpiry">Offer expires: March 19, 2026</div>
+                </div>
+              </div>
+              
+              <!-- Stunning bathroom image -->
+              <div class="result-image">
+                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=400&fit=crop&q=85" 
+                     alt="Stunning luxury bathroom with premium finishes" 
+                     loading="lazy">
+              </div>
+              
+              <div class="success-cta">
+                <!-- Calendly link to be added -->
+                <p class="success-text">Call us at <strong>(949) 229-1692</strong> to schedule your free measure and lock in your discount.</p>
+              </div>
+              
+              <p class="estimate-disclaimer">
+                This estimate is preliminary and will be confirmed after a site visit. Final price may vary based on unforeseen conditions or client changes.
+              </p>
+            </div>
+            
+            <button type="button" class="close-modal-btn" onclick="closeModal()">Close</button>
           </div>
         </div>
         
@@ -2097,7 +2155,7 @@
   </div>
 
   <!-- ============================================
-       JAVASCRIPT - Form Logic + Animations
+       JAVASCRIPT - Form Logic + Pricing Engine
        ============================================ -->
   <script>
     (function() {
@@ -2123,219 +2181,110 @@
         });
       }
       
-      // === BEFORE/AFTER SLIDER ===
-      function initBASlider() {
-        var slider = document.getElementById('baSlider');
-        var handle = document.getElementById('baHandle');
-        var afterImg = slider.querySelector('.ba-after');
-        var isDragging = false;
-        
-        function updateSlider(x) {
-          var rect = slider.getBoundingClientRect();
-          var percent = Math.max(0, Math.min(100, ((x - rect.left) / rect.width) * 100));
-          handle.style.left = percent + '%';
-          afterImg.style.clipPath = 'inset(0 ' + (100 - percent) + '% 0 0)';
-        }
-        
-        function startDrag(e) {
-          isDragging = true;
-          e.preventDefault();
-        }
-        
-        function stopDrag() {
-          isDragging = false;
-        }
-        
-        function onDrag(e) {
-          if (!isDragging) return;
-          var x = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
-          updateSlider(x);
-        }
-        
-        handle.addEventListener('mousedown', startDrag);
-        handle.addEventListener('touchstart', startDrag, { passive: false });
-        
-        document.addEventListener('mousemove', onDrag);
-        document.addEventListener('touchmove', onDrag, { passive: true });
-        
-        document.addEventListener('mouseup', stopDrag);
-        document.addEventListener('touchend', stopDrag);
-        
-        slider.addEventListener('click', function(e) {
-          updateSlider(e.clientX);
-        });
-      }
-      
       // === STATE ===
       var state = {
         screen: 1,
-        projectType: null,
-        fixture: null,
-        condition: null,
-        flooring: null,
-        quality: null,
-        plumbing: null,
-        sqft: 50,
-        photo: null
+        projectType: null,      // tub-conversion | full-remodel
+        condition: null,        // pull-replace | full-redesign | cosmetic
+        flooring: null,         // tile | lvp | keep | other
+        quality: null,          // budget | mid | premium
+        plumbing: null,         // keep | minor | major
+        glass: null             // frameless | semi-frameless | curtain
       };
       
-      // === PRICING ENGINE ===
+      // === PRICING ENGINE (with 40% markup) ===
+      // Cost structure based on Justin's pricing
       var pricing = {
+        // Base costs (before markup)
         base: {
-          'shower-only': 10000,
-          'full-remodel': 15000,
-          'bath-flooring': 18000
+          'tub-conversion': 10000,
+          'full-remodel': 15000
         },
-        showerTileSqFt: 35,
-        standardShowerTileSqFt: 65,
-        glassEnclosure: 2000,
-        vanity: {
-          budget: 800,
-          mid: 1500,
-          premium: 3000
+        
+        // Condition adjustments (cost before markup)
+        condition: {
+          'pull-replace': 0,
+          'full-redesign': 3000,
+          'cosmetic': -2000
         },
-        flooringRate: {
-          vinyl: 10,
-          tile: 25,
-          none: 0
+        
+        // Flooring per sq ft (assuming ~50 sq ft bathroom)
+        // Actual cost then marked up
+        flooring: {
+          'tile': 1250,       // $25/sqft × 50 sqft
+          'lvp': 500,         // $10/sqft × 50 sqft
+          'keep': 0,
+          'other': 750
         },
-        demo: {
-          'full-demo': 1500,
-          'partial': 800,
-          'cosmetic': 300
+        
+        // Quality multiplier (applies to base + condition)
+        quality: {
+          'budget': 0.85,
+          'mid': 1.0,
+          'premium': 1.35
         },
-        plumbingAdder: {
-          none: 0,
-          minor: 2000,
-          major: 4000
+        
+        // Plumbing work (cost before markup)
+        plumbing: {
+          'keep': 0,
+          'minor': 1000,
+          'major': 4000
         },
-        qualityMult: {
-          budget: 0.85,
-          mid: 1.0,
-          premium: 1.35
+        
+        // Shower glass (cost before markup)
+        glass: {
+          'frameless': 3500,
+          'semi-frameless': 2500,
+          'curtain': 0
         },
-        fixtureAdj: {
-          'shower': 0,
-          'tub-shower': 1500,
-          'tub-only': 2500
-        }
+        
+        // Markup multiplier
+        markup: 1.4
       };
       
       function calculateEstimate() {
-        var low = 0, high = 0;
-        var breakdown = [];
-        
+        // Get base cost
         var base = pricing.base[state.projectType] || 10000;
-        low += base;
-        high += base * 1.3;
         
-        var projectLabels = {
-          'shower-only': 'Shower/Tub Conversion',
-          'full-remodel': 'Full Bathroom Remodel',
-          'bath-flooring': 'Bathroom + Flooring'
-        };
-        breakdown.push({
-          label: projectLabels[state.projectType] || 'Base Project',
-          value: '$' + base.toLocaleString()
-        });
+        // Add condition adjustment
+        var conditionCost = pricing.condition[state.condition] || 0;
         
-        var fixtureAdj = pricing.fixtureAdj[state.fixture] || 0;
-        if (fixtureAdj > 0) {
-          low += fixtureAdj;
-          high += fixtureAdj * 1.2;
-          var fixtureLabels = {
-            'tub-shower': 'Tub + Shower Combo',
-            'tub-only': 'Soaking Tub'
-          };
-          breakdown.push({
-            label: fixtureLabels[state.fixture],
-            value: '+$' + fixtureAdj.toLocaleString()
-          });
+        // Apply quality multiplier to base + condition
+        var qualityMult = pricing.quality[state.quality] || 1.0;
+        var baseWithQuality = (base + conditionCost) * qualityMult;
+        
+        // Add flooring
+        var flooringCost = pricing.flooring[state.flooring] || 0;
+        
+        // Add plumbing
+        var plumbingCost = pricing.plumbing[state.plumbing] || 0;
+        
+        // Add glass
+        var glassCost = pricing.glass[state.glass] || 0;
+        
+        // Total cost before markup
+        var totalCost = baseWithQuality + flooringCost + plumbingCost + glassCost;
+        
+        // Apply 40% markup
+        var clientPrice = totalCost * pricing.markup;
+        
+        // Create range (base price to +20%)
+        var low = Math.round(clientPrice / 500) * 500;
+        var high = Math.round(clientPrice * 1.2 / 500) * 500;
+        
+        // Ensure reasonable spread
+        if (high < low + 2000) {
+          high = low + Math.round(low * 0.25 / 500) * 500;
         }
         
-        var demo = pricing.demo[state.condition] || 800;
-        low += demo;
-        high += demo * 1.4;
-        breakdown.push({
-          label: 'Demo & Prep',
-          value: '$' + demo.toLocaleString()
-        });
-        
-        if (state.fixture === 'shower' || state.fixture === 'tub-shower') {
-          low += pricing.glassEnclosure;
-          high += pricing.glassEnclosure * 1.5;
-          breakdown.push({
-            label: 'Glass Enclosure',
-            value: '$' + pricing.glassEnclosure.toLocaleString()
-          });
-        }
-        
-        var tileCost = pricing.showerTileSqFt * pricing.standardShowerTileSqFt;
-        low += tileCost;
-        high += tileCost * 1.25;
-        breakdown.push({
-          label: 'Tile Installation',
-          value: '$' + tileCost.toLocaleString()
-        });
-        
-        if (state.projectType !== 'shower-only') {
-          var vanityCost = pricing.vanity[state.quality] || pricing.vanity.mid;
-          low += vanityCost;
-          high += vanityCost * 1.3;
-          breakdown.push({
-            label: 'Vanity & Fixtures',
-            value: '$' + vanityCost.toLocaleString()
-          });
-        }
-        
-        if (state.flooring !== 'none' && state.flooring) {
-          var floorRate = pricing.flooringRate[state.flooring] || 0;
-          var floorCost = floorRate * state.sqft;
-          if (floorCost > 0) {
-            low += floorCost;
-            high += floorCost * 1.2;
-            breakdown.push({
-              label: state.flooring === 'vinyl' ? 'Vinyl Flooring' : 'Tile Flooring',
-              value: '$' + floorCost.toLocaleString()
-            });
-          }
-        }
-        
-        var plumbingCost = pricing.plumbingAdder[state.plumbing] || 0;
-        if (plumbingCost > 0) {
-          low += plumbingCost;
-          high += plumbingCost * 1.25;
-          breakdown.push({
-            label: 'Plumbing Work',
-            value: '+$' + plumbingCost.toLocaleString()
-          });
-        }
-        
-        var mult = pricing.qualityMult[state.quality] || 1.0;
-        low = Math.round(low * mult);
-        high = Math.round(high * mult);
-        
-        low = Math.round(low / 100) * 100;
-        high = Math.round(high / 100) * 100;
-        
-        if (high < low * 1.2) {
-          high = Math.round(low * 1.25 / 100) * 100;
-        }
-        
-        return { low: low, high: high, breakdown: breakdown };
+        return { low: low, high: high };
       }
       
-      function getTimeline() {
-        var weeks = 2;
-        if (state.projectType === 'full-remodel') weeks = 3;
-        if (state.projectType === 'bath-flooring') weeks = 4;
-        if (state.condition === 'full-demo') weeks += 1;
-        if (state.plumbing === 'major') weeks += 1;
-        if (state.quality === 'premium') weeks += 0.5;
-        
-        var low = Math.floor(weeks);
-        var high = Math.ceil(weeks * 1.3);
-        return low + '–' + high + ' weeks';
+      function getExpiryDate() {
+        var date = new Date();
+        date.setDate(date.getDate() + 7);
+        var options = { year: 'numeric', month: 'long', day: 'numeric' };
+        return date.toLocaleDateString('en-US', options);
       }
       
       // === DOM ELEMENTS ===
@@ -2347,9 +2296,8 @@
       var navBack = document.getElementById('navBack');
       var navNext = document.getElementById('navNext');
       var formNav = document.getElementById('formNav');
-      var sqftSlider = document.getElementById('sqftSlider');
-      var sqftValue = document.getElementById('sqftValue');
-      var sqftContext = document.getElementById('sqftContext');
+      
+      var totalScreens = 7;
       
       // === SCREEN MANAGEMENT ===
       function showScreen(n) {
@@ -2357,13 +2305,13 @@
         
         screens.forEach(function(s) {
           s.classList.remove('active');
-          if (s.dataset.screen == n || s.dataset.screen === n) {
+          if (parseInt(s.dataset.screen) === n) {
             s.classList.add('active');
           }
         });
         
         // Progress - segmented
-        if (typeof n === 'number' && n <= 8) {
+        if (n <= totalScreens) {
           progressSegments.forEach(function(seg, i) {
             seg.classList.remove('filled', 'current');
             if (i < n - 1) {
@@ -2372,23 +2320,18 @@
               seg.classList.add('current');
             }
           });
-          progressText.textContent = 'Step ' + n + ' of 8';
+          progressText.textContent = 'Step ' + n + ' of ' + totalScreens;
           progressWrapper.parentElement.style.display = '';
           formNav.style.display = '';
         } else {
+          // Results screen
           progressWrapper.parentElement.style.display = 'none';
-          if (n === 'success') {
-            formNav.style.display = 'none';
-          }
+          formNav.style.display = 'none';
+          showResults();
         }
         
         navBack.disabled = (n === 1);
         updateNextButton();
-        
-        if (n === 9) {
-          showResults();
-          formNav.style.display = 'none';
-        }
       }
       
       function updateNextButton() {
@@ -2396,19 +2339,24 @@
         var enabled = false;
         
         if (screen === 1) enabled = !!state.projectType;
-        else if (screen === 2) enabled = !!state.fixture;
-        else if (screen === 3) enabled = !!state.condition;
-        else if (screen === 4) enabled = !!state.flooring;
-        else if (screen === 5) enabled = !!state.quality;
-        else if (screen === 6) enabled = !!state.plumbing;
-        else if (screen === 7) enabled = true;
-        else if (screen === 8) enabled = true;
+        else if (screen === 2) enabled = !!state.condition;
+        else if (screen === 3) enabled = !!state.flooring;
+        else if (screen === 4) enabled = !!state.quality;
+        else if (screen === 5) enabled = !!state.plumbing;
+        else if (screen === 6) enabled = !!state.glass;
+        else if (screen === 7) {
+          // Check required fields
+          var email = document.getElementById('leadEmail').value.trim();
+          var phone = document.getElementById('leadPhone').value.trim();
+          enabled = email && phone && email.includes('@');
+        }
         
         navNext.disabled = !enabled;
         
-        if (screen === 8) {
-          navNext.textContent = state.photo ? 'See My Estimate →' : 'Skip & See Estimate →';
-        } else if (screen >= 1 && screen <= 7) {
+        // Update button text
+        if (screen === 7) {
+          navNext.textContent = 'See My Estimate →';
+        } else if (screen <= 6) {
           navNext.textContent = 'Continue →';
         }
       }
@@ -2416,20 +2364,61 @@
       function showResults() {
         var est = calculateEstimate();
         
-        document.getElementById('resultPrice').textContent = 
+        // Update price display
+        document.getElementById('finalPrice').textContent = 
           '$' + est.low.toLocaleString() + ' – $' + est.high.toLocaleString();
         
-        document.getElementById('resultTimeline').textContent = getTimeline();
+        // Update expiry date
+        document.getElementById('discountExpiry').textContent = 
+          'Offer expires: ' + getExpiryDate();
         
-        var breakdownHtml = est.breakdown.map(function(item) {
-          return '<div class="breakdown-item"><span>' + item.label + '</span><span>' + item.value + '</span></div>';
-        }).join('');
-        document.getElementById('breakdownList').innerHTML = breakdownHtml;
+        // Submit lead data
+        submitLead(est);
+      }
+      
+      function submitLead(estimate) {
+        var formData = {
+          name: document.getElementById('leadName').value,
+          phone: document.getElementById('leadPhone').value,
+          email: document.getElementById('leadEmail').value,
+          address: document.getElementById('leadAddress').value,
+          projectType: state.projectType,
+          condition: state.condition,
+          flooring: state.flooring,
+          quality: state.quality,
+          plumbing: state.plumbing,
+          glass: state.glass,
+          estimate_low: estimate.low,
+          estimate_high: estimate.high
+        };
+        
+        var params = new URLSearchParams();
+        params.append('full_name', formData.name || '');
+        params.append('phone', formData.phone);
+        params.append('email', formData.email);
+        if (formData.address) params.append('address', formData.address);
+        params.append('project_type', formData.projectType);
+        params.append('condition', formData.condition);
+        params.append('flooring', formData.flooring);
+        params.append('quality_level', formData.quality);
+        params.append('plumbing_work', formData.plumbing);
+        params.append('glass_type', formData.glass);
+        params.append('estimate_range', '$' + formData.estimate_low.toLocaleString() + ' - $' + formData.estimate_high.toLocaleString());
+        
+        // Submit to webhook
+        fetch('https://link.apisystem.tech/widget/form/T6mcisYXB0t5PDUQaAsP?' + params.toString(), {
+          method: 'POST',
+          mode: 'no-cors'
+        }).catch(function() {
+          // Silently handle - lead still captured on their end
+        });
       }
       
       // === OPTION SELECTION ===
       function setupOptionButtons(screenNum, stateKey) {
         var screen = document.querySelector('[data-screen="' + screenNum + '"]');
+        if (!screen) return;
+        
         var buttons = screen.querySelectorAll('.option-btn');
         
         buttons.forEach(function(btn) {
@@ -2438,8 +2427,9 @@
             btn.classList.add('selected');
             state[stateKey] = btn.dataset.value;
             updateNextButton();
+            // Auto-advance after short delay
             setTimeout(function() {
-              if (state.screen < 8) {
+              if (state.screen < totalScreens) {
                 showScreen(state.screen + 1);
               }
             }, 300);
@@ -2448,55 +2438,15 @@
       }
       
       setupOptionButtons(1, 'projectType');
-      setupOptionButtons(2, 'fixture');
-      setupOptionButtons(3, 'condition');
-      setupOptionButtons(4, 'flooring');
-      setupOptionButtons(5, 'quality');
-      setupOptionButtons(6, 'plumbing');
+      setupOptionButtons(2, 'condition');
+      setupOptionButtons(3, 'flooring');
+      setupOptionButtons(4, 'quality');
+      setupOptionButtons(5, 'plumbing');
+      setupOptionButtons(6, 'glass');
       
-      // === SLIDER ===
-      sqftSlider.addEventListener('input', function() {
-        state.sqft = parseInt(this.value);
-        sqftValue.textContent = this.value;
-        
-        var context = 'Powder room';
-        if (state.sqft >= 35) context = 'Small bathroom';
-        if (state.sqft >= 50) context = 'Average full bathroom';
-        if (state.sqft >= 75) context = 'Large bathroom';
-        if (state.sqft >= 100) context = 'Master bathroom';
-        if (state.sqft >= 125) context = 'Luxury master suite';
-        sqftContext.textContent = context;
-      });
-      
-      // === PHOTO UPLOAD ===
-      var photoInput = document.getElementById('photoInput');
-      var uploadArea = document.getElementById('uploadArea');
-      var photoPreview = document.getElementById('photoPreview');
-      var previewImg = document.getElementById('previewImg');
-      var removePhoto = document.getElementById('removePhoto');
-      
-      photoInput.addEventListener('change', function(e) {
-        var file = e.target.files[0];
-        if (file) {
-          state.photo = file;
-          var reader = new FileReader();
-          reader.onload = function(e) {
-            previewImg.src = e.target.result;
-            uploadArea.style.display = 'none';
-            photoPreview.style.display = 'block';
-            updateNextButton();
-          };
-          reader.readAsDataURL(file);
-        }
-      });
-      
-      removePhoto.addEventListener('click', function() {
-        state.photo = null;
-        photoInput.value = '';
-        uploadArea.style.display = '';
-        photoPreview.style.display = 'none';
-        updateNextButton();
-      });
+      // === CONTACT FORM INPUT HANDLERS ===
+      document.getElementById('leadEmail').addEventListener('input', updateNextButton);
+      document.getElementById('leadPhone').addEventListener('input', updateNextButton);
       
       // === NAVIGATION ===
       navBack.addEventListener('click', function() {
@@ -2506,22 +2456,32 @@
       });
       
       navNext.addEventListener('click', function() {
-        if (!navNext.disabled && state.screen <= 8) {
-          showScreen(state.screen + 1);
+        if (!navNext.disabled) {
+          if (state.screen < totalScreens) {
+            showScreen(state.screen + 1);
+          } else if (state.screen === totalScreens) {
+            // Go to results
+            showScreen(8);
+          }
         }
       });
       
       document.addEventListener('keydown', function(e) {
         if (!modal.classList.contains('active')) return;
         
-        if (e.key === 'Enter' && !navNext.disabled && state.screen <= 8) {
+        if (e.key === 'Enter' && !navNext.disabled && state.screen <= totalScreens) {
           e.preventDefault();
-          showScreen(state.screen + 1);
+          if (state.screen < totalScreens) {
+            showScreen(state.screen + 1);
+          } else {
+            showScreen(8);
+          }
         }
         
+        // Keyboard shortcuts for options (A, B, C, D)
         if (state.screen >= 1 && state.screen <= 6) {
           var key = e.key.toLowerCase();
-          var index = {'a': 0, 'b': 1, 'c': 2}[key];
+          var index = {'a': 0, 'b': 1, 'c': 2, 'd': 3}[key];
           if (index !== undefined) {
             var screen = document.querySelector('.form-screen.active');
             var buttons = screen.querySelectorAll('.option-btn');
@@ -2532,73 +2492,23 @@
         }
       });
       
-      // === FORM SUBMISSION ===
-      document.getElementById('contactForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        var est = calculateEstimate();
-        var formData = {
-          name: document.getElementById('leadName').value,
-          phone: document.getElementById('leadPhone').value,
-          email: document.getElementById('leadEmail').value,
-          address: document.getElementById('leadAddress').value,
-          projectType: state.projectType,
-          fixture: state.fixture,
-          condition: state.condition,
-          flooring: state.flooring,
-          quality: state.quality,
-          plumbing: state.plumbing,
-          sqft: state.sqft,
-          estimate_low: est.low,
-          estimate_high: est.high
-        };
-        
-        var params = new URLSearchParams();
-        params.append('full_name', formData.name);
-        params.append('phone', formData.phone);
-        params.append('email', formData.email);
-        if (formData.address) params.append('address', formData.address);
-        params.append('project_type', formData.projectType);
-        params.append('main_fixture', formData.fixture);
-        params.append('condition', formData.condition);
-        params.append('flooring', formData.flooring);
-        params.append('quality_level', formData.quality);
-        params.append('plumbing_work', formData.plumbing);
-        params.append('sqft', formData.sqft);
-        params.append('estimate_range', '$' + formData.estimate_low.toLocaleString() + ' - $' + formData.estimate_high.toLocaleString());
-        
-        var submitBtn = this.querySelector('.btn-submit');
-        submitBtn.textContent = 'Submitting...';
-        submitBtn.disabled = true;
-        
-        fetch('https://link.apisystem.tech/widget/form/T6mcisYXB0t5PDUQaAsP?' + params.toString(), {
-          method: 'POST',
-          mode: 'no-cors'
-        }).then(function() {
-          showScreen('success');
-        }).catch(function() {
-          window.open('https://link.apisystem.tech/widget/form/T6mcisYXB0t5PDUQaAsP?' + params.toString(), '_blank');
-          showScreen('success');
-        });
-      });
-      
       // === MODAL CONTROLS ===
       function openModal() {
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
         
+        // Reset state
         state = {
           screen: 1,
           projectType: null,
-          fixture: null,
           condition: null,
           flooring: null,
           quality: null,
           plumbing: null,
-          sqft: 50,
-          photo: null
+          glass: null
         };
         
+        // Reset UI
         screens.forEach(function(s) {
           s.classList.remove('active');
           s.querySelectorAll('.option-btn').forEach(function(b) {
@@ -2606,18 +2516,11 @@
           });
         });
         
-        sqftSlider.value = 50;
-        sqftValue.textContent = '50';
-        sqftContext.textContent = 'Average full bathroom';
-        
-        uploadArea.style.display = '';
-        photoPreview.style.display = 'none';
-        photoInput.value = '';
-        
-        document.getElementById('contactForm').reset();
-        var submitBtn = document.querySelector('.btn-submit');
-        submitBtn.textContent = 'Get My Exact Quote →';
-        submitBtn.disabled = false;
+        // Reset form fields
+        document.getElementById('leadName').value = '';
+        document.getElementById('leadEmail').value = '';
+        document.getElementById('leadPhone').value = '';
+        document.getElementById('leadAddress').value = '';
         
         formNav.style.display = '';
         showScreen(1);
@@ -2642,7 +2545,6 @@
       
       // === INIT ===
       initFadeIn();
-      initBASlider();
       
     })();
   </script>
