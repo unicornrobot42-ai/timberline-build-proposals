@@ -2548,8 +2548,8 @@
       
       function handleImageFile(file) {
         // Validate file type
-        if (!file.type.match(/^image\/(jpeg|png)$/)) {
-          alert('Please upload a JPG or PNG image.');
+        if (!file.type.match(/^image\/(jpeg|png|webp|heic|heic-p)$/)) {
+          alert('Please upload a JPG, PNG, WebP, or HEIC image (max 5MB).');
           return;
         }
         
