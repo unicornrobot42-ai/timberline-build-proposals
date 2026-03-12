@@ -112,7 +112,7 @@
     }
     
     /* ============================================
-       HERO SECTION - Premium & Dramatic
+       HERO SECTION - Image-Focused Design
        ============================================ */
     .hero {
       position: relative;
@@ -128,48 +128,29 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background: var(--green);
     }
     
     .hero-bg img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      opacity: 0.6;
       transform: scale(1.02);
     }
     
+    /* Minimal overlay - just enough for text readability */
     .hero-overlay {
       position: absolute;
       inset: 0;
       background: linear-gradient(
-        135deg,
-        rgba(15, 42, 28, 0.75) 0%,
-        rgba(25, 65, 44, 0.5) 50%,
-        rgba(15, 42, 28, 0.8) 100%
+        to bottom,
+        rgba(0, 0, 0, 0.35) 0%,
+        rgba(0, 0, 0, 0.2) 40%,
+        rgba(0, 0, 0, 0.25) 70%,
+        rgba(0, 0, 0, 0.5) 100%
       );
     }
     
-    /* Subtle animated gradient shimmer */
-    .hero-overlay::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        45deg,
-        transparent 30%,
-        rgba(233, 175, 59, 0.03) 50%,
-        transparent 70%
-      );
-      animation: shimmer 8s ease-in-out infinite;
-    }
-    
-    @keyframes shimmer {
-      0%, 100% { transform: translateX(-100%); }
-      50% { transform: translateX(100%); }
-    }
-    
-    /* Logo in header */
+    /* Logo in header - actual image */
     .hero-logo {
       position: absolute;
       top: 2rem;
@@ -178,14 +159,14 @@
       z-index: 10;
     }
     
-    .hero-logo svg {
-      height: 48px;
+    .hero-logo img {
+      height: 80px;
       width: auto;
     }
     
     @media(min-width: 768px) {
-      .hero-logo svg {
-        height: 56px;
+      .hero-logo img {
+        height: 100px;
       }
     }
     
@@ -194,7 +175,7 @@
       z-index: 2;
       max-width: 900px;
       padding: 2rem;
-      padding-top: 6rem;
+      padding-top: 8rem;
     }
     
     .hero-badge {
@@ -202,14 +183,14 @@
       align-items: center;
       gap: 0.5rem;
       padding: 0.6rem 1.25rem;
-      background: rgba(233, 175, 59, 0.15);
-      border: 1px solid rgba(233, 175, 59, 0.4);
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.3);
       border-radius: 50px;
       font-size: 0.8rem;
       font-weight: 600;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--gold);
+      color: var(--white);
       margin-bottom: 1.75rem;
       backdrop-filter: blur(10px);
     }
@@ -217,13 +198,14 @@
     .hero-badge .icon {
       width: 16px;
       height: 16px;
+      color: var(--gold);
     }
     
     .hero h1 {
       font-size: clamp(2.25rem, 6vw, 4rem);
       font-weight: 700;
       margin-bottom: 1rem;
-      text-shadow: 0 4px 30px rgba(0,0,0,0.3);
+      text-shadow: 0 4px 30px rgba(0,0,0,0.5);
     }
     
     .hero h1 span {
@@ -234,18 +216,22 @@
       font-size: clamp(1rem, 2vw, 1.25rem);
       font-weight: 400;
       margin-bottom: 2.5rem;
-      opacity: 0.9;
+      opacity: 0.95;
       max-width: 600px;
       margin-left: auto;
       margin-right: auto;
       line-height: 1.7;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.4);
     }
     
+    /* Centered CTA button */
     .hero-cta-group {
       display: flex;
       flex-direction: column;
       gap: 1rem;
       align-items: center;
+      justify-content: center;
+      width: 100%;
     }
     
     /* Premium Button Styling */
@@ -289,7 +275,7 @@
       gap: 2rem;
       margin-top: 3rem;
       padding-top: 2rem;
-      border-top: 1px solid rgba(255,255,255,0.15);
+      border-top: 1px solid rgba(255,255,255,0.2);
     }
     
     .trust-item {
@@ -310,7 +296,7 @@
       font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      opacity: 0.85;
+      opacity: 0.9;
     }
     
     /* ============================================
@@ -401,32 +387,6 @@
       font-size: 0.85rem;
       color: var(--text-muted);
       margin-top: 0.25rem;
-    }
-    
-    /* Family photo placeholder - ready for Justin's photo */
-    .family-photo-placeholder {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, var(--cream) 0%, var(--cream-dark) 100%);
-      border: 2px dashed var(--gold);
-      border-radius: var(--radius-lg);
-      aspect-ratio: 4/5;
-      text-align: center;
-      padding: 2rem;
-    }
-    
-    .family-photo-placeholder .icon {
-      width: 64px;
-      height: 64px;
-      color: var(--gold);
-      margin-bottom: 1rem;
-    }
-    
-    .family-photo-placeholder p {
-      color: var(--text-muted);
-      font-size: 0.9rem;
     }
     
     /* ============================================
@@ -623,7 +583,7 @@
     }
     
     /* ============================================
-       CTA SECTION
+       CTA SECTION - Fixed Spacing
        ============================================ */
     .cta-section {
       background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
@@ -657,10 +617,10 @@
       margin-bottom: 1rem;
     }
     
-    .cta-section > .container > p {
+    .cta-section .cta-text {
       color: rgba(255,255,255,0.8);
       font-size: 1.1rem;
-      margin-bottom: 2.5rem;
+      margin-bottom: 3rem; /* FIXED: More spacing before buttons */
     }
     
     .cta-buttons {
@@ -705,8 +665,8 @@
       gap: 1rem;
     }
     
-    .footer-logo svg {
-      height: 40px;
+    .footer-logo img {
+      height: 60px;
       width: auto;
     }
     
@@ -887,8 +847,8 @@
       backdrop-filter: blur(10px);
     }
     
-    .form-logo svg {
-      height: 32px;
+    .form-logo img {
+      height: 40px;
       width: auto;
     }
     
@@ -1076,6 +1036,167 @@
       color: rgba(255,255,255,0.55);
       font-size: 0.9rem;
       margin-top: 0.35rem;
+    }
+    
+    /* Square Footage Slider */
+    .sqft-slider-container {
+      margin-top: 1.5rem;
+    }
+    
+    .sqft-display {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    
+    .sqft-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+    
+    .sqft-label {
+      color: rgba(255,255,255,0.6);
+      font-size: 1rem;
+      margin-top: 0.25rem;
+    }
+    
+    .sqft-slider {
+      width: 100%;
+      height: 8px;
+      border-radius: 4px;
+      background: rgba(255,255,255,0.15);
+      outline: none;
+      -webkit-appearance: none;
+      appearance: none;
+      cursor: pointer;
+    }
+    
+    .sqft-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold) 0%, #d9a033 100%);
+      cursor: pointer;
+      box-shadow: 0 2px 10px rgba(233, 175, 59, 0.4);
+      transition: transform 0.2s ease;
+    }
+    
+    .sqft-slider::-webkit-slider-thumb:hover {
+      transform: scale(1.15);
+    }
+    
+    .sqft-slider::-moz-range-thumb {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold) 0%, #d9a033 100%);
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 2px 10px rgba(233, 175, 59, 0.4);
+    }
+    
+    .sqft-range-labels {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 0.75rem;
+      color: rgba(255,255,255,0.4);
+      font-size: 0.85rem;
+    }
+    
+    /* Image Upload */
+    .image-upload-container {
+      margin-top: 2rem;
+    }
+    
+    .image-upload-label {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    
+    .image-upload-zone {
+      border: 2px dashed rgba(255,255,255,0.2);
+      border-radius: var(--radius-md);
+      padding: 2.5rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all var(--transition);
+      background: rgba(255,255,255,0.02);
+    }
+    
+    .image-upload-zone:hover {
+      border-color: var(--gold);
+      background: rgba(233, 175, 59, 0.05);
+    }
+    
+    .image-upload-zone.has-image {
+      border-color: var(--gold);
+      padding: 1rem;
+    }
+    
+    .upload-icon {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 1rem;
+      color: var(--gold);
+    }
+    
+    .upload-text {
+      color: var(--white);
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+    
+    .upload-hint {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.85rem;
+    }
+    
+    .image-preview {
+      max-width: 100%;
+      max-height: 200px;
+      border-radius: var(--radius-sm);
+      margin: 0 auto;
+      display: none;
+    }
+    
+    .image-preview.visible {
+      display: block;
+    }
+    
+    .remove-image-btn {
+      margin-top: 1rem;
+      background: rgba(255,255,255,0.1);
+      border: none;
+      color: rgba(255,255,255,0.7);
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: all var(--transition);
+      display: none;
+    }
+    
+    .remove-image-btn.visible {
+      display: inline-block;
+    }
+    
+    .remove-image-btn:hover {
+      background: rgba(255,255,255,0.2);
+      color: var(--white);
+    }
+    
+    .upload-default {
+      display: block;
+    }
+    
+    .upload-default.hidden {
+      display: none;
     }
     
     /* Navigation */
@@ -1393,6 +1514,70 @@
       color: var(--green);
     }
     
+    /* Breakdown section */
+    .estimate-breakdown {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .breakdown-title {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    
+    .breakdown-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5rem 0;
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+    
+    .breakdown-item span:last-child {
+      font-weight: 600;
+    }
+    
+    /* AI Analysis Box */
+    .ai-analysis {
+      background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
+      border: 1px solid rgba(233, 175, 59, 0.3);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      margin-bottom: 1.5rem;
+      display: none;
+    }
+    
+    .ai-analysis.visible {
+      display: block;
+    }
+    
+    .ai-analysis-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+      color: var(--green);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    
+    .ai-analysis-header svg {
+      width: 18px;
+      height: 18px;
+      color: var(--gold);
+    }
+    
+    .ai-analysis-text {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+    
     /* Discount banner */
     .discount-banner {
       background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
@@ -1445,12 +1630,23 @@
     /* CTA in success */
     .success-cta {
       margin-top: 1.5rem;
+      text-align: center;
     }
     
     .success-cta .btn {
       width: 100%;
       padding: 1.25rem;
       font-size: 1.1rem;
+    }
+    
+    .success-text {
+      color: var(--text);
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+    
+    .success-text strong {
+      color: var(--green);
     }
     
     .estimate-disclaimer {
@@ -1474,6 +1670,37 @@
     
     .close-modal-btn:hover {
       color: var(--white);
+    }
+    
+    /* Loading state */
+    .loading-spinner {
+      display: none;
+      width: 40px;
+      height: 40px;
+      border: 3px solid rgba(255,255,255,0.2);
+      border-top-color: var(--gold);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 2rem auto;
+    }
+    
+    .loading-spinner.visible {
+      display: block;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    .loading-text {
+      color: rgba(255,255,255,0.7);
+      text-align: center;
+      font-size: 1rem;
+      display: none;
+    }
+    
+    .loading-text.visible {
+      display: block;
     }
     
     /* Responsive */
@@ -1515,27 +1742,11 @@
   </style>
 </head>
 <body>
-  <!-- Hero Section - Premium & Dramatic -->
+  <!-- Hero Section - Image-Focused Design -->
   <section class="hero">
-    <!-- Logo at top -->
+    <!-- Logo at top - ACTUAL IMAGE -->
     <div class="hero-logo">
-      <svg viewBox="0 0 240 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Timberline Build Co. Logo -->
-        <path d="M8 12h24v4H22v28h-4V16H8v-4z" fill="#e9af3b"/>
-        <path d="M36 12h4v32h-4V12z" fill="#e9af3b"/>
-        <path d="M46 12h5l6 14 6-14h5v32h-4V22l-5.5 13h-3L50 22v22h-4V12z" fill="#e9af3b"/>
-        <path d="M74 12h10c4.4 0 8 3.6 8 8 0 3-1.7 5.6-4.2 7l5.2 17h-4.5l-4.7-16H78v16h-4V12zm4 12h6c2.2 0 4-1.8 4-4s-1.8-4-4-4h-6v8z" fill="#e9af3b"/>
-        <path d="M96 12h12c4.4 0 8 3.6 8 8s-3.6 8-8 8h-8v16h-4V12zm4 12h8c2.2 0 4-1.8 4-4s-1.8-4-4-4h-8v8z" fill="#fff"/>
-        <path d="M120 12h4v28h14v4h-18V12z" fill="#fff"/>
-        <path d="M142 12h4v32h-4V12z" fill="#fff"/>
-        <path d="M152 12h5l11 22V12h4v32h-5l-11-22v22h-4V12z" fill="#fff"/>
-        <path d="M178 12h18v4h-14v10h12v4h-12v10h14v4h-18V12z" fill="#fff"/>
-        <!-- Tree icon -->
-        <path d="M212 44V32l-8 12h6v0h4zm0-12l-6-9 4 0 2-3 2 3 4 0-6 9zm-2-14l2-4 2 4h-4z" fill="#e9af3b"/>
-        <path d="M224 50h-24v-4h24v4z" fill="#e9af3b"/>
-        <!-- BUILD CO. text -->
-        <text x="200" y="52" font-family="Inter, sans-serif" font-size="8" font-weight="600" fill="#fff" letter-spacing="0.1em">BUILD CO.</text>
-      </svg>
+      <img src="timberline-logo.png" alt="Timberline Build Co" width="240" height="100">
     </div>
     
     <div class="hero-bg">
@@ -1545,6 +1756,7 @@
            width="1920" height="1080" 
            fetchpriority="high">
     </div>
+    <!-- Minimal overlay for text readability -->
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <div class="hero-badge">
@@ -1557,6 +1769,7 @@
       </div>
       <h1>Transform Your Bathroom Into a <span>Sanctuary</span></h1>
       <p class="hero-sub">Expert craftsmanship meets elegant design. We create stunning bathroom remodels that exceed expectations — on time and on budget.</p>
+      <!-- CENTERED CTA Button -->
       <div class="hero-cta-group">
         <button class="btn btn-gold" data-open-form aria-label="Get an instant estimate">
           Get Your Instant Estimate
@@ -1599,13 +1812,11 @@
     <div class="container">
       <div class="about-wrapper fade-in">
         <div class="about-image">
-          <!-- Placeholder for Justin's family photo - replace src when provided -->
           <img src="justin-family-photo.png" 
                alt="Justin and family - Timberline Build Co" 
                width="500" height="600" 
                loading="lazy"
                id="family-photo">
-          <!-- Note: Replace the above image with Justin's actual family photo when provided -->
         </div>
         <div class="about-content">
           <span class="section-label">Meet the Owner</span>
@@ -1726,16 +1937,16 @@
     </div>
   </section>
 
-  <!-- CTA Section -->
+  <!-- CTA Section - FIXED SPACING -->
   <section class="section cta-section">
     <div class="container">
       <div class="cta-content fade-in">
         <span class="section-label">Ready to Start?</span>
         <h2>Transform Your Bathroom Today</h2>
-        <p>Get an instant estimate in under 60 seconds — or call us now to speak with Justin directly.</p>
+        <p class="cta-text">Get an instant estimate in under 60 seconds — or call us now to speak with Justin directly.</p>
         <div class="cta-buttons">
           <button class="btn btn-gold" data-open-form>Get Your Instant Estimate</button>
-          <a href="tel:+17149001234" class="btn btn-outline callrail-swap">(714) 900-1234</a>
+          <a href="tel:+19492291692" class="btn btn-outline">(949) 229-1692</a>
         </div>
       </div>
     </div>
@@ -1747,18 +1958,7 @@
       <div class="footer-top">
         <div class="footer-brand">
           <div class="footer-logo">
-            <svg viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M6 8h18v3H16v22h-3V11H6V8z" fill="#e9af3b"/>
-              <path d="M27 8h3v25h-3V8z" fill="#e9af3b"/>
-              <path d="M35 8h4l5 11 5-11h4v25h-3V15l-4.5 10h-3L38 15v18h-3V8z" fill="#e9af3b"/>
-              <path d="M58 8h8c3.3 0 6 2.7 6 6 0 2.2-1.2 4.2-3 5.3l4 13.7h-3.4l-3.5-12H61v12h-3V8zm3 9h5c1.7 0 3-1.3 3-3s-1.3-3-3-3h-5v6z" fill="#e9af3b"/>
-              <path d="M76 8h9c3.3 0 6 2.7 6 6s-2.7 6-6 6h-6v13h-3V8zm3 9h6c1.7 0 3-1.3 3-3s-1.3-3-3-3h-6v6z" fill="#fff"/>
-              <path d="M94 8h3v22h10v3H94V8z" fill="#fff"/>
-              <path d="M110 8h3v25h-3V8z" fill="#fff"/>
-              <path d="M118 8h4l8 17V8h3v25h-4l-8-17v17h-3V8z" fill="#fff"/>
-              <path d="M138 8h14v3h-11v8h9v3h-9v8h11v3h-14V8z" fill="#fff"/>
-              <text x="160" y="38" font-family="Inter, sans-serif" font-size="6" font-weight="600" fill="#fff" letter-spacing="0.08em">BUILD CO.</text>
-            </svg>
+            <img src="timberline-logo.png" alt="Timberline Build Co" width="180" height="60">
           </div>
           <p>Orange County's trusted bathroom and kitchen remodeler. Expert craftsmanship, exceptional results.</p>
           <div class="footer-badges">
@@ -1797,7 +1997,7 @@
         </div>
         <div class="footer-column">
           <h4>Contact</h4>
-          <a href="tel:+17149001234" class="callrail-swap">(714) 900-1234</a>
+          <a href="tel:+19492291692">(949) 229-1692</a>
           <a href="mailto:info@timberlinebuild.co">info@timberlinebuild.co</a>
           <a href="#">Orange County, CA</a>
         </div>
@@ -1818,18 +2018,7 @@
       <!-- Header -->
       <div class="form-header">
         <div class="form-logo">
-          <svg viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M6 8h18v3H16v22h-3V11H6V8z" fill="#e9af3b"/>
-            <path d="M27 8h3v25h-3V8z" fill="#e9af3b"/>
-            <path d="M35 8h4l5 11 5-11h4v25h-3V15l-4.5 10h-3L38 15v18h-3V8z" fill="#e9af3b"/>
-            <path d="M58 8h8c3.3 0 6 2.7 6 6 0 2.2-1.2 4.2-3 5.3l4 13.7h-3.4l-3.5-12H61v12h-3V8zm3 9h5c1.7 0 3-1.3 3-3s-1.3-3-3-3h-5v6z" fill="#e9af3b"/>
-            <path d="M76 8h9c3.3 0 6 2.7 6 6s-2.7 6-6 6h-6v13h-3V8zm3 9h6c1.7 0 3-1.3 3-3s-1.3-3-3-3h-6v6z" fill="#fff"/>
-            <path d="M94 8h3v22h10v3H94V8z" fill="#fff"/>
-            <path d="M110 8h3v25h-3V8z" fill="#fff"/>
-            <path d="M118 8h4l8 17V8h3v25h-4l-8-17v17h-3V8z" fill="#fff"/>
-            <path d="M138 8h14v3h-11v8h9v3h-9v8h11v3h-14V8z" fill="#fff"/>
-            <text x="160" y="38" font-family="Inter, sans-serif" font-size="6" font-weight="600" fill="#fff" letter-spacing="0.08em">BUILD CO.</text>
-          </svg>
+          <img src="timberline-logo.png" alt="Timberline Build Co" width="160" height="40">
         </div>
         <button class="form-close" aria-label="Close">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1839,7 +2028,7 @@
         </button>
       </div>
       
-      <!-- Progress Bar - 7 Segments -->
+      <!-- Progress Bar - 9 Segments (added sqft + image screens) -->
       <div class="form-progress">
         <div class="progress-wrapper" id="progressWrapper">
           <div class="progress-segment"><div class="progress-segment-fill"></div></div>
@@ -1849,45 +2038,54 @@
           <div class="progress-segment"><div class="progress-segment-fill"></div></div>
           <div class="progress-segment"><div class="progress-segment-fill"></div></div>
           <div class="progress-segment"><div class="progress-segment-fill"></div></div>
+          <div class="progress-segment"><div class="progress-segment-fill"></div></div>
+          <div class="progress-segment"><div class="progress-segment-fill"></div></div>
         </div>
-        <div class="progress-text" id="progressText">Step 1 of 7</div>
+        <div class="progress-text" id="progressText">Step 1 of 9</div>
       </div>
       
       <!-- Main Content Area -->
       <div class="form-main">
         
-        <!-- Screen 1: Project Type (2 options only) -->
+        <!-- Screen 1: Project Type -->
         <div class="form-screen active" data-screen="1">
           <div class="question-number">QUESTION 01</div>
           <h2 class="question-title">What are we working on?</h2>
           <p class="question-subtitle">This helps us give you the most accurate estimate</p>
           
           <div class="options-list">
-            <button type="button" class="option-btn" data-value="tub-conversion">
+            <button type="button" class="option-btn" data-value="tub-to-shower">
               <span class="option-key">A</span>
               <div class="option-content">
                 <div class="option-label">Tub to walk-in shower conversion</div>
                 <div class="option-desc">Convert your existing tub into a modern, accessible walk-in shower</div>
               </div>
             </button>
-            <button type="button" class="option-btn" data-value="full-remodel">
+            <button type="button" class="option-btn" data-value="full-bathroom">
               <span class="option-key">B</span>
               <div class="option-content">
                 <div class="option-label">Full bathroom renovation</div>
                 <div class="option-desc">Complete transformation — shower, vanity, fixtures, the whole room</div>
               </div>
             </button>
+            <button type="button" class="option-btn" data-value="cosmetic">
+              <span class="option-key">C</span>
+              <div class="option-content">
+                <div class="option-label">Cosmetic refresh only</div>
+                <div class="option-desc">Surface-level updates — paint, hardware, minor changes</div>
+              </div>
+            </button>
           </div>
         </div>
         
-        <!-- Screen 2: Current Bathroom Condition -->
+        <!-- Screen 2: What are you looking to have changed? (UPDATED LABEL) -->
         <div class="form-screen" data-screen="2">
           <div class="question-number">QUESTION 02</div>
-          <h2 class="question-title">Current bathroom condition?</h2>
+          <h2 class="question-title">What are you looking to have changed?</h2>
           <p class="question-subtitle">This affects the scope and prep work needed</p>
           
           <div class="options-list">
-            <button type="button" class="option-btn" data-value="pull-replace">
+            <button type="button" class="option-btn" data-value="pull-refresh">
               <span class="option-key">A</span>
               <div class="option-content">
                 <div class="option-label">Pull and replace refresh</div>
@@ -1911,9 +2109,28 @@
           </div>
         </div>
         
-        <!-- Screen 3: Flooring -->
+        <!-- Screen 3: Square Footage (NEW) -->
         <div class="form-screen" data-screen="3">
           <div class="question-number">QUESTION 03</div>
+          <h2 class="question-title">Approximate bathroom square footage?</h2>
+          <p class="question-subtitle">This helps us scale the estimate to your space</p>
+          
+          <div class="sqft-slider-container">
+            <div class="sqft-display">
+              <div class="sqft-value" id="sqftValue">80</div>
+              <div class="sqft-label">square feet</div>
+            </div>
+            <input type="range" class="sqft-slider" id="sqftSlider" min="40" max="200" value="80" step="5">
+            <div class="sqft-range-labels">
+              <span>40 sq ft</span>
+              <span>200 sq ft</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Screen 4: Flooring -->
+        <div class="form-screen" data-screen="4">
+          <div class="question-number">QUESTION 04</div>
           <h2 class="question-title">What kind of flooring?</h2>
           <p class="question-subtitle">What kind of flooring do you plan on using?</p>
           
@@ -1925,14 +2142,14 @@
                 <div class="option-desc">Premium look, endless design options, highly durable</div>
               </div>
             </button>
-            <button type="button" class="option-btn" data-value="lvp">
+            <button type="button" class="option-btn" data-value="vinyl">
               <span class="option-key">B</span>
               <div class="option-content">
                 <div class="option-label">Luxury Vinyl Plank</div>
                 <div class="option-desc">Waterproof, durable, budget-friendly with great looks</div>
               </div>
             </button>
-            <button type="button" class="option-btn" data-value="keep">
+            <button type="button" class="option-btn" data-value="keep-as-is">
               <span class="option-key">C</span>
               <div class="option-content">
                 <div class="option-label">Keep as-is</div>
@@ -1949,14 +2166,14 @@
           </div>
         </div>
         
-        <!-- Screen 4: Fixture/Material Quality Level -->
-        <div class="form-screen" data-screen="4">
-          <div class="question-number">QUESTION 04</div>
+        <!-- Screen 5: Fixture/Material Quality Level -->
+        <div class="form-screen" data-screen="5">
+          <div class="question-number">QUESTION 05</div>
           <h2 class="question-title">Fixture & material quality?</h2>
           <p class="question-subtitle">This significantly impacts your investment</p>
           
           <div class="options-list">
-            <button type="button" class="option-btn" data-value="budget">
+            <button type="button" class="option-btn" data-value="low">
               <span class="option-key">A</span>
               <div class="option-content">
                 <div class="option-label">Budget</div>
@@ -1970,7 +2187,7 @@
                 <div class="option-desc">Nice quality fixtures, contemporary tile options</div>
               </div>
             </button>
-            <button type="button" class="option-btn" data-value="premium">
+            <button type="button" class="option-btn" data-value="high">
               <span class="option-key">C</span>
               <div class="option-content">
                 <div class="option-label">Premium</div>
@@ -1980,9 +2197,9 @@
           </div>
         </div>
         
-        <!-- Screen 5: Plumbing Work -->
-        <div class="form-screen" data-screen="5">
-          <div class="question-number">QUESTION 05</div>
+        <!-- Screen 6: Plumbing Work -->
+        <div class="form-screen" data-screen="6">
+          <div class="question-number">QUESTION 06</div>
           <h2 class="question-title">Any plumbing work needed?</h2>
           <p class="question-subtitle">Moving pipes adds to the scope</p>
           
@@ -2011,9 +2228,9 @@
           </div>
         </div>
         
-        <!-- Screen 6: Shower Glass or Curtain -->
-        <div class="form-screen" data-screen="6">
-          <div class="question-number">QUESTION 06</div>
+        <!-- Screen 7: Shower Glass -->
+        <div class="form-screen" data-screen="7">
+          <div class="question-number">QUESTION 07</div>
           <h2 class="question-title">Shower enclosure preference?</h2>
           <p class="question-subtitle">Glass makes a dramatic impact on the finished look</p>
           
@@ -2025,15 +2242,8 @@
                 <div class="option-desc">Premium, modern look with seamless glass panels</div>
               </div>
             </button>
-            <button type="button" class="option-btn" data-value="semi-frameless">
-              <span class="option-key">B</span>
-              <div class="option-content">
-                <div class="option-label">Semi-frameless glass</div>
-                <div class="option-desc">Clean lines with minimal framing</div>
-              </div>
-            </button>
             <button type="button" class="option-btn" data-value="curtain">
-              <span class="option-key">C</span>
+              <span class="option-key">B</span>
               <div class="option-content">
                 <div class="option-label">Shower curtain / Budget option</div>
                 <div class="option-desc">Simple rod and curtain setup</div>
@@ -2042,8 +2252,36 @@
           </div>
         </div>
         
-        <!-- Screen 7: Contact Info (Email & Phone REQUIRED) -->
-        <div class="form-screen" data-screen="7">
+        <!-- Screen 8: Image Upload (NEW - Optional) -->
+        <div class="form-screen" data-screen="8">
+          <div class="question-number">QUESTION 08</div>
+          <h2 class="question-title">Upload a photo of your bathroom</h2>
+          <p class="question-subtitle">Optional — helps us give more accurate pricing</p>
+          
+          <div class="image-upload-container">
+            <div class="image-upload-zone" id="uploadZone">
+              <div class="upload-default" id="uploadDefault">
+                <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                  <circle cx="8.5" cy="8.5" r="1.5"/>
+                  <polyline points="21 15 16 10 5 21"/>
+                </svg>
+                <div class="upload-text">Click to upload or drag & drop</div>
+                <div class="upload-hint">JPG or PNG, max 5MB</div>
+              </div>
+              <img class="image-preview" id="imagePreview" alt="Bathroom preview">
+              <button type="button" class="remove-image-btn" id="removeImage">Remove photo</button>
+            </div>
+            <input type="file" id="imageInput" accept="image/jpeg,image/png" style="display: none;">
+          </div>
+          
+          <p style="color: rgba(255,255,255,0.5); font-size: 0.9rem; margin-top: 1.5rem; text-align: center;">
+            Skip this step if you prefer — you can always send photos later.
+          </p>
+        </div>
+        
+        <!-- Screen 9: Contact Info -->
+        <div class="form-screen" data-screen="9">
           <div class="question-number">FINAL STEP</div>
           <h2 class="question-title">Where should we send your estimate?</h2>
           <p class="question-subtitle">Enter your details to see your personalized price range</p>
@@ -2062,13 +2300,7 @@
               </div>
               <div class="form-field">
                 <label for="leadPhone" style="color: rgba(255,255,255,0.7);">Phone <span class="required">*</span></label>
-                <input type="tel" id="leadPhone" name="phone" required placeholder="(714) 555-1234" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: #fff;">
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-field optional">
-                <label for="leadAddress" style="color: rgba(255,255,255,0.7);">Project Address</label>
-                <input type="text" id="leadAddress" name="address" placeholder="123 Main St, Costa Mesa, CA" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: #fff;">
+                <input type="tel" id="leadPhone" name="phone" required placeholder="(949) 555-1234" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: #fff;">
               </div>
             </div>
             <p class="form-note" style="color: rgba(255,255,255,0.5);">
@@ -2083,8 +2315,16 @@
           </div>
         </div>
         
-        <!-- Screen 8: Results (After Form Submit) -->
-        <div class="form-screen" data-screen="8">
+        <!-- Screen 10: Loading -->
+        <div class="form-screen" data-screen="10">
+          <div style="text-align: center; padding: 3rem 0;">
+            <div class="loading-spinner visible"></div>
+            <p class="loading-text visible" id="loadingText">Analyzing your project...</p>
+          </div>
+        </div>
+        
+        <!-- Screen 11: Results -->
+        <div class="form-screen" data-screen="11">
           <div class="success-screen">
             <div class="success-header">
               <div class="success-icon">
@@ -2104,6 +2344,43 @@
                 </div>
               </div>
               
+              <!-- AI Analysis (shown if image was uploaded) -->
+              <div class="ai-analysis" id="aiAnalysis">
+                <div class="ai-analysis-header">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M12 16v-4M12 8h.01"/>
+                  </svg>
+                  Photo Analysis
+                </div>
+                <div class="ai-analysis-text" id="aiAnalysisText"></div>
+              </div>
+              
+              <!-- Cost Breakdown -->
+              <div class="estimate-breakdown" id="breakdownSection">
+                <div class="breakdown-title">Cost Breakdown</div>
+                <div class="breakdown-item">
+                  <span>Base Project</span>
+                  <span id="breakdownBase">$15,000</span>
+                </div>
+                <div class="breakdown-item">
+                  <span>Flooring</span>
+                  <span id="breakdownFlooring">$1,750</span>
+                </div>
+                <div class="breakdown-item">
+                  <span>Fixtures & Materials</span>
+                  <span id="breakdownFixtures">$700</span>
+                </div>
+                <div class="breakdown-item">
+                  <span>Glass Enclosure</span>
+                  <span id="breakdownGlass">$2,200</span>
+                </div>
+                <div class="breakdown-item">
+                  <span>Plumbing</span>
+                  <span id="breakdownPlumbing">$0</span>
+                </div>
+              </div>
+              
               <!-- $1,500 Discount Banner -->
               <div class="discount-banner">
                 <div class="icon">
@@ -2118,16 +2395,11 @@
                 </div>
               </div>
               
-              <!-- Stunning bathroom image -->
-              <div class="result-image">
-                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=400&fit=crop&q=85" 
-                     alt="Stunning luxury bathroom with premium finishes" 
-                     loading="lazy">
-              </div>
-              
               <div class="success-cta">
-                <!-- Calendly link to be added -->
-                <p class="success-text">Call us at <strong>(949) 229-1692</strong> to schedule your free measure and lock in your discount.</p>
+                <p class="success-text">Call <strong>(949) 229-1692</strong> to schedule your free measure and lock in your discount.</p>
+                <a href="tel:+19492291692" class="btn btn-gold" style="width: 100%;">
+                  Call Now to Schedule
+                </a>
               </div>
               
               <p class="estimate-disclaimer">
@@ -2155,11 +2427,14 @@
   </div>
 
   <!-- ============================================
-       JAVASCRIPT - Form Logic + Pricing Engine
+       JAVASCRIPT - Form Logic + Backend Integration
        ============================================ -->
   <script>
     (function() {
       'use strict';
+      
+      // Backend API URL - Update this after deployment
+      var API_URL = 'https://bathroom-remodel-estimate.vercel.app/api/estimate';
       
       // === FADE IN ON SCROLL ===
       function initFadeIn() {
@@ -2184,108 +2459,18 @@
       // === STATE ===
       var state = {
         screen: 1,
-        projectType: null,      // tub-conversion | full-remodel
-        condition: null,        // pull-replace | full-redesign | cosmetic
-        flooring: null,         // tile | lvp | keep | other
-        quality: null,          // budget | mid | premium
-        plumbing: null,         // keep | minor | major
-        glass: null             // frameless | semi-frameless | curtain
+        projectType: null,
+        condition: null,
+        squareFootage: 80,
+        flooring: null,
+        fixtureQuality: null,
+        plumbing: null,
+        glass: null,
+        imageBase64: null,
+        imageName: null
       };
       
-      // === PRICING ENGINE (with 40% markup) ===
-      // Cost structure based on Justin's pricing
-      var pricing = {
-        // Base costs (before markup)
-        base: {
-          'tub-conversion': 10000,
-          'full-remodel': 15000
-        },
-        
-        // Condition adjustments (cost before markup)
-        condition: {
-          'pull-replace': 0,
-          'full-redesign': 3000,
-          'cosmetic': -2000
-        },
-        
-        // Flooring per sq ft (assuming ~50 sq ft bathroom)
-        // Actual cost then marked up
-        flooring: {
-          'tile': 1250,       // $25/sqft × 50 sqft
-          'lvp': 500,         // $10/sqft × 50 sqft
-          'keep': 0,
-          'other': 750
-        },
-        
-        // Quality multiplier (applies to base + condition)
-        quality: {
-          'budget': 0.85,
-          'mid': 1.0,
-          'premium': 1.35
-        },
-        
-        // Plumbing work (cost before markup)
-        plumbing: {
-          'keep': 0,
-          'minor': 1000,
-          'major': 4000
-        },
-        
-        // Shower glass (cost before markup)
-        glass: {
-          'frameless': 3500,
-          'semi-frameless': 2500,
-          'curtain': 0
-        },
-        
-        // Markup multiplier
-        markup: 1.4
-      };
-      
-      function calculateEstimate() {
-        // Get base cost
-        var base = pricing.base[state.projectType] || 10000;
-        
-        // Add condition adjustment
-        var conditionCost = pricing.condition[state.condition] || 0;
-        
-        // Apply quality multiplier to base + condition
-        var qualityMult = pricing.quality[state.quality] || 1.0;
-        var baseWithQuality = (base + conditionCost) * qualityMult;
-        
-        // Add flooring
-        var flooringCost = pricing.flooring[state.flooring] || 0;
-        
-        // Add plumbing
-        var plumbingCost = pricing.plumbing[state.plumbing] || 0;
-        
-        // Add glass
-        var glassCost = pricing.glass[state.glass] || 0;
-        
-        // Total cost before markup
-        var totalCost = baseWithQuality + flooringCost + plumbingCost + glassCost;
-        
-        // Apply 40% markup
-        var clientPrice = totalCost * pricing.markup;
-        
-        // Create range (base price to +20%)
-        var low = Math.round(clientPrice / 500) * 500;
-        var high = Math.round(clientPrice * 1.2 / 500) * 500;
-        
-        // Ensure reasonable spread
-        if (high < low + 2000) {
-          high = low + Math.round(low * 0.25 / 500) * 500;
-        }
-        
-        return { low: low, high: high };
-      }
-      
-      function getExpiryDate() {
-        var date = new Date();
-        date.setDate(date.getDate() + 7);
-        var options = { year: 'numeric', month: 'long', day: 'numeric' };
-        return date.toLocaleDateString('en-US', options);
-      }
+      var totalScreens = 9;
       
       // === DOM ELEMENTS ===
       var modal = document.getElementById('formModal');
@@ -2296,8 +2481,97 @@
       var navBack = document.getElementById('navBack');
       var navNext = document.getElementById('navNext');
       var formNav = document.getElementById('formNav');
+      var sqftSlider = document.getElementById('sqftSlider');
+      var sqftValue = document.getElementById('sqftValue');
+      var uploadZone = document.getElementById('uploadZone');
+      var imageInput = document.getElementById('imageInput');
+      var imagePreview = document.getElementById('imagePreview');
+      var removeImageBtn = document.getElementById('removeImage');
+      var uploadDefault = document.getElementById('uploadDefault');
       
-      var totalScreens = 7;
+      // === SQUARE FOOTAGE SLIDER ===
+      sqftSlider.addEventListener('input', function() {
+        state.squareFootage = parseInt(this.value);
+        sqftValue.textContent = state.squareFootage;
+      });
+      
+      // === IMAGE UPLOAD ===
+      uploadZone.addEventListener('click', function() {
+        if (!state.imageBase64) {
+          imageInput.click();
+        }
+      });
+      
+      uploadZone.addEventListener('dragover', function(e) {
+        e.preventDefault();
+        this.style.borderColor = 'var(--gold)';
+        this.style.background = 'rgba(233, 175, 59, 0.1)';
+      });
+      
+      uploadZone.addEventListener('dragleave', function(e) {
+        e.preventDefault();
+        this.style.borderColor = '';
+        this.style.background = '';
+      });
+      
+      uploadZone.addEventListener('drop', function(e) {
+        e.preventDefault();
+        this.style.borderColor = '';
+        this.style.background = '';
+        var files = e.dataTransfer.files;
+        if (files.length > 0) {
+          handleImageFile(files[0]);
+        }
+      });
+      
+      imageInput.addEventListener('change', function() {
+        if (this.files.length > 0) {
+          handleImageFile(this.files[0]);
+        }
+      });
+      
+      removeImageBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        clearImage();
+      });
+      
+      function handleImageFile(file) {
+        // Validate file type
+        if (!file.type.match(/^image\/(jpeg|png)$/)) {
+          alert('Please upload a JPG or PNG image.');
+          return;
+        }
+        
+        // Validate file size (5MB max)
+        if (file.size > 5 * 1024 * 1024) {
+          alert('Image must be under 5MB.');
+          return;
+        }
+        
+        var reader = new FileReader();
+        reader.onload = function(e) {
+          state.imageBase64 = e.target.result;
+          state.imageName = file.name;
+          
+          imagePreview.src = e.target.result;
+          imagePreview.classList.add('visible');
+          removeImageBtn.classList.add('visible');
+          uploadDefault.classList.add('hidden');
+          uploadZone.classList.add('has-image');
+        };
+        reader.readAsDataURL(file);
+      }
+      
+      function clearImage() {
+        state.imageBase64 = null;
+        state.imageName = null;
+        imagePreview.src = '';
+        imagePreview.classList.remove('visible');
+        removeImageBtn.classList.remove('visible');
+        uploadDefault.classList.remove('hidden');
+        uploadZone.classList.remove('has-image');
+        imageInput.value = '';
+      }
       
       // === SCREEN MANAGEMENT ===
       function showScreen(n) {
@@ -2310,7 +2584,7 @@
           }
         });
         
-        // Progress - segmented
+        // Progress
         if (n <= totalScreens) {
           progressSegments.forEach(function(seg, i) {
             seg.classList.remove('filled', 'current');
@@ -2324,10 +2598,9 @@
           progressWrapper.parentElement.style.display = '';
           formNav.style.display = '';
         } else {
-          // Results screen
+          // Loading or results screen
           progressWrapper.parentElement.style.display = 'none';
           formNav.style.display = 'none';
-          showResults();
         }
         
         navBack.disabled = (n === 1);
@@ -2340,12 +2613,13 @@
         
         if (screen === 1) enabled = !!state.projectType;
         else if (screen === 2) enabled = !!state.condition;
-        else if (screen === 3) enabled = !!state.flooring;
-        else if (screen === 4) enabled = !!state.quality;
-        else if (screen === 5) enabled = !!state.plumbing;
-        else if (screen === 6) enabled = !!state.glass;
-        else if (screen === 7) {
-          // Check required fields
+        else if (screen === 3) enabled = true; // Square footage always has a value
+        else if (screen === 4) enabled = !!state.flooring;
+        else if (screen === 5) enabled = !!state.fixtureQuality;
+        else if (screen === 6) enabled = !!state.plumbing;
+        else if (screen === 7) enabled = !!state.glass;
+        else if (screen === 8) enabled = true; // Image upload is optional
+        else if (screen === 9) {
           var email = document.getElementById('leadEmail').value.trim();
           var phone = document.getElementById('leadPhone').value.trim();
           enabled = email && phone && email.includes('@');
@@ -2354,64 +2628,178 @@
         navNext.disabled = !enabled;
         
         // Update button text
-        if (screen === 7) {
+        if (screen === 9) {
           navNext.textContent = 'See My Estimate →';
-        } else if (screen <= 6) {
+        } else if (screen === 8) {
+          navNext.textContent = state.imageBase64 ? 'Continue →' : 'Skip & Continue →';
+        } else {
           navNext.textContent = 'Continue →';
         }
       }
       
-      function showResults() {
-        var est = calculateEstimate();
-        
-        // Update price display
-        document.getElementById('finalPrice').textContent = 
-          '$' + est.low.toLocaleString() + ' – $' + est.high.toLocaleString();
-        
-        // Update expiry date
-        document.getElementById('discountExpiry').textContent = 
-          'Offer expires: ' + getExpiryDate();
-        
-        // Submit lead data
-        submitLead(est);
-      }
-      
-      function submitLead(estimate) {
+      // === API CALL ===
+      async function submitToBackend() {
         var formData = {
-          name: document.getElementById('leadName').value,
-          phone: document.getElementById('leadPhone').value,
-          email: document.getElementById('leadEmail').value,
-          address: document.getElementById('leadAddress').value,
           projectType: state.projectType,
           condition: state.condition,
           flooring: state.flooring,
-          quality: state.quality,
+          fixtureQuality: state.fixtureQuality,
           plumbing: state.plumbing,
           glass: state.glass,
-          estimate_low: estimate.low,
-          estimate_high: estimate.high
+          squareFootage: state.squareFootage,
+          image: state.imageBase64,
+          email: document.getElementById('leadEmail').value.trim(),
+          phone: document.getElementById('leadPhone').value.trim(),
+          name: document.getElementById('leadName').value.trim() || null
         };
         
-        var params = new URLSearchParams();
-        params.append('full_name', formData.name || '');
-        params.append('phone', formData.phone);
-        params.append('email', formData.email);
-        if (formData.address) params.append('address', formData.address);
-        params.append('project_type', formData.projectType);
-        params.append('condition', formData.condition);
-        params.append('flooring', formData.flooring);
-        params.append('quality_level', formData.quality);
-        params.append('plumbing_work', formData.plumbing);
-        params.append('glass_type', formData.glass);
-        params.append('estimate_range', '$' + formData.estimate_low.toLocaleString() + ' - $' + formData.estimate_high.toLocaleString());
+        try {
+          var response = await fetch(API_URL, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+          });
+          
+          if (!response.ok) {
+            throw new Error('API error');
+          }
+          
+          return await response.json();
+        } catch (error) {
+          console.error('API Error:', error);
+          // Fallback to local calculation
+          return calculateLocalEstimate(formData);
+        }
+      }
+      
+      // === LOCAL FALLBACK CALCULATION ===
+      function calculateLocalEstimate(data) {
+        var pricing = {
+          base: {
+            'tub-to-shower': { low: 12000, mid: 15000, high: 18000 },
+            'full-bathroom': { low: 15000, mid: 25000, high: 30000 },
+            'cosmetic': { low: 4000, mid: 6000, high: 8000 }
+          },
+          condition: {
+            'pull-refresh': 0,
+            'full-redesign': 4000,
+            'cosmetic': -2500
+          },
+          flooring: {
+            'tile': 35,
+            'vinyl': 12,
+            'keep-as-is': 0,
+            'other': 20
+          },
+          fixtures: {
+            'low': 0,
+            'mid': 700,
+            'high': 2000
+          },
+          glass: {
+            'frameless': 2200,
+            'curtain': 0
+          },
+          plumbing: {
+            'keep': 0,
+            'minor': 1000,
+            'major': 3500
+          }
+        };
         
-        // Submit to webhook
-        fetch('https://link.apisystem.tech/widget/form/T6mcisYXB0t5PDUQaAsP?' + params.toString(), {
-          method: 'POST',
-          mode: 'no-cors'
-        }).catch(function() {
-          // Silently handle - lead still captured on their end
-        });
+        var baseRange = pricing.base[data.projectType] || pricing.base['tub-to-shower'];
+        var basePrice = baseRange[data.fixtureQuality] || baseRange.mid;
+        
+        // Size scaling
+        var sizeFactor = 1;
+        if (data.squareFootage <= 60) sizeFactor = 0.9;
+        else if (data.squareFootage >= 120) sizeFactor = 1.15;
+        else if (data.squareFootage >= 150) sizeFactor = 1.25;
+        
+        basePrice = Math.round(basePrice * sizeFactor);
+        
+        var conditionAdd = pricing.condition[data.condition] || 0;
+        var flooringCost = Math.round((pricing.flooring[data.flooring] || 0) * data.squareFootage);
+        var fixtureCost = pricing.fixtures[data.fixtureQuality] || 0;
+        var glassCost = pricing.glass[data.glass] || 0;
+        var plumbingCost = pricing.plumbing[data.plumbing] || 0;
+        
+        var totalLow = basePrice + conditionAdd + flooringCost + fixtureCost + glassCost + plumbingCost;
+        var totalHigh = Math.round(totalLow * 1.2);
+        
+        // Round to nearest 500
+        totalLow = Math.round(totalLow / 500) * 500;
+        totalHigh = Math.round(totalHigh / 500) * 500;
+        
+        var expiryDate = new Date();
+        expiryDate.setDate(expiryDate.getDate() + 7);
+        
+        return {
+          lowEstimate: totalLow,
+          highEstimate: totalHigh,
+          breakdown: {
+            basePrice: basePrice + conditionAdd,
+            flooring: flooringCost,
+            fixtures: fixtureCost,
+            glass: glassCost,
+            plumbing: plumbingCost
+          },
+          imageAnalysis: null,
+          discountDeadline: expiryDate.toISOString(),
+          discountAmount: 1500
+        };
+      }
+      
+      // === SHOW RESULTS ===
+      async function showResults() {
+        // Show loading screen
+        showScreen(10);
+        
+        var loadingText = document.getElementById('loadingText');
+        loadingText.textContent = state.imageBase64 ? 'Analyzing your bathroom photo...' : 'Calculating your estimate...';
+        
+        try {
+          var result = await submitToBackend();
+          
+          // Update price display
+          document.getElementById('finalPrice').textContent = 
+            '$' + result.lowEstimate.toLocaleString() + ' – $' + result.highEstimate.toLocaleString();
+          
+          // Update breakdown
+          document.getElementById('breakdownBase').textContent = '$' + result.breakdown.basePrice.toLocaleString();
+          document.getElementById('breakdownFlooring').textContent = '$' + result.breakdown.flooring.toLocaleString();
+          document.getElementById('breakdownFixtures').textContent = '$' + result.breakdown.fixtures.toLocaleString();
+          document.getElementById('breakdownGlass').textContent = '$' + result.breakdown.glass.toLocaleString();
+          document.getElementById('breakdownPlumbing').textContent = '$' + result.breakdown.plumbing.toLocaleString();
+          
+          // Show AI analysis if available
+          var aiAnalysisEl = document.getElementById('aiAnalysis');
+          if (result.imageAnalysis) {
+            document.getElementById('aiAnalysisText').textContent = result.imageAnalysis;
+            aiAnalysisEl.classList.add('visible');
+          } else {
+            aiAnalysisEl.classList.remove('visible');
+          }
+          
+          // Update expiry date
+          var expiryDate = new Date(result.discountDeadline);
+          var options = { year: 'numeric', month: 'long', day: 'numeric' };
+          document.getElementById('discountExpiry').textContent = 
+            'Offer expires: ' + expiryDate.toLocaleDateString('en-US', options);
+          
+          // Show results screen
+          showScreen(11);
+          
+        } catch (error) {
+          console.error('Error:', error);
+          // Still show results with local calculation
+          var fallback = calculateLocalEstimate(state);
+          document.getElementById('finalPrice').textContent = 
+            '$' + fallback.lowEstimate.toLocaleString() + ' – $' + fallback.highEstimate.toLocaleString();
+          showScreen(11);
+        }
       }
       
       // === OPTION SELECTION ===
@@ -2439,10 +2827,10 @@
       
       setupOptionButtons(1, 'projectType');
       setupOptionButtons(2, 'condition');
-      setupOptionButtons(3, 'flooring');
-      setupOptionButtons(4, 'quality');
-      setupOptionButtons(5, 'plumbing');
-      setupOptionButtons(6, 'glass');
+      setupOptionButtons(4, 'flooring');
+      setupOptionButtons(5, 'fixtureQuality');
+      setupOptionButtons(6, 'plumbing');
+      setupOptionButtons(7, 'glass');
       
       // === CONTACT FORM INPUT HANDLERS ===
       document.getElementById('leadEmail').addEventListener('input', updateNextButton);
@@ -2460,8 +2848,7 @@
           if (state.screen < totalScreens) {
             showScreen(state.screen + 1);
           } else if (state.screen === totalScreens) {
-            // Go to results
-            showScreen(8);
+            showResults();
           }
         }
       });
@@ -2474,12 +2861,12 @@
           if (state.screen < totalScreens) {
             showScreen(state.screen + 1);
           } else {
-            showScreen(8);
+            showResults();
           }
         }
         
-        // Keyboard shortcuts for options (A, B, C, D)
-        if (state.screen >= 1 && state.screen <= 6) {
+        // Keyboard shortcuts for options
+        if ([1, 2, 4, 5, 6, 7].includes(state.screen)) {
           var key = e.key.toLowerCase();
           var index = {'a': 0, 'b': 1, 'c': 2, 'd': 3}[key];
           if (index !== undefined) {
@@ -2502,10 +2889,13 @@
           screen: 1,
           projectType: null,
           condition: null,
+          squareFootage: 80,
           flooring: null,
-          quality: null,
+          fixtureQuality: null,
           plumbing: null,
-          glass: null
+          glass: null,
+          imageBase64: null,
+          imageName: null
         };
         
         // Reset UI
@@ -2520,7 +2910,12 @@
         document.getElementById('leadName').value = '';
         document.getElementById('leadEmail').value = '';
         document.getElementById('leadPhone').value = '';
-        document.getElementById('leadAddress').value = '';
+        sqftSlider.value = 80;
+        sqftValue.textContent = '80';
+        clearImage();
+        
+        // Reset AI analysis
+        document.getElementById('aiAnalysis').classList.remove('visible');
         
         formNav.style.display = '';
         showScreen(1);
