@@ -11,6 +11,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://images.unsplash.com">
   
+  <!-- HEIC to JPEG conversion library -->
+  <script src="https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js"></script>
+  
   <!-- Premium fonts - Playfair Display + Inter -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
   
@@ -2555,9 +2558,10 @@
         clearImage();
       });
       
-      function handleImageFile(file) {
+      async function handleImageFile(file) {
         // Validate file type
-        if (!file.type.match(/^image\/(jpeg|png|webp|heic|heic-p)$/)) {
+        var isHeic = file.type.match(/^image\/heic/) || file.name.toLowerCase().endsWith('.heic');
+        if (!file.type.match(/^image\/(jpeg|png|webp|heic|heic-p)$/) && !isHeic) {
           alert('Please upload a JPG, PNG, WebP, or HEIC image (max 20MB).');
           return;
         }
@@ -2568,21 +2572,48 @@
           return;
         }
         
-        var reader = new FileReader();
-        reader.onload = function(e) {
-          state.imageBase64 = e.target.result;
-          state.imageName = file.name;
+        // Show loading state
+        uploadDefault.innerHTML = '<p style="color: var(--gold);">Processing image...</p>';
+        
+        try {
+          var processedFile = file;
           
-          imagePreview.src = e.target.result;
-          imagePreview.classList.add('visible');
-          removeImageBtn.classList.add('visible');
-          uploadDefault.classList.add('hidden');
-          uploadZone.classList.add('has-image');
+          // Convert HEIC to JPEG if needed
+          if (isHeic && typeof heic2any !== 'undefined') {
+            try {
+              var blob = await heic2any({
+                blob: file,
+                toType: 'image/jpeg',
+                quality: 0.85
+              });
+              processedFile = new File([blob], file.name.replace(/\.heic$/i, '.jpg'), { type: 'image/jpeg' });
+            } catch (heicError) {
+              console.warn('HEIC conversion failed, using original:', heicError);
+              // Continue with original file - backend will handle gracefully
+            }
+          }
           
-          // Update button text from "Skip & Continue" to "Continue"
-          updateNavButtons();
-        };
-        reader.readAsDataURL(file);
+          var reader = new FileReader();
+          reader.onload = function(e) {
+            state.imageBase64 = e.target.result;
+            state.imageName = processedFile.name;
+            
+            imagePreview.src = e.target.result;
+            imagePreview.classList.add('visible');
+            removeImageBtn.classList.add('visible');
+            uploadDefault.classList.add('hidden');
+            uploadZone.classList.add('has-image');
+            
+            // Update button text from "Skip & Continue" to "Continue"
+            updateNavButtons();
+          };
+          reader.readAsDataURL(processedFile);
+        } catch (error) {
+          console.error('Image processing error:', error);
+          alert('Error processing image. Please try a different photo.');
+          // Reset upload zone on error
+          location.reload();
+        }
       }
       
       function clearImage() {
