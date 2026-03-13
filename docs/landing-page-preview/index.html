@@ -2588,8 +2588,10 @@
               });
               processedFile = new File([blob], file.name.replace(/\.heic$/i, '.jpg'), { type: 'image/jpeg' });
             } catch (heicError) {
-              console.warn('HEIC conversion failed, using original:', heicError);
-              // Continue with original file - backend will handle gracefully
+              console.warn('HEIC conversion failed:', heicError);
+              alert('HEIC conversion failed. Please convert your photo to JPG and try again, or use a different image.');
+              uploadDefault.innerHTML = '<p>Drag & drop or click to upload</p><span>JPG, PNG, WebP (max 20MB)</span>';
+              return;
             }
           }
           
@@ -2610,9 +2612,8 @@
           reader.readAsDataURL(processedFile);
         } catch (error) {
           console.error('Image processing error:', error);
-          alert('Error processing image. Please try a different photo.');
-          // Reset upload zone on error
-          location.reload();
+          alert('Error processing image: ' + error.message + '. Please try a JPG or PNG instead.');
+          uploadDefault.innerHTML = '<p>Drag & drop or click to upload</p><span>JPG, PNG, WebP (max 20MB)</span>';
         }
       }
       
