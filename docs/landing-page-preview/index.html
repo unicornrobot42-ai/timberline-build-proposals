@@ -2588,10 +2588,8 @@
               });
               processedFile = new File([blob], file.name.replace(/\.heic$/i, '.jpg'), { type: 'image/jpeg' });
             } catch (heicError) {
-              console.warn('HEIC conversion failed:', heicError);
-              alert('HEIC conversion failed. Please convert your photo to JPG and try again, or use a different image.');
-              uploadDefault.innerHTML = '<p>Drag & drop or click to upload</p><span>JPG, PNG, WebP (max 20MB)</span>';
-              return;
+              console.warn('HEIC conversion failed in browser, will send to backend:', heicError);
+              // Continue with original HEIC file - backend will handle gracefully
             }
           }
           
@@ -2612,8 +2610,23 @@
           reader.readAsDataURL(processedFile);
         } catch (error) {
           console.error('Image processing error:', error);
-          alert('Error processing image: ' + error.message + '. Please try a JPG or PNG instead.');
-          uploadDefault.innerHTML = '<p>Drag & drop or click to upload</p><span>JPG, PNG, WebP (max 20MB)</span>';
+          // Still try to read the original file
+          var reader = new FileReader();
+          reader.onload = function(e) {
+            state.imageBase64 = e.target.result;
+            state.imageName = file.name;
+            imagePreview.src = e.target.result;
+            imagePreview.classList.add('visible');
+            removeImageBtn.classList.add('visible');
+            uploadDefault.classList.add('hidden');
+            uploadZone.classList.add('has-image');
+            updateNavButtons();
+          };
+          reader.onerror = function() {
+            alert('Could not read image. Please try a different photo.');
+            uploadDefault.innerHTML = '<p>Drag & drop or click to upload</p><span>JPG, PNG, WebP (max 20MB)</span>';
+          };
+          reader.readAsDataURL(file);
         }
       }
       
