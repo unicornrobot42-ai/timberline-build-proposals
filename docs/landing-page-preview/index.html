@@ -2577,49 +2577,60 @@
         
         try {
           var processedFile = file;
+          var heicNeedsBackend = false;
           
           // Convert HEIC to JPEG if needed
-          if (isHeic && typeof heic2any !== 'undefined') {
-            try {
-              var blob = await heic2any({
-                blob: file,
-                toType: 'image/jpeg',
-                quality: 0.85
-              });
-              processedFile = new File([blob], file.name.replace(/\.heic$/i, '.jpg'), { type: 'image/jpeg' });
-            } catch (heicError) {
-              console.warn('HEIC conversion failed in browser, will send to backend:', heicError);
-              // HEIC can't be previewed in browser, but we'll still send it
-              // Show a placeholder instead of broken image
-              state.imageBase64 = null; // Will read later
-              state.isHeic = true;
+          if (isHeic) {
+            if (typeof heic2any !== 'undefined') {
+              try {
+                var blob = await heic2any({
+                  blob: file,
+                  toType: 'image/jpeg',
+                  quality: 0.85
+                });
+                // heic2any can return array for multi-image HEIC
+                if (Array.isArray(blob)) blob = blob[0];
+                processedFile = new File([blob], file.name.replace(/\.(heic|heif)$/i, '.jpg'), { type: 'image/jpeg' });
+                console.log('HEIC converted in browser successfully');
+              } catch (heicError) {
+                console.warn('HEIC conversion failed in browser, backend will handle:', heicError);
+                heicNeedsBackend = true;
+              }
+            } else {
+              console.log('heic2any not available, backend will handle HEIC');
+              heicNeedsBackend = true;
             }
           }
           
+          // For HEIC that needs backend processing, read file but show placeholder
+          if (heicNeedsBackend) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+              state.imageBase64 = e.target.result;
+              state.imageName = file.name;
+              
+              // Show HEIC placeholder (browser can't preview)
+              imagePreview.src = 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="350" height="200" viewBox="0 0 350 200"><rect fill="#19412c" width="350" height="200" rx="8"/><text x="175" y="85" text-anchor="middle" fill="#e9af3b" font-family="sans-serif" font-size="18" font-weight="bold">📷 HEIC Photo Uploaded</text><text x="175" y="115" text-anchor="middle" fill="#ffffff" font-family="sans-serif" font-size="13">Preview not available in browser</text><text x="175" y="140" text-anchor="middle" fill="#aaa" font-family="sans-serif" font-size="11">Will be converted on submit</text></svg>');
+              imagePreview.classList.add('visible');
+              removeImageBtn.classList.add('visible');
+              uploadDefault.classList.add('hidden');
+              uploadZone.classList.add('has-image');
+              updateNavButtons();
+            };
+            reader.readAsDataURL(file);
+            return; // Exit early
+          }
+          
+          // Normal image (or successfully converted HEIC)
           var reader = new FileReader();
           reader.onload = function(e) {
             state.imageBase64 = e.target.result;
             state.imageName = processedFile.name;
-            
-            // Check if this is HEIC (browser can't display it)
-            var isHeicFile = processedFile.name.toLowerCase().endsWith('.heic') || 
-                             processedFile.name.toLowerCase().endsWith('.heif') ||
-                             processedFile.type === 'image/heic' ||
-                             processedFile.type === 'image/heif';
-            
-            if (isHeicFile) {
-              // Show placeholder for HEIC (browser can't preview)
-              imagePreview.src = 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="200" height="150" viewBox="0 0 200 150"><rect fill="%2319412c" width="200" height="150"/><text x="100" y="70" text-anchor="middle" fill="%23e9af3b" font-family="sans-serif" font-size="14">HEIC Photo</text><text x="100" y="95" text-anchor="middle" fill="%23fff" font-family="sans-serif" font-size="11">Will be processed on submit</text></svg>');
-            } else {
-              imagePreview.src = e.target.result;
-            }
-            
+            imagePreview.src = e.target.result;
             imagePreview.classList.add('visible');
             removeImageBtn.classList.add('visible');
             uploadDefault.classList.add('hidden');
             uploadZone.classList.add('has-image');
-            
-            // Update button text from "Skip & Continue" to "Continue"
             updateNavButtons();
           };
           reader.readAsDataURL(processedFile);
