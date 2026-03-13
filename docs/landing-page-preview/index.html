@@ -2558,13 +2558,13 @@
       function handleImageFile(file) {
         // Validate file type
         if (!file.type.match(/^image\/(jpeg|png|webp|heic|heic-p)$/)) {
-          alert('Please upload a JPG, PNG, WebP, or HEIC image (max 5MB).');
+          alert('Please upload a JPG, PNG, WebP, or HEIC image (max 20MB).');
           return;
         }
         
-        // Validate file size (5MB max)
-        if (file.size > 5 * 1024 * 1024) {
-          alert('Image must be under 5MB.');
+        // Validate file size (20MB max)
+        if (file.size > 20 * 1024 * 1024) {
+          alert('Image must be under 20MB.');
           return;
         }
         
@@ -2578,6 +2578,9 @@
           removeImageBtn.classList.add('visible');
           uploadDefault.classList.add('hidden');
           uploadZone.classList.add('has-image');
+          
+          // Update button text from "Skip & Continue" to "Continue"
+          updateNavButtons();
         };
         reader.readAsDataURL(file);
       }
