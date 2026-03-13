@@ -2615,6 +2615,10 @@
               removeImageBtn.classList.add('visible');
               uploadDefault.classList.add('hidden');
               uploadZone.classList.add('has-image');
+              
+              // Force update button text
+              var navBtn = document.getElementById('navNext');
+              if (navBtn) navBtn.textContent = 'Continue →';
               updateNavButtons();
             };
             reader.readAsDataURL(file);
@@ -2631,6 +2635,10 @@
             removeImageBtn.classList.add('visible');
             uploadDefault.classList.add('hidden');
             uploadZone.classList.add('has-image');
+            
+            // Force update button text
+            var navBtn = document.getElementById('navNext');
+            if (navBtn) navBtn.textContent = 'Continue →';
             updateNavButtons();
           };
           reader.readAsDataURL(processedFile);
