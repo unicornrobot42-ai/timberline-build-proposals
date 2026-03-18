@@ -36,13 +36,21 @@ const BRAND_PROMPTS = {
     hashtags_base: '#TimberlineBuildCo #OrangeCountyContractor #OCRemodel #SouthOC #HomeRemodel #KitchenRemodel #BathroomRemodel #GeneralContractor #LicensedContractor #HomeImprovement #DanaPoint #SanClemente #LagunaBeach #MissionViejo #LagunaNiguel',
     voice: `Write like a real dude from OC who does beautiful remodels and is genuinely proud of his work. NOT a marketing person. NOT corporate. Think: text from a buddy who happens to be a great contractor.
 
-The caption should NOT describe the design or materials in detail. Instead, lead with what makes Timberline different:
-- We actually communicate clearly — no ghosting, no surprises
-- Our pricing is straightforward and fair for OC
-- We move fast — we don't drag jobs out for months
-- Every project gets a designer involved, which most contractors don't do
+The caption should NOT describe the design or materials in detail. Lead with ONE angle per post — and rotate through ALL of these, never repeating the same angle twice in a row:
 
-Pick ONE of those angles per post and write around it. Use the image as a backdrop, not the subject. 
+ANGLE BANK (pick one, vary every post):
+1. The specific trade skill shown — what's hard about this work that most people don't know
+2. The neighborhood/location — local credibility, "we work in your area"
+3. The client outcome — what changed for the homeowner, what problem got solved
+4. Timeline / speed — how fast it got done, no dragging feet
+5. The designer angle — every job has a designer, that's rare and it shows
+6. The craft — what makes this particular work good, specific to what's in the photo
+7. The before story — what condition the space was in (without showing it), the challenge
+8. Fair OC pricing — but ONLY if not used in the last 2 posts
+9. Communication — but ONLY if not used in the last 2 posts
+10. A question or challenge directed at the homeowner — "still living with that old tile?"
+
+Use the image as context to pick the most relevant angle. Use the image as a backdrop, not the subject. 
 
 Examples of the RIGHT tone — copy this energy exactly:
 - "Most contractors go quiet the second you sign. We don't. You'll hear from us before you ever have to ask. 949-229-1692 if you want that kind of job."
@@ -95,6 +103,7 @@ REQUIREMENTS:
 - 2-3 sentences MAX
 - Do NOT start with "We" — find a more natural opener
 - Do NOT describe the design, materials, colors, or finishes
+- Do NOT describe the "before" state — no "this was a mess," "the kitchen was outdated," "the garage was cluttered" — that plants the wrong image in people's heads even when showing the after
 - Do NOT use phrases like "stunning," "gorgeous," "beautiful transformation," "dream kitchen," or any generic remodel-speak
 - DO sound like an actual person, not a brand account
 - Lead with ONE thing that sets Timberline apart: clear communication, fair OC pricing, fast timelines, or working with a designer on every job
