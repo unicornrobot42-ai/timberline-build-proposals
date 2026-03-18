@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Timberline Build Co — Preferred Suppliers</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+
+@page {
+  size: letter;
+  margin: 0;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  font-family: 'Montserrat', sans-serif;
+  background: #f5f2ee;
+  color: #312509;
+  width: 8.5in;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ─── HEADER ─── */
+.header {
+  background: #19412c;
+  padding: 30px 56px 26px;
+  position: relative;
+  overflow: hidden;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.header::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 4px;
+  background: #e9af3b;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* LOGO — plain, no interpretations */
+.logo-block {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.logo-name {
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: #ffffff;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.logo-tagline {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.45);
+  text-transform: uppercase;
+}
+
+.header-right {
+  text-align: right;
+}
+
+.doc-label {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 4px;
+}
+
+.doc-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.doc-title span {
+  color: #e9af3b;
+}
+
+.header-meta {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.meta-dot {
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: #e9af3b;
+  flex-shrink: 0;
+}
+
+.meta-text {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  color: rgba(255,255,255,0.45);
+  text-transform: uppercase;
+}
+
+/* ─── BODY ─── */
+.body {
+  padding: 36px 56px 40px;
+}
+
+/* ─── SECTION ─── */
+.section {
+  margin-bottom: 32px;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+  page-break-after: avoid;
+  break-after: avoid;
+}
+
+.section-icon {
+  width: 34px;
+  height: 34px;
+  background: #19412c;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.section-icon svg {
+  width: 18px;
+  height: 18px;
+  fill: #e9af3b;
+}
+
+.section-label {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #e9af3b;
+  margin-bottom: 1px;
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: #19412c;
+  letter-spacing: -0.2px;
+}
+
+.section-rule {
+  height: 2px;
+  background: linear-gradient(90deg, #e9af3b 0%, transparent 80%);
+  margin-bottom: 16px;
+  border-radius: 1px;
+  page-break-after: avoid;
+  break-after: avoid;
+}
+
+/* ─── SUPPLIER CARDS ─── */
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 8px;
+  border: 1px solid rgba(25,65,44,0.1);
+  overflow: hidden;
+  display: flex;
+  box-shadow: 0 2px 8px rgba(49,37,9,0.06);
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.card-accent {
+  width: 4px;
+  background: #19412c;
+  flex-shrink: 0;
+}
+
+.card-body {
+  padding: 18px 22px;
+  flex: 1;
+  display: flex;
+  gap: 22px;
+  align-items: flex-start;
+}
+
+.card-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.card-name {
+  font-size: 14px;
+  font-weight: 800;
+  color: #19412c;
+  margin-bottom: 5px;
+}
+
+.card-desc {
+  font-size: 10px;
+  font-weight: 400;
+  color: #614432;
+  line-height: 1.65;
+  margin-bottom: 12px;
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.tag {
+  background: rgba(25,65,44,0.07);
+  color: #19412c;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 20px;
+}
+
+/* RIGHT SIDE CONTACT INFO */
+.card-info {
+  width: 185px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-left: 20px;
+  border-left: 1px solid rgba(25,65,44,0.08);
+}
+
+.info-item {}
+
+.info-label {
+  font-size: 7.5px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(49,37,9,0.38);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.info-value {
+  font-size: 10px;
+  font-weight: 500;
+  color: #312509;
+  line-height: 1.5;
+}
+
+/* NOTE CALLOUT */
+.note-card {
+  background: rgba(233,175,59,0.07);
+  border: 1px solid rgba(233,175,59,0.28);
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin-top: 12px;
+}
+
+.note-text {
+  font-size: 9.5px;
+  font-weight: 500;
+  color: #614432;
+  line-height: 1.6;
+}
+
+.note-text strong {
+  color: #19412c;
+  font-weight: 700;
+}
+
+/* ─── FOOTER ─── */
+.footer {
+  background: #19412c;
+  padding: 20px 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.footer-logo {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.footer-tagline {
+  font-size: 8.5px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+}
+
+.footer-website {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: rgba(255,255,255,0.4);
+}
+
+</style>
+</head>
+<body>
+
+<!-- ─── HEADER ─── -->
+<div class="header">
+  <div class="header-inner">
+    <div class="logo-block">
+      <div class="logo-name">Timberline Build Co.</div>
+      <div class="logo-tagline">timberlinebuild.co</div>
+    </div>
+    <div class="header-right">
+      <div class="doc-label">Resource Guide</div>
+      <div class="doc-title">Preferred <span>Supplier</span> Directory</div>
+    </div>
+  </div>
+  <div class="header-meta">
+    <div class="meta-dot"></div>
+    <div class="meta-text">Southern California &nbsp;·&nbsp; Trusted Partners &nbsp;·&nbsp; Contractor Pricing Available</div>
+  </div>
+</div>
+
+<!-- ─── BODY ─── -->
+<div class="body">
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- SECTION: CABINETS                      -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 3h20v18H2V3zm2 8h7V5H4v6zm0 2v8h7v-8H4zm9 8h7v-8h-7v8zm0-10h7V5h-7v6zM9 8H6v1h3V8zm9 0h-3v1h3V8zm-9 6H6v1h3v-1zm9 0h-3v1h3v-1z"/>
+        </svg>
+      </div>
+      <div>
+        <div class="section-label">Category 01</div>
+        <div class="section-title">Cabinets</div>
+      </div>
+    </div>
+    <div class="section-rule"></div>
+
+    <div class="cards">
+
+      <!-- Lowes Rancho Santa Margarita -->
+      <div class="card">
+        <div class="card-accent"></div>
+        <div class="card-body">
+          <div class="card-main">
+            <div class="card-name">Lowe's — Rancho Santa Margarita</div>
+            <div class="card-desc">
+              Full-service kitchen and bath cabinets with contractor pricing available. Wide selection of stock and semi-custom options. Ask for Bob Smith for contractor discounts and design assistance.
+            </div>
+            <div class="card-tags">
+              <span class="tag">Kitchen Cabinets</span>
+              <span class="tag">Bath Vanities</span>
+              <span class="tag">Semi-Custom</span>
+              <span class="tag">Stock Cabinets</span>
+            </div>
+          </div>
+          <div class="card-info">
+            <div class="info-item">
+              <span class="info-label">Contact</span>
+              <div class="info-value">Ask for: Bob Smith</div>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Location</span>
+              <div class="info-value">Rancho Santa Margarita, CA</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 405 Cabinets & Stone -->
+      <div class="card">
+        <div class="card-accent"></div>
+        <div class="card-body">
+          <div class="card-main">
+            <div class="card-name">405 Cabinets &amp; Stone</div>
+            <div class="card-desc">
+              Budget-friendly, competitive pricing with all items in stock. Limited variety compared to other suppliers, but free design services and fast turnaround. Good for time-sensitive projects needing quick cabinet selection.
+            </div>
+            <div class="card-tags">
+              <span class="tag">Budget Pricing</span>
+              <span class="tag">In Stock</span>
+              <span class="tag">Free Designs</span>
+              <span class="tag">Fast Turnaround</span>
+            </div>
+          </div>
+          <div class="card-info">
+            <div class="info-item">
+              <span class="info-label">Address</span>
+              <div class="info-value">18315 Mt Baldy Cir<br>Fountain Valley, CA 92708</div>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Phone</span>
+              <div class="info-value">(714) 500-3855</div>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Website</span>
+              <div class="info-value">405cs.com</div>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Hours</span>
+              <div class="info-value">Mon–Fri: 8am – 6pm<br>Sat: 9am – 5pm</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cabinet Wholesalers -->
+      <div class="card">
+        <div class="card-accent" style="background:#614432;"></div>
+        <div class="card-body">
+          <div class="card-main">
+            <div class="card-name">Cabinet Wholesalers</div>
+            <div class="card-desc">
+              Full-service kitchen and bath cabinet supplier in Anaheim with both stock and custom lines. More expensive than 405, but with exceptional variety and options. Free design service. Ask for Brandon for personalized contractor pricing and design consultation.
+            </div>
+            <div class="card-tags">
+              <span class="tag">Kitchen Cabinets</span>
+              <span class="tag">Bath Vanities</span>
+              <span class="tag">Custom Cabinets</span>
+              <span class="tag">Many Options</span>
+              <span class="tag">Design Service</span>
+            </div>
+          </div>
+          <div class="card-info">
+            <div class="info-item">
+              <span class="info-label">Address</span>
+              <div class="info-value">4510 E La Palma Ave<br>Anaheim, CA 92807</div>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Phone</span>
+              <div class="info-value">(714) 693-1111</div>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Contact</span>
+              <div class="info-value">Ask for: Brandon</div>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Website</span>
+              <div class="info-value">1800cabinetwholesalers.com</div>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Hours</span>
+              <div class="info-value">Mon–Fri: 10am – 5pm<br>Sat: 10am – 3pm</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- APEX Cabinets -->
+      <div class="card">
+        <div class="card-accent" style="background:#19412c;"></div>
+        <div class="card-body">
+          <div class="card-main">
+            <div class="card-name">APEX Cabinets</div>
+            <div class="card-desc">
+              Good pricing with exceptional variety and selection. Free design services. More options than 405 with better pricing than Cabinet Wholesalers. Strong middle-ground option for quality and affordability.
+            </div>
+            <div class="card-tags">
+              <span class="tag">Kitchen Cabinets</span>
+              <span class="tag">Bath Vanities</span>
+              <span class="tag">Great Variety</span>
+              <span class="tag">Good Pricing</span>
+              <span class="tag">Free Designs</span>
+            </div>
+          </div>
+          <div class="card-info">
+            <div class="info-item">
+              <span class="info-label">Location</span>
+              <div class="info-value">San Pedro, CA</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Builder Surplus -->
+      <div class="card">
+        <div class="card-accent" style="background:#614432;"></div>
+        <div class="card-body">
+          <div class="card-main">
+            <div class="card-name">Builder Surplus</div>
+            <div class="card-desc">
+              Lower-end cabinets with excellent affordability. Better selection than 405. Best for budget-conscious projects or clients prioritizing cost savings over premium finishes.
+            </div>
+            <div class="card-tags">
+              <span class="tag">Budget Cabinets</span>
+              <span class="tag">Affordable</span>
+              <span class="tag">Good Selection</span>
+              <span class="tag">Cost-Effective</span>
+            </div>
+          </div>
+          <div class="card-info">
+            <div class="info-item">
+              <span class="info-label">Orange County</span>
+              <div class="info-value">Multiple locations</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- SECTION: TILE & FLOORING               -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="section" style="page-break-before: always; break-before: page;">
+    <!-- Page 2 mini-header -->
+    <div style="display:flex; align-items:center; justify-content:space-between; padding: 18px 0 18px 0; border-bottom: 3px solid #19412c; margin-bottom: 28px;">
+      <div style="font-family:'Montserrat',sans-serif; font-size:13px; font-weight:900; letter-spacing:2px; color:#19412c; text-transform:uppercase;">Timberline Build Co.</div>
+      <div style="font-family:'Montserrat',sans-serif; font-size:8px; font-weight:600; letter-spacing:2px; color:rgba(49,37,9,0.4); text-transform:uppercase;">Preferred Supplier Directory</div>
+    </div>
+    <div class="section-header">
+      <div class="section-icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 3h8v8H3V3zm0 10h8v8H3v-8zM13 3h8v8h-8V3zm0 10h8v8h-8v-8z"/>
+        </svg>
+      </div>
+      <div>
+        <div class="section-label">Category 02</div>
+        <div class="section-title">Tile &amp; Flooring</div>
+      </div>
+    </div>
+    <div class="section-rule"></div>
+
+    <div class="cards">
+
+      <!-- Floor & Decor -->
+      <div class="card">
+        <div class="card-accent"></div>
+        <div class="card-body">
+          <div class="card-main">
+            <div class="card-name">Floor &amp; Decor</div>
+            <div class="card-desc">
+              The largest specialty hard-surface flooring retailer in the country — a contractor's best friend. Warehouse-style showrooms carry hardwood, porcelain tile, natural stone, LVP, laminate, backsplash, grout, and installation supplies all under one roof. Wholesale pricing available through their Pro Premier contractor program. Two convenient OC locations.
+            </div>
+            <div class="card-tags">
+              <span class="tag">Hardwood</span>
+              <span class="tag">Porcelain Tile</span>
+              <span class="tag">Natural Stone</span>
+              <span class="tag">LVP</span>
+              <span class="tag">Laminate</span>
+              <span class="tag">Backsplash</span>
+              <span class="tag">Grout &amp; Mortar</span>
+            </div>
+            <div class="note-card">
+              <div class="note-text">
+                <strong>Two nearby OC locations:</strong><br>
+                Fountain Valley — 9065 Warner Ave, CA 92708 &nbsp;·&nbsp; (714) 845-8156<br>
+                Santa Ana — 1801 E Dyer Rd, CA 92705 &nbsp;·&nbsp; (949) 623-0606
+              </div>
+            </div>
+          </div>
+          <div class="card-info">
+            <div class="info-item">
+              <span class="info-label">Primary Location</span>
+              <div class="info-value">9065 Warner Ave<br>Fountain Valley, CA 92708</div>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Phone</span>
+              <div class="info-value">(714) 845-8156</div>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Website</span>
+              <div class="info-value">flooranddecor.com</div>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Hours</span>
+              <div class="info-value">Mon–Fri: 7am – 8pm<br>Sat: 8am – 7pm<br>Sun: 10am – 6pm</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bedrosians -->
+      <div class="card">
+        <div class="card-accent" style="background:#614432;"></div>
+        <div class="card-body">
+          <div class="card-main">
+            <div class="card-name">Bedrosians Tile &amp; Stone</div>
+            <div class="card-desc">
+              A premier tile and stone showroom with a curated, design-forward selection. Bedrosians serves both contractors and design-conscious homeowners. The Anaheim showroom on State College Blvd carries wall tile, floor tile, natural stone, mosaics, and countertop materials in a beautifully open space. Best fit for higher-end projects where material aesthetics lead the design.
+            </div>
+            <div class="card-tags">
+              <span class="tag">Porcelain Tile</span>
+              <span class="tag">Natural Stone</span>
+              <span class="tag">Mosaics</span>
+              <span class="tag">Wall Tile</span>
+              <span class="tag">Countertops</span>
+              <span class="tag">Backsplash</span>
+            </div>
+          </div>
+          <div class="card-info">
+            <div class="info-item">
+              <span class="info-label">Address</span>
+              <div class="info-value">1235 S State College Blvd<br>Anaheim, CA 92806</div>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Phone</span>
+              <div class="info-value">(714) 778-8453</div>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Website</span>
+              <div class="info-value">bedrosians.com</div>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Hours</span>
+              <div class="info-value">Mon–Fri: 8am – 5pm<br>Sat: 9am – 5pm &nbsp;·&nbsp; Sun: Closed</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Arizona Tile -->
+      <div class="card">
+        <div class="card-accent" style="background:#19412c;"></div>
+        <div class="card-body">
+          <div class="card-main">
+            <div class="card-name">Arizona Tile</div>
+            <div class="card-desc">
+              Premium tile and stone supplier with higher-end selection. More expensive than Floor &amp; Decor and Bedrosians, but offers exclusive and luxury tile options. Best for luxury and designer-focused projects.
+            </div>
+            <div class="card-tags">
+              <span class="tag">Premium Tile</span>
+              <span class="tag">Natural Stone</span>
+              <span class="tag">Luxury Options</span>
+              <span class="tag">Exclusive Selection</span>
+            </div>
+          </div>
+          <div class="card-info">
+            <div class="info-item">
+              <span class="info-label">Location</span>
+              <div class="info-value">Orange County, CA</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- SECTION: COUNTERTOPS                   -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 4h20v2H2V4zm0 14h20v2H2v-2zm2-6h16v4H4v-4z"/>
+        </svg>
+      </div>
+      <div>
+        <div class="section-label">Category 03</div>
+        <div class="section-title">Countertops</div>
+      </div>
+    </div>
+    <div class="section-rule"></div>
+
+    <div class="cards">
+
+      <!-- Elite Stone -->
+      <div class="card">
+        <div class="card-accent"></div>
+        <div class="card-body">
+          <div class="card-main">
+            <div class="card-name">Elite Stone</div>
+            <div class="card-desc">
+              Quartz countertop specialist with premium engineered stone options. Specializes exclusively in quartz with a wide range of colors and finishes. Excellent for clients seeking durability and modern aesthetics.
+            </div>
+            <div class="card-tags">
+              <span class="tag">Quartz Only</span>
+              <span class="tag">Premium Selection</span>
+              <span class="tag">Engineered Stone</span>
+              <span class="tag">Modern Finishes</span>
+            </div>
+          </div>
+          <div class="card-info">
+            <div class="info-item">
+              <span class="info-label">Location</span>
+              <div class="info-value">Santa Ana, CA</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Best Cheer Stone -->
+      <div class="card">
+        <div class="card-accent" style="background:#614432;"></div>
+        <div class="card-body">
+          <div class="card-main">
+            <div class="card-name">Best Cheer Stone</div>
+            <div class="card-desc">
+              Full-service countertop supplier with excellent variety. Carries quartz, granite, marble, and engineered stone options. Good balance of selection and pricing for projects requiring diverse material choices.
+            </div>
+            <div class="card-tags">
+              <span class="tag">Quartz</span>
+              <span class="tag">Granite</span>
+              <span class="tag">Marble</span>
+              <span class="tag">Good Variety</span>
+              <span class="tag">Engineered Stone</span>
+            </div>
+          </div>
+          <div class="card-info">
+            <div class="info-item">
+              <span class="info-label">Orange County</span>
+              <div class="info-value">Multiple locations</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MSI -->
+      <div class="card">
+        <div class="card-accent" style="background:#19412c;"></div>
+        <div class="card-body">
+          <div class="card-main">
+            <div class="card-name">MSI</div>
+            <div class="card-desc">
+              Comprehensive countertop and surface material distributor. Wide selection of quartz, granite, porcelain, and LVP options. One-stop shop for multiple surface material needs on the same project.
+            </div>
+            <div class="card-tags">
+              <span class="tag">Quartz</span>
+              <span class="tag">Granite</span>
+              <span class="tag">Porcelain</span>
+              <span class="tag">LVP</span>
+              <span class="tag">Wide Selection</span>
+            </div>
+          </div>
+          <div class="card-info">
+            <div class="info-item">
+              <span class="info-label">Location</span>
+              <div class="info-value">Orange County, CA</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- /body -->
+
+<!-- ─── FOOTER ─── -->
+<div class="footer">
+  <div class="footer-logo">Timberline Build Co.</div>
+  <div class="footer-tagline">Quality Craftsmanship · Built to Last</div>
+  <div class="footer-website">timberlinebuild.co</div>
+</div>
+
+</body>
+</html>

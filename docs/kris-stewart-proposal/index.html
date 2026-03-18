@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timberline Build Co. | Kris Stewart — 26405 Via Cuervo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --forest: #19412c;
+            --bark: #614432;
+            --earth: #312509;
+            --navy: #213245;
+            --gold: #e9af3b;
+            --cream: #faf8f4;
+            --white: #ffffff;
+            --light-gold: #fdf5e0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            background: var(--cream);
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4 { font-weight: 700; line-height: 1.2; letter-spacing: -0.5px; }
+        h1 { font-size: 3.2rem; }
+        h2 { font-size: 2rem; }
+        h3 { font-size: 1.3rem; }
+
+        .label {
+            text-transform: uppercase;
+            font-size: 0.65rem;
+            letter-spacing: 3px;
+            color: var(--gold);
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            display: block;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ── HERO ── */
+        .hero {
+            background: var(--forest);
+            color: var(--white);
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -120px; right: -120px;
+            width: 500px; height: 500px;
+            border-radius: 50%;
+            background: rgba(233,175,59,0.07);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -80px; left: -80px;
+            width: 350px; height: 350px;
+            border-radius: 50%;
+            background: rgba(233,175,59,0.05);
+            pointer-events: none;
+        }
+
+        .hero-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2.5rem 3rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .logo { height: 52px; mix-blend-mode: lighten; }
+
+        .hero-date {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.6;
+            font-weight: 600;
+        }
+
+        .hero-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 4rem 3rem;
+            animation: fadeUp 0.8s ease both;
+        }
+
+        .hero-body .label { color: var(--gold); }
+
+        .hero-body h1 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            max-width: 700px;
+        }
+
+        .hero-body h1 span { color: var(--gold); }
+
+        .hero-meta {
+            display: flex;
+            gap: 3rem;
+            margin-top: 3rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .hero-meta-item .meta-label {
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.45);
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .hero-meta-item .meta-val {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .hero-bottom {
+            padding: 2rem 3rem;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .tag {
+            background: rgba(233,175,59,0.15);
+            border: 1px solid rgba(233,175,59,0.3);
+            color: var(--gold);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 0.45rem 1rem;
+            border-radius: 100px;
+        }
+
+        /* ── NOTICE BANNER ── */
+        .notice-banner {
+            background: var(--light-gold);
+            border-left: 5px solid var(--gold);
+            padding: 2rem 3rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+        }
+
+        .notice-icon {
+            font-size: 1.8rem;
+            flex-shrink: 0;
+            margin-top: 0.1rem;
+        }
+
+        .notice-banner h3 {
+            color: var(--earth);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .notice-banner p {
+            color: #555;
+            font-size: 0.92rem;
+            line-height: 1.7;
+        }
+
+        /* ── SECTIONS ── */
+        .section {
+            padding: 5rem 3rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(to right, var(--gold), transparent);
+            margin: 0 3rem;
+            opacity: 0.3;
+        }
+
+        /* ── OVERVIEW ── */
+        .overview-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .overview-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid #eee;
+        }
+
+        .overview-card .oc-label {
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 800;
+            margin-bottom: 0.4rem;
+        }
+
+        .overview-card .oc-val {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--earth);
+        }
+
+        /* ── PHASE CARDS ── */
+        .phase-card {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            border: 1px solid #ececec;
+        }
+
+        .phase-card.highlight {
+            border: 2px solid var(--gold);
+            box-shadow: 0 4px 30px rgba(233,175,59,0.15);
+        }
+
+        .phase-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 2rem 2.5rem;
+            background: var(--forest);
+            color: var(--white);
+        }
+
+        .phase-card.highlight .phase-header {
+            background: var(--navy);
+        }
+
+        .phase-num {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: var(--gold);
+            color: var(--earth);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 900;
+            flex-shrink: 0;
+        }
+
+        .phase-header-text h3 {
+            font-size: 1.3rem;
+            color: var(--white);
+            margin-bottom: 0.2rem;
+        }
+
+        .phase-header-text .phase-sub {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.55);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        .phase-start-badge {
+            margin-left: auto;
+            background: var(--gold);
+            color: var(--earth);
+            font-size: 0.65rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 0.45rem 1rem;
+            border-radius: 100px;
+            white-space: nowrap;
+        }
+
+        .phase-body {
+            padding: 2rem 2.5rem;
+        }
+
+        .phase-body p {
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .phase-body p:last-of-type { margin-bottom: 0; }
+
+        .phase-budget-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 1.5rem;
+            background: var(--cream);
+            border-radius: 10px;
+            margin-top: 1.5rem;
+            border: 1px solid #e8e3da;
+        }
+
+        .phase-budget-row .budget-label {
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--forest);
+            font-weight: 800;
+        }
+
+        .phase-budget-row .budget-range {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--forest);
+        }
+
+        .phase-budget-row .budget-note {
+            font-size: 0.72rem;
+            color: #999;
+            margin-top: 0.1rem;
+        }
+
+        /* Phase 0 action box */
+        .action-box {
+            background: var(--light-gold);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            border: 1px solid rgba(233,175,59,0.35);
+        }
+
+        .action-box .action-label {
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--forest);
+            font-weight: 800;
+            margin-bottom: 0.6rem;
+        }
+
+        .action-box p {
+            font-size: 0.9rem;
+            color: var(--earth);
+            margin-bottom: 0;
+            font-weight: 500;
+        }
+
+        /* ── TOTAL ── */
+        .total-block {
+            background: var(--forest);
+            border-radius: 16px;
+            padding: 3rem;
+            color: var(--white);
+            margin-top: 1rem;
+        }
+
+        .total-block .label { color: var(--gold); }
+
+        .total-phases {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            margin: 1.5rem 0;
+        }
+
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.92rem;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .total-row .tr-label { color: rgba(255,255,255,0.7); font-weight: 500; }
+        .total-row .tr-val { color: var(--white); font-weight: 700; }
+
+        .total-final {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding-top: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .total-final .tf-label {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 800;
+        }
+
+        .total-final .tf-range {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--gold);
+            letter-spacing: -1px;
+        }
+
+        .total-caveat {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.55);
+            line-height: 1.7;
+        }
+
+        /* ── WHAT'S NOT INCLUDED ── */
+        .not-included-list {
+            list-style: none;
+            margin-top: 1.5rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+
+        .not-included-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .not-included-list li::before {
+            content: '—';
+            color: var(--forest);
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 0.1rem;
+        }
+
+        /* ── NEXT STEPS ── */
+        .steps-list {
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            background: var(--white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid #eee;
+        }
+
+        .step-num {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--forest);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+
+        .step-item.active .step-num { background: var(--gold); color: var(--earth); }
+
+        .step-content h4 {
+            font-size: 1rem;
+            color: var(--earth);
+            margin-bottom: 0.3rem;
+        }
+
+        .step-content p {
+            font-size: 0.88rem;
+            color: #777;
+            line-height: 1.6;
+        }
+
+        /* ── PAYMENT ── */
+        .payment-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.2rem;
+            margin-top: 2rem;
+        }
+
+        .payment-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 1.8rem 1.5rem;
+            text-align: center;
+            border: 1px solid #eee;
+        }
+
+        .payment-card .pct {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--forest);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .payment-card .pct-label {
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .payment-card p {
+            font-size: 0.82rem;
+            color: #777;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--earth);
+            color: var(--white);
+            padding: 3rem;
+            text-align: center;
+        }
+
+        footer img { height: 40px; margin-bottom: 1.5rem; opacity: 0.85; mix-blend-mode: lighten; }
+
+        footer p {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 0.4rem;
+        }
+
+        footer a { color: var(--gold); }
+
+        @media (max-width: 680px) {
+            h1 { font-size: 2.2rem; }
+            .hero-top, .hero-body, .hero-bottom { padding: 1.5rem; }
+            .section { padding: 3rem 1.5rem; }
+            .section-divider { margin: 0 1.5rem; }
+            .notice-banner { padding: 1.5rem; flex-direction: column; gap: 1rem; }
+            .overview-grid { grid-template-columns: 1fr; }
+            .phase-header { padding: 1.5rem; }
+            .phase-body { padding: 1.5rem; }
+            .hero-meta { flex-direction: column; gap: 1.2rem; }
+            .not-included-list { grid-template-columns: 1fr; }
+            .payment-grid { grid-template-columns: 1fr; }
+            .total-block { padding: 2rem 1.5rem; }
+            .total-final .tf-range { font-size: 1.7rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ── HERO ── -->
+<section class="hero">
+    <div class="hero-top">
+        <img src="../timberline-logo-black.png" alt="Timberline Build Co." class="logo">
+        <span class="hero-date">March 2026</span>
+    </div>
+
+    <div class="hero-body">
+        <span class="label">Preliminary Project Proposal</span>
+        <h1>Home Renovation &<br><span>Whole-Home Expansion</span></h1>
+        <p style="color:rgba(255,255,255,0.65); max-width:560px; margin-top:1rem; font-size:0.95rem;">
+            A phased renovation and addition project for the Stewart residence — designed to expand living space, modernize the kitchen, and add a master suite above.
+        </p>
+        <div class="hero-meta">
+            <div class="hero-meta-item">
+                <div class="meta-label">Prepared for</div>
+                <div class="meta-val">Kris Stewart</div>
+            </div>
+            <div class="hero-meta-item">
+                <div class="meta-label">Property</div>
+                <div class="meta-val">26405 Via Cuervo</div>
+            </div>
+            <div class="hero-meta-item">
+                <div class="meta-label">Current Sq Ft</div>
+                <div class="meta-val">~1,665 sq ft</div>
+            </div>
+            <div class="hero-meta-item">
+                <div class="meta-label">Proposal Type</div>
+                <div class="meta-val">Pre-Plans Estimate</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero-bottom">
+        <span class="tag">Preliminary Estimate</span>
+        <span class="tag">Pre-Plans</span>
+        <span class="tag">3 Phases</span>
+        <span class="tag">Justin Sherman · 949-229-1692</span>
+    </div>
+</section>
+
+<!-- ── NOTICE BANNER ── -->
+<div class="notice-banner">
+    <div class="notice-icon">⚠️</div>
+    <div>
+        <h3>These Are Rough, Pre-Plans Numbers</h3>
+        <p>
+            This proposal is based on an initial walkthrough and conversation — before architectural drawings or engineering plans exist. The budget ranges below are intentionally wide and are meant to give you a realistic picture of what this project could cost in total. <strong>Accurate pricing will come after Phase 0 is complete and plans are approved by the city.</strong> Our shared goal is to design a scope that delivers everything you want while staying within your overall budget — and to avoid scope creep that drives costs up unexpectedly.
+        </p>
+    </div>
+</div>
+
+<!-- ── OVERVIEW ── -->
+<div class="section">
+    <span class="label">Project Overview</span>
+    <h2 style="color:var(--earth); margin-bottom:1.5rem;">What We're Building Together</h2>
+    <p style="color:#555; font-size:0.95rem; max-width:700px; line-height:1.8;">
+        This project is a full home transformation across three major phases: a front living room addition, a complete kitchen remodel with whole-home flooring, and a second-story addition that expands the master bedroom and adds a new bathroom. The work will be executed in phases — beginning immediately with architecture and planning — and priced more precisely once drawings are finalized and city-approved.
+    </p>
+    <div class="overview-grid">
+        <div class="overview-card">
+            <div class="oc-label">Total Phases</div>
+            <div class="oc-val">4 (including plans)</div>
+        </div>
+        <div class="overview-card">
+            <div class="oc-label">Estimated Timeline</div>
+            <div class="oc-val">8–14 months (est.)</div>
+        </div>
+        <div class="overview-card">
+            <div class="oc-label">Budget Target</div>
+            <div class="oc-val">Under $400,000</div>
+        </div>
+        <div class="overview-card">
+            <div class="oc-label">Immediate Next Step</div>
+            <div class="oc-val">Phase 0 — Plans & Permits</div>
+        </div>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ── PHASES ── -->
+<div class="section">
+    <span class="label">Budget by Phase</span>
+    <h2 style="color:var(--earth); margin-bottom:0.5rem;">Phase-by-Phase Breakdown</h2>
+    <p style="color:#777; font-size:0.88rem; margin-bottom:2.5rem;">Totals shown. Individual line items will be detailed after plans are complete.</p>
+
+    <!-- PHASE 0 -->
+    <div class="phase-card highlight">
+        <div class="phase-header">
+            <div class="phase-num">0</div>
+            <div class="phase-header-text">
+                <h3>Plans, Architecture & Permitting</h3>
+                <div class="phase-sub">Start immediately · Foundation for everything</div>
+            </div>
+            <div class="phase-start-badge">✅ Start Now</div>
+        </div>
+        <div class="phase-body">
+            <p>
+                Before any construction begins, we need a full set of architectural drawings — both as-is (the house as it exists today) and projected (the house as we intend to build it). These drawings are done by a licensed architect and structural engineer and become the legal backbone of the entire project.
+            </p>
+            <p>
+                Once drawings are complete, we submit to the city for permit approval. Timberline manages the entire submittal process — fielding city comments, making required revisions, and driving the plans to a final approved set. This phase is what gives us an accurate, fixed price for Phases 1–3.
+            </p>
+            <div class="action-box">
+                <div class="action-label">Why This Comes First</div>
+                <p>Without approved plans, any budget is an estimate. With approved plans, we can give you a fixed-price contract. Phase 0 is the single most important investment in making this project run smoothly and on budget.</p>
+            </div>
+
+            <!-- Phase 0 fee breakdown -->
+            <div class="phase-budget-row" style="margin-top:1.5rem; flex-direction:column; align-items:stretch; gap:0.8rem;">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <div>
+                        <div class="budget-label">As-Is + Projected Plans (Arch & Engineering)</div>
+                        <div class="budget-note">Fixed fee — licensed architect + structural engineer</div>
+                    </div>
+                    <div class="budget-range">$6,500</div>
+                </div>
+                <div style="height:1px; background:#e0dbd2;"></div>
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <div>
+                        <div class="budget-label">Permit Management & City Submittal</div>
+                        <div class="budget-note">Fixed fee — first submit through final city-approved plans</div>
+                    </div>
+                    <div class="budget-range">$1,500–$2,000</div>
+                </div>
+                <div style="height:1px; background:#e0dbd2;"></div>
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <div>
+                        <div class="budget-label">City Permit & Testing Fees</div>
+                        <div class="budget-note">Paid direct by client · varies by city and scope</div>
+                    </div>
+                    <div style="text-align:right;">
+                        <div class="budget-range" style="font-size:1rem; color:#777;">$500–$2,500</div>
+                        <div class="budget-note">Not included in Timberline fees above</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PHASE 1 -->
+    <div class="phase-card">
+        <div class="phase-header">
+            <div class="phase-num">1</div>
+            <div class="phase-header-text">
+                <h3>Living Room Addition</h3>
+                <div class="phase-sub">Front of house · 6–8 ft extension</div>
+            </div>
+        </div>
+        <div class="phase-body">
+            <p>
+                We'll extend the front of the home by 6 to 8 feet, adding meaningful square footage to the living area. This is a full structural addition — new foundation, framing, roofing tie-in, exterior finish to match the existing home, windows, electrical, insulation, drywall, and interior paint.
+            </p>
+            <p>
+                The exact scope and cost will be finalized once architectural drawings define the footprint and any structural requirements. The range below reflects typical OC market costs for this type of addition.
+            </p>
+            <div class="phase-budget-row">
+                <div>
+                    <div class="budget-label">Phase 1 Rough Estimate</div>
+                    <div class="budget-note">Pending final plans and engineering</div>
+                </div>
+                <div class="budget-range">$55,000–$65,000</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PHASE 2 -->
+    <div class="phase-card">
+        <div class="phase-header">
+            <div class="phase-num">2</div>
+            <div class="phase-header-text">
+                <h3>Kitchen Remodel + Whole-Home Flooring</h3>
+                <div class="phase-sub">Full kitchen redesign · 1,665 sq ft new floors</div>
+            </div>
+        </div>
+        <div class="phase-body">
+            <p>
+                A complete kitchen transformation: wall removal to open up the layout, all-new cabinetry, countertops, backsplash, plumbing, and electrical. Appliances are not included in this scope (client to purchase separately or we can coordinate install only).
+            </p>
+            <p>
+                Simultaneously, we'll remove and replace all flooring throughout the entire home — approximately 1,665 square feet — including new baseboard and stair treads. New flooring ties the updated spaces together and sets the finish level for the entire house.
+            </p>
+            <div class="phase-budget-row">
+                <div>
+                    <div class="budget-label">Phase 2 Rough Estimate</div>
+                    <div class="budget-note">Kitchen full remodel + whole-home LVP flooring, base & stairs</div>
+                </div>
+                <div class="budget-range">$84,000–$91,000</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PHASE 3 -->
+    <div class="phase-card">
+        <div class="phase-header">
+            <div class="phase-num">3</div>
+            <div class="phase-header-text">
+                <h3>Upstairs Addition</h3>
+                <div class="phase-sub">2nd story expansion · Master bedroom + new bathroom</div>
+            </div>
+        </div>
+        <div class="phase-body">
+            <p>
+                The most complex phase: a second-story addition that extends the master bedroom and adds a full bathroom. This requires structural engineering to ensure the existing first floor can support the new load, new framing, roofing tie-in, exterior finish, full bathroom build-out (tile, plumbing, fixtures, glass enclosure), electrical, drywall, insulation, flooring, and all interior finishes.
+            </p>
+            <p>
+                The wide range below reflects the significant variables in second-story addition work — the exact square footage added, bathroom finish level, and structural requirements will all be determined by the plans. This is the number we expect to tighten most significantly after Phase 0 is complete.
+            </p>
+            <div class="phase-budget-row">
+                <div>
+                    <div class="budget-label">Phase 3 Rough Estimate</div>
+                    <div class="budget-note">Highly variable — range will tighten substantially with plans</div>
+                </div>
+                <div class="budget-range">$170,000–$215,000</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ── TOTAL ── -->
+<div class="section">
+    <span class="label">Total Investment</span>
+    <div class="total-block">
+        <span class="label">Full Project Summary</span>
+        <div class="total-phases">
+            <div class="total-row">
+                <span class="tr-label">Phase 0 — Plans, Architecture & Permitting (Timberline fees)</span>
+                <span class="tr-val">$8,000–$8,500</span>
+            </div>
+            <div class="total-row">
+                <span class="tr-label">Phase 1 — Living Room Addition</span>
+                <span class="tr-val">$55,000–$65,000</span>
+            </div>
+            <div class="total-row">
+                <span class="tr-label">Phase 2 — Kitchen Remodel + Whole-Home Floors</span>
+                <span class="tr-val">$85,000–$90,000</span>
+            </div>
+            <div class="total-row">
+                <span class="tr-label">Phase 3 — Upstairs Addition + Master Bath</span>
+                <span class="tr-val">$170,000–$215,000</span>
+            </div>
+            <div class="total-row" style="border-bottom:none;">
+                <span class="tr-label" style="font-style:italic; font-size:0.82rem;">City permit & testing fees (paid direct by client)</span>
+                <span class="tr-val" style="color:rgba(255,255,255,0.45); font-size:0.85rem;">$500–$2,500 est.</span>
+            </div>
+        </div>
+        <div class="total-final">
+            <span class="tf-label">Estimated Total Investment</span>
+            <span class="tf-range">$318,000–$378,500</span>
+        </div>
+        <div class="total-caveat">
+            <strong style="color:rgba(255,255,255,0.8);">These numbers are rough pre-plans estimates.</strong> The actual contract price will be significantly more accurate once architectural drawings are complete and approved by the city. Our shared goal is to design a scope that delivers everything you want and keeps the project well within budget. That starts with Phase 0.
+        </div>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ── NOT INCLUDED ── -->
+<div class="section">
+    <span class="label">What's Not Included</span>
+    <h2 style="color:var(--earth); margin-bottom:0.5rem;">Scope Exclusions</h2>
+    <p style="color:#777; font-size:0.88rem; margin-bottom:1rem;">The following items are not part of this proposal unless added via written change order.</p>
+    <ul class="not-included-list">
+        <li>Appliance purchase (install only, if requested)</li>
+        <li>Furniture, fixtures, or decor</li>
+        <li>Landscaping or exterior hardscape</li>
+        <li>City-required special testing or soil reports</li>
+        <li>HOA fees or approvals</li>
+        <li>Solar or EV infrastructure</li>
+        <li>Window treatments or blinds</li>
+        <li>Smart home / AV systems</li>
+        <li>Any work not explicitly listed in the final scope</li>
+        <li>Unforeseen conditions discovered during demolition</li>
+    </ul>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ── NEXT STEPS ── -->
+<div class="section">
+    <span class="label">Next Steps</span>
+    <h2 style="color:var(--earth);">How We Get Started</h2>
+    <div class="steps-list">
+        <div class="step-item active">
+            <div class="step-num">1</div>
+            <div class="step-content">
+                <h4>✅ Pay for Phase 0 — $6,500 · We Start Immediately</h4>
+                <p>One payment of $6,500 covers as-is plans, projected plans, architect, and structural engineering. We engage the team right away — this phase can begin within days of authorization.</p>
+            </div>
+        </div>
+        <div class="step-item">
+            <div class="step-num">2</div>
+            <div class="step-content">
+                <h4>Plans Drafted & Reviewed</h4>
+                <p>The architect documents the home as it stands today and develops the full projected plan for all three phases. You'll review and approve before anything goes to the city.</p>
+            </div>
+        </div>
+        <div class="step-item">
+            <div class="step-num">3</div>
+            <div class="step-content">
+                <h4>City Submittal & Permit Approval</h4>
+                <p>Timberline manages the full submittal process — city comments, revisions, and follow-through to final approved plans. Permit management and city fees are billed as incurred. This typically takes 4–10 weeks depending on the city.</p>
+            </div>
+        </div>
+        <div class="step-item">
+            <div class="step-num">4</div>
+            <div class="step-content">
+                <h4>Sign the Construction Contract</h4>
+                <p>Once plans are approved, we present a detailed, fixed-price construction contract for Phases 1–3. No more ranges — a real number based on your actual approved plans.</p>
+            </div>
+        </div>
+        <div class="step-item">
+            <div class="step-num">5</div>
+            <div class="step-content">
+                <h4>Construction Begins</h4>
+                <p>We build your project according to plan, on budget, and with clear communication throughout every phase.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- ── FOOTER ── -->
+<footer>
+    <img src="../timberline-logo-black.png" alt="Timberline Build Co.">
+    <p>Timberline Build Co. · Licensed General Contractor · Orange County, CA</p>
+    <p><a href="tel:9492291692">949-229-1692</a></p>
+    <p style="margin-top:1rem; font-size:0.75rem; opacity:0.4;">© 2026 Timberline Build Co. All rights reserved. This proposal is valid for 30 days from the date of issue.</p>
+</footer>
+
+</body>
+</html>
