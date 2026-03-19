@@ -248,6 +248,7 @@
       function openModal() {
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
+        trackFormOpen();
         if (!formLoaded) loadForm();
       }
       
@@ -257,6 +258,16 @@
         document.body.style.overflow = '';
       }
       
+      // GA4 — fire form open event (intent signal)
+      function trackFormOpen() {
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'form_open', {
+            event_category: 'engagement',
+            event_label: 'bathroom_estimate_form'
+          });
+        }
+      }
+
       // Lazy load form when first opened
       function loadForm() {
         formLoaded = true;
@@ -290,6 +301,15 @@
         document.getElementById('estimateForm').addEventListener('submit', function(e) {
           e.preventDefault();
           var formData = new FormData(this);
+
+          // GA4 — fire lead conversion event
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'generate_lead', {
+              event_category: 'form',
+              event_label: 'bathroom_estimate_submission'
+            });
+          }
+
           // Replace with your form endpoint
           // Example: fetch('/api/submit', { method: 'POST', body: formData })
           formContent.innerHTML = '<div style="padding:3rem;text-align:center"><h3 style="color:#19412c">Thank You!</h3><p style="margin-top:1rem">We\'ll contact you within 24 hours.</p></div>';
