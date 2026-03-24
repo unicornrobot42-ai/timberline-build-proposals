@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Timberline Build Co — Proposal | Kristina Calle Becerra</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --green:  #19412c;
+      --brown:  #614432;
+      --dark:   #312509;
+      --navy:   #213245;
+      --gold:   #e9af3b;
+      --cream:  #faf7f2;
+      --white:  #ffffff;
+      --gray:   #f0ece6;
+      --text:   #1a1a1a;
+      --muted:  #6b6b6b;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    /* ── COVER PAGE ── */
+    .cover {
+      background: var(--green);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 60px 64px;
+      page-break-after: always;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cover::before {
+      content: '';
+      position: absolute;
+      top: -120px; right: -120px;
+      width: 480px; height: 480px;
+      border-radius: 50%;
+      background: rgba(233,175,59,0.08);
+      pointer-events: none;
+    }
+
+    .cover::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -80px;
+      width: 320px; height: 320px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+      pointer-events: none;
+    }
+
+    .cover-logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .cover-logo-mark {
+      width: 52px; height: 52px;
+      background: var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 6px;
+    }
+
+    .cover-logo-mark svg { width: 30px; height: 30px; fill: var(--green); }
+
+    .cover-logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cover-logo-text .brand {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .cover-logo-text .tagline {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--gold);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .cover-center {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 60px 0 40px;
+    }
+
+    .cover-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .cover-title {
+      font-size: 48px;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 24px;
+      max-width: 600px;
+    }
+
+    .cover-divider {
+      width: 64px;
+      height: 4px;
+      background: var(--gold);
+      border-radius: 2px;
+      margin-bottom: 32px;
+    }
+
+    .cover-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .cover-meta-row {
+      display: flex;
+      gap: 12px;
+      align-items: baseline;
+    }
+
+    .cover-meta-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      min-width: 90px;
+    }
+
+    .cover-meta-value {
+      font-size: 15px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .cover-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding-top: 28px;
+    }
+
+    .cover-footer-contact {
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.8;
+    }
+
+    .cover-footer-contact strong {
+      color: rgba(255,255,255,0.85);
+      font-weight: 600;
+    }
+
+    .cover-badge {
+      background: rgba(233,175,59,0.15);
+      border: 1px solid rgba(233,175,59,0.35);
+      border-radius: 6px;
+      padding: 10px 18px;
+      text-align: center;
+    }
+
+    .cover-badge-text {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* ── CONTENT PAGES ── */
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 64px 48px;
+    }
+
+    @media (max-width: 640px) {
+      .page { padding: 40px 24px; }
+      .cover { padding: 40px 28px; }
+      .cover-title { font-size: 34px; }
+    }
+
+    .section {
+      margin-bottom: 56px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .section-number {
+      width: 36px; height: 36px;
+      background: var(--green);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--green);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .section-bar {
+      height: 3px;
+      background: linear-gradient(to right, var(--gold), transparent);
+      border-radius: 2px;
+      margin-bottom: 28px;
+    }
+
+    /* Project Overview */
+    .overview-box {
+      background: var(--green);
+      border-radius: 10px;
+      padding: 32px 36px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .overview-box::before {
+      content: '';
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 160px; height: 160px;
+      border-radius: 50%;
+      background: rgba(233,175,59,0.08);
+    }
+
+    .overview-box p {
+      color: rgba(255,255,255,0.88);
+      font-size: 16px;
+      line-height: 1.8;
+      font-weight: 400;
+    }
+
+    /* Scope list */
+    .scope-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .scope-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px 18px;
+      background: var(--white);
+      border-radius: 8px;
+      border-left: 4px solid var(--green);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .scope-list li .check {
+      color: var(--gold);
+      font-size: 16px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* Not included */
+    .exclusion-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .exclusion-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 16px;
+      background: #fff8f0;
+      border-radius: 8px;
+      border-left: 4px solid var(--brown);
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    .exclusion-list li .ex-icon {
+      color: var(--brown);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* Allowances */
+    .allowance-card {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 24px 28px;
+      border: 1px solid #e0dbd4;
+      margin-bottom: 12px;
+    }
+
+    .allowance-card h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .allowance-card p {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    /* Timeline */
+    .timeline-card {
+      background: var(--navy);
+      border-radius: 10px;
+      padding: 32px 36px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .timeline-icon {
+      width: 56px; height: 56px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .timeline-icon svg { width: 26px; height: 26px; fill: var(--navy); }
+
+    .timeline-info { flex: 1; }
+
+    .timeline-duration {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .timeline-note {
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      font-style: italic;
+    }
+
+    /* Investment */
+    .investment-box {
+      background: var(--dark);
+      border-radius: 12px;
+      padding: 48px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .investment-box::before {
+      content: '';
+      position: absolute;
+      top: -60px; left: 50%;
+      transform: translateX(-50%);
+      width: 280px; height: 280px;
+      border-radius: 50%;
+      background: rgba(233,175,59,0.06);
+    }
+
+    .investment-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .investment-amount {
+      font-size: 72px;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .investment-sub {
+      font-size: 14px;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 32px;
+    }
+
+    .investment-note {
+      display: inline-block;
+      background: rgba(233,175,59,0.12);
+      border: 1px solid rgba(233,175,59,0.3);
+      border-radius: 6px;
+      padding: 10px 20px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.65);
+    }
+
+    /* Payment Terms */
+    .payment-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    @media (max-width: 580px) {
+      .payment-grid { grid-template-columns: 1fr; }
+      .timeline-card { flex-direction: column; text-align: center; }
+    }
+
+    .payment-card {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 24px 20px;
+      text-align: center;
+      border: 1px solid #e0dbd4;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+
+    .payment-pct {
+      font-size: 42px;
+      font-weight: 800;
+      color: var(--green);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .payment-milestone {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .payment-desc {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .payment-amount {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+      margin-top: 8px;
+    }
+
+    /* Warranty */
+    .warranty-box {
+      background: var(--gray);
+      border-radius: 10px;
+      padding: 28px 32px;
+      border-left: 5px solid var(--gold);
+    }
+
+    .warranty-box p {
+      font-size: 14px;
+      color: var(--text);
+      font-style: italic;
+      line-height: 1.8;
+    }
+
+    /* Signature */
+    .sig-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 16px;
+    }
+
+    @media (max-width: 580px) {
+      .sig-grid { grid-template-columns: 1fr; }
+    }
+
+    .sig-block label {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .sig-line {
+      border-bottom: 2px solid var(--green);
+      height: 44px;
+      margin-bottom: 6px;
+    }
+
+    .sig-block .sig-name {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* Footer strip */
+    .footer-strip {
+      background: var(--green);
+      padding: 24px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 0;
+    }
+
+    .footer-strip .brand-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .footer-strip .footer-contact {
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .footer-strip .footer-contact a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    hr.section-divider {
+      border: none;
+      border-top: 1px solid #e0dbd4;
+      margin: 56px 0;
+    }
+
+    @media print {
+      .cover { min-height: 100vh; }
+      .page { padding: 40px; }
+      .footer-strip { margin-top: 40px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════ COVER PAGE ══════════ -->
+  <div class="cover">
+    <div class="cover-logo">
+      <div class="cover-logo-mark">
+        <!-- Simple house/build icon -->
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 3L2 14h4v15h7v-9h6v9h7V14h4L16 3z"/>
+        </svg>
+      </div>
+      <div class="cover-logo-text">
+        <span class="brand">Timberline Build Co</span>
+        <span class="tagline">Licensed General Contractor · Orange County, CA</span>
+      </div>
+    </div>
+
+    <div class="cover-center">
+      <div class="cover-label">Project Proposal</div>
+      <div class="cover-title">Tub to Shower Conversion</div>
+      <div class="cover-divider"></div>
+      <div class="cover-meta">
+        <div class="cover-meta-row">
+          <span class="cover-meta-label">Client</span>
+          <span class="cover-meta-value">Kristina</span>
+        </div>
+        <div class="cover-meta-row">
+          <span class="cover-meta-label">Address</span>
+          <span class="cover-meta-value">Calle Becerra, Laguna</span>
+        </div>
+        <div class="cover-meta-row">
+          <span class="cover-meta-label">Date</span>
+          <span class="cover-meta-value">March 24, 2026</span>
+        </div>
+        <div class="cover-meta-row">
+          <span class="cover-meta-label">Prepared By</span>
+          <span class="cover-meta-value">Justin Sherman</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cover-footer">
+      <div class="cover-footer-contact">
+        <strong>Timberline Build Co</strong><br>
+        Orange County, CA<br>
+        949-229-1692
+      </div>
+      <div class="cover-badge">
+        <div class="cover-badge-text">Licensed &amp; Insured · OC</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ CONTENT ══════════ -->
+  <div class="page">
+
+    <!-- 1. PROJECT OVERVIEW -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">1</div>
+        <div class="section-title">Project Overview</div>
+      </div>
+      <div class="section-bar"></div>
+      <div class="overview-box">
+        <p>
+          This project involves a full tub-to-shower conversion in the main bathroom at Calle Becerra, Laguna.
+          Timberline Build Co will remove the existing tub, shower, tile wainscot, and flooring, then construct
+          a custom walk-in shower (34" × 60" × 96") complete with euro slider glass enclosure, hot mop shower pan,
+          full tile labor, and all associated plumbing and finish work. The result will be a clean,
+          modern shower built to last.
+        </p>
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- 2. SCOPE OF WORK -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">2</div>
+        <div class="section-title">Scope of Work</div>
+      </div>
+      <div class="section-bar"></div>
+      <ul class="scope-list">
+        <li><span class="check">✦</span> Demo existing tub, shower, tile wainscot, and bathroom flooring</li>
+        <li><span class="check">✦</span> Remove and reset toilet</li>
+        <li><span class="check">✦</span> Hot mop shower pan (waterproofing)</li>
+        <li><span class="check">✦</span> Construct walk-in shower — 34" × 60" × 96"</li>
+        <li><span class="check">✦</span> Euro slider glass enclosure (standard frameless)</li>
+        <li><span class="check">✦</span> All plumbing — tub-to-shower conversion, toilet reset</li>
+        <li><span class="check">✦</span> Full tile labor — shower walls, floor, and niche</li>
+        <li><span class="check">✦</span> Built-in shower niche</li>
+        <li><span class="check">✦</span> Drywall skim coat and finish paint</li>
+        <li><span class="check">✦</span> Vent fan replacement (material + labor)</li>
+        <li><span class="check">✦</span> Door casing install (labor only — customer supplies material)</li>
+        <li><span class="check">✦</span> Baseboard install (labor only — customer supplies material)</li>
+      </ul>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- 3. NOT INCLUDED -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">3</div>
+        <div class="section-title">What's Not Included</div>
+      </div>
+      <div class="section-bar"></div>
+      <ul class="exclusion-list">
+        <li><span class="ex-icon">—</span> Tile, grout, and trim (customer-supplied)</li>
+        <li><span class="ex-icon">—</span> Shower fixtures, valve, and showerhead (customer-supplied)</li>
+        <li><span class="ex-icon">—</span> Door casing material (customer-supplied)</li>
+        <li><span class="ex-icon">—</span> Baseboard material (customer-supplied)</li>
+        <li><span class="ex-icon">—</span> Permits (if required by city — see note below)</li>
+        <li><span class="ex-icon">—</span> Unforeseen conditions discovered after demolition (mold, water damage, structural issues)</li>
+        <li><span class="ex-icon">—</span> Furniture moving or storage</li>
+      </ul>
+      <p style="font-size:13px; color:var(--muted); margin-top:16px; font-style:italic;">
+        * Bathroom remodels in Orange County cities typically require permits. If permits are required, costs and timeline
+        will be discussed separately and handled via change order.
+      </p>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- 4. MATERIAL ALLOWANCES -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">4</div>
+        <div class="section-title">Material Allowances</div>
+      </div>
+      <div class="section-bar"></div>
+      <div class="allowance-card">
+        <h4>Customer-Supplied Materials</h4>
+        <p>The following materials are to be selected and purchased by the client prior to installation.
+        Timberline provides labor only for these items. Please have all materials on-site before the scheduled
+        start date to avoid delays.</p>
+      </div>
+      <div class="allowance-card">
+        <h4>Tile &amp; Grout</h4>
+        <p>Client selects and purchases all tile (floor, walls, and niche), grout, and setting materials.
+        Tile must be on-site prior to tile labor start.</p>
+      </div>
+      <div class="allowance-card">
+        <h4>Shower Fixtures</h4>
+        <p>Client selects and purchases valve, showerhead, handle, and any additional fixtures.
+        Fixtures must be on-site prior to plumbing rough-in.</p>
+      </div>
+      <div class="allowance-card">
+        <h4>Door Casing &amp; Baseboard</h4>
+        <p>Client selects and purchases door casing and baseboard material.
+        Timberline will install once material is on-site.</p>
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- 5. TIMELINE -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">5</div>
+        <div class="section-title">Estimated Timeline</div>
+      </div>
+      <div class="section-bar"></div>
+      <div class="timeline-card">
+        <div class="timeline-icon">
+          <!-- Calendar icon -->
+          <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="6" width="26" height="23" rx="3" ry="3"/>
+            <line x1="3" y1="13" x2="29" y2="13" stroke="#213245" stroke-width="2" fill="none"/>
+            <rect x="9" y="2" width="3" height="6" rx="1" fill="#213245"/>
+            <rect x="20" y="2" width="3" height="6" rx="1" fill="#213245"/>
+          </svg>
+        </div>
+        <div class="timeline-info">
+          <div class="timeline-duration">2 – 4 Weeks</div>
+          <div class="timeline-note">Pending material lead times and permit processing (if applicable). All customer-supplied materials must be on-site before work begins.</div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- 6. INVESTMENT SUMMARY -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">6</div>
+        <div class="section-title">Investment Summary</div>
+      </div>
+      <div class="section-bar"></div>
+      <div class="investment-box">
+        <div class="investment-label">Total Project Investment</div>
+        <div class="investment-amount">$10,000</div>
+        <div class="investment-sub">Complete tub-to-shower conversion — all labor included</div>
+        <div class="investment-note">Customer-supplied: tile, trim, fixtures, casing &amp; baseboard material</div>
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- 7. PAYMENT TERMS -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">7</div>
+        <div class="section-title">Payment Terms</div>
+      </div>
+      <div class="section-bar"></div>
+      <div class="payment-grid">
+        <div class="payment-card">
+          <div class="payment-pct">30%</div>
+          <div class="payment-milestone">Deposit</div>
+          <div class="payment-desc">Due to secure your start date and mobilize the crew</div>
+          <div class="payment-amount">$3,000</div>
+        </div>
+        <div class="payment-card">
+          <div class="payment-pct">40%</div>
+          <div class="payment-milestone">Midpoint</div>
+          <div class="payment-desc">Due when rough work is complete and inspections passed</div>
+          <div class="payment-amount">$4,000</div>
+        </div>
+        <div class="payment-card">
+          <div class="payment-pct">30%</div>
+          <div class="payment-milestone">Completion</div>
+          <div class="payment-desc">Due upon project completion and final walkthrough</div>
+          <div class="payment-amount">$3,000</div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- 8. WARRANTY -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">8</div>
+        <div class="section-title">Warranty</div>
+      </div>
+      <div class="section-bar"></div>
+      <div class="warranty-box">
+        <p>
+          Timberline Build Co warrants all labor for <strong>1 year</strong> from the date of project completion.
+          Manufacturer warranties apply to all materials, fixtures, and glass enclosures supplied by Timberline.
+          Any change orders or additions to scope require written approval prior to commencement of additional work.
+        </p>
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- 9. SIGNATURE -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">9</div>
+        <div class="section-title">Authorization &amp; Signature</div>
+      </div>
+      <div class="section-bar"></div>
+      <p style="font-size:14px; color:var(--muted); margin-bottom:28px; line-height:1.8;">
+        By signing below, client authorizes Timberline Build Co to proceed with the scope of work as described
+        in this proposal at the agreed investment amount. Client acknowledges that any changes to scope
+        will be handled via written change order.
+      </p>
+      <div class="sig-grid">
+        <div class="sig-block">
+          <label>Client Signature</label>
+          <div class="sig-line"></div>
+          <div class="sig-name">Kristina</div>
+        </div>
+        <div class="sig-block">
+          <label>Date</label>
+          <div class="sig-line"></div>
+          <div class="sig-name">&nbsp;</div>
+        </div>
+        <div class="sig-block">
+          <label>Contractor Signature</label>
+          <div class="sig-line"></div>
+          <div class="sig-name">Justin Sherman — Timberline Build Co</div>
+        </div>
+        <div class="sig-block">
+          <label>Date</label>
+          <div class="sig-line"></div>
+          <div class="sig-name">&nbsp;</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /page -->
+
+  <!-- FOOTER STRIP -->
+  <div class="footer-strip">
+    <div class="brand-name">Timberline Build Co</div>
+    <div class="footer-contact">
+      Orange County, CA &nbsp;·&nbsp; <a href="tel:9492291692">949-229-1692</a> &nbsp;·&nbsp; Licensed &amp; Insured
+    </div>
+  </div>
+
+</body>
+</html>
