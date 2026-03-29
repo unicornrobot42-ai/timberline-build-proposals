@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timberline Build Co — City-Specific Service Pages</title>
+    <meta name="description" content="Timberline Build Co serves South OC with kitchen remodels, bathroom remodels, home additions, and ADU conversions across multiple cities.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+
+        header {
+            background-color: #1a3a5c;
+            color: white;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            border-bottom: 3px solid #2c5aa0;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: #1a3a5c;
+            margin-bottom: 2rem;
+            text-align: center;
+            border-bottom: 2px solid #2c5aa0;
+            padding-bottom: 1rem;
+        }
+
+        .pages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .page-card {
+            background: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            border-left: 4px solid #2c5aa0;
+        }
+
+        .page-card:hover {
+            box-shadow: 0 4px 12px rgba(26, 58, 92, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .page-card h3 {
+            font-size: 1.3rem;
+            color: #1a3a5c;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-card .service {
+            display: inline-block;
+            background-color: #2c5aa0;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .page-card p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .page-card a {
+            display: inline-block;
+            background-color: #2c5aa0;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .page-card a:hover {
+            background-color: #1a3a5c;
+        }
+
+        footer {
+            background-color: #f0f4f8;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            border-top: 2px solid #2c5aa0;
+            margin-top: 3rem;
+        }
+
+        footer p {
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        footer strong {
+            color: #1a3a5c;
+        }
+
+        .contact-info {
+            font-size: 1.1rem;
+            color: #2c5aa0;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            .pages-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Timberline Build Co</h1>
+        <p>Licensed General Contractor — South OC Service Pages</p>
+    </header>
+
+    <div class="container">
+        <h2>City-Specific Landing Pages</h2>
+        
+        <div class="pages-grid">
+            <div class="page-card">
+                <h3>Kitchen Remodel</h3>
+                <span class="service">Dana Point</span>
+                <p>Expert kitchen remodels for Dana Point's coastal homes. Quality cabinetry, countertops, and appliances designed for beautiful, functional living.</p>
+                <a href="kitchen-remodel-dana-point.html">View Page →</a>
+            </div>
+
+            <div class="page-card">
+                <h3>Bathroom Remodel</h3>
+                <span class="service">San Clemente</span>
+                <p>Spanish-influenced bathrooms for San Clemente's hillside homes. Premium tile work and spa-like finishes honoring local architecture.</p>
+                <a href="bathroom-remodel-san-clemente.html">View Page →</a>
+            </div>
+
+            <div class="page-card">
+                <h3>Kitchen Remodel</h3>
+                <span class="service">Mission Viejo</span>
+                <p>Quality kitchens for Mission Viejo family homes. Functional design and durable materials for gatherings and everyday cooking.</p>
+                <a href="kitchen-remodel-mission-viejo.html">View Page →</a>
+            </div>
+
+            <div class="page-card">
+                <h3>Bathroom Remodel</h3>
+                <span class="service">Laguna Niguel</span>
+                <p>Luxury bathroom remodels for Laguna Niguel's upscale homes. Premium finishes and meticulous attention to detail on every project.</p>
+                <a href="bathroom-remodel-laguna-niguel.html">View Page →</a>
+            </div>
+
+            <div class="page-card">
+                <h3>Home Addition</h3>
+                <span class="service">Laguna Beach</span>
+                <p>Expert additions for Laguna Beach's hillside and ocean-view properties. Precision engineering for complex construction challenges.</p>
+                <a href="home-addition-laguna-beach.html">View Page →</a>
+            </div>
+
+            <div class="page-card">
+                <h3>ADU & Garage Conversion</h3>
+                <span class="service">Lake Forest</span>
+                <p>Code-compliant ADU and garage conversions for Lake Forest homes. Adding rental income and flexible living space the right way.</p>
+                <a href="adu-garage-conversion-lake-forest.html">View Page →</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p><strong>Timberline Build Co</strong> — Licensed General Contractor</p>
+        <p>Serving South Orange County with quality residential remodeling and construction</p>
+        <div class="contact-info">
+            📞 Call or text: <a href="tel:9492291692" style="color: #2c5aa0; text-decoration: none;">949-229-1692</a>
+        </div>
+        <p style="margin-top: 1.5rem; font-size: 0.9rem; color: #999;">Each page is optimized for local search and includes city-specific service information.</p>
+    </footer>
+</body>
+</html>
