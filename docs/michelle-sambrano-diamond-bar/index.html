@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposal - Michelle Sambrano | Timberline Build Co</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --deep-forest-green: #19412c;
+            --warm-brown: #614432;
+            --dark-brown: #312509;
+            --navy: #213245;
+            --gold: #e9af3b;
+            --white: #ffffff;
+            --light-gray: #f8f9fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: var(--white);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Cover Page */
+        .cover {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 24px;
+            background: linear-gradient(135deg, var(--deep-forest-green) 0%, #0d2318 100%);
+            color: var(--white);
+        }
+
+        .cover img {
+            max-width: 280px;
+            margin-bottom: 60px;
+        }
+
+        .cover-title {
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 16px;
+        }
+
+        .cover-client {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .cover-project {
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 40px;
+            max-width: 500px;
+        }
+
+        .cover-divider {
+            width: 80px;
+            height: 3px;
+            background: var(--gold);
+            margin: 0 auto 40px;
+        }
+
+        .cover-details {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.75);
+        }
+
+        .cover-details p {
+            margin-bottom: 6px;
+        }
+
+        /* Sections */
+        .section {
+            padding: 60px 0;
+        }
+
+        .section:nth-child(even) {
+            background: var(--light-gray);
+        }
+
+        .section-header {
+            color: var(--deep-forest-green);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .section-divider {
+            width: 60px;
+            height: 3px;
+            background: var(--gold);
+            margin-bottom: 32px;
+        }
+
+        /* Overview */
+        .overview-text {
+            font-size: 1.1rem;
+            color: #555;
+            max-width: 700px;
+        }
+
+        /* Scope Sections */
+        .scope-category {
+            margin-bottom: 40px;
+        }
+
+        .scope-category:last-child {
+            margin-bottom: 0;
+        }
+
+        .scope-category-title {
+            color: var(--navy);
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--gold);
+            display: inline-block;
+        }
+
+        .scope-list {
+            list-style: none;
+        }
+
+        .scope-list li {
+            padding: 10px 0;
+            padding-left: 24px;
+            position: relative;
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        .scope-list li:last-child {
+            border-bottom: none;
+        }
+
+        .scope-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--deep-forest-green);
+            font-weight: 700;
+        }
+
+        /* Exclusions */
+        .exclusion-list {
+            list-style: none;
+        }
+
+        .exclusion-list li {
+            padding: 10px 0;
+            padding-left: 24px;
+            position: relative;
+            color: #666;
+        }
+
+        .exclusion-list li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: var(--warm-brown);
+            font-weight: 700;
+        }
+
+        /* Allowances */
+        .allowance-list {
+            list-style: none;
+        }
+
+        .allowance-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #e8e8e8;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .allowance-list li:last-child {
+            border-bottom: none;
+        }
+
+        .allowance-item {
+            font-weight: 500;
+        }
+
+        .allowance-note {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* Investment */
+        .investment-box {
+            background: var(--deep-forest-green);
+            color: var(--white);
+            padding: 48px;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .investment-label {
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 12px;
+        }
+
+        .investment-amount {
+            font-size: 3rem;
+            font-weight: 700;
+        }
+
+        /* Payment Terms */
+        .payment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+        }
+
+        .payment-item {
+            background: var(--white);
+            padding: 24px;
+            border-radius: 8px;
+            border-left: 4px solid var(--gold);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .payment-phase {
+            font-size: 0.85rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .payment-amount {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--deep-forest-green);
+            margin-bottom: 4px;
+        }
+
+        .payment-desc {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Timeline */
+        .timeline-box {
+            background: var(--navy);
+            color: var(--white);
+            padding: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .timeline-icon {
+            font-size: 2.5rem;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.25rem;
+            margin-bottom: 4px;
+        }
+
+        .timeline-content p {
+            color: rgba(255,255,255,0.75);
+            font-size: 0.95rem;
+        }
+
+        /* Warranty */
+        .warranty-text {
+            color: #555;
+            max-width: 700px;
+        }
+
+        /* Signature */
+        .signature-section {
+            background: var(--light-gray);
+        }
+
+        .signature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            margin-top: 32px;
+        }
+
+        @media (max-width: 600px) {
+            .signature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .signature-block {
+            padding-top: 80px;
+            border-top: 2px solid #333;
+        }
+
+        .signature-label {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .signature-sublabel {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-brown);
+            color: rgba(255,255,255,0.75);
+            text-align: center;
+            padding: 32px 24px;
+            font-size: 0.9rem;
+        }
+
+        .footer-brand {
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        /* Print Styles */
+        @media print {
+            .cover {
+                min-height: auto;
+                page-break-after: always;
+            }
+            
+            .section {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cover Page -->
+    <section class="cover">
+        <img src="./logo.png" alt="Timberline Build Co">
+        <div class="cover-title">Project Proposal</div>
+        <h1 class="cover-client">Michelle Sambrano</h1>
+        <p class="cover-project">Water Damage Restoration & Full Interior Remodel</p>
+        <div class="cover-divider"></div>
+        <div class="cover-details">
+            <p>Diamond Bar, CA</p>
+            <p>April 2026</p>
+            <p style="margin-top: 16px;">Prepared by Justin Sherman</p>
+            <p>Timberline Build Co | 949-229-1692</p>
+        </div>
+    </section>
+
+    <!-- Project Overview -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-header">Project Overview</h2>
+            <div class="section-divider"></div>
+            <p class="overview-text">
+                This proposal covers full water damage restoration and interior remodel for your Diamond Bar property. The scope includes a complete kitchen refresh, full updates to both bathrooms, new flooring throughout, fresh paint, and all necessary drywall repairs. We'll deliver a clean, updated space that's ready for move-in.
+            </p>
+        </div>
+    </section>
+
+    <!-- Scope of Work -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-header">Scope of Work</h2>
+            <div class="section-divider"></div>
+
+            <div class="scope-category">
+                <h3 class="scope-category-title">Kitchen</h3>
+                <ul class="scope-list">
+                    <li>Drywall patch as needed</li>
+                    <li>New stock cabinet installation (labor)</li>
+                    <li>New cabinets — client allowance</li>
+                    <li>Quartz countertops — client allowance</li>
+                    <li>Tile backsplash</li>
+                    <li>Plumbing (sink, dishwasher hookup)</li>
+                    <li>Electrical</li>
+                    <li>Install dishwasher (client purchase) + microwave (client purchase)</li>
+                    <li>Fridge — client provides</li>
+                    <li>Gas range — included</li>
+                    <li>2 light fixture replacements</li>
+                </ul>
+            </div>
+
+            <div class="scope-category">
+                <h3 class="scope-category-title">Master Bathroom</h3>
+                <ul class="scope-list">
+                    <li>New shower pan</li>
+                    <li>Full tile — floor and walls</li>
+                    <li>Frameless glass shower enclosure</li>
+                    <li>New vanity + cabinet with quartz countertop</li>
+                    <li>New plumbing fixtures</li>
+                    <li>New toilet</li>
+                    <li>New vent fan</li>
+                    <li>Bath accessories (towel bar, TP holder)</li>
+                    <li>Drywall patch as needed</li>
+                    <li>Electrical</li>
+                    <li>LVP flooring</li>
+                    <li>1 light fixture replacement</li>
+                </ul>
+            </div>
+
+            <div class="scope-category">
+                <h3 class="scope-category-title">Guest Bathroom</h3>
+                <ul class="scope-list">
+                    <li>Alcove tub (purchase + set)</li>
+                    <li>Tile — shower walls only</li>
+                    <li>Shower curtain rod</li>
+                    <li>Pre-fab vanity with integrated top, sink + faucet</li>
+                    <li>New plumbing fixtures</li>
+                    <li>New toilet</li>
+                    <li>New vent fan</li>
+                    <li>Bath accessories (towel bar, TP holder)</li>
+                    <li>Drywall patch as needed</li>
+                    <li>Electrical</li>
+                    <li>LVP flooring</li>
+                    <li>1 light fixture replacement</li>
+                </ul>
+            </div>
+
+            <div class="scope-category">
+                <h3 class="scope-category-title">Whole House / Miscellaneous</h3>
+                <ul class="scope-list">
+                    <li>LVP flooring — hallways + common areas (~1,200 sf)</li>
+                    <li>Carpet — bedrooms (~600 sf)</li>
+                    <li>Floor demo</li>
+                    <li>Baseboard throughout</li>
+                    <li>Drywall — water damage repairs throughout</li>
+                    <li>Interior paint — walls + ceilings, full interior</li>
+                    <li>Window coverings — all rooms (budget vinyl blinds)</li>
+                    <li>2 interior door replacements (material + labor)</li>
+                    <li>2 door hardware sets</li>
+                    <li>2 light fixture replacements (whole house total: 5 fixtures)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- What's NOT Included -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-header">What's NOT Included</h2>
+            <div class="section-divider"></div>
+            <ul class="exclusion-list">
+                <li>Exterior work of any kind</li>
+                <li>Ceiling fans (unless noted above)</li>
+                <li>Appliance purchases (client provides fridge; client purchases dishwasher and microwave)</li>
+                <li>Structural repairs beyond water damage scope</li>
+                <li>Landscaping or outdoor areas</li>
+                <li>Furniture or staging</li>
+                <li>HOA approvals or permits (if required, available at additional cost)</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Material Allowances -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-header">Material Allowances</h2>
+            <div class="section-divider"></div>
+            <ul class="allowance-list">
+                <li>
+                    <span class="allowance-item">Cabinets</span>
+                    <span class="allowance-note">Client selects, included in investment</span>
+                </li>
+                <li>
+                    <span class="allowance-item">Quartz countertops — kitchen</span>
+                    <span class="allowance-note">Included up to allowance</span>
+                </li>
+                <li>
+                    <span class="allowance-item">Tile — master bath floor + walls</span>
+                    <span class="allowance-note">Included up to allowance</span>
+                </li>
+                <li>
+                    <span class="allowance-item">Tile — guest bath shower walls</span>
+                    <span class="allowance-note">Included up to allowance</span>
+                </li>
+                <li>
+                    <span class="allowance-item">LVP flooring</span>
+                    <span class="allowance-note">Included up to allowance</span>
+                </li>
+                <li>
+                    <span class="allowance-item">Carpet</span>
+                    <span class="allowance-note">Included up to allowance</span>
+                </li>
+                <li>
+                    <span class="allowance-item">Window coverings</span>
+                    <span class="allowance-note">Budget vinyl blinds included</span>
+                </li>
+                <li>
+                    <span class="allowance-item">Dishwasher + microwave</span>
+                    <span class="allowance-note">Client purchase</span>
+                </li>
+                <li>
+                    <span class="allowance-item">Plumbing fixtures</span>
+                    <span class="allowance-note">Builder grade included</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-header">Timeline</h2>
+            <div class="section-divider"></div>
+            <div class="timeline-box">
+                <div class="timeline-icon">📅</div>
+                <div class="timeline-content">
+                    <h3>Estimated Duration: 8–12 Weeks</h3>
+                    <p>Pending material lead times and permit processing</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Investment Summary -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-header">Investment Summary</h2>
+            <div class="section-divider"></div>
+            <div class="investment-box">
+                <div class="investment-label">Total Investment</div>
+                <div class="investment-amount">$55,000</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Terms -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-header">Payment Terms</h2>
+            <div class="section-divider"></div>
+            <div class="payment-grid">
+                <div class="payment-item">
+                    <div class="payment-phase">Deposit</div>
+                    <div class="payment-amount">$16,500</div>
+                    <div class="payment-desc">30% to begin work</div>
+                </div>
+                <div class="payment-item">
+                    <div class="payment-phase">Midpoint</div>
+                    <div class="payment-amount">$22,000</div>
+                    <div class="payment-desc">40% at rough work complete</div>
+                </div>
+                <div class="payment-item">
+                    <div class="payment-phase">Completion</div>
+                    <div class="payment-amount">$16,500</div>
+                    <div class="payment-desc">30% upon completion</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Warranty -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-header">Warranty</h2>
+            <div class="section-divider"></div>
+            <p class="warranty-text">
+                Timberline Build Co warrants all labor for 1 year from project completion. Manufacturer warranties apply to all materials and fixtures.
+            </p>
+        </div>
+    </section>
+
+    <!-- Signature Block -->
+    <section class="section signature-section">
+        <div class="container">
+            <h2 class="section-header">Acceptance</h2>
+            <div class="section-divider"></div>
+            <p style="color: #666; margin-bottom: 24px;">By signing below, the client agrees to the scope of work, investment, and payment terms outlined in this proposal.</p>
+            <div class="signature-grid">
+                <div>
+                    <div class="signature-block">
+                        <div class="signature-label">Client Signature</div>
+                        <div class="signature-sublabel">Michelle Sambrano</div>
+                    </div>
+                    <div style="margin-top: 24px;">
+                        <div class="signature-label">Date</div>
+                    </div>
+                </div>
+                <div>
+                    <div class="signature-block">
+                        <div class="signature-label">Contractor Signature</div>
+                        <div class="signature-sublabel">Justin Sherman, Timberline Build Co</div>
+                    </div>
+                    <div style="margin-top: 24px;">
+                        <div class="signature-label">Date</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-brand">Timberline Build Co</div>
+        <div>Licensed General Contractor | Orange County, CA | 949-229-1692</div>
+    </footer>
+
+</body>
+</html>
