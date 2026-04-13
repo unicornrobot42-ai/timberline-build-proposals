@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timberline Build Co. | Al Bellanca Guest Bathroom Remodel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --forest: #19412c;
+            --bark: #614432;
+            --earth: #312509;
+            --navy: #213245;
+            --gold: #e9af3b;
+            --cream: #faf8f4;
+            --white: #ffffff;
+            --text: #2a2a2a;
+            --text-light: #666;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text);
+            background: var(--white);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 { font-weight: 700; line-height: 1.2; letter-spacing: -0.5px; }
+        h2 { font-size: 2.2rem; }
+        h3 { font-size: 1.3rem; }
+        p { margin-bottom: 1rem; }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(25px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-25px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(25px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .animate-fade { animation: fadeInUp 0.7s ease-out both; }
+        .animate-left { animation: slideInLeft 0.7s ease-out both; }
+        .animate-right { animation: slideInRight 0.7s ease-out both; }
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 2.5rem; }
+        section { padding: 6rem 0; }
+        section:nth-child(even) { background: var(--cream); }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(135deg, var(--forest) 0%, #0f2817 100%);
+            color: #fff;
+            padding: 5rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%; right: -10%;
+            width: 600px; height: 600px;
+            background: rgba(233, 175, 59, 0.05);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 100%; height: 6px;
+            background: linear-gradient(90deg, var(--gold), var(--bark));
+        }
+        .header-content { position: relative; z-index: 2; }
+        .logo-text { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--gold); margin-bottom: 2rem; font-weight: 700; }
+        .project-title { font-size: 3.5rem; margin-bottom: 0.5rem; font-weight: 800; letter-spacing: -1px; }
+        .project-subtitle { font-size: 1.15rem; opacity: 0.9; margin-bottom: 2.5rem; font-weight: 400; }
+        .header-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
+        .header-stat { background: rgba(255,255,255,0.08); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--gold); }
+        .stat-val { font-size: 1.8rem; font-weight: 800; display: block; margin-bottom: 0.3rem; }
+        .stat-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.85; }
+
+        /* LETTER */
+        .letter-section { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: start; }
+        .letter-intro { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--gold); font-weight: 700; margin-bottom: 1rem; }
+        .letter-text h3 { color: var(--forest); margin-bottom: 1.5rem; }
+        .letter-text p { margin-bottom: 1.2rem; line-height: 1.8; color: var(--text-light); }
+        .signature { margin-top: 2rem; font-size: 0.85rem; color: var(--text); }
+        .signature strong { display: block; font-weight: 700; margin-top: 0.5rem; }
+        .letter-image { border-radius: 12px; overflow: hidden; box-shadow: 0 12px 30px rgba(0,0,0,0.15); width: 100%; height: 100%; object-fit: cover; }
+
+        /* DIFFERENCE */
+        .difference-bg { background: var(--forest); color: #fff; }
+        .difference-title { text-align: center; margin-bottom: 3.5rem; color: #fff; }
+        .difference-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; }
+        .difference-card { background: rgba(255,255,255,0.08); padding: 2.2rem; border-radius: 12px; border-top: 4px solid var(--gold); text-align: center; }
+        .difference-card h3 { color: var(--gold); margin-bottom: 1rem; font-size: 1.2rem; }
+        .difference-card p { color: rgba(255,255,255,0.9); font-size: 0.95rem; line-height: 1.7; margin: 0; }
+
+        /* SCOPE */
+        .scope-intro { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--gold); font-weight: 700; margin-bottom: 1rem; }
+        .scope-title { font-size: 2.2rem; color: var(--forest); margin-bottom: 2.5rem; }
+        .scope-number { display: flex; width: 50px; height: 50px; background: var(--gold); color: var(--forest); border-radius: 8px; align-items: center; justify-content: center; font-weight: 800; font-size: 1.3rem; margin-bottom: 1rem; }
+        .scope-content h3 { color: var(--forest); margin-bottom: 1rem; margin-top: 0.5rem; }
+        .scope-content p { color: var(--text-light); line-height: 1.8; margin-bottom: 1.5rem; }
+        .scope-content ul { color: var(--text-light); line-height: 1.8; padding-left: 1.5rem; margin-bottom: 1.5rem; }
+        .scope-content ul li { margin-bottom: 0.4rem; }
+        .scope-note { background: var(--cream); border-left: 4px solid var(--gold); padding: 1.2rem; border-radius: 4px; font-size: 0.9rem; color: var(--text-light); margin-top: 1.5rem; }
+
+        /* OPTIONS BOX */
+        .options-box { background: linear-gradient(135deg, var(--navy) 0%, var(--earth) 100%); color: #fff; border-radius: 12px; padding: 2.5rem; margin-top: 3rem; }
+        .options-title { font-size: 1.4rem; font-weight: 800; color: var(--gold); margin-bottom: 0.5rem; }
+        .options-sub { font-size: 0.85rem; color: rgba(255,255,255,0.7); margin-bottom: 2rem; }
+        .options-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+        .option-item { background: rgba(255,255,255,0.08); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--gold); }
+        .option-name { font-weight: 700; color: #fff; margin-bottom: 0.4rem; font-size: 0.95rem; }
+        .option-price { font-size: 1.4rem; font-weight: 800; color: var(--gold); margin-bottom: 0.5rem; }
+        .option-desc { font-size: 0.8rem; color: rgba(255,255,255,0.7); line-height: 1.5; margin: 0; }
+
+        /* EXCLUSIONS */
+        .exclusions-section { background: rgba(25, 65, 44, 0.06); border-left: 4px solid var(--gold); padding: 2rem; border-radius: 8px; margin-top: 3rem; }
+        .exclusions-title { font-size: 1rem; font-weight: 700; color: var(--forest); margin-bottom: 1rem; }
+        .exclusions-list { list-style: none; padding: 0; }
+        .exclusions-list li { font-size: 0.9rem; color: var(--text-light); padding: 0.4rem 0; border-bottom: 1px solid rgba(0,0,0,0.05); padding-left: 1.2rem; position: relative; }
+        .exclusions-list li::before { content: '✕'; position: absolute; left: 0; color: var(--bark); font-size: 0.7rem; top: 0.5rem; }
+        .exclusions-list li:last-child { border-bottom: none; }
+
+        /* INVESTMENT */
+        .investment-bg { background: var(--cream); }
+        .investment-section { max-width: 900px; margin: 0 auto; }
+        .investment-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1.5rem; text-align: center; color: var(--gold); font-weight: 700; }
+        .investment-line { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(25, 65, 44, 0.2); }
+        .investment-line:last-of-type { border-bottom: none; }
+        .investment-service { flex: 1; }
+        .service-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.8rem; color: var(--gold); }
+        .service-desc { font-size: 0.95rem; line-height: 1.6; color: var(--text-light); }
+        .investment-price { font-size: 1.6rem; font-weight: 800; color: var(--gold); text-align: right; min-width: 150px; margin-left: 2rem; }
+        .investment-total { display: flex; justify-content: space-between; align-items: center; padding-top: 1.5rem; border-top: 2px solid var(--gold); margin-top: 2rem; }
+        .total-label { font-size: 1.2rem; font-weight: 800; color: var(--forest); }
+        .total-amount { font-size: 2.2rem; font-weight: 900; color: var(--gold); }
+
+        /* PAYMENT */
+        .payment-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem; }
+        .payment-card { background: #fff; border-radius: 12px; padding: 2rem; text-align: center; border-top: 4px solid var(--gold); box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+        .payment-pct { font-size: 2.5rem; font-weight: 900; color: var(--gold); display: block; }
+        .payment-when { font-size: 0.85rem; font-weight: 700; color: var(--forest); text-transform: uppercase; letter-spacing: 1px; margin: 0.5rem 0; display: block; }
+        .payment-desc { font-size: 0.85rem; color: var(--text-light); margin: 0; }
+
+        /* TIMELINE */
+        .timeline-container { max-width: 800px; margin: 0 auto; position: relative; padding: 2rem 0; }
+        .timeline-item { margin-bottom: 2.5rem; position: relative; padding-left: 4rem; }
+        .timeline-item::before { content: ''; position: absolute; left: 8px; top: 8px; width: 16px; height: 16px; background: var(--gold); border: 3px solid var(--forest); border-radius: 50%; z-index: 2; }
+        .timeline-item:not(:last-child)::after { content: ''; position: absolute; left: 15px; top: 32px; width: 2px; height: calc(100% - 24px); background: var(--gold); }
+        .timeline-title { font-size: 1rem; font-weight: 700; color: var(--forest); margin-bottom: 0.3rem; }
+        .timeline-duration { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--gold); font-weight: 700; margin-bottom: 0.5rem; }
+        .timeline-desc { font-size: 0.9rem; color: var(--text-light); line-height: 1.6; }
+
+        /* SIGNATURE */
+        .signature-block { background: var(--forest); color: #fff; border-radius: 12px; padding: 3rem; margin-top: 3rem; }
+        .sig-title { font-size: 1.2rem; font-weight: 800; color: var(--gold); margin-bottom: 0.5rem; }
+        .sig-sub { font-size: 0.85rem; color: rgba(255,255,255,0.7); margin-bottom: 2.5rem; }
+        .sig-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+        .sig-line { border-top: 1px solid rgba(255,255,255,0.3); padding-top: 0.5rem; margin-top: 3rem; }
+        .sig-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.5); margin-top: 0.3rem; }
+
+        /* FOOTER */
+        footer { background: var(--forest); color: #fff; text-align: center; padding: 4rem 0; font-size: 0.85rem; }
+        footer p { margin-bottom: 0.6rem; opacity: 0.9; }
+        footer strong { display: block; font-weight: 700; font-size: 0.95rem; margin-bottom: 0.3rem; }
+
+        /* WARRANTY */
+        .warranty-box { background: rgba(233,175,59,0.1); border: 1px solid var(--gold); border-radius: 8px; padding: 1.5rem 2rem; margin-top: 2rem; display: flex; align-items: center; gap: 1.5rem; }
+        .warranty-icon { font-size: 2.5rem; flex-shrink: 0; }
+        .warranty-text p { margin: 0; font-size: 0.9rem; color: var(--text-light); }
+        .warranty-text strong { color: var(--forest); font-size: 1rem; display: block; margin-bottom: 0.3rem; }
+
+        @media(max-width: 768px) {
+            .container { padding: 0 1.5rem; }
+            section { padding: 4rem 0; }
+            .project-title { font-size: 2rem; }
+            .letter-section { grid-template-columns: 1fr; }
+            .investment-line { flex-direction: column; }
+            .investment-price { text-align: left; margin-left: 0; margin-top: 0.5rem; }
+            .header-grid { grid-template-columns: 1fr 1fr; }
+            .difference-grid { grid-template-columns: 1fr; }
+            .payment-grid { grid-template-columns: 1fr; }
+            .sig-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="container header-content">
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <img src="./logo.png" alt="Timberline Build Co." style="height: 60px; object-fit: contain;" class="animate-fade">
+        </div>
+        <div class="logo-text animate-fade delay-1">Project Proposal</div>
+        <h1 class="project-title animate-fade delay-1">Guest Bathroom <span style="color: var(--gold);">Remodel</span></h1>
+        <p class="project-subtitle animate-fade delay-2">33171 Sea Bright Dr &nbsp;·&nbsp; Al Bellanca &nbsp;·&nbsp; April 2026</p>
+
+        <div class="header-grid">
+            <div class="header-stat animate-fade delay-2">
+                <span class="stat-val">$12,278</span>
+                <span class="stat-label">Total Investment</span>
+            </div>
+            <div class="header-stat animate-fade delay-3">
+                <span class="stat-val">3–4 Weeks</span>
+                <span class="stat-label">Timeline</span>
+            </div>
+            <div class="header-stat animate-fade delay-3">
+                <span class="stat-val">Al Bellanca</span>
+                <span class="stat-label">Client</span>
+            </div>
+            <div class="header-stat animate-fade delay-4">
+                <span class="stat-val">Labor + Setting</span>
+                <span class="stat-label">Client Supplies Finish Materials</span>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- LETTER -->
+<section>
+    <div class="container">
+        <div class="letter-section">
+            <div class="animate-left">
+                <div class="letter-intro">A Note From Justin</div>
+                <div class="letter-text">
+                    <h3>Hey Al,</h3>
+                    <p>Thanks for trusting us with this project. We've put together a full scope for your guest bathroom — demo through final paint — that covers everything needed to take this room from where it is now to a clean, well-built finish.</p>
+                    <p>Since you're supplying the finish materials, we're focused on labor and setting materials — making sure every tile is set right, every surface is waterproofed properly, and every detail is executed the way it should be. The window install, glass shower door, countertop set, paint — it's all in here.</p>
+                    <p>We've also laid out the optional add-ons clearly so you can choose what's right for you. Everything is priced straight — no surprises, no hidden markups on your materials.</p>
+                    <div class="signature">
+                        Looking forward to getting started,
+                        <strong>Justin Sherman — Timberline Build Co.</strong>
+                        <span style="font-size: 0.8rem; color: var(--text-light);">949-229-1692</span>
+                    </div>
+                </div>
+            </div>
+            <div class="animate-right">
+                <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=900&q=85" alt="Modern bathroom remodel" class="letter-image" style="min-height: 400px;">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TIMBERLINE DIFFERENCE -->
+<section class="difference-bg">
+    <div class="container">
+        <h2 class="difference-title animate-fade">Why Timberline Build Co.</h2>
+        <div class="difference-grid">
+            <div class="difference-card animate-fade delay-1">
+                <h3>We Show Up</h3>
+                <p>Justin is on site, answering texts, and running the job. No subcontracting out the whole thing and disappearing. You get direct access to the guy running your project.</p>
+            </div>
+            <div class="difference-card animate-fade delay-2">
+                <h3>Waterproofing Done Right</h3>
+                <p>We hot mop every shower pan and apply full waterproofing before any tile goes in. This is where cheap contractors cut corners. We don't.</p>
+            </div>
+            <div class="difference-card animate-fade delay-3">
+                <h3>Straight Pricing</h3>
+                <p>What you see is what you pay. We don't mark up your materials — you supply them, we install them. Change orders require your sign-off before any extra work begins.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SCOPE OF WORK -->
+<section>
+    <div class="container">
+        <div class="animate-fade">
+            <div class="scope-intro">What's Included</div>
+            <h2 class="scope-title">Scope of Work</h2>
+        </div>
+
+        <div style="margin-bottom: 3rem;">
+            <div class="scope-number animate-fade delay-1">01</div>
+            <div class="scope-content animate-fade delay-2">
+                <h3>Demolition</h3>
+                <p>Complete demo of existing shower, tile, and fixtures. All debris removed and hauled off site.</p>
+                <div class="scope-note"><strong>Note:</strong> Any hidden damage discovered during demo (soft substrate, rotted framing, mold) will be documented and handled via a change order with your written approval before proceeding.</div>
+            </div>
+        </div>
+
+        <div style="margin-bottom: 3rem;">
+            <div class="scope-number animate-fade delay-1">02</div>
+            <div class="scope-content animate-fade delay-2">
+                <h3>Drywall — Exterior Wall</h3>
+                <p>Remove and replace all drywall on the exterior wall. Properly prep for window opening and ensure a clean, flat surface for finish work.</p>
+            </div>
+        </div>
+
+        <div style="margin-bottom: 3rem;">
+            <div class="scope-number animate-fade delay-1">03</div>
+            <div class="scope-content animate-fade delay-2">
+                <h3>New Construction Window</h3>
+                <p>Frame opening, install client-provided window, seal interior and exterior. Repair and paint stucco on exterior. Install client-provided window casing on interior.</p>
+                <div class="scope-note">Client provides window and window casing. Labor, framing, sealing, and stucco patch/paint included.</div>
+            </div>
+        </div>
+
+        <div style="margin-bottom: 3rem;">
+            <div class="scope-number animate-fade delay-1">04</div>
+            <div class="scope-content animate-fade delay-2">
+                <h3>Block Shower + New Dam / Curb</h3>
+                <p>Block shower to new dimensions and build new shower curb/dam. Properly formed and secured for tile installation.</p>
+            </div>
+        </div>
+
+        <div style="margin-bottom: 3rem;">
+            <div class="scope-number animate-fade delay-1">05</div>
+            <div class="scope-content animate-fade delay-2">
+                <h3>Hot Mop, Waterproofing &amp; Full Tile Package</h3>
+                <p>Hot mop shower pan, apply full waterproofing membrane, float shower walls, then install all tile throughout:</p>
+                <ul>
+                    <li>Shower floor tile (client supplies tile)</li>
+                    <li>Shower wall tile — no accent wall (client supplies tile)</li>
+                    <li>Bathroom floor tile (client supplies tile)</li>
+                </ul>
+                <p>Includes all setting materials — thinset, backer board, waterproofing membrane, grout, sealer.</p>
+                <div class="scope-note">No accent wall in this scope. Accent wall available as a change order if desired.</div>
+            </div>
+        </div>
+
+        <div style="margin-bottom: 3rem;">
+            <div class="scope-number animate-fade delay-1">06</div>
+            <div class="scope-content animate-fade delay-2">
+                <h3>Countertop &amp; Sink Installation</h3>
+                <p>Fabricate and install client-provided pre-fab countertop. Set client-provided sink. All connections and finish work included.</p>
+            </div>
+        </div>
+
+        <div style="margin-bottom: 3rem;">
+            <div class="scope-number animate-fade delay-1">07</div>
+            <div class="scope-content animate-fade delay-2">
+                <h3>Frameless Glass Euro Slider Shower Door</h3>
+                <p>Supply and install frameless glass euro slider shower door. Measured to fit, professionally installed with proper sealing and hardware.</p>
+            </div>
+        </div>
+
+        <div style="margin-bottom: 3rem;">
+            <div class="scope-number animate-fade delay-1">08</div>
+            <div class="scope-content animate-fade delay-2">
+                <h3>Paint</h3>
+                <p>Full bathroom paint upon completion. Touch-up paint at window area and any areas disturbed during construction.</p>
+            </div>
+        </div>
+
+        <!-- OPTIONS -->
+        <div class="options-box animate-fade">
+            <div class="options-title">Optional Add-Ons</div>
+            <div class="options-sub">These are priced separately and not included in the base total. Let us know which you'd like to add.</div>
+            <div class="options-grid">
+                <div class="option-item">
+                    <div class="option-name">Plumbing Package</div>
+                    <div class="option-price">$1,400</div>
+                    <div class="option-desc">Set drain, new shower valve, raise shower head riser, new angle stops for vanity, plumb sink, install trim kit + shower faucet, set toilet. No drain relocation involved.</div>
+                </div>
+                <div class="option-item">
+                    <div class="option-name">Vent Fan Install</div>
+                    <div class="option-price">$450</div>
+                    <div class="option-desc">Install Panasonic vent fan. Fan included in price. Labor, wiring, and exterior vent connection included.</div>
+                </div>
+                <div class="option-item">
+                    <div class="option-name">Outlets / Switches</div>
+                    <div class="option-price">$75 each</div>
+                    <div class="option-desc">Replace individual outlets or switches. GFCI outlets where required by code. Per-unit pricing — let us know quantity.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- EXCLUSIONS -->
+        <div class="exclusions-section animate-fade">
+            <div class="exclusions-title">Not Included in This Proposal</div>
+            <ul class="exclusions-list">
+                <li>All finish materials — tile, window, window casing, countertop, sink, fixtures (client-supplied)</li>
+                <li>Accent wall tile installation</li>
+                <li>Plumbing — priced as optional add-on above</li>
+                <li>Electrical (outlets/switches) — priced as optional add-on above</li>
+                <li>Permit fees — typically $500–$1,500 in OC; client to confirm with city</li>
+                <li>Furniture removal or storage</li>
+                <li>Hidden damage found during demo — handled as change order with written approval</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- INVESTMENT -->
+<section class="investment-bg">
+    <div class="container">
+        <div class="investment-section">
+            <div class="investment-label animate-fade">Your Investment</div>
+
+            <div class="investment-line animate-fade delay-1">
+                <div class="investment-service">
+                    <div class="service-title">Demolition</div>
+                    <div class="service-desc">Complete shower, tile, and fixture demo. All debris hauled off site.</div>
+                </div>
+                <div class="investment-price">$850</div>
+            </div>
+
+            <div class="investment-line animate-fade delay-1">
+                <div class="investment-service">
+                    <div class="service-title">Drywall — Exterior Wall (Remove &amp; Replace)</div>
+                    <div class="service-desc">R&amp;R all drywall on exterior wall. Prep for window opening and finish.</div>
+                </div>
+                <div class="investment-price">$1,400</div>
+            </div>
+
+            <div class="investment-line animate-fade delay-2">
+                <div class="investment-service">
+                    <div class="service-title">New Construction Window Install + Stucco Repair</div>
+                    <div class="service-desc">Frame, install, seal, exterior stucco patch + paint. Interior casing install. Client provides window and casing.</div>
+                </div>
+                <div class="investment-price">$1,344</div>
+            </div>
+
+            <div class="investment-line animate-fade delay-2">
+                <div class="investment-service">
+                    <div class="service-title">Block Shower + New Dam / Curb</div>
+                    <div class="service-desc">Block shower to spec and construct new shower curb/dam.</div>
+                </div>
+                <div class="investment-price">$600</div>
+            </div>
+
+            <div class="investment-line animate-fade delay-3">
+                <div class="investment-service">
+                    <div class="service-title">Full Tile Package</div>
+                    <div class="service-desc">Hot mop, waterproof, float shower walls, set all tile — shower floor, shower walls (no accent), bathroom floor. All setting materials included. Client supplies tile.</div>
+                </div>
+                <div class="investment-price">$4,200</div>
+            </div>
+
+            <div class="investment-line animate-fade delay-3">
+                <div class="investment-service">
+                    <div class="service-title">Countertop Fabrication &amp; Sink Set</div>
+                    <div class="service-desc">Fabricate and install client-provided pre-fab countertop. Set client-provided sink.</div>
+                </div>
+                <div class="investment-price">$600</div>
+            </div>
+
+            <div class="investment-line animate-fade delay-4">
+                <div class="investment-service">
+                    <div class="service-title">Frameless Glass Euro Slider Shower Door</div>
+                    <div class="service-desc">Supply and install frameless glass euro slider door, professionally measured and sealed.</div>
+                </div>
+                <div class="investment-price">$1,938</div>
+            </div>
+
+            <div class="investment-line animate-fade delay-4">
+                <div class="investment-service">
+                    <div class="service-title">Paint</div>
+                    <div class="service-desc">Full bathroom paint + window area touch-up.</div>
+                </div>
+                <div class="investment-price">$700</div>
+            </div>
+
+            <div class="investment-line animate-fade delay-4">
+                <div class="investment-service">
+                    <div class="service-title">Construction &amp; Setting Materials</div>
+                    <div class="service-desc">Framing lumber, backer board, thinset, grout, waterproofing membrane, sealer, stucco, fasteners, and incidentals.</div>
+                </div>
+                <div class="investment-price">$646</div>
+            </div>
+
+            <div class="investment-total animate-fade">
+                <span class="total-label">Total Project Investment</span>
+                <span class="total-amount">$12,278</span>
+            </div>
+
+            <div style="margin-top: 1.5rem; padding: 1.5rem; background: rgba(25,65,44,0.06); border-radius: 8px; font-size: 0.9rem; color: var(--text-light); border-left: 4px solid var(--gold);">
+                <strong style="color: var(--forest);">Material Note:</strong> All finish materials (tile, window, window casing, countertop, sink, fixtures) are client-supplied and not included in the above total. This price covers all labor and setting/construction materials only.
+            </div>
+
+            <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(25,65,44,0.06); border-radius: 8px; font-size: 0.9rem; color: var(--text-light); border-left: 4px solid var(--bark);">
+                <strong style="color: var(--forest);">Optional Add-Ons Not In Total:</strong><br>
+                Plumbing Package — <strong>$1,400</strong> &nbsp;|&nbsp; Vent Fan (Panasonic incl.) — <strong>$450</strong> &nbsp;|&nbsp; Outlets/Switches — <strong>$75 each</strong>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PAYMENT TERMS -->
+<section>
+    <div class="container">
+        <div class="animate-fade">
+            <div class="scope-intro">How It Works</div>
+            <h2 style="color: var(--forest); margin-bottom: 0.5rem;">Payment Schedule</h2>
+            <p style="color: var(--text-light);">Three simple milestones — you only pay as work is completed.</p>
+        </div>
+
+        <div class="payment-grid animate-fade delay-1">
+            <div class="payment-card">
+                <span class="payment-pct">30%</span>
+                <span class="payment-when">To Start</span>
+                <p class="payment-desc">Due upon signed agreement. Covers mobilization and initial materials ordering.</p>
+            </div>
+            <div class="payment-card">
+                <span class="payment-pct">40%</span>
+                <span class="payment-when">At Midpoint</span>
+                <p class="payment-desc">Due when rough work is complete and tile is set. Before finish work begins.</p>
+            </div>
+            <div class="payment-card">
+                <span class="payment-pct">30%</span>
+                <span class="payment-when">Upon Completion</span>
+                <p class="payment-desc">Final payment due at project walk-through and your sign-off.</p>
+            </div>
+        </div>
+
+        <div class="warranty-box animate-fade delay-2">
+            <div class="warranty-icon">🛡️</div>
+            <div class="warranty-text">
+                <strong>Timberline Warranty</strong>
+                <p>Timberline Build Co. warrants all labor for 1 year from project completion. Manufacturer warranties apply to all materials and fixtures. Any workmanship issues identified within the warranty period will be corrected at no charge.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TIMELINE -->
+<section style="background: var(--cream);">
+    <div class="container">
+        <h2 style="color: var(--forest); margin-bottom: 3rem;" class="animate-fade">Project Timeline</h2>
+
+        <div class="timeline-container">
+            <div class="timeline-item animate-fade delay-1">
+                <div class="timeline-title">Demolition &amp; Site Prep</div>
+                <div class="timeline-duration">1–2 Days</div>
+                <p class="timeline-desc">Full demo of shower, tile, fixtures. Haul off. Prep exterior wall for window opening.</p>
+            </div>
+            <div class="timeline-item animate-fade delay-2">
+                <div class="timeline-title">Framing, Drywall &amp; Window Install</div>
+                <div class="timeline-duration">2–3 Days</div>
+                <p class="timeline-desc">Frame window opening, install window, replace exterior wall drywall. Stucco repair and paint on exterior. Interior casing set.</p>
+            </div>
+            <div class="timeline-item animate-fade delay-2">
+                <div class="timeline-title">Shower Block, Hot Mop &amp; Waterproof</div>
+                <div class="timeline-duration">2–3 Days</div>
+                <p class="timeline-desc">Block shower, set dam/curb, hot mop pan, apply waterproofing membrane, float shower walls. Allow cure time.</p>
+            </div>
+            <div class="timeline-item animate-fade delay-3">
+                <div class="timeline-title">Tile Installation</div>
+                <div class="timeline-duration">4–6 Days</div>
+                <p class="timeline-desc">Set shower floor, shower walls, and bathroom floor tile. Grout, seal, and final inspection of all surfaces.</p>
+            </div>
+            <div class="timeline-item animate-fade delay-3">
+                <div class="timeline-title">Countertop, Glass Door &amp; Finishes</div>
+                <div class="timeline-duration">2–3 Days</div>
+                <p class="timeline-desc">Fabricate and set countertop, install sink. Measure, deliver, and install frameless glass euro slider door.</p>
+            </div>
+            <div class="timeline-item animate-fade delay-4">
+                <div class="timeline-title">Paint &amp; Final Walk-Through</div>
+                <div class="timeline-duration">1–2 Days</div>
+                <p class="timeline-desc">Full bathroom paint, window touch-up, final cleanup, and walk-through with you.</p>
+            </div>
+        </div>
+
+        <div style="text-align: center; padding: 2rem; background: #fff; border-radius: 8px; border-left: 4px solid var(--gold); max-width: 700px; margin: 0 auto;" class="animate-fade">
+            <strong style="color: var(--forest); font-size: 1.1rem;">Estimated Duration: 3–4 Weeks</strong>
+            <p style="margin: 0.5rem 0 0; color: var(--text-light); font-size: 0.9rem;">Pending material availability and permit processing (if required). Glass door lead time may affect final schedule.</p>
+        </div>
+    </div>
+</section>
+
+<!-- SIGNATURE -->
+<section>
+    <div class="container">
+        <div class="animate-fade">
+            <div class="scope-intro">Ready to Get Started</div>
+            <h2 style="color: var(--forest); margin-bottom: 0.5rem;">Project Agreement</h2>
+            <p style="color: var(--text-light); margin-bottom: 2rem;">By signing below, you authorize Timberline Build Co. to proceed with the scope of work as outlined in this proposal. Any additional work not listed requires a written change order signed by both parties prior to execution.</p>
+        </div>
+
+        <div class="signature-block animate-fade delay-1">
+            <div class="sig-title">Authorization &amp; Agreement</div>
+            <div class="sig-sub">33171 Sea Bright Dr — Guest Bathroom Remodel &nbsp;|&nbsp; Total: $12,278</div>
+            <div class="sig-grid">
+                <div>
+                    <div style="font-size: 0.8rem; color: rgba(255,255,255,0.6); margin-bottom: 1rem;">CLIENT</div>
+                    <div class="sig-line"></div>
+                    <div class="sig-label">Al Bellanca — Signature</div>
+                    <div class="sig-line" style="margin-top: 2rem;"></div>
+                    <div class="sig-label">Date</div>
+                </div>
+                <div>
+                    <div style="font-size: 0.8rem; color: rgba(255,255,255,0.6); margin-bottom: 1rem;">TIMBERLINE BUILD CO.</div>
+                    <div class="sig-line"></div>
+                    <div class="sig-label">Justin Sherman — Authorized Signature</div>
+                    <div class="sig-line" style="margin-top: 2rem;"></div>
+                    <div class="sig-label">Date</div>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 2rem; font-size: 0.8rem; color: var(--text-light); line-height: 1.8; padding: 1.5rem; background: var(--cream); border-radius: 8px;">
+            <strong style="color: var(--forest);">Terms &amp; Conditions:</strong> Change orders require written approval before execution. Timberline Build Co. warrants all labor for 1 year from completion. Manufacturer warranties apply to all materials. Client is responsible for securing all required permits unless otherwise noted. This proposal is valid for 30 days from the date above.
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <img src="./logo.png" alt="Timberline Build Co." style="height: 50px; margin-bottom: 1rem; object-fit: contain;">
+        <strong>Timberline Build Co.</strong>
+        <p>Licensed General Contractor &nbsp;·&nbsp; Orange County, CA</p>
+        <p>949-229-1692</p>
+        <p style="margin-top: 1rem; font-size: 0.75rem; opacity: 0.7;">© 2026 Timberline Build Co. All rights reserved.</p>
+    </div>
+</footer>
+
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.style.opacity = '1';
+        });
+    }, { threshold: 0.15, rootMargin: '0px 0px -80px 0px' });
+
+    document.querySelectorAll('[class*="animate-"]').forEach(el => {
+        el.style.opacity = '0';
+        observer.observe(el);
+    });
+</script>
+</body>
+</html>
