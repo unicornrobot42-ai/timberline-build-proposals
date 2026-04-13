@@ -104,12 +104,23 @@
         .letter-image { border-radius: 12px; overflow: hidden; box-shadow: 0 12px 30px rgba(0,0,0,0.15); width: 100%; height: 100%; object-fit: cover; }
 
         /* DIFFERENCE */
-        .difference-bg { background: var(--forest); color: #fff; }
+        .difference-bg {
+            position: relative;
+            color: #fff;
+            background: url('https://images.unsplash.com/photo-1604709177225-055f99402ea3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1800&q=80') center center / cover no-repeat;
+        }
+        .difference-bg::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(10, 28, 16, 0.87);
+        }
+        .difference-bg .container { position: relative; z-index: 2; }
         .difference-title { text-align: center; margin-bottom: 3.5rem; color: #fff; }
         .difference-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; }
-        .difference-card { background: rgba(255,255,255,0.08); padding: 2.2rem; border-radius: 12px; border-top: 4px solid var(--gold); text-align: center; }
+        .difference-card { background: rgba(255,255,255,0.10); padding: 2.2rem; border-radius: 12px; border-top: 4px solid var(--gold); text-align: center; backdrop-filter: blur(6px); }
         .difference-card h3 { color: var(--gold); margin-bottom: 1rem; font-size: 1.2rem; }
-        .difference-card p { color: rgba(255,255,255,0.9); font-size: 0.95rem; line-height: 1.7; margin: 0; }
+        .difference-card p { color: rgba(255,255,255,0.92); font-size: 0.95rem; line-height: 1.7; margin: 0; }
 
         /* SCOPE */
         .scope-intro { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--gold); font-weight: 700; margin-bottom: 1rem; }
@@ -327,13 +338,13 @@
             <div class="scope-number animate-fade delay-1">05</div>
             <div class="scope-content animate-fade delay-2">
                 <h3>Hot Mop, Waterproofing &amp; Full Tile Package</h3>
-                <p>Hot mop shower pan, apply full waterproofing membrane, float shower walls, then install all tile throughout:</p>
+                <p>Hot mop shower pan, apply full waterproofing membrane, hand-float shower walls with concrete mortar bed, then install all tile throughout:</p>
                 <ul>
                     <li>Shower floor tile (client supplies tile)</li>
-                    <li>Shower wall tile — no accent wall (client supplies tile)</li>
+                    <li>Shower wall tile — floated concrete walls, no accent wall (client supplies tile)</li>
                     <li>Bathroom floor tile (client supplies tile)</li>
                 </ul>
-                <p>Includes all setting materials — thinset, backer board, waterproofing membrane, grout, sealer.</p>
+                <p>Floated shower walls means walls are hand-floated to a true plane with mortar before tile is set — the correct method for a high-quality, long-lasting shower. Includes all setting materials — thinset, mortar, waterproofing membrane, grout, sealer.</p>
                 <div class="scope-note">No accent wall in this scope. Accent wall available as a change order if desired.</div>
             </div>
         </div>
@@ -393,7 +404,6 @@
                 <li>Accent wall tile installation</li>
                 <li>Plumbing — priced as optional add-on above</li>
                 <li>Electrical (outlets/switches) — priced as optional add-on above</li>
-                <li>Permit fees — typically $500–$1,500 in OC; client to confirm with city</li>
                 <li>Furniture removal or storage</li>
                 <li>Hidden damage found during demo — handled as change order with written approval</li>
             </ul>
@@ -409,74 +419,10 @@
 
             <div class="investment-line animate-fade delay-1">
                 <div class="investment-service">
-                    <div class="service-title">Demolition</div>
-                    <div class="service-desc">Complete shower, tile, and fixture demo. All debris hauled off site.</div>
+                    <div class="service-title">Guest Bathroom Remodel — Complete Scope</div>
+                    <div class="service-desc">All labor and construction/setting materials for the full guest bathroom remodel: demolition and debris removal, exterior wall drywall R&amp;R, new construction window install with exterior stucco repair and paint and interior casing set (client provides window and casing), shower block and new dam/curb, hot mop, full waterproofing, hand-floated concrete mortar bed shower walls, all tile set (shower floor, shower walls, and bathroom floor — client supplies tile), countertop fabrication and sink set (client provides countertop and sink), frameless glass euro slider door supply and install, and full bathroom paint. No permits required.</div>
                 </div>
-                <div class="investment-price">$850</div>
-            </div>
-
-            <div class="investment-line animate-fade delay-1">
-                <div class="investment-service">
-                    <div class="service-title">Drywall — Exterior Wall (Remove &amp; Replace)</div>
-                    <div class="service-desc">R&amp;R all drywall on exterior wall. Prep for window opening and finish.</div>
-                </div>
-                <div class="investment-price">$1,400</div>
-            </div>
-
-            <div class="investment-line animate-fade delay-2">
-                <div class="investment-service">
-                    <div class="service-title">New Construction Window Install + Stucco Repair</div>
-                    <div class="service-desc">Frame, install, seal, exterior stucco patch + paint. Interior casing install. Client provides window and casing.</div>
-                </div>
-                <div class="investment-price">$1,344</div>
-            </div>
-
-            <div class="investment-line animate-fade delay-2">
-                <div class="investment-service">
-                    <div class="service-title">Block Shower + New Dam / Curb</div>
-                    <div class="service-desc">Block shower to spec and construct new shower curb/dam.</div>
-                </div>
-                <div class="investment-price">$600</div>
-            </div>
-
-            <div class="investment-line animate-fade delay-3">
-                <div class="investment-service">
-                    <div class="service-title">Full Tile Package</div>
-                    <div class="service-desc">Hot mop, waterproof, float shower walls, set all tile — shower floor, shower walls (no accent), bathroom floor. All setting materials included. Client supplies tile.</div>
-                </div>
-                <div class="investment-price">$4,200</div>
-            </div>
-
-            <div class="investment-line animate-fade delay-3">
-                <div class="investment-service">
-                    <div class="service-title">Countertop Fabrication &amp; Sink Set</div>
-                    <div class="service-desc">Fabricate and install client-provided pre-fab countertop. Set client-provided sink.</div>
-                </div>
-                <div class="investment-price">$600</div>
-            </div>
-
-            <div class="investment-line animate-fade delay-4">
-                <div class="investment-service">
-                    <div class="service-title">Frameless Glass Euro Slider Shower Door</div>
-                    <div class="service-desc">Supply and install frameless glass euro slider door, professionally measured and sealed.</div>
-                </div>
-                <div class="investment-price">$1,938</div>
-            </div>
-
-            <div class="investment-line animate-fade delay-4">
-                <div class="investment-service">
-                    <div class="service-title">Paint</div>
-                    <div class="service-desc">Full bathroom paint + window area touch-up.</div>
-                </div>
-                <div class="investment-price">$700</div>
-            </div>
-
-            <div class="investment-line animate-fade delay-4">
-                <div class="investment-service">
-                    <div class="service-title">Construction &amp; Setting Materials</div>
-                    <div class="service-desc">Framing lumber, backer board, thinset, grout, waterproofing membrane, sealer, stucco, fasteners, and incidentals.</div>
-                </div>
-                <div class="investment-price">$646</div>
+                <div class="investment-price">$12,278</div>
             </div>
 
             <div class="investment-total animate-fade">
@@ -485,12 +431,34 @@
             </div>
 
             <div style="margin-top: 1.5rem; padding: 1.5rem; background: rgba(25,65,44,0.06); border-radius: 8px; font-size: 0.9rem; color: var(--text-light); border-left: 4px solid var(--gold);">
-                <strong style="color: var(--forest);">Material Note:</strong> All finish materials (tile, window, window casing, countertop, sink, fixtures) are client-supplied and not included in the above total. This price covers all labor and setting/construction materials only.
+                <strong style="color: var(--forest);">Material Note:</strong> All finish materials (tile, window, window casing, countertop, sink, fixtures) are client-supplied and not included in the above total. This price covers all labor and construction/setting materials only.
             </div>
 
             <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(25,65,44,0.06); border-radius: 8px; font-size: 0.9rem; color: var(--text-light); border-left: 4px solid var(--bark);">
-                <strong style="color: var(--forest);">Optional Add-Ons Not In Total:</strong><br>
-                Plumbing Package — <strong>$1,400</strong> &nbsp;|&nbsp; Vent Fan (Panasonic incl.) — <strong>$450</strong> &nbsp;|&nbsp; Outlets/Switches — <strong>$75 each</strong>
+                <strong style="color: var(--forest); display:block; margin-bottom:0.8rem;">Optional Add-Ons (not included in total):</strong>
+                <table style="width:100%; border-collapse:collapse;">
+                    <tr style="border-bottom:1px solid rgba(0,0,0,0.08);">
+                        <td style="padding:0.6rem 0.2rem;">
+                            <strong style="color:var(--forest);">Plumbing Package</strong><br>
+                            <span style="font-size:0.82rem;">Drain set, shower valve, raise riser, angle stops, sink plumb, trim kit + faucet, set toilet</span>
+                        </td>
+                        <td style="text-align:right; font-size:1.2rem; font-weight:800; color:var(--gold); padding-left:1rem; white-space:nowrap;">$1,400</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid rgba(0,0,0,0.08);">
+                        <td style="padding:0.6rem 0.2rem;">
+                            <strong style="color:var(--forest);">Vent Fan (Panasonic included)</strong><br>
+                            <span style="font-size:0.82rem;">Labor, wiring, and exterior vent. Fan included in price.</span>
+                        </td>
+                        <td style="text-align:right; font-size:1.2rem; font-weight:800; color:var(--gold); padding-left:1rem; white-space:nowrap;">$450</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:0.6rem 0.2rem;">
+                            <strong style="color:var(--forest);">Outlets / Switches</strong><br>
+                            <span style="font-size:0.82rem;">Per unit. GFCI where required by code.</span>
+                        </td>
+                        <td style="text-align:right; font-size:1.2rem; font-weight:800; color:var(--gold); padding-left:1rem; white-space:nowrap;">$75 ea.</td>
+                    </tr>
+                </table>
             </div>
         </div>
     </div>
@@ -573,7 +541,7 @@
 
         <div style="text-align: center; padding: 2rem; background: #fff; border-radius: 8px; border-left: 4px solid var(--gold); max-width: 700px; margin: 0 auto;" class="animate-fade">
             <strong style="color: var(--forest); font-size: 1.1rem;">Estimated Duration: 3–4 Weeks</strong>
-            <p style="margin: 0.5rem 0 0; color: var(--text-light); font-size: 0.9rem;">Pending material availability and permit processing (if required). Glass door lead time may affect final schedule.</p>
+            <p style="margin: 0.5rem 0 0; color: var(--text-light); font-size: 0.9rem;">Pending material availability. Glass door lead time may affect final schedule.</p>
         </div>
     </div>
 </section>
@@ -609,7 +577,7 @@
         </div>
 
         <div style="margin-top: 2rem; font-size: 0.8rem; color: var(--text-light); line-height: 1.8; padding: 1.5rem; background: var(--cream); border-radius: 8px;">
-            <strong style="color: var(--forest);">Terms &amp; Conditions:</strong> Change orders require written approval before execution. Timberline Build Co. warrants all labor for 1 year from completion. Manufacturer warranties apply to all materials. Client is responsible for securing all required permits unless otherwise noted. This proposal is valid for 30 days from the date above.
+            <strong style="color: var(--forest);">Terms &amp; Conditions:</strong> Change orders require written approval before execution. Timberline Build Co. warrants all labor for 1 year from completion. Manufacturer warranties apply to all materials. This proposal is valid for 30 days from the date above.
         </div>
     </div>
 </section>
