@@ -203,6 +203,23 @@
             max-width: 900px;
             border-radius: 4px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            object-fit: cover;
+        }
+
+        .render-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .render-grid img {
+            width: 100%;
+            border-radius: 4px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+            object-fit: cover;
+            height: 340px;
         }
 
         .render-caption {
@@ -541,8 +558,11 @@
      RENDER
 ════════════════════════════════════════════════ -->
 <div class="render-section">
-    <img src="./render.png" alt="Montrose Kitchen Concept Render" onerror="this.style.display='none'">
-    <p class="render-caption">Concept render — finishes subject to client selection</p>
+    <div class="render-grid">
+        <img src="./inspiration.png" alt="Design Inspiration">
+        <img src="./render-2.png" alt="Concept Render" onerror="this.src='./render.png'">
+    </div>
+    <p class="render-caption">Design direction &amp; concept render — finishes subject to client selection</p>
 </div>
 
 <!-- ═══════════════════════════════════════════════
