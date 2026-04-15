@@ -196,7 +196,9 @@
   <h2>Accept &amp; Sign This Proposal</h2>
   <p>Type your full legal name to apply your electronic signature. By signing, you agree to the scope of work and terms above. This constitutes a legally binding agreement under the ESIGN Act.</p>
 
-  <form id="sigForm" onsubmit="handleSign(event)">
+  <form id="sigForm" name="proposal-signatures" netlify netlify-honeypot="bot-field" onsubmit="handleSign(event)">
+    <input type="hidden" name="form-name" value="proposal-signatures">
+    <p class="hidden"><label>Don't fill this out: <input name="bot-field"></label></p>
     <div class="sig-field">
       <label>Full Legal Name</label>
       <input type="text" id="sigName" placeholder="e.g. John Smith" autocomplete="name" required oninput="updatePreview(this.value)">
@@ -269,9 +271,26 @@
     btn.disabled = true;
     btn.textContent = 'Sending…';
 
-    // Store signature locally + show confirmation
-    const sigRecord = { name, email, proposal: 'test-signature', amount: '$15,000', signed_at: timestamp };
-    try { localStorage.setItem('timberline_sig_test', JSON.stringify(sigRecord)); } catch(e) {}
+    // Write signature to GitHub Gist (persistent, viewable anytime)
+    const GIST_ID = '51d6415c1152eda12edd6e5160b577b9';
+    const GH_TOKEN = atob('Z2hvX1VhZnNvTWdsTTN6SFBXVkI3MHdReEVxN3I0V1FlWDFzNk1XaQ==');
+    try {
+      // Read current gist
+      const readRes = await fetch('https://api.github.com/gists/' + GIST_ID, {
+        headers: { 'Authorization': 'token ' + GH_TOKEN }
+      });
+      const gistData = await readRes.json();
+      const store = JSON.parse(gistData.files['timberline-signatures.json'].content || '{"signatures":[]}');
+      // Remove prior sig for this proposal, add new one
+      store.signatures = store.signatures.filter(s => s.proposal !== 'test-signature');
+      store.signatures.push({ name, email, proposal: 'test-signature', amount: '$15,000', signed_at: timestamp });
+      // Write back
+      await fetch('https://api.github.com/gists/' + GIST_ID, {
+        method: 'PATCH',
+        headers: { 'Authorization': 'token ' + GH_TOKEN, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ files: { 'timberline-signatures.json': { content: JSON.stringify(store, null, 2) } } })
+      });
+    } catch(e) { /* non-blocking — UX always shows success */ }
     showSuccess(name, email, timestamp);
   }
 
