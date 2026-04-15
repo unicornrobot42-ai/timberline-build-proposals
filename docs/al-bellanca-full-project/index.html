@@ -856,6 +856,127 @@
     </div>
 </section>
 
+<!-- E-SIGNATURE -->
+<section id="signature-section" style="background: var(--cream); padding: 4rem 0;">
+    <div class="container" style="max-width: 650px;">
+        <div id="sign-form">
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <div style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--gold); font-weight: 700; margin-bottom: 0.5rem;">Electronic Signature</div>
+                <h2 style="color: var(--forest); margin-bottom: 0.5rem;">Accept This Proposal</h2>
+                <p style="color: var(--text-light); font-size: 0.95rem;">Sign below to authorize work to begin</p>
+            </div>
+            
+            <div style="background: #fff; border-radius: 12px; padding: 2.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--forest);">Full Legal Name</label>
+                    <input type="text" id="sig-name" placeholder="Enter your full name" style="width: 100%; padding: 14px; border: 2px solid #ddd; border-radius: 8px; font-size: 16px; font-family: 'Montserrat', sans-serif;">
+                </div>
+                
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--forest);">Email Address</label>
+                    <input type="email" id="sig-email" placeholder="your@email.com" style="width: 100%; padding: 14px; border: 2px solid #ddd; border-radius: 8px; font-size: 16px; font-family: 'Montserrat', sans-serif;">
+                </div>
+                
+                <div style="display: flex; align-items: flex-start; gap: 12px; margin: 1.5rem 0; padding: 1.2rem; background: rgba(25,65,44,0.04); border-radius: 8px; border-left: 4px solid var(--gold);">
+                    <input type="checkbox" id="sig-agree" style="width: 22px; height: 22px; margin-top: 2px; flex-shrink: 0; accent-color: var(--forest);">
+                    <label for="sig-agree" style="font-size: 0.9rem; line-height: 1.5; color: var(--text-light); cursor: pointer;">
+                        I have reviewed this proposal and agree to the scope of work, timeline, payment terms, and total investment of <strong style="color: var(--forest);">$39,700</strong> for both bathrooms. By typing my name above, I am providing my electronic signature in accordance with the ESIGN Act.
+                    </label>
+                </div>
+                
+                <button id="sign-btn" disabled style="width: 100%; padding: 16px; background: #ccc; color: white; border: none; border-radius: 8px; font-size: 18px; font-weight: 700; cursor: not-allowed; font-family: 'Montserrat', sans-serif; transition: all 0.2s;">
+                    Sign &amp; Accept Proposal
+                </button>
+            </div>
+        </div>
+        
+        <div id="signed-view" style="display: none; text-align: center; background: #fff; border-radius: 12px; padding: 3rem; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--forest), #0f2817); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+                <span style="color: var(--gold); font-size: 40px;">✓</span>
+            </div>
+            <h2 style="color: var(--forest); margin-bottom: 0.5rem;">Proposal Accepted</h2>
+            <p style="color: var(--text-light); margin-bottom: 2rem;">Thank you! Your signature has been recorded.</p>
+            <div style="background: rgba(25,65,44,0.04); padding: 1.5rem; border-radius: 8px; text-align: left;">
+                <p style="margin: 0.5rem 0; color: var(--text);"><strong>Signed by:</strong> <span id="signed-name"></span></p>
+                <p style="margin: 0.5rem 0; color: var(--text);"><strong>Email:</strong> <span id="signed-email"></span></p>
+                <p style="margin: 0.5rem 0; color: var(--text);"><strong>Date:</strong> <span id="signed-date"></span></p>
+                <p style="margin: 0.5rem 0; color: var(--text);"><strong>Amount:</strong> $39,700</p>
+            </div>
+            <p style="margin-top: 1.5rem; font-size: 0.85rem; color: var(--text-light);">Justin will be in touch to schedule the start date.</p>
+        </div>
+    </div>
+</section>
+
+<script>
+(function() {
+    const PROPOSAL_ID = 'al-bellanca-full-project';
+    const PROPOSAL_AMOUNT = '$39,700';
+    const STORAGE_KEY = 'timberline_signatures';
+    
+    function getSignatures() {
+        try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); } 
+        catch { return {}; }
+    }
+    
+    function checkSigned() {
+        const sigs = getSignatures();
+        if (sigs[PROPOSAL_ID]) showSigned(sigs[PROPOSAL_ID]);
+    }
+    
+    function showSigned(sig) {
+        document.getElementById('sign-form').style.display = 'none';
+        document.getElementById('signed-view').style.display = 'block';
+        document.getElementById('signed-name').textContent = sig.name;
+        document.getElementById('signed-email').textContent = sig.email;
+        document.getElementById('signed-date').textContent = sig.date;
+    }
+    
+    function saveSignature(name, email) {
+        const sigs = getSignatures();
+        const date = new Date().toLocaleString('en-US', {
+            timeZone: 'America/Los_Angeles',
+            dateStyle: 'long',
+            timeStyle: 'short'
+        });
+        sigs[PROPOSAL_ID] = { name, email, date, amount: PROPOSAL_AMOUNT };
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(sigs));
+        
+        // Fire and forget to backend
+        fetch('https://estimate.timberlinebuild.co/api/sign', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, email, proposal: PROPOSAL_ID, amount: PROPOSAL_AMOUNT })
+        }).catch(() => {});
+        
+        showSigned(sigs[PROPOSAL_ID]);
+    }
+    
+    const nameInput = document.getElementById('sig-name');
+    const emailInput = document.getElementById('sig-email');
+    const agreeCheckbox = document.getElementById('sig-agree');
+    const signBtn = document.getElementById('sign-btn');
+    
+    function updateButton() {
+        const valid = nameInput.value.trim() && emailInput.value.trim() && agreeCheckbox.checked;
+        signBtn.disabled = !valid;
+        signBtn.style.background = valid ? 'var(--forest)' : '#ccc';
+        signBtn.style.cursor = valid ? 'pointer' : 'not-allowed';
+    }
+    
+    nameInput.addEventListener('input', updateButton);
+    emailInput.addEventListener('input', updateButton);
+    agreeCheckbox.addEventListener('change', updateButton);
+    
+    signBtn.addEventListener('click', function() {
+        if (!signBtn.disabled) {
+            saveSignature(nameInput.value.trim(), emailInput.value.trim());
+        }
+    });
+    
+    checkSigned();
+})();
+</script>
+
 <!-- FOOTER -->
 <footer>
     <div class="container">
