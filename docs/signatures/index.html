@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signature Status - Timberline Build Co</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Montserrat', sans-serif; background: #f5f5f5; min-height: 100vh; padding: 20px; }
+    .container { max-width: 800px; margin: 0 auto; }
+    h1 { color: #19412c; margin-bottom: 8px; font-size: 24px; }
+    .subtitle { color: #666; margin-bottom: 24px; }
+    .card { background: white; border-radius: 12px; padding: 24px; margin-bottom: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    .card.signed { border-left: 4px solid #19412c; }
+    .card.unsigned { border-left: 4px solid #ccc; }
+    .proposal-name { font-weight: 700; color: #19412c; font-size: 18px; margin-bottom: 8px; }
+    .status { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; text-transform: uppercase; }
+    .status.signed { background: #e8f5e9; color: #2e7d32; }
+    .status.unsigned { background: #f5f5f5; color: #999; }
+    .details { margin-top: 12px; font-size: 14px; color: #666; }
+    .details p { margin: 4px 0; }
+    .details strong { color: #333; }
+    .empty { text-align: center; padding: 60px 20px; color: #999; }
+    .refresh { display: inline-block; margin-top: 20px; padding: 12px 24px; background: #19412c; color: white; border: none; border-radius: 8px; font-family: inherit; font-weight: 600; cursor: pointer; text-decoration: none; }
+    .refresh:hover { background: #0f2a1c; }
+    .note { background: #fff9e6; border: 1px solid #e9af3b; padding: 16px; border-radius: 8px; margin-bottom: 24px; font-size: 14px; color: #614432; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📝 Proposal Signatures</h1>
+    <p class="subtitle">Check signature status for your proposals</p>
+    
+    <div class="note">
+      <strong>How it works:</strong> When a client signs a proposal, it's saved in their browser. Open this page on the same device/browser they used to sign to see the status. Or ask them to screenshot the confirmation.
+    </div>
+    
+    <div id="signatures"></div>
+    
+    <div style="text-align: center; margin-top: 24px;">
+      <button class="refresh" onclick="location.reload()">Refresh</button>
+    </div>
+  </div>
+
+  <script>
+    const PROPOSALS = [
+      { id: 'al-bellanca-full-project', name: 'Al Bellanca — Full Bathroom Project', amount: '$39,700' },
+      { id: 'al-bellanca-guest-bath', name: 'Al Bellanca — Guest Bath', amount: '$14,000' },
+      { id: 'al-bellanca-master-bath', name: 'Al Bellanca — Master Bath', amount: '$25,700' },
+      { id: 'test-signature', name: 'Test Signature Page', amount: '$15,000' }
+    ];
+    
+    function getSignatures() {
+      try { return JSON.parse(localStorage.getItem('timberline_signatures') || '{}'); }
+      catch { return {}; }
+    }
+    
+    function render() {
+      const sigs = getSignatures();
+      const container = document.getElementById('signatures');
+      
+      let html = '';
+      PROPOSALS.forEach(p => {
+        const sig = sigs[p.id];
+        if (sig) {
+          html += `
+            <div class="card signed">
+              <div class="proposal-name">${p.name}</div>
+              <span class="status signed">✓ Signed</span>
+              <div class="details">
+                <p><strong>Name:</strong> ${sig.name}</p>
+                <p><strong>Email:</strong> ${sig.email}</p>
+                <p><strong>Date:</strong> ${sig.date}</p>
+                <p><strong>Amount:</strong> ${sig.amount || p.amount}</p>
+              </div>
+            </div>
+          `;
+        } else {
+          html += `
+            <div class="card unsigned">
+              <div class="proposal-name">${p.name}</div>
+              <span class="status unsigned">Not signed</span>
+            </div>
+          `;
+        }
+      });
+      
+      container.innerHTML = html || '<div class="empty">No proposals configured.</div>';
+    }
+    
+    render();
+  </script>
+</body>
+</html>
