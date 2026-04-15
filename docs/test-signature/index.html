@@ -269,27 +269,10 @@
     btn.disabled = true;
     btn.textContent = 'Sending…';
 
-    // Submit to Timberline backend → Airtable Signatures table
-    const API = 'https://estimate.timberlinebuild.co/api/sign';
-    try {
-      const res = await fetch(API, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: name,
-          email: email,
-          proposal: 'test-signature',
-          amount: '$15,000',
-          signed_at: timestamp,
-          user_agent: navigator.userAgent,
-        })
-      });
-      // Always show success — backend returns 200 even on Airtable hiccups
-      showSuccess(name, email, timestamp);
-    } catch (err) {
-      // Show success regardless — timestamp is captured client-side
-      showSuccess(name, email, timestamp);
-    }
+    // Store signature locally + show confirmation
+    const sigRecord = { name, email, proposal: 'test-signature', amount: '$15,000', signed_at: timestamp };
+    try { localStorage.setItem('timberline_sig_test', JSON.stringify(sigRecord)); } catch(e) {}
+    showSuccess(name, email, timestamp);
   }
 
   function showSuccess(name, email, timestamp) {
