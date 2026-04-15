@@ -194,20 +194,129 @@
         footer p { margin-bottom: 0.6rem; opacity: 0.9; }
         footer strong { display: block; font-weight: 700; font-size: 0.95rem; margin-bottom: 0.3rem; }
 
+        /* MOBILE - 768px and below */
         @media(max-width: 768px) {
-            .container { padding: 0 1.5rem; }
-            section { padding: 4rem 0; }
-            .project-title { font-size: 2rem; }
-            .letter-section { grid-template-columns: 1fr; }
-            .investment-line { flex-direction: column; }
-            .investment-price { text-align: left; margin-left: 0; margin-top: 0.5rem; }
-            .header-grid { grid-template-columns: 1fr 1fr; }
-            .difference-grid { grid-template-columns: 1fr; }
-            .payment-grid { grid-template-columns: 1fr; }
-            .phase-name { font-size: 1.8rem; }
-            .gt-amount { font-size: 3.5rem; }
-            .gt-breakdown { grid-template-columns: 1fr; }
-            .phase-nav-inner { flex-direction: column; }
+            .container { padding: 0 1.25rem; }
+            section { padding: 3rem 0; }
+            
+            /* Header mobile fixes */
+            header { padding: 2.5rem 0 2rem; }
+            .logo-text { font-size: 0.65rem; letter-spacing: 1.5px; margin-bottom: 1rem; }
+            .project-title { font-size: 1.75rem; letter-spacing: -0.5px; line-height: 1.15; }
+            .project-subtitle { font-size: 0.9rem; margin-bottom: 1.5rem; }
+            .header-content > div:first-child { margin-bottom: 1rem; }
+            .header-content > div:first-child img { height: 45px; }
+            
+            /* Header stats - 2x2 grid on mobile */
+            .header-grid { 
+                grid-template-columns: 1fr 1fr; 
+                gap: 0.75rem; 
+                margin-top: 1.5rem;
+            }
+            .header-stat { 
+                padding: 1rem; 
+                border-left-width: 3px;
+            }
+            .stat-val { font-size: 1.2rem; }
+            .stat-label { font-size: 0.65rem; }
+            
+            /* Phase nav - horizontal scroll on mobile */
+            .phase-nav { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+            .phase-nav-inner { 
+                flex-direction: row; 
+                justify-content: flex-start;
+                padding: 0 1rem;
+                min-width: max-content;
+            }
+            .phase-tab { 
+                padding: 1rem 1.25rem; 
+                font-size: 0.7rem; 
+                white-space: nowrap;
+            }
+            
+            /* Phase dividers */
+            .phase-divider { padding: 2rem 0; }
+            .phase-name { font-size: 1.5rem; }
+            .phase-label { font-size: 0.65rem; }
+            .phase-meta { font-size: 0.85rem; }
+            
+            /* Content sections */
+            .letter-section { grid-template-columns: 1fr; gap: 2rem; }
+            .letter-image { min-height: 250px; }
+            .letter-intro { font-size: 0.7rem; }
+            .letter-text h3 { font-size: 1.3rem; margin-bottom: 1rem; }
+            .letter-text p { font-size: 0.9rem; }
+            
+            /* Scope */
+            .scope-intro { font-size: 0.7rem; }
+            .scope-title { font-size: 1.6rem; margin-bottom: 1.5rem; }
+            .scope-number { width: 40px; height: 40px; font-size: 1.1rem; }
+            .scope-content h3 { font-size: 1.1rem; }
+            .scope-content p, .scope-content ul { font-size: 0.9rem; }
+            
+            /* Investment */
+            .investment-label { font-size: 0.7rem; }
+            .investment-line { flex-direction: column; gap: 0.5rem; padding-bottom: 1.5rem; margin-bottom: 1.5rem; }
+            .investment-price { text-align: left; margin-left: 0; font-size: 1.3rem; }
+            .service-title { font-size: 1rem; }
+            .service-desc { font-size: 0.85rem; }
+            .total-label { font-size: 1rem; }
+            .total-amount { font-size: 1.8rem; }
+            
+            /* Difference cards */
+            .difference-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+            .difference-title { margin-bottom: 2rem; font-size: 1.8rem; }
+            .difference-card { padding: 1.5rem; }
+            .difference-card h3 { font-size: 1.1rem; }
+            .difference-card p { font-size: 0.85rem; }
+            
+            /* Payment */
+            .payment-grid { grid-template-columns: 1fr; gap: 1rem; }
+            .payment-card { padding: 1.5rem; }
+            .payment-pct { font-size: 2rem; }
+            
+            /* Timeline */
+            .timeline-item { padding-left: 3rem; margin-bottom: 2rem; }
+            .timeline-title { font-size: 0.95rem; }
+            .timeline-duration { font-size: 0.7rem; }
+            .timeline-desc { font-size: 0.85rem; }
+            
+            /* Grand total banner */
+            .grand-total-banner { padding: 3rem 0; }
+            .gt-label { font-size: 0.7rem; }
+            .gt-amount { font-size: 2.8rem; }
+            .gt-sub { font-size: 0.9rem; margin-bottom: 2rem; }
+            .gt-breakdown { grid-template-columns: 1fr; gap: 1rem; width: 100%; }
+            .gt-item { padding: 1.25rem 1.5rem; }
+            .gt-item-label { font-size: 0.65rem; }
+            .gt-item-val { font-size: 1.4rem; }
+            
+            /* Warranty */
+            .warranty-box { flex-direction: column; text-align: center; gap: 1rem; padding: 1.5rem; }
+            .warranty-icon { font-size: 2rem; }
+            
+            /* Footer */
+            footer { padding: 3rem 0; }
+            footer img { height: 40px !important; }
+            
+            /* H2 headings */
+            h2 { font-size: 1.6rem; }
+        }
+        
+        /* SMALL MOBILE - 480px and below */
+        @media(max-width: 480px) {
+            .container { padding: 0 1rem; }
+            .project-title { font-size: 1.5rem; }
+            .header-grid { grid-template-columns: 1fr; gap: 0.6rem; }
+            .header-stat { 
+                display: flex; 
+                align-items: center; 
+                gap: 1rem;
+                padding: 0.85rem 1rem;
+            }
+            .stat-val { font-size: 1.1rem; margin-bottom: 0; }
+            .stat-label { font-size: 0.6rem; }
+            .gt-amount { font-size: 2.2rem; }
         }
     </style>
 </head>
