@@ -15,7 +15,6 @@
             --gold: #e9af3b;
             --cream: #faf8f4;
             --white: #ffffff;
-            --light-gold: #fdf5e0;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -60,9 +59,9 @@
         .hero-bg {
             position: absolute;
             inset: 0;
-            background-image: url('kitchen-existing.jpg');
+            background-image: url('hero.png');
             background-size: cover;
-            background-position: center;
+            background-position: center 40%;
             z-index: 0;
         }
 
@@ -70,7 +69,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(25,65,44,0.95) 0%, rgba(25,65,44,0.82) 55%, rgba(25,65,44,0.60) 100%);
+            background: linear-gradient(135deg, rgba(25,65,44,0.93) 0%, rgba(25,65,44,0.78) 50%, rgba(25,65,44,0.50) 100%);
         }
 
         .hero-top {
@@ -165,7 +164,7 @@
             opacity: 0.25;
         }
 
-        /* ── FULL BLEED IMAGE ── */
+        /* ── IMAGE BREAK ── */
         .img-break {
             width: 100%;
             object-fit: cover;
@@ -207,7 +206,7 @@
             margin-bottom: 0.4rem;
         }
 
-        .overview-card .oc-val { font-size: 1rem; font-weight: 600; color: var(--earth); }
+        .overview-card .oc-val { font-size: 1rem; font-weight: 700; color: var(--earth); }
 
         /* ── PHASE CARDS ── */
         .phase-card {
@@ -228,7 +227,7 @@
             object-position: center;
             display: block;
             min-height: 180px;
-            max-height: 360px;
+            max-height: 380px;
         }
 
         .phase-header {
@@ -241,6 +240,7 @@
         }
 
         .phase-card.navy .phase-header { background: var(--navy); }
+        .phase-card.earth .phase-header { background: var(--earth); }
 
         .phase-num {
             width: 48px;
@@ -331,51 +331,22 @@
         .budget-price { font-size: 1.3rem; font-weight: 800; color: var(--forest); white-space: nowrap; }
         .budget-divider { height: 1px; background: #e0dbd2; }
 
-        /* ── ADD-ON BOX ── */
-        .addon-box {
-            background: #fffbf2;
-            border-radius: 10px;
-            padding: 1.5rem;
-            margin-top: 1.5rem;
-            border: 1.5px dashed var(--gold);
-        }
-
-        .addon-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .addon-badge {
-            background: var(--gold);
-            color: var(--earth);
-            font-size: 0.62rem;
-            font-weight: 900;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            padding: 0.3rem 0.9rem;
-            border-radius: 100px;
-        }
-
-        .addon-price { font-size: 1.2rem; font-weight: 800; color: var(--forest); }
-        .addon-title { font-size: 0.95rem; font-weight: 700; color: var(--earth); margin-bottom: 0.5rem; }
-        .addon-desc { font-size: 0.85rem; color: #666; line-height: 1.7; margin-bottom: 0.75rem; }
-
-        .addon-caveat {
+        /* ── CAVEAT BOX ── */
+        .caveat-box {
             display: flex;
             gap: 0.75rem;
             align-items: flex-start;
-            padding-top: 0.75rem;
-            border-top: 1px dashed rgba(233,175,59,0.5);
-            font-size: 0.8rem;
-            color: #8b6914;
+            padding: 1rem 1.25rem;
+            background: #fffbf2;
+            border-left: 3px solid var(--gold);
+            border-radius: 0 8px 8px 0;
+            margin-top: 1.2rem;
+            font-size: 0.82rem;
+            color: #7a5c10;
             line-height: 1.65;
         }
 
-        .addon-caveat::before { content: 'ⓘ'; font-size: 1rem; flex-shrink: 0; }
+        .caveat-box::before { content: 'ⓘ'; font-size: 1rem; flex-shrink: 0; }
 
         /* ── NOT INCLUDED ── */
         .not-included-list {
@@ -425,9 +396,14 @@
         .total-row:last-child { border-bottom: none; }
         .total-row .tr-label { color: rgba(255,255,255,0.65); font-weight: 500; }
         .total-row .tr-val { color: var(--white); font-weight: 700; white-space: nowrap; }
-        .total-row.addon-row .tr-label { color: rgba(233,175,59,0.75); }
-        .total-row.addon-row .tr-val { color: var(--gold); }
-        .total-row.section-header .tr-label { color: rgba(255,255,255,0.35); font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 800; padding-top: 1.2rem; }
+        .total-row.section-header .tr-label {
+            color: rgba(255,255,255,0.35);
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 800;
+            padding-top: 1.2rem;
+        }
 
         .total-final {
             display: flex;
@@ -497,8 +473,8 @@
         /* ── GALLERY ── */
         .gallery {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 6px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 4px;
         }
 
         .gallery img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
@@ -519,7 +495,7 @@
             h1 { font-size: 2rem; }
             .hero-top, .hero-body, .hero-bottom { padding: 1.5rem; }
             .section { padding: 3rem 1.5rem; }
-            .not-included-list, .overview-grid, .payment-grid { grid-template-columns: 1fr; }
+            .not-included-list, .payment-grid { grid-template-columns: 1fr; }
             .overview-grid { grid-template-columns: 1fr 1fr; }
             .hero-meta { flex-direction: column; gap: 1.2rem; }
             .phase-header, .phase-body { padding: 1.5rem; }
@@ -550,7 +526,7 @@
             </div>
             <div>
                 <div class="meta-label">Base Investment</div>
-                <div class="meta-val">~$149,500</div>
+                <div class="meta-val">~$152,500</div>
             </div>
             <div>
                 <div class="meta-label">Estimated Timeline</div>
@@ -577,12 +553,12 @@
     <span class="label">Project Overview</span>
     <h2 style="color:var(--earth); margin-bottom:1rem;">What We're Doing</h2>
     <p style="color:#555; font-size:0.95rem; max-width:700px; line-height:1.8;">
-        A full interior remodel of the Mandria property. Every major system is touched: both bathrooms rebuilt from the studs, kitchen gutted and redesigned, flooring replaced throughout, lighting upgraded, and all interior doors replaced with taller units. This is a single-contractor, coordinated project — one team, one timeline, one point of contact.
+        A full interior remodel of the Mandria property — every major scope touched in a single coordinated project. Both bathrooms rebuilt from scratch, kitchen gutted and redesigned with an open wall to the dining area, flooring replaced throughout, lighting upgraded, and all interior doors replaced with taller units. One team, one timeline, one point of contact.
     </p>
     <div class="overview-grid">
         <div class="overview-card">
             <div class="oc-label">Kitchen</div>
-            <div class="oc-val">$24,990</div>
+            <div class="oc-val">$27,990</div>
         </div>
         <div class="overview-card">
             <div class="oc-label">Master Bath</div>
@@ -602,8 +578,8 @@
 <div class="section-divider"></div>
 
 <!-- ── KITCHEN IMAGE BREAK ── -->
-<img src="render.png" alt="Kitchen Render — Mandria Newport Coast" class="img-break" style="max-height:440px; aspect-ratio:16/6; object-position:center;">
-<div class="img-break-caption">Kitchen Remodel — Concept Render · Timberline Build Co.</div>
+<img src="hero.png" alt="Kitchen Remodel — Mandria Newport Coast" class="img-break" style="max-height:460px; aspect-ratio:16/6; object-position:center 40%;">
+<div class="img-break-caption">Kitchen Remodel · Timberline Build Co. · Newport Coast CA</div>
 
 <div class="section-divider"></div>
 
@@ -611,53 +587,49 @@
 <div class="section">
     <span class="label">Scope of Work</span>
     <h2 style="color:var(--earth); margin-bottom:0.4rem;">Project Breakdown</h2>
-    <p style="color:#888; font-size:0.85rem; margin-bottom:2.5rem;">Each section below covers what's included, what the client supplies, and the investment for that scope.</p>
+    <p style="color:#888; font-size:0.85rem; margin-bottom:2.5rem;">Each section covers what's included, what the client supplies, and the investment for that scope.</p>
 
     <!-- KITCHEN -->
     <div class="phase-card highlight">
-        <img src="kitchen-existing.jpg" alt="Existing Kitchen" class="phase-img">
+        <img src="hero.png" alt="Kitchen Remodel" class="phase-img" style="object-position:center 50%;">
         <div class="phase-header">
             <div class="phase-num">1</div>
             <div class="phase-header-text">
                 <h3>Kitchen Remodel</h3>
-                <div class="phase-sub">Full gut &amp; rebuild · Exact footprint + Living room extension</div>
+                <div class="phase-sub">Full gut &amp; rebuild · Open to dining · Living room extension</div>
             </div>
         </div>
         <div class="phase-body">
-            <p>Complete demolition and rebuild of the kitchen within its existing footprint. All-new cabinet installation with a second row of upper cabinets, peninsula with 12-inch bar overhang, and an extension into the adjacent living room with additional cabinetry and bar top. Countertops, backsplash labor, under-cabinet lighting, plumbing, and appliance installation are all included.</p>
+            <p>Complete demolition and rebuild of the kitchen. The wall between the kitchen and dining area is removed, opening up the space. New cabinet installation throughout — kitchen uppers and lowers, a second row of upper cabinets, peninsula with 12-inch bar overhang, and an extension into the adjacent living room with additional cabinetry and bar top. Quartz countertops, backsplash labor, under-cabinet lighting (fixtures included), plumbing, and appliance installation are all included.</p>
             <ul class="scope-list">
                 <li>Full kitchen demo — cabinets, countertops, fixtures, hood; haul-away included</li>
+                <li>Wall removal — kitchen/dining opening; framing, drywall repair, paint on repaired surfaces</li>
                 <li>Cabinet installation — kitchen uppers + lowers, 2nd row upper cabs, peninsula, living room extension and bar top; labor only, client supplies cabinets</li>
-                <li>Countertops — kitchen + dining extension; material + fabrication + install ($7,000 allowance)</li>
+                <li>Quartz countertops — kitchen + dining extension; material, fabrication, and install included</li>
                 <li>Backsplash — tile installation labor; client supplies tile</li>
                 <li>Plumbing — sink rough-in + hook-up, refrigerator water line, garbage disposal install</li>
                 <li>Appliance install — range, dishwasher, microwave, refrigerator; labor only, client supplies appliances</li>
-                <li>Under-cabinet lighting — wiring + install; client selects fixtures</li>
-                <li>Patch and paint — demo repair areas only</li>
+                <li>Under-cabinet lighting — fixtures + wiring + install; all included</li>
+                <li>Patch and paint — demo and wall removal repair areas</li>
             </ul>
             <div class="budget-row">
                 <div class="budget-item">
                     <div>
-                        <div class="budget-lbl">Kitchen Remodel — Base Scope</div>
+                        <div class="budget-lbl">Kitchen Remodel — Full Scope Including Wall Removal</div>
                         <div class="budget-note">Client supplies: cabinets, appliances, backsplash tile, fixtures</div>
                     </div>
-                    <div class="budget-price">$24,990</div>
+                    <div class="budget-price">$27,990</div>
                 </div>
             </div>
-            <div class="addon-box">
-                <div class="addon-header">
-                    <span class="addon-badge">Optional Add-On</span>
-                    <span class="addon-price">+ $3,000</span>
-                </div>
-                <div class="addon-title">Kitchen Wall Removal — Open to Dining</div>
-                <div class="addon-desc">Remove the non-load-bearing wall between the kitchen and dining area. Includes all framing, drywall repair at ceiling, floor line, and end walls, plus paint on all repaired surfaces. Adds approximately 1 week to the kitchen phase.</div>
-                <div class="addon-caveat">Wall has been identified as non-load-bearing and non-structural. No engineering, structural drawings, or beam work is included. If unexpected structural conditions are discovered on-site, a change order will be issued before work proceeds.</div>
+            <div class="caveat-box">
+                Wall has been identified as non-load-bearing and non-structural. No engineering, structural drawings, or beam work included. If unexpected structural conditions are discovered on-site, a change order will be issued before work proceeds. Electrical pricing assumes existing circuits are to code; non-compliant conditions addressed via change order.
             </div>
         </div>
     </div>
 
     <!-- MASTER BATH -->
     <div class="phase-card navy">
+        <img src="master-bath.png" alt="Master Bathroom Remodel" class="phase-img" style="object-position:center 30%;">
         <div class="phase-header">
             <div class="phase-num">2</div>
             <div class="phase-header-text">
@@ -699,6 +671,7 @@
 
     <!-- GUEST BATH -->
     <div class="phase-card">
+        <img src="guest-bath.png" alt="Guest Bathroom Remodel" class="phase-img" style="object-position:center 30%;">
         <div class="phase-header">
             <div class="phase-num">3</div>
             <div class="phase-header-text">
@@ -707,7 +680,7 @@
             </div>
         </div>
         <div class="phase-body">
-            <p>A complete guest bathroom remodel priced as an all-in labor charge. Everything you'd expect — demo, waterproofing, tile, vanity install, plumbing, glass enclosure, drywall, toilet set, vent fan, and paint. Client is responsible for purchasing and delivering all finish materials (tile, vanity, toilet, fixtures, accessories).</p>
+            <p>A complete guest bathroom remodel priced as an all-in labor charge. Everything you'd expect — demo, waterproofing, tile, vanity install, plumbing, glass enclosure, drywall, toilet set, vent fan, and paint. Client is responsible for purchasing and delivering all finish materials.</p>
             <ul class="scope-list">
                 <li>Full demo and haul-away</li>
                 <li>Hot mop shower pan + full waterproofing</li>
@@ -715,7 +688,7 @@
                 <li>Vanity install + plumbing; client supplies vanity + fixtures</li>
                 <li>Glass shower enclosure — install; client supplies unit or Timberline coordinates</li>
                 <li>Drywall, set toilet, vent fan, and paint</li>
-                <li>All hardware and accessories; client supplies items</li>
+                <li>Hardware and accessories; client supplies items</li>
             </ul>
             <div class="budget-row">
                 <div class="budget-item">
@@ -730,7 +703,8 @@
     </div>
 
     <!-- FLOORING -->
-    <div class="phase-card">
+    <div class="phase-card earth">
+        <img src="flooring.png" alt="Whole-Home Flooring" class="phase-img" style="object-position:center 35%;">
         <div class="phase-header">
             <div class="phase-num">4</div>
             <div class="phase-header-text">
@@ -739,11 +713,11 @@
             </div>
         </div>
         <div class="phase-body">
-            <p>Full flooring replacement throughout the home — 1,970 square feet of existing flooring removed and new hardwood installed. Stair treads on all 16 stairs, plus a custom iron stair rail. All install pricing is labor only — client supplies all flooring material and baseboard. Two installation options available (choose one).</p>
+            <p>Full flooring replacement throughout the home — 1,970 square feet of existing flooring removed and new hardwood installed. Stair treads on all 16 stairs replaced, plus a custom iron stair rail. All install pricing is labor only — client supplies all flooring material and baseboard. Two installation options available.</p>
             <ul class="scope-list">
                 <li>Demo + removal of all existing flooring (1,970 sq ft) — labor + haul-away</li>
-                <li><strong>Option A:</strong> Standard glued-down hardwood install — $6/sq ft labor</li>
-                <li><strong>Option B:</strong> Herringbone glued-down hardwood install — $8.50/sq ft labor</li>
+                <li><strong>Option A:</strong> Standard glued-down hardwood install — $6/sq ft labor (1,970 sq ft)</li>
+                <li><strong>Option B:</strong> Herringbone glued-down hardwood install — $8.50/sq ft labor (1,970 sq ft)</li>
                 <li>Stair treads — install only (16 treads × $150); client supplies treads</li>
                 <li>Custom iron stair rail — supply + install (16-stair run)</li>
                 <li>Baseboard install — labor only (1,500 LF est.); client supplies material</li>
@@ -751,7 +725,7 @@
             <div class="budget-row">
                 <div class="budget-item">
                     <div>
-                        <div class="budget-lbl">Flooring — Option A (Standard Glued-Down)</div>
+                        <div class="budget-lbl">Flooring — Option A (Standard Glued-Down Hardwood)</div>
                         <div class="budget-note">Demo + install + stairs + iron rail + baseboard labor. Client supplies all material.</div>
                     </div>
                     <div class="budget-price">$42,206</div>
@@ -759,20 +733,19 @@
                 <div class="budget-divider"></div>
                 <div class="budget-item">
                     <div>
-                        <div class="budget-lbl">Flooring — Option B (Herringbone Glued-Down)</div>
-                        <div class="budget-note">Same scope, herringbone pattern. Additional ~$6,895 vs. Option A.</div>
+                        <div class="budget-lbl">Flooring — Option B (Herringbone Glued-Down Hardwood)</div>
+                        <div class="budget-note">Same scope, herringbone pattern. +$6,895 vs. Option A.</div>
                     </div>
                     <div class="budget-price">$49,101</div>
                 </div>
             </div>
-            <div class="addon-box" style="margin-top:1.5rem;">
-                <div class="addon-caveat" style="padding-top:0; border-top:none;">Floor prep (subfloor leveling, adhesive removal, patching) will be assessed after demo and quoted separately if required. This is not included in the pricing above.</div>
-            </div>
+            <div class="caveat-box">Floor prep — subfloor leveling, adhesive removal, patching — will be assessed after demo and quoted separately if required. Not included in the pricing above.</div>
         </div>
     </div>
 
     <!-- ELECTRICAL -->
     <div class="phase-card">
+        <img src="doors-electrical.png" alt="Electrical & Doors" class="phase-img" style="object-position:center 40%;">
         <div class="phase-header">
             <div class="phase-num">5</div>
             <div class="phase-header-text">
@@ -783,14 +756,14 @@
         <div class="phase-body">
             <p>A complete lighting upgrade throughout the home. Existing can lights are replaced with new fixtures; new can light rough-ins are added in rooms that need them. All five vent fans are replaced with new units using existing ductwork.</p>
             <ul class="scope-list">
-                <li>Can lights replace — 12 downstairs + 5 master bath + 2 guest bath + 4 hallways = 23 total swap-outs</li>
-                <li>Can lights new add — 3 downstairs + 4 guest rooms + 4 master bedroom = 11 new rough-ins</li>
+                <li>Can light replacements — 12 downstairs + 5 master bath + 2 guest bath + 4 hallways = 23 total swap-outs</li>
+                <li>New can light adds — 3 downstairs + 4 guest rooms + 4 master bedroom = 11 new rough-ins</li>
                 <li>Vent fans — 5 replacement units; existing ductwork assumed in place</li>
             </ul>
             <div class="budget-row">
                 <div class="budget-item">
                     <div>
-                        <div class="budget-lbl">Electrical — Whole-Home Lighting + Fans</div>
+                        <div class="budget-lbl">Electrical — Whole-Home Lighting + Vent Fans</div>
                         <div class="budget-note">Assumes existing circuits and panel are to code. Non-compliant conditions billed via change order.</div>
                     </div>
                     <div class="budget-price">$8,036</div>
@@ -809,16 +782,16 @@
             </div>
         </div>
         <div class="phase-body">
-            <p>All interior doors are replaced with taller units. Each door requires a new header, raised framing, drywall patch above the opening on both sides, and paint on all patched areas. Client supplies all doors and casing. One fire-rated door included, which requires steel framing, intumescent strip, and closer hardware.</p>
+            <p>All interior doors replaced with taller units. Each door requires a new header, raised framing, drywall patch above the opening on both sides, and paint on all repaired surfaces. Client supplies all doors and casing. One fire-rated door included with steel framing, intumescent strip, and closer hardware.</p>
             <ul class="scope-list">
-                <li>6 standard doors — install + raise header + drywall patch + paint (client supplies doors + casing)</li>
-                <li>1 fire door — install + steel frame + intumescent strip + closer + drywall patch + paint (client supplies door)</li>
+                <li>6 standard doors — install + raise header + drywall patch + paint; client supplies doors + casing</li>
+                <li>1 fire door — install + steel frame + intumescent strip + closer + drywall patch + paint; client supplies door</li>
             </ul>
             <div class="budget-row">
                 <div class="budget-item">
                     <div>
                         <div class="budget-lbl">Doors — All 7 Units (Install + Reframe + Patch + Paint)</div>
-                        <div class="budget-note">Client supplies all doors and casing. Labor includes reframe, patch, paint.</div>
+                        <div class="budget-note">Client supplies all doors and casing.</div>
                     </div>
                     <div class="budget-price">$11,620</div>
                 </div>
@@ -836,7 +809,7 @@
             </div>
         </div>
         <div class="phase-body">
-            <p>Everything required to run the project cleanly from start to finish — permit coordination and scheduling, dumpster service, final construction cleanup, and site protection throughout the build.</p>
+            <p>Everything required to run the project cleanly from start to finish — permit coordination and scheduling, dumpster service, final construction cleanup, and full site protection throughout the build.</p>
             <ul class="scope-list">
                 <li>Permit coordination + admin — applications, scheduling, inspections; labor only</li>
                 <li>Dumpster — rental + pulls for whole-home demo scope (est. 2–3 pulls)</li>
@@ -847,7 +820,7 @@
                 <div class="budget-item">
                     <div>
                         <div class="budget-lbl">Project-Wide Admin + Site</div>
-                        <div class="budget-note">Permit fees NOT included — client pays city/county directly. Site plans/structural drawings billed separately if required by city.</div>
+                        <div class="budget-note">Permit fees NOT included — client pays city/county directly. Site plans/structural drawings billed separately if required.</div>
                     </div>
                     <div class="budget-price">$5,420</div>
                 </div>
@@ -859,10 +832,11 @@
 
 <div class="section-divider"></div>
 
-<!-- ── GALLERY BREAK ── -->
+<!-- ── GALLERY ── -->
 <div class="gallery">
-    <img src="render.png" alt="Kitchen Render">
-    <img src="kitchen-existing.jpg" alt="Existing Kitchen">
+    <img src="hero.png" alt="Kitchen" style="object-position:center 40%;">
+    <img src="master-bath.png" alt="Master Bath" style="object-position:center 30%;">
+    <img src="flooring.png" alt="Flooring" style="object-position:center 35%;">
 </div>
 
 <div class="section-divider"></div>
@@ -879,13 +853,11 @@
         <li>All flooring material + baseboard — client purchases; contractor installs</li>
         <li>All doors + casing — client purchases; contractor installs</li>
         <li>Vanities, toilets, tubs, fixtures (both baths) — client purchases</li>
-        <li>Kitchen under-cabinet light fixtures — client purchases; contractor wires</li>
         <li>Permit fees — client pays city/county directly</li>
         <li>Site plans or structural drawings (if required by city)</li>
         <li>Floor prep — subfloor leveling, adhesive removal; assessed after demo</li>
         <li>Code-required electrical/plumbing upgrades found at inspection</li>
         <li>Landscaping, exterior work, furniture, window treatments</li>
-        <li>Kitchen wall removal (see Optional Add-On, +$3,000)</li>
         <li>Any work not explicitly listed in this proposal</li>
     </ul>
 </div>
@@ -903,8 +875,8 @@
                 <span class="tr-val"></span>
             </div>
             <div class="total-row">
-                <span class="tr-label">Kitchen Remodel — Full Gut &amp; Rebuild</span>
-                <span class="tr-val">$24,990</span>
+                <span class="tr-label">Kitchen Remodel — Full Gut, Rebuild + Wall Removal</span>
+                <span class="tr-val">$27,990</span>
             </div>
             <div class="total-row">
                 <span class="tr-label">Master Bathroom — Full Gut &amp; Rebuild</span>
@@ -922,7 +894,7 @@
                 <span class="tr-label">Flooring — Option A: Standard Glued-Down (1,970 sq ft + stairs + rail)</span>
                 <span class="tr-val">$42,206</span>
             </div>
-            <div class="total-row" style="opacity:0.6; font-size:0.82rem;">
+            <div class="total-row" style="opacity:0.55; font-size:0.82rem; padding-left:1rem;">
                 <span class="tr-label">— or — Option B: Herringbone Glued-Down (same scope)</span>
                 <span class="tr-val">$49,101</span>
             </div>
@@ -942,17 +914,16 @@
                 <span class="tr-label">Permit Coordination, Dumpster, Cleanup &amp; Site Protection</span>
                 <span class="tr-val">$5,420</span>
             </div>
-            <div class="total-row addon-row">
-                <span class="tr-label">Optional Add-On: Kitchen Wall Removal</span>
-                <span class="tr-val">+ $3,000</span>
-            </div>
         </div>
         <div class="total-final">
-            <span class="tf-label">Total Investment — Option A Flooring</span>
-            <span class="tf-range">~$149,500</span>
+            <div>
+                <div class="tf-label">Total Investment — Option A Flooring</div>
+                <div style="font-size:0.75rem; color:rgba(255,255,255,0.35); margin-top:0.2rem;">Option B (herringbone): ~$159,400</div>
+            </div>
+            <span class="tf-range">~$152,500</span>
         </div>
         <div class="total-caveat">
-            Flooring: choose Option A (standard, $42,206) or Option B (herringbone, $49,101) — not both. Wall removal is optional (+$3,000). Permit fees paid directly by client to city/county — not included above. Countertop allowance: $7,000 (material + fabrication + install); upgrades above allowance billed via change order. All tile, flooring, cabinets, doors, appliances, and fixtures are client-supplied. Code-compliance assumed throughout; non-compliant conditions discovered during construction will be addressed via change order.
+            Flooring: choose Option A (standard, $42,206) or Option B (herringbone, $49,101) — select one. Permit fees paid directly by client to city/county — not included. All tile, flooring, cabinets, doors, appliances, and fixtures are client-supplied. Code-compliance assumed throughout; non-compliant conditions discovered during construction will be addressed via change order.
         </div>
     </div>
 </div>
@@ -973,7 +944,7 @@
         <div class="pay-card">
             <div class="pay-pct">40%</div>
             <div class="pay-label">Midpoint</div>
-            <div class="pay-desc">Due when rough work is complete — demo done, rough plumbing and electrical passed</div>
+            <div class="pay-desc">Due when rough work is complete — demo done, rough plumbing and electrical passed inspection</div>
         </div>
         <div class="pay-card">
             <div class="pay-pct">30%</div>
