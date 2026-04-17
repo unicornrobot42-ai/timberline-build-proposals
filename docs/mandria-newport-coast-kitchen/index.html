@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Timberline Build Co — Kitchen Proposal | Mandria, Newport Coast</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --green:  #19412c;
+    --brown:  #614432;
+    --dkbrn:  #312509;
+    --navy:   #213245;
+    --gold:   #e9af3b;
+    --cream:  #faf8f4;
+    --ltgray: #f2f0ec;
+    --border: #ddd9d0;
+    --text:   #1a1a1a;
+    --muted:  #5a5550;
+  }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .page {
+    max-width: 860px;
+    margin: 0 auto;
+    background: #fff;
+    box-shadow: 0 2px 24px rgba(0,0,0,0.08);
+  }
+
+  /* ── COVER ─────────────────────────── */
+  .cover {
+    background: var(--green);
+    padding: 64px 56px 52px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; right: -60px;
+    width: 260px; height: 260px;
+    border-radius: 50%;
+    background: rgba(233,175,59,0.12);
+  }
+  .cover-logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 48px;
+  }
+  .cover-logo-mark {
+    width: 44px; height: 44px;
+    background: var(--gold);
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 20px; color: var(--dkbrn);
+    letter-spacing: -1px;
+    flex-shrink: 0;
+  }
+  .cover-logo-name {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    line-height: 1.2;
+  }
+  .cover-logo-sub {
+    color: rgba(255,255,255,0.55);
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+  .cover h1 {
+    color: #fff;
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    line-height: 1.15;
+    margin-bottom: 10px;
+  }
+  .cover-sub {
+    color: var(--gold);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 44px;
+  }
+  .cover-meta {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .cover-meta-item label {
+    display: block;
+    color: rgba(255,255,255,0.45);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+  }
+  .cover-meta-item span {
+    color: #fff;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  /* ── SECTION WRAPPER ───────────────── */
+  .section {
+    padding: 44px 56px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section:last-child { border-bottom: none; }
+
+  .section-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+  .section h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--green);
+    margin-bottom: 16px;
+    letter-spacing: -0.2px;
+  }
+  .section p {
+    color: var(--muted);
+    font-size: 13.5px;
+    line-height: 1.75;
+    margin-bottom: 12px;
+  }
+
+  /* ── SCOPE LIST ────────────────────── */
+  .scope-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .scope-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13.5px;
+    color: var(--text);
+  }
+  .scope-list li:last-child { border-bottom: none; }
+  .scope-list li::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+    margin-top: 7px;
+  }
+
+  /* ── EXCLUSIONS ────────────────────── */
+  .exclusion-list {
+    list-style: none;
+    margin: 0; padding: 0;
+  }
+  .exclusion-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .exclusion-list li:last-child { border-bottom: none; }
+  .exclusion-list li::before {
+    content: '×';
+    color: var(--brown);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.3;
+    flex-shrink: 0;
+  }
+
+  /* ── OPTIONAL ADD-ON ───────────────── */
+  .addon-box {
+    background: #fffbf2;
+    border: 1.5px solid var(--gold);
+    border-radius: 6px;
+    padding: 22px 24px;
+    margin-top: 8px;
+  }
+  .addon-box .addon-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .addon-badge {
+    background: var(--gold);
+    color: var(--dkbrn);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 3px;
+  }
+  .addon-price {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--green);
+  }
+  .addon-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--dkbrn);
+    margin-bottom: 8px;
+  }
+  .addon-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+  .addon-caveat {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px dashed var(--gold);
+    font-size: 12px;
+    color: var(--brown);
+    line-height: 1.6;
+  }
+  .addon-caveat::before {
+    content: 'ⓘ';
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  /* ── INVESTMENT TABLE ──────────────── */
+  .inv-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+  }
+  .inv-table tr.inv-row td {
+    padding: 13px 16px;
+    border-bottom: 1px solid var(--border);
+    font-size: 13.5px;
+  }
+  .inv-table tr.inv-row td:last-child {
+    text-align: right;
+    font-weight: 600;
+    color: var(--green);
+  }
+  .inv-table tr.inv-row:last-child td { border-bottom: none; }
+  .inv-table tr.inv-total td {
+    padding: 16px;
+    background: var(--green);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+  }
+  .inv-table tr.inv-total td:last-child {
+    text-align: right;
+    font-size: 22px;
+  }
+  .inv-table tr.inv-addon td {
+    padding: 13px 16px;
+    background: #fffbf2;
+    border: 1px dashed var(--gold);
+    font-size: 13px;
+    color: var(--brown);
+  }
+  .inv-table tr.inv-addon td:last-child {
+    text-align: right;
+    font-weight: 600;
+  }
+
+  /* ── TIMELINE ──────────────────────── */
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .tl-row {
+    display: flex;
+    gap: 20px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+  }
+  .tl-row:last-child { border-bottom: none; }
+  .tl-phase {
+    width: 28px; height: 28px;
+    background: var(--green);
+    color: var(--gold);
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .tl-body {}
+  .tl-label { font-size: 13.5px; font-weight: 600; color: var(--dkbrn); }
+  .tl-duration { font-size: 12px; color: var(--gold); font-weight: 600; margin: 1px 0 3px; }
+  .tl-desc { font-size: 12.5px; color: var(--muted); }
+
+  /* ── PAYMENT TERMS ─────────────────── */
+  .payment-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 4px;
+  }
+  .pay-card {
+    background: var(--ltgray);
+    border-radius: 6px;
+    padding: 20px 18px;
+    text-align: center;
+  }
+  .pay-pct {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--green);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .pay-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--dkbrn);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 4px;
+  }
+  .pay-desc {
+    font-size: 11.5px;
+    color: var(--muted);
+  }
+
+  /* ── SIGNATURE ─────────────────────── */
+  .sig-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-top: 12px;
+  }
+  .sig-block { border-top: 1.5px solid var(--dkbrn); padding-top: 10px; }
+  .sig-block .sig-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+  .sig-block .sig-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--dkbrn);
+    border-top: 1px solid var(--border);
+    padding-top: 6px;
+  }
+
+  /* ── FOOTER ────────────────────────── */
+  .footer {
+    background: var(--dkbrn);
+    padding: 22px 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .footer-brand {
+    color: var(--gold);
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .footer-contact {
+    color: rgba(255,255,255,0.6);
+    font-size: 12px;
+  }
+
+  /* ── CAVEAT BAR ────────────────────── */
+  .caveat-bar {
+    background: #fff8ec;
+    border-left: 3px solid var(--gold);
+    padding: 12px 16px;
+    margin-top: 14px;
+    font-size: 12.5px;
+    color: var(--brown);
+    line-height: 1.65;
+    border-radius: 0 4px 4px 0;
+  }
+
+  @media print {
+    body { background: #fff; }
+    .page { box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- COVER -->
+  <div class="cover">
+    <div class="cover-logo">
+      <img src="./logo.png" alt="Timberline Build Co" style="height:44px;width:auto;display:block;">
+      <div>
+        <div class="cover-logo-name">Timberline Build Co</div>
+        <div class="cover-logo-sub">Licensed General Contractor · Orange County, CA</div>
+      </div>
+    </div>
+    <div class="cover-sub">Kitchen Remodel Proposal</div>
+    <h1>Mandria<br>Newport Coast</h1>
+    <div class="cover-meta">
+      <div class="cover-meta-item">
+        <label>Prepared for</label>
+        <span>Property Owner — Mandria</span>
+      </div>
+      <div class="cover-meta-item">
+        <label>Date</label>
+        <span>April 2026</span>
+      </div>
+      <div class="cover-meta-item">
+        <label>Contact</label>
+        <span>Justin Sherman · 949-229-1692</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT OVERVIEW -->
+  <div class="section">
+    <div class="section-label">Project Overview</div>
+    <h2>Full Kitchen Remodel — Exact Footprint + Living Room Extension</h2>
+    <p>A complete renovation of the existing kitchen within its current footprint, upgraded with new cabinetry, countertops, appliances, plumbing, lighting, and backsplash — plus an extension of cabinetry and a new bar top into the adjacent living room. This scope preserves the existing layout while dramatically updating every visible and functional surface.</p>
+    <p>An optional wall removal is available to fully open the kitchen to the dining area and is detailed in the Add-Ons section below.</p>
+  </div>
+
+  <!-- SCOPE OF WORK -->
+  <div class="section">
+    <div class="section-label">Scope of Work</div>
+    <h2>What's Included</h2>
+    <ul class="scope-list">
+      <li>Demo — existing cabinets, countertops, flooring, fixtures, and hood; full haul-away</li>
+      <li>Cabinet installation — full kitchen (uppers + lowers + second wall cabinet row), dining peninsula with 12" bar overhang, and living room cabinet extension including bar top</li>
+      <li>Countertops — kitchen, dining peninsula, and living room bar top; material + install (up to $7,000 budget; see Material Allowances)</li>
+      <li>Backsplash installation — labor; client supplies tile</li>
+      <li>Plumbing — sink rough-in and hook-up, refrigerator ice/water line, garbage disposal installation</li>
+      <li>Appliance installation — range, dishwasher, microwave, and refrigerator; labor only</li>
+      <li>Under-cabinet lighting — wiring and installation; client selects fixtures</li>
+      <li>Paint — repair areas only (patched surfaces post-demo)</li>
+      <li>All debris removal and final broom clean included</li>
+    </ul>
+
+    <div class="caveat-bar">
+      All pricing assumes existing electrical, plumbing, and structural conditions are to current code. Any upgrades required by inspection will be scoped and billed via change order prior to work proceeding.
+    </div>
+  </div>
+
+  <!-- WHAT'S NOT INCLUDED -->
+  <div class="section">
+    <div class="section-label">Exclusions</div>
+    <h2>What's NOT Included</h2>
+    <ul class="exclusion-list">
+      <li>Cabinets — client purchases and delivers all cabinets; contractor installs only</li>
+      <li>Appliances — client purchases and delivers all appliances; contractor installs only</li>
+      <li>Backsplash tile — client selects and purchases; contractor installs</li>
+      <li>Under-cabinet light fixtures — client selects and purchases; contractor installs wiring</li>
+      <li>Whole-home paint — paint scope is repair/patch areas only</li>
+      <li>Wall removal (see Optional Add-On below — priced separately)</li>
+      <li>Flooring — covered under separate whole-home flooring scope</li>
+      <li>Permit fees — client pays city/county directly</li>
+    </ul>
+  </div>
+
+  <!-- MATERIAL ALLOWANCES -->
+  <div class="section">
+    <div class="section-label">Material Allowances</div>
+    <h2>Client-Provided Materials</h2>
+    <p>The following items have allowances built into the investment below. If client-selected materials exceed the stated allowance, the difference is billed as a change order.</p>
+    <ul class="scope-list">
+      <li><strong>Countertops (kitchen + peninsula + bar top) — $7,000 allowance</strong> (material + fabrication + install)</li>
+      <li>Cabinets — client-supplied; no material allowance required</li>
+      <li>Appliances — client-supplied; no material allowance required</li>
+      <li>Backsplash tile — client-supplied; no material allowance required</li>
+    </ul>
+  </div>
+
+  <!-- OPTIONAL ADD-ON -->
+  <div class="section">
+    <div class="section-label">Optional Add-On</div>
+    <h2>Available Upgrades</h2>
+
+    <div class="addon-box">
+      <div class="addon-header">
+        <span class="addon-badge">Optional</span>
+        <span class="addon-price">+ $3,000</span>
+      </div>
+      <div class="addon-title">Kitchen Wall Removal — Open to Dining Area</div>
+      <div class="addon-desc">
+        Remove the existing non-load-bearing wall between the kitchen and dining area to create a fully open floor plan. Includes all framing work, drywall repair at ceiling, floor line, and end walls, plus paint on all repaired surfaces.
+      </div>
+      <div class="addon-caveat">
+        This wall has been identified as non-load-bearing and non-structural. No engineering, structural drawings, or beam work is required or included in this price. If an on-site inspection reveals unexpected structural conditions, a change order will be issued before any work proceeds.
+      </div>
+    </div>
+  </div>
+
+  <!-- TIMELINE -->
+  <div class="section">
+    <div class="section-label">Timeline</div>
+    <h2>Estimated Schedule</h2>
+    <p style="margin-bottom:20px;">Pending material lead times, permit processing, and confirmed start date.</p>
+    <div class="timeline">
+      <div class="tl-row">
+        <div class="tl-phase">1</div>
+        <div class="tl-body">
+          <div class="tl-label">Demo & Rough Work</div>
+          <div class="tl-duration">Week 1</div>
+          <div class="tl-desc">Full demo, haul-away, plumbing and electrical rough-in, wall framing (if add-on selected)</div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-phase">2</div>
+        <div class="tl-body">
+          <div class="tl-label">Cabinet Install & Countertop Template</div>
+          <div class="tl-duration">Weeks 2–3</div>
+          <div class="tl-desc">Cabinet installation, drywall repair, countertop templating and fabrication lead time</div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-phase">3</div>
+        <div class="tl-body">
+          <div class="tl-label">Countertops, Backsplash & Finishes</div>
+          <div class="tl-duration">Weeks 4–5</div>
+          <div class="tl-desc">Countertop install, backsplash tile, plumbing trim-out, lighting, hardware</div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-phase">4</div>
+        <div class="tl-body">
+          <div class="tl-label">Appliances, Punch-Out & Final Clean</div>
+          <div class="tl-duration">Week 6</div>
+          <div class="tl-desc">Appliance installation, final inspections, touch-ups, and broom clean</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INVESTMENT -->
+  <div class="section">
+    <div class="section-label">Investment</div>
+    <h2>Project Investment Summary</h2>
+
+    <table class="inv-table">
+      <tr class="inv-row">
+        <td>Kitchen Remodel — Exact Footprint + Living Room Cabinets</td>
+        <td>$24,990</td>
+      </tr>
+      <tr class="inv-total">
+        <td>TOTAL INVESTMENT</td>
+        <td>$24,990</td>
+      </tr>
+      <tr class="inv-addon">
+        <td>Optional Add-On: Kitchen Wall Removal (open to dining)</td>
+        <td>+ $3,000</td>
+      </tr>
+    </table>
+
+    <div class="caveat-bar" style="margin-top:16px;">
+      Permit fees are not included — client pays city/county directly. If site plans or structural drawings are required by the city, those will be billed separately. Timberline will coordinate all permit applications and inspections.
+    </div>
+  </div>
+
+  <!-- PAYMENT TERMS -->
+  <div class="section">
+    <div class="section-label">Payment Terms</div>
+    <h2>Payment Schedule</h2>
+    <div class="payment-grid">
+      <div class="pay-card">
+        <div class="pay-pct">30%</div>
+        <div class="pay-label">Deposit</div>
+        <div class="pay-desc">Due at contract signing to secure your start date</div>
+      </div>
+      <div class="pay-card">
+        <div class="pay-pct">40%</div>
+        <div class="pay-label">Midpoint</div>
+        <div class="pay-desc">Due when rough work is complete and cabinets are installed</div>
+      </div>
+      <div class="pay-card">
+        <div class="pay-pct">30%</div>
+        <div class="pay-label">Completion</div>
+        <div class="pay-desc">Due upon final walkthrough and client sign-off</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TERMS & WARRANTY -->
+  <div class="section">
+    <div class="section-label">Terms & Warranty</div>
+    <h2>Terms & Conditions</h2>
+    <p>All change orders must be approved in writing before additional work proceeds. Timberline Build Co warrants all labor for <strong>1 year from project completion</strong>. Manufacturer warranties apply to all materials and fixtures. A lien release will be provided upon final payment.</p>
+  </div>
+
+  <!-- SIGNATURE -->
+  <div class="section">
+    <div class="section-label">Authorization</div>
+    <h2>Client Acceptance</h2>
+    <p>By signing below, you authorize Timberline Build Co to proceed with the scope of work described in this proposal under the payment terms stated above.</p>
+
+    <div class="sig-grid">
+      <div class="sig-block">
+        <div class="sig-label">Client Signature</div>
+        <div class="sig-name">____________________________</div>
+      </div>
+      <div class="sig-block">
+        <div class="sig-label">Date</div>
+        <div class="sig-name">____________________________</div>
+      </div>
+      <div class="sig-block" style="margin-top:32px;">
+        <div class="sig-label">Printed Name</div>
+        <div class="sig-name">____________________________</div>
+      </div>
+      <div class="sig-block" style="margin-top:32px;">
+        <div class="sig-label">Authorized — Timberline Build Co</div>
+        <div class="sig-name">Justin Sherman · 949-229-1692</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-brand">Timberline Build Co</div>
+    <div class="footer-contact">Justin Sherman · 949-229-1692 · Licensed General Contractor · Orange County, CA</div>
+  </div>
+
+</div>
+</body>
+</html>
