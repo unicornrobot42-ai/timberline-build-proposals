@@ -1,660 +1,801 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Timberline Build Co — Kitchen Proposal | Mandria, Newport Coast</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timberline Build Co. | Mandria — Newport Coast Kitchen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --forest: #19412c;
+            --earth: #312509;
+            --navy: #213245;
+            --gold: #e9af3b;
+            --cream: #faf8f4;
+            --white: #ffffff;
+            --light-gold: #fdf5e0;
+        }
 
-  :root {
-    --green:  #19412c;
-    --brown:  #614432;
-    --dkbrn:  #312509;
-    --navy:   #213245;
-    --gold:   #e9af3b;
-    --cream:  #faf8f4;
-    --ltgray: #f2f0ec;
-    --border: #ddd9d0;
-    --text:   #1a1a1a;
-    --muted:  #5a5550;
-  }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
-  body {
-    font-family: 'Montserrat', sans-serif;
-    background: var(--cream);
-    color: var(--text);
-    font-size: 14px;
-    line-height: 1.6;
-  }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            background: var(--cream);
+            line-height: 1.7;
+        }
 
-  .page {
-    max-width: 860px;
-    margin: 0 auto;
-    background: #fff;
-    box-shadow: 0 2px 24px rgba(0,0,0,0.08);
-  }
+        h1, h2, h3, h4 { font-weight: 700; line-height: 1.2; letter-spacing: -0.5px; }
+        h1 { font-size: 3.2rem; }
+        h2 { font-size: 2rem; }
+        h3 { font-size: 1.3rem; }
 
-  /* ── COVER ─────────────────────────── */
-  .cover {
-    background: var(--green);
-    padding: 64px 56px 52px;
-    position: relative;
-    overflow: hidden;
-  }
-  .cover::after {
-    content: '';
-    position: absolute;
-    bottom: -60px; right: -60px;
-    width: 260px; height: 260px;
-    border-radius: 50%;
-    background: rgba(233,175,59,0.12);
-  }
-  .cover-logo {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin-bottom: 48px;
-  }
-  .cover-logo-mark {
-    width: 44px; height: 44px;
-    background: var(--gold);
-    border-radius: 4px;
-    display: flex; align-items: center; justify-content: center;
-    font-weight: 700; font-size: 20px; color: var(--dkbrn);
-    letter-spacing: -1px;
-    flex-shrink: 0;
-  }
-  .cover-logo-name {
-    color: #fff;
-    font-size: 15px;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    line-height: 1.2;
-  }
-  .cover-logo-sub {
-    color: rgba(255,255,255,0.55);
-    font-size: 10px;
-    font-weight: 400;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    margin-top: 2px;
-  }
-  .cover h1 {
-    color: #fff;
-    font-size: 34px;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-    line-height: 1.15;
-    margin-bottom: 10px;
-  }
-  .cover-sub {
-    color: var(--gold);
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-bottom: 44px;
-  }
-  .cover-meta {
-    display: flex;
-    gap: 40px;
-    flex-wrap: wrap;
-  }
-  .cover-meta-item label {
-    display: block;
-    color: rgba(255,255,255,0.45);
-    font-size: 9px;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    margin-bottom: 3px;
-  }
-  .cover-meta-item span {
-    color: #fff;
-    font-size: 13px;
-    font-weight: 500;
-  }
+        .label {
+            text-transform: uppercase;
+            font-size: 0.65rem;
+            letter-spacing: 3px;
+            color: var(--gold);
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            display: block;
+        }
 
-  /* ── SECTION WRAPPER ───────────────── */
-  .section {
-    padding: 44px 56px;
-    border-bottom: 1px solid var(--border);
-  }
-  .section:last-child { border-bottom: none; }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-  .section-label {
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 6px;
-  }
-  .section h2 {
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--green);
-    margin-bottom: 16px;
-    letter-spacing: -0.2px;
-  }
-  .section p {
-    color: var(--muted);
-    font-size: 13.5px;
-    line-height: 1.75;
-    margin-bottom: 12px;
-  }
+        /* ── HERO ── */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
 
-  /* ── SCOPE LIST ────────────────────── */
-  .scope-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  .scope-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 10px 0;
-    border-bottom: 1px solid var(--border);
-    font-size: 13.5px;
-    color: var(--text);
-  }
-  .scope-list li:last-child { border-bottom: none; }
-  .scope-list li::before {
-    content: '';
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--gold);
-    flex-shrink: 0;
-    margin-top: 7px;
-  }
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image: url('kitchen-existing.jpg');
+            background-size: cover;
+            background-position: center;
+            z-index: 0;
+        }
 
-  /* ── EXCLUSIONS ────────────────────── */
-  .exclusion-list {
-    list-style: none;
-    margin: 0; padding: 0;
-  }
-  .exclusion-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 9px 0;
-    border-bottom: 1px solid var(--border);
-    font-size: 13px;
-    color: var(--muted);
-  }
-  .exclusion-list li:last-child { border-bottom: none; }
-  .exclusion-list li::before {
-    content: '×';
-    color: var(--brown);
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 1.3;
-    flex-shrink: 0;
-  }
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(25,65,44,0.93) 0%, rgba(25,65,44,0.78) 55%, rgba(25,65,44,0.52) 100%);
+        }
 
-  /* ── OPTIONAL ADD-ON ───────────────── */
-  .addon-box {
-    background: #fffbf2;
-    border: 1.5px solid var(--gold);
-    border-radius: 6px;
-    padding: 22px 24px;
-    margin-top: 8px;
-  }
-  .addon-box .addon-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 10px;
-  }
-  .addon-badge {
-    background: var(--gold);
-    color: var(--dkbrn);
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    padding: 3px 8px;
-    border-radius: 3px;
-  }
-  .addon-price {
-    font-size: 17px;
-    font-weight: 700;
-    color: var(--green);
-  }
-  .addon-title {
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--dkbrn);
-    margin-bottom: 8px;
-  }
-  .addon-desc {
-    font-size: 13px;
-    color: var(--muted);
-    line-height: 1.7;
-  }
-  .addon-caveat {
-    display: flex;
-    gap: 10px;
-    align-items: flex-start;
-    margin-top: 12px;
-    padding-top: 12px;
-    border-top: 1px dashed var(--gold);
-    font-size: 12px;
-    color: var(--brown);
-    line-height: 1.6;
-  }
-  .addon-caveat::before {
-    content: 'ⓘ';
-    font-size: 14px;
-    flex-shrink: 0;
-  }
+        .hero-top {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2.5rem 3rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
 
-  /* ── INVESTMENT TABLE ──────────────── */
-  .inv-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 8px;
-  }
-  .inv-table tr.inv-row td {
-    padding: 13px 16px;
-    border-bottom: 1px solid var(--border);
-    font-size: 13.5px;
-  }
-  .inv-table tr.inv-row td:last-child {
-    text-align: right;
-    font-weight: 600;
-    color: var(--green);
-  }
-  .inv-table tr.inv-row:last-child td { border-bottom: none; }
-  .inv-table tr.inv-total td {
-    padding: 16px;
-    background: var(--green);
-    color: #fff;
-    font-size: 15px;
-    font-weight: 700;
-  }
-  .inv-table tr.inv-total td:last-child {
-    text-align: right;
-    font-size: 22px;
-  }
-  .inv-table tr.inv-addon td {
-    padding: 13px 16px;
-    background: #fffbf2;
-    border: 1px dashed var(--gold);
-    font-size: 13px;
-    color: var(--brown);
-  }
-  .inv-table tr.inv-addon td:last-child {
-    text-align: right;
-    font-weight: 600;
-  }
+        .logo { height: 52px; mix-blend-mode: lighten; }
 
-  /* ── TIMELINE ──────────────────────── */
-  .timeline {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-  .tl-row {
-    display: flex;
-    gap: 20px;
-    padding: 12px 0;
-    border-bottom: 1px solid var(--border);
-    align-items: flex-start;
-  }
-  .tl-row:last-child { border-bottom: none; }
-  .tl-phase {
-    width: 28px; height: 28px;
-    background: var(--green);
-    color: var(--gold);
-    border-radius: 50%;
-    font-size: 12px;
-    font-weight: 700;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-  .tl-body {}
-  .tl-label { font-size: 13.5px; font-weight: 600; color: var(--dkbrn); }
-  .tl-duration { font-size: 12px; color: var(--gold); font-weight: 600; margin: 1px 0 3px; }
-  .tl-desc { font-size: 12.5px; color: var(--muted); }
+        .hero-date {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.6);
+            font-weight: 600;
+        }
 
-  /* ── PAYMENT TERMS ─────────────────── */
-  .payment-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    margin-top: 4px;
-  }
-  .pay-card {
-    background: var(--ltgray);
-    border-radius: 6px;
-    padding: 20px 18px;
-    text-align: center;
-  }
-  .pay-pct {
-    font-size: 28px;
-    font-weight: 700;
-    color: var(--green);
-    line-height: 1;
-    margin-bottom: 6px;
-  }
-  .pay-label {
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--dkbrn);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-bottom: 4px;
-  }
-  .pay-desc {
-    font-size: 11.5px;
-    color: var(--muted);
-  }
+        .hero-body {
+            position: relative;
+            z-index: 1;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 4rem 3rem;
+            animation: fadeUp 0.8s ease both;
+            color: var(--white);
+        }
 
-  /* ── SIGNATURE ─────────────────────── */
-  .sig-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-    margin-top: 12px;
-  }
-  .sig-block { border-top: 1.5px solid var(--dkbrn); padding-top: 10px; }
-  .sig-block .sig-label {
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--muted);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-bottom: 28px;
-  }
-  .sig-block .sig-name {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--dkbrn);
-    border-top: 1px solid var(--border);
-    padding-top: 6px;
-  }
+        .hero-body h1 { color: var(--white); margin-bottom: 1rem; max-width: 680px; }
+        .hero-body h1 span { color: var(--gold); }
+        .hero-body p { color: rgba(255,255,255,0.7); max-width: 520px; font-size: 0.95rem; }
 
-  /* ── FOOTER ────────────────────────── */
-  .footer {
-    background: var(--dkbrn);
-    padding: 22px 56px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-  .footer-brand {
-    color: var(--gold);
-    font-size: 13px;
-    font-weight: 600;
-  }
-  .footer-contact {
-    color: rgba(255,255,255,0.6);
-    font-size: 12px;
-  }
+        .hero-meta {
+            display: flex;
+            gap: 3rem;
+            margin-top: 3rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255,255,255,0.15);
+            flex-wrap: wrap;
+        }
 
-  /* ── CAVEAT BAR ────────────────────── */
-  .caveat-bar {
-    background: #fff8ec;
-    border-left: 3px solid var(--gold);
-    padding: 12px 16px;
-    margin-top: 14px;
-    font-size: 12.5px;
-    color: var(--brown);
-    line-height: 1.65;
-    border-radius: 0 4px 4px 0;
-  }
+        .meta-label {
+            font-size: 0.62rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.45);
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
 
-  @media print {
-    body { background: #fff; }
-    .page { box-shadow: none; }
-  }
-</style>
+        .meta-val { font-size: 0.95rem; font-weight: 600; color: var(--white); }
+
+        .hero-bottom {
+            position: relative;
+            z-index: 1;
+            padding: 2rem 3rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(233,175,59,0.15);
+            border: 1px solid rgba(233,175,59,0.35);
+            color: var(--gold);
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 0.4rem 1rem;
+            border-radius: 100px;
+        }
+
+        /* ── SECTIONS ── */
+        .section {
+            padding: 5rem 3rem;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(to right, var(--gold), transparent);
+            margin: 0 3rem;
+            opacity: 0.25;
+        }
+
+        /* ── FULL BLEED IMAGE BREAK ── */
+        .img-break {
+            width: 100%;
+            aspect-ratio: 16 / 5;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            min-height: 200px;
+            max-height: 480px;
+        }
+
+        .img-break-caption {
+            background: var(--forest);
+            color: rgba(255,255,255,0.6);
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+            padding: 0.75rem 3rem;
+        }
+
+        /* ── NOTICE ── */
+        .notice-banner {
+            background: var(--light-gold);
+            border-left: 5px solid var(--gold);
+            padding: 2rem 3rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+        }
+
+        .notice-icon { font-size: 1.8rem; flex-shrink: 0; }
+        .notice-banner h3 { color: var(--earth); margin-bottom: 0.4rem; font-size: 1.05rem; }
+        .notice-banner p { color: #555; font-size: 0.9rem; line-height: 1.7; }
+
+        /* ── OVERVIEW CARDS ── */
+        .overview-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin-top: 2rem;
+        }
+
+        .overview-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid #eee;
+        }
+
+        .overview-card .oc-label {
+            font-size: 0.62rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 800;
+            margin-bottom: 0.4rem;
+        }
+
+        .overview-card .oc-val { font-size: 1rem; font-weight: 600; color: var(--earth); }
+
+        /* ── SCOPE CARD ── */
+        .scope-card {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.07);
+            border: 1px solid #ececec;
+        }
+
+        .scope-card.highlight { border: 2px solid var(--gold); box-shadow: 0 4px 30px rgba(233,175,59,0.15); }
+
+        .scope-img {
+            width: 100%;
+            aspect-ratio: 16 / 7;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            min-height: 180px;
+            max-height: 380px;
+        }
+
+        .scope-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1.8rem 2.5rem;
+            background: var(--forest);
+            color: var(--white);
+        }
+
+        .scope-card.highlight .scope-header { background: var(--navy); }
+
+        .scope-num {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--gold);
+            color: var(--earth);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            font-weight: 900;
+            flex-shrink: 0;
+        }
+
+        .scope-header-text h3 { font-size: 1.2rem; color: var(--white); margin-bottom: 0.15rem; }
+
+        .scope-sub {
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.5);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        .scope-body { padding: 2rem 2.5rem; }
+        .scope-body p { color: #555; font-size: 0.93rem; line-height: 1.8; margin-bottom: 1.2rem; }
+        .scope-body p:last-of-type { margin-bottom: 0; }
+
+        /* ── SCOPE LIST ── */
+        .scope-items {
+            list-style: none;
+            margin: 1.2rem 0 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .scope-items li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.9rem;
+            padding: 0.7rem 0;
+            border-bottom: 1px solid #f0ece5;
+            font-size: 0.88rem;
+            color: #444;
+            line-height: 1.6;
+        }
+
+        .scope-items li:last-child { border-bottom: none; }
+
+        .scope-items li::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--gold);
+            flex-shrink: 0;
+            margin-top: 7px;
+        }
+
+        /* ── BUDGET ROW ── */
+        .phase-budget-row {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            padding: 1.5rem;
+            background: var(--cream);
+            border-radius: 10px;
+            margin-top: 1.5rem;
+            border: 1px solid #e8e3da;
+        }
+
+        .budget-row-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .budget-label {
+            font-size: 0.68rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--forest);
+            font-weight: 800;
+        }
+
+        .budget-note { font-size: 0.72rem; color: #999; margin-top: 0.1rem; }
+        .budget-range { font-size: 1.3rem; font-weight: 800; color: var(--forest); white-space: nowrap; }
+        .budget-divider { height: 1px; background: #e0dbd2; }
+
+        /* ── ADDON BOX ── */
+        .addon-box {
+            background: #fffbf2;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            border: 1.5px dashed var(--gold);
+        }
+
+        .addon-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .addon-badge {
+            background: var(--gold);
+            color: var(--earth);
+            font-size: 0.62rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 0.3rem 0.9rem;
+            border-radius: 100px;
+        }
+
+        .addon-price { font-size: 1.2rem; font-weight: 800; color: var(--forest); }
+        .addon-title { font-size: 0.95rem; font-weight: 700; color: var(--earth); margin-bottom: 0.5rem; }
+        .addon-desc { font-size: 0.85rem; color: #666; line-height: 1.7; margin-bottom: 0.75rem; }
+
+        .addon-caveat {
+            display: flex;
+            gap: 0.75rem;
+            align-items: flex-start;
+            padding-top: 0.75rem;
+            border-top: 1px dashed rgba(233,175,59,0.5);
+            font-size: 0.8rem;
+            color: #8b6914;
+            line-height: 1.65;
+        }
+
+        .addon-caveat::before { content: 'ⓘ'; font-size: 1rem; flex-shrink: 0; }
+
+        /* ── NOT INCLUDED ── */
+        .not-included-list {
+            list-style: none;
+            margin-top: 1.5rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+        }
+
+        .not-included-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            font-size: 0.88rem;
+            color: #555;
+        }
+
+        .not-included-list li::before {
+            content: '—';
+            color: var(--forest);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        /* ── TOTAL BLOCK ── */
+        .total-block {
+            background: var(--forest);
+            border-radius: 16px;
+            padding: 3rem;
+            color: var(--white);
+        }
+
+        .total-phases { display: flex; flex-direction: column; gap: 0; margin: 1.5rem 0; }
+
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .total-row .tr-label { color: rgba(255,255,255,0.65); font-weight: 500; }
+        .total-row .tr-val { color: var(--white); font-weight: 700; white-space: nowrap; }
+
+        .total-row.addon-row .tr-label { color: rgba(233,175,59,0.75); }
+        .total-row.addon-row .tr-val { color: var(--gold); }
+
+        .total-final {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding-top: 1.5rem;
+            margin-top: 0.5rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tf-label { font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); font-weight: 800; }
+        .tf-range { font-size: 2.2rem; font-weight: 900; color: var(--gold); letter-spacing: -1px; }
+
+        .total-caveat {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.83rem;
+            color: rgba(255,255,255,0.5);
+            line-height: 1.7;
+        }
+
+        /* ── PAYMENT ── */
+        .payment-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.2rem;
+            margin-top: 2rem;
+        }
+
+        .pay-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 1.8rem 1.5rem;
+            text-align: center;
+            border: 1px solid #eee;
+        }
+
+        .pay-pct { font-size: 2.2rem; font-weight: 900; color: var(--forest); line-height: 1; margin-bottom: 0.5rem; }
+        .pay-label { font-size: 0.65rem; font-weight: 800; color: var(--earth); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 0.4rem; }
+        .pay-desc { font-size: 0.82rem; color: #777; }
+
+        /* ── WARRANTY ── */
+        .warranty-block {
+            background: var(--navy);
+            border-radius: 16px;
+            padding: 2.5rem 3rem;
+            color: var(--white);
+        }
+
+        .warranty-block .label { color: var(--gold); }
+        .warranty-block p { color: rgba(255,255,255,0.65); font-size: 0.92rem; line-height: 1.8; }
+
+        /* ── SIGNATURE ── */
+        .sig-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem 2rem;
+            margin-top: 2rem;
+        }
+
+        .sig-block { }
+        .sig-line { border-bottom: 1.5px solid #333; margin-bottom: 0.5rem; height: 40px; }
+        .sig-label { font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; color: #999; font-weight: 700; }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--earth);
+            color: var(--white);
+            padding: 3rem;
+            text-align: center;
+        }
+
+        footer img { height: 44px; margin-bottom: 1.5rem; mix-blend-mode: lighten; opacity: 0.85; }
+        footer p { font-size: 0.83rem; color: rgba(255,255,255,0.45); margin-bottom: 0.4rem; }
+        footer a { color: var(--gold); }
+
+        @media (max-width: 680px) {
+            h1 { font-size: 2rem; }
+            .hero-top, .hero-body, .hero-bottom { padding: 1.5rem; }
+            .section { padding: 3rem 1.5rem; }
+            .notice-banner { padding: 1.5rem; flex-direction: column; }
+            .overview-grid, .not-included-list, .payment-grid { grid-template-columns: 1fr; }
+            .hero-meta { flex-direction: column; gap: 1.2rem; }
+            .scope-header, .scope-body { padding: 1.5rem; }
+            .total-block { padding: 2rem 1.5rem; }
+            .tf-range { font-size: 1.7rem; }
+            .sig-grid { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
-<div class="page">
 
-  <!-- COVER -->
-  <div class="cover">
-    <div class="cover-logo">
-      <img src="./logo.png" alt="Timberline Build Co" style="height:44px;width:auto;display:block;">
-      <div>
-        <div class="cover-logo-name">Timberline Build Co</div>
-        <div class="cover-logo-sub">Licensed General Contractor · Orange County, CA</div>
-      </div>
+<!-- ── HERO ── -->
+<section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-top">
+        <img src="logo.png" alt="Timberline Build Co." class="logo">
+        <span class="hero-date">April 2026</span>
     </div>
-    <div class="cover-sub">Kitchen Remodel Proposal</div>
-    <h1>Mandria<br>Newport Coast</h1>
-    <div class="cover-meta">
-      <div class="cover-meta-item">
-        <label>Prepared for</label>
-        <span>Property Owner — Mandria</span>
-      </div>
-      <div class="cover-meta-item">
-        <label>Date</label>
-        <span>April 2026</span>
-      </div>
-      <div class="cover-meta-item">
-        <label>Contact</label>
-        <span>Justin Sherman · 949-229-1692</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- PROJECT OVERVIEW -->
-  <div class="section">
-    <div class="section-label">Project Overview</div>
-    <h2>Full Kitchen Remodel — Exact Footprint + Living Room Extension</h2>
-    <p>A complete renovation of the existing kitchen within its current footprint, upgraded with new cabinetry, countertops, appliances, plumbing, lighting, and backsplash — plus an extension of cabinetry and a new bar top into the adjacent living room. This scope preserves the existing layout while dramatically updating every visible and functional surface.</p>
-    <p>An optional wall removal is available to fully open the kitchen to the dining area and is detailed in the Add-Ons section below.</p>
-  </div>
-
-  <!-- SCOPE OF WORK -->
-  <div class="section">
-    <div class="section-label">Scope of Work</div>
-    <h2>What's Included</h2>
-    <ul class="scope-list">
-      <li>Demo — existing cabinets, countertops, flooring, fixtures, and hood; full haul-away</li>
-      <li>Cabinet installation — full kitchen (uppers + lowers + second wall cabinet row), dining peninsula with 12" bar overhang, and living room cabinet extension including bar top</li>
-      <li>Countertops — kitchen, dining peninsula, and living room bar top; material + install (up to $7,000 budget; see Material Allowances)</li>
-      <li>Backsplash installation — labor; client supplies tile</li>
-      <li>Plumbing — sink rough-in and hook-up, refrigerator ice/water line, garbage disposal installation</li>
-      <li>Appliance installation — range, dishwasher, microwave, and refrigerator; labor only</li>
-      <li>Under-cabinet lighting — wiring and installation; client selects fixtures</li>
-      <li>Paint — repair areas only (patched surfaces post-demo)</li>
-      <li>All debris removal and final broom clean included</li>
-    </ul>
-
-    <div class="caveat-bar">
-      All pricing assumes existing electrical, plumbing, and structural conditions are to current code. Any upgrades required by inspection will be scoped and billed via change order prior to work proceeding.
-    </div>
-  </div>
-
-  <!-- WHAT'S NOT INCLUDED -->
-  <div class="section">
-    <div class="section-label">Exclusions</div>
-    <h2>What's NOT Included</h2>
-    <ul class="exclusion-list">
-      <li>Cabinets — client purchases and delivers all cabinets; contractor installs only</li>
-      <li>Appliances — client purchases and delivers all appliances; contractor installs only</li>
-      <li>Backsplash tile — client selects and purchases; contractor installs</li>
-      <li>Under-cabinet light fixtures — client selects and purchases; contractor installs wiring</li>
-      <li>Whole-home paint — paint scope is repair/patch areas only</li>
-      <li>Wall removal (see Optional Add-On below — priced separately)</li>
-      <li>Flooring — covered under separate whole-home flooring scope</li>
-      <li>Permit fees — client pays city/county directly</li>
-    </ul>
-  </div>
-
-  <!-- MATERIAL ALLOWANCES -->
-  <div class="section">
-    <div class="section-label">Material Allowances</div>
-    <h2>Client-Provided Materials</h2>
-    <p>The following items have allowances built into the investment below. If client-selected materials exceed the stated allowance, the difference is billed as a change order.</p>
-    <ul class="scope-list">
-      <li><strong>Countertops (kitchen + peninsula + bar top) — $7,000 allowance</strong> (material + fabrication + install)</li>
-      <li>Cabinets — client-supplied; no material allowance required</li>
-      <li>Appliances — client-supplied; no material allowance required</li>
-      <li>Backsplash tile — client-supplied; no material allowance required</li>
-    </ul>
-  </div>
-
-  <!-- OPTIONAL ADD-ON -->
-  <div class="section">
-    <div class="section-label">Optional Add-On</div>
-    <h2>Available Upgrades</h2>
-
-    <div class="addon-box">
-      <div class="addon-header">
-        <span class="addon-badge">Optional</span>
-        <span class="addon-price">+ $3,000</span>
-      </div>
-      <div class="addon-title">Kitchen Wall Removal — Open to Dining Area</div>
-      <div class="addon-desc">
-        Remove the existing non-load-bearing wall between the kitchen and dining area to create a fully open floor plan. Includes all framing work, drywall repair at ceiling, floor line, and end walls, plus paint on all repaired surfaces.
-      </div>
-      <div class="addon-caveat">
-        This wall has been identified as non-load-bearing and non-structural. No engineering, structural drawings, or beam work is required or included in this price. If an on-site inspection reveals unexpected structural conditions, a change order will be issued before any work proceeds.
-      </div>
-    </div>
-  </div>
-
-  <!-- TIMELINE -->
-  <div class="section">
-    <div class="section-label">Timeline</div>
-    <h2>Estimated Schedule</h2>
-    <p style="margin-bottom:20px;">Pending material lead times, permit processing, and confirmed start date.</p>
-    <div class="timeline">
-      <div class="tl-row">
-        <div class="tl-phase">1</div>
-        <div class="tl-body">
-          <div class="tl-label">Demo & Rough Work</div>
-          <div class="tl-duration">Week 1</div>
-          <div class="tl-desc">Full demo, haul-away, plumbing and electrical rough-in, wall framing (if add-on selected)</div>
+    <div class="hero-body">
+        <span class="label">Kitchen Remodel Proposal</span>
+        <h1>Mandria<br><span>Newport Coast</span></h1>
+        <p>A complete kitchen transformation — new cabinetry, countertops, lighting, plumbing, and appliances — plus an extension into the living room with added cabinetry and bar top.</p>
+        <div class="hero-meta">
+            <div>
+                <div class="meta-label">Prepared for</div>
+                <div class="meta-val">Property Owner — Mandria</div>
+            </div>
+            <div>
+                <div class="meta-label">Location</div>
+                <div class="meta-val">Newport Coast, CA</div>
+            </div>
+            <div>
+                <div class="meta-label">Project Type</div>
+                <div class="meta-val">Full Kitchen Remodel</div>
+            </div>
+            <div>
+                <div class="meta-label">Contact</div>
+                <div class="meta-val">Justin Sherman · 949-229-1692</div>
+            </div>
         </div>
-      </div>
-      <div class="tl-row">
-        <div class="tl-phase">2</div>
-        <div class="tl-body">
-          <div class="tl-label">Cabinet Install & Countertop Template</div>
-          <div class="tl-duration">Weeks 2–3</div>
-          <div class="tl-desc">Cabinet installation, drywall repair, countertop templating and fabrication lead time</div>
+    </div>
+    <div class="hero-bottom">
+        <span class="tag">Full Remodel</span>
+        <span class="tag">Exact Footprint</span>
+        <span class="tag">Living Room Extension</span>
+        <span class="tag">Optional: Open Wall</span>
+    </div>
+</section>
+
+<!-- ── OVERVIEW ── -->
+<div class="section">
+    <span class="label">Project Overview</span>
+    <h2 style="color:var(--earth); margin-bottom:1rem;">What We're Building</h2>
+    <p style="color:#555; font-size:0.95rem; max-width:700px; line-height:1.8;">
+        A full kitchen remodel within the existing footprint — gutted to the studs and rebuilt with all-new cabinetry, countertops, backsplash, plumbing, under-cabinet lighting, and appliance installation. The scope extends into the adjacent living room with new cabinetry and a custom bar top, creating a seamless flow between both spaces.
+    </p>
+    <div class="overview-grid">
+        <div class="overview-card">
+            <div class="oc-label">Base Investment</div>
+            <div class="oc-val">$24,990</div>
         </div>
-      </div>
-      <div class="tl-row">
-        <div class="tl-phase">3</div>
-        <div class="tl-body">
-          <div class="tl-label">Countertops, Backsplash & Finishes</div>
-          <div class="tl-duration">Weeks 4–5</div>
-          <div class="tl-desc">Countertop install, backsplash tile, plumbing trim-out, lighting, hardware</div>
+        <div class="overview-card">
+            <div class="oc-label">Estimated Timeline</div>
+            <div class="oc-val">5–6 weeks</div>
         </div>
-      </div>
-      <div class="tl-row">
-        <div class="tl-phase">4</div>
-        <div class="tl-body">
-          <div class="tl-label">Appliances, Punch-Out & Final Clean</div>
-          <div class="tl-duration">Week 6</div>
-          <div class="tl-desc">Appliance installation, final inspections, touch-ups, and broom clean</div>
+        <div class="overview-card">
+            <div class="oc-label">Optional Add-On</div>
+            <div class="oc-val">Wall Removal +$3,000</div>
         </div>
-      </div>
+        <div class="overview-card">
+            <div class="oc-label">Payment Terms</div>
+            <div class="oc-val">30 / 40 / 30</div>
+        </div>
     </div>
-  </div>
-
-  <!-- INVESTMENT -->
-  <div class="section">
-    <div class="section-label">Investment</div>
-    <h2>Project Investment Summary</h2>
-
-    <table class="inv-table">
-      <tr class="inv-row">
-        <td>Kitchen Remodel — Exact Footprint + Living Room Cabinets</td>
-        <td>$24,990</td>
-      </tr>
-      <tr class="inv-total">
-        <td>TOTAL INVESTMENT</td>
-        <td>$24,990</td>
-      </tr>
-      <tr class="inv-addon">
-        <td>Optional Add-On: Kitchen Wall Removal (open to dining)</td>
-        <td>+ $3,000</td>
-      </tr>
-    </table>
-
-    <div class="caveat-bar" style="margin-top:16px;">
-      Permit fees are not included — client pays city/county directly. If site plans or structural drawings are required by the city, those will be billed separately. Timberline will coordinate all permit applications and inspections.
-    </div>
-  </div>
-
-  <!-- PAYMENT TERMS -->
-  <div class="section">
-    <div class="section-label">Payment Terms</div>
-    <h2>Payment Schedule</h2>
-    <div class="payment-grid">
-      <div class="pay-card">
-        <div class="pay-pct">30%</div>
-        <div class="pay-label">Deposit</div>
-        <div class="pay-desc">Due at contract signing to secure your start date</div>
-      </div>
-      <div class="pay-card">
-        <div class="pay-pct">40%</div>
-        <div class="pay-label">Midpoint</div>
-        <div class="pay-desc">Due when rough work is complete and cabinets are installed</div>
-      </div>
-      <div class="pay-card">
-        <div class="pay-pct">30%</div>
-        <div class="pay-label">Completion</div>
-        <div class="pay-desc">Due upon final walkthrough and client sign-off</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- TERMS & WARRANTY -->
-  <div class="section">
-    <div class="section-label">Terms & Warranty</div>
-    <h2>Terms & Conditions</h2>
-    <p>All change orders must be approved in writing before additional work proceeds. Timberline Build Co warrants all labor for <strong>1 year from project completion</strong>. Manufacturer warranties apply to all materials and fixtures. A lien release will be provided upon final payment.</p>
-  </div>
-
-  <!-- SIGNATURE -->
-  <div class="section">
-    <div class="section-label">Authorization</div>
-    <h2>Client Acceptance</h2>
-    <p>By signing below, you authorize Timberline Build Co to proceed with the scope of work described in this proposal under the payment terms stated above.</p>
-
-    <div class="sig-grid">
-      <div class="sig-block">
-        <div class="sig-label">Client Signature</div>
-        <div class="sig-name">____________________________</div>
-      </div>
-      <div class="sig-block">
-        <div class="sig-label">Date</div>
-        <div class="sig-name">____________________________</div>
-      </div>
-      <div class="sig-block" style="margin-top:32px;">
-        <div class="sig-label">Printed Name</div>
-        <div class="sig-name">____________________________</div>
-      </div>
-      <div class="sig-block" style="margin-top:32px;">
-        <div class="sig-label">Authorized — Timberline Build Co</div>
-        <div class="sig-name">Justin Sherman · 949-229-1692</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- FOOTER -->
-  <div class="footer">
-    <div class="footer-brand">Timberline Build Co</div>
-    <div class="footer-contact">Justin Sherman · 949-229-1692 · Licensed General Contractor · Orange County, CA</div>
-  </div>
-
 </div>
+
+<div class="section-divider"></div>
+
+<!-- ── RENDER BREAK ── -->
+<img src="render.png" alt="Mandria Kitchen — Concept Render" class="img-break" style="max-height:420px; aspect-ratio:16/6; object-position:center;">
+<div class="img-break-caption">Concept Render · Timberline Build Co.</div>
+
+<div class="section-divider"></div>
+
+<!-- ── SCOPE ── -->
+<div class="section">
+    <span class="label">Scope of Work</span>
+    <h2 style="color:var(--earth); margin-bottom:0.4rem;">What's Included</h2>
+    <p style="color:#888; font-size:0.85rem; margin-bottom:2.5rem;">Full scope for the base project. Optional wall removal is listed separately below.</p>
+
+    <!-- BASE SCOPE -->
+    <div class="scope-card highlight">
+        <img src="kitchen-existing.jpg" alt="Existing kitchen" class="scope-img">
+        <div class="scope-header">
+            <div class="scope-num">✓</div>
+            <div class="scope-header-text">
+                <h3>Kitchen Remodel — Exact Footprint + Living Room Extension</h3>
+                <div class="scope-sub">Full gut &amp; rebuild · All finishes updated</div>
+            </div>
+        </div>
+        <div class="scope-body">
+            <p>Complete removal of existing cabinets, countertops, appliances, fixtures, and hood — everything out, everything new. The kitchen is rebuilt within its current footprint with an all-new layout, second row of upper cabinets, and a peninsula with 12-inch bar overhang. Cabinetry extends into the adjacent living room with additional storage and a new bar top.</p>
+            <ul class="scope-items">
+                <li>Full kitchen demo — cabinets, countertops, fixtures, hood, flooring; full haul-away</li>
+                <li>Cabinet installation — full kitchen (uppers + lowers + second row), peninsula with 12" bar overhang, living room extension cabs and bar top; labor only, client supplies cabinets</li>
+                <li>Countertops — kitchen, peninsula, and living room bar top; material + fabrication + install ($7,000 allowance)</li>
+                <li>Backsplash — tile installation labor; client supplies tile</li>
+                <li>Plumbing — sink rough-in and hook-up, refrigerator ice/water line, garbage disposal install</li>
+                <li>Appliance installation — range, dishwasher, microwave, refrigerator; labor only, client supplies appliances</li>
+                <li>Under-cabinet lighting — wiring and install; client selects fixtures</li>
+                <li>Patch and paint — repair areas from demo only</li>
+                <li>All debris removal and final broom clean included</li>
+            </ul>
+            <div class="phase-budget-row">
+                <div class="budget-row-item">
+                    <div>
+                        <div class="budget-label">Base Investment — Exact Footprint + Living Room Cabs</div>
+                        <div class="budget-note">All labor + countertop material/install. Client supplies cabinets, appliances, tile, fixtures.</div>
+                    </div>
+                    <div class="budget-range">$24,990</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- OPTIONAL ADD-ON -->
+    <div class="addon-box">
+        <div class="addon-header">
+            <span class="addon-badge">Optional Add-On</span>
+            <span class="addon-price">+ $3,000</span>
+        </div>
+        <div class="addon-title">Kitchen Wall Removal — Open to Dining Area</div>
+        <div class="addon-desc">Remove the existing wall between the kitchen and dining area to create a fully open floor plan. Includes all framing work, drywall repair at ceiling, floor line, and end walls, plus paint on all repaired surfaces. Adds approximately 1 week to the project timeline.</div>
+        <div class="addon-caveat">
+            This wall has been identified as non-load-bearing and non-structural. No engineering, structural drawings, or beam work is included in this price. If an on-site inspection reveals unexpected structural conditions, a change order will be issued before any work proceeds.
+        </div>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ── NOT INCLUDED ── -->
+<div class="section">
+    <span class="label">Exclusions</span>
+    <h2 style="color:var(--earth); margin-bottom:0.4rem;">What's NOT Included</h2>
+    <p style="color:#888; font-size:0.85rem; margin-bottom:0.5rem;">The following are excluded from this proposal. Any additions require a written change order.</p>
+    <ul class="not-included-list">
+        <li>Cabinets — client purchases; contractor installs</li>
+        <li>Appliances — client purchases; contractor installs</li>
+        <li>Backsplash tile — client purchases; contractor installs</li>
+        <li>Under-cabinet light fixtures — client purchases; contractor wires</li>
+        <li>Wall removal (see Optional Add-On above)</li>
+        <li>Flooring — covered under separate whole-home scope</li>
+        <li>Whole-home paint — repair/patch areas only</li>
+        <li>Permit fees — client pays city/county directly</li>
+        <li>Code-required upgrades found during inspection — change order</li>
+        <li>Any work not explicitly listed in this proposal</li>
+    </ul>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ── RENDER BREAK 2 ── -->
+<img src="render.png" alt="Kitchen Render" class="img-break" style="object-position:bottom; max-height:360px;">
+<div class="img-break-caption">Concept Render · Timberline Build Co. · Newport Coast</div>
+
+<div class="section-divider"></div>
+
+<!-- ── INVESTMENT ── -->
+<div class="section">
+    <span class="label">Investment Summary</span>
+    <div class="total-block">
+        <span class="label">Kitchen Remodel — Mandria / Newport Coast</span>
+        <div class="total-phases">
+            <div class="total-row">
+                <span class="tr-label">Kitchen Remodel — Exact Footprint + Living Room Cabs</span>
+                <span class="tr-val">$24,990</span>
+            </div>
+            <div class="total-row addon-row" style="border-bottom:none;">
+                <span class="tr-label">Optional: Wall Removal — Open to Dining</span>
+                <span class="tr-val">+ $3,000</span>
+            </div>
+        </div>
+        <div class="total-final">
+            <span class="tf-label">Base Investment</span>
+            <span class="tf-range">$24,990</span>
+        </div>
+        <div class="total-caveat">
+            Permit fees are not included — client pays city/county directly. If site plans or structural drawings are required by the city, those will be billed separately. Timberline will coordinate all permit applications and inspections. Countertop allowance: $7,000 (material + fabrication + install). Upgrades above allowance billed via change order. Pricing assumes existing electrical, plumbing, and structural conditions are to current code.
+        </div>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ── PAYMENT TERMS ── -->
+<div class="section">
+    <span class="label">Payment Terms</span>
+    <h2 style="color:var(--earth); margin-bottom:0.4rem;">Payment Schedule</h2>
+    <p style="color:#888; font-size:0.85rem; margin-bottom:0.5rem;">Standard Timberline payment terms. No financing — direct pay only.</p>
+    <div class="payment-grid">
+        <div class="pay-card">
+            <div class="pay-pct">30%</div>
+            <div class="pay-label">Deposit</div>
+            <div class="pay-desc">Due at contract signing to secure your start date</div>
+        </div>
+        <div class="pay-card">
+            <div class="pay-pct">40%</div>
+            <div class="pay-label">Midpoint</div>
+            <div class="pay-desc">Due when rough work is complete and cabinets are installed</div>
+        </div>
+        <div class="pay-card">
+            <div class="pay-pct">30%</div>
+            <div class="pay-label">Completion</div>
+            <div class="pay-desc">Due at final walkthrough and client sign-off</div>
+        </div>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ── WARRANTY ── -->
+<div class="section">
+    <div class="warranty-block">
+        <span class="label">Our Commitment</span>
+        <h2 style="color:var(--white); margin-bottom:1rem;">Warranty & Terms</h2>
+        <p>Timberline Build Co. warrants all labor for <strong style="color:var(--white);">1 year from project completion</strong>. Manufacturer warranties apply to all materials, fixtures, and equipment. All change orders require written approval before any additional work proceeds. Timberline does not proceed on verbal authorizations for scope changes.</p>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ── SIGNATURE ── -->
+<div class="section">
+    <span class="label">Authorization</span>
+    <h2 style="color:var(--earth); margin-bottom:0.75rem;">Client Acceptance</h2>
+    <p style="color:#555; font-size:0.92rem; max-width:640px; line-height:1.8; margin-bottom:0.5rem;">
+        By signing below, you authorize Timberline Build Co. to proceed with the scope of work described in this proposal under the payment terms stated above.
+    </p>
+    <div class="sig-grid">
+        <div class="sig-block">
+            <div class="sig-line"></div>
+            <div class="sig-label">Client Signature</div>
+        </div>
+        <div class="sig-block">
+            <div class="sig-line"></div>
+            <div class="sig-label">Date</div>
+        </div>
+        <div class="sig-block">
+            <div class="sig-line"></div>
+            <div class="sig-label">Printed Name</div>
+        </div>
+        <div class="sig-block">
+            <div class="sig-line" style="border-color:#aaa;"></div>
+            <div class="sig-label">Authorized — Justin Sherman, Timberline Build Co. · 949-229-1692</div>
+        </div>
+    </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+    <img src="logo.png" alt="Timberline Build Co.">
+    <p>Timberline Build Co. · Licensed General Contractor · Orange County, CA</p>
+    <p><a href="tel:9492291692">949-229-1692</a></p>
+    <p style="margin-top:1rem; font-size:0.72rem; opacity:0.35;">© 2026 Timberline Build Co. All rights reserved. This proposal is valid for 30 days from the date of issue.</p>
+</footer>
+
 </body>
 </html>
