@@ -157,6 +157,18 @@
     letter-spacing: 1px;
     text-transform: uppercase;
   }
+  .render-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .render-grid img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  }
 
   /* SCOPE LIST */
   ul.scope-list {
@@ -212,18 +224,6 @@
     color: var(--green);
     margin-bottom: 14px;
   }
-  .phase-price {
-    font-size: 26px;
-    font-weight: 800;
-    color: var(--green);
-    margin-bottom: 14px;
-  }
-  .phase-note {
-    font-size: 12px;
-    color: var(--gray);
-    font-style: italic;
-    margin-bottom: 14px;
-  }
 
   /* NOT INCLUDED */
   .not-included-box {
@@ -244,11 +244,20 @@
     position: relative;
   }
   ul.not-included li::before {
-    content: '✗';
+    content: 'x';
     position: absolute;
     left: 0;
     color: var(--brown);
     font-weight: 700;
+  }
+
+  /* SCOPE SUBTITLE */
+  h3.scope-sub {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--green);
+    margin: 36px 0 16px;
+    padding-left: 0;
   }
 
   /* TIMELINE */
@@ -307,54 +316,27 @@
     margin-bottom: 32px;
   }
   .investment-block .phase2-range {
-    font-size: 20px;
-    font-weight: 600;
-    color: rgba(255,255,255,0.85);
+    font-size: 32px;
+    font-weight: 800;
+    color: rgba(255,255,255,0.95);
     margin-bottom: 6px;
   }
   .investment-block .phase2-note {
     font-size: 12px;
     color: rgba(255,255,255,0.45);
+    line-height: 1.7;
+  }
+  .investment-block .total-range {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gold);
+    margin-top: 20px;
   }
   .inv-divider {
     width: 40px;
     height: 2px;
     background: rgba(255,255,255,0.2);
     margin: 24px auto;
-  }
-
-  /* PAYMENT TERMS */
-  .payment-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 16px;
-    margin-top: 8px;
-  }
-  .payment-item {
-    background: var(--white);
-    border-radius: 10px;
-    padding: 24px 20px;
-    text-align: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  }
-  .payment-item .pct {
-    font-size: 36px;
-    font-weight: 800;
-    color: var(--green);
-    line-height: 1;
-    margin-bottom: 8px;
-  }
-  .payment-item .pct-label {
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--brown);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-  .payment-item .pct-desc {
-    font-size: 11px;
-    color: var(--gray);
-    margin-top: 6px;
   }
 
   /* WARRANTY */
@@ -416,7 +398,8 @@
   @media (max-width: 600px) {
     .cover h1 { font-size: 28px; }
     .cover-meta { grid-template-columns: 1fr; }
-    .timeline-grid, .payment-grid, .sig-grid { grid-template-columns: 1fr; }
+    .render-grid { grid-template-columns: 1fr; }
+    .timeline-grid, .sig-grid { grid-template-columns: 1fr; }
     section { padding: 40px 20px; }
   }
 </style>
@@ -428,7 +411,7 @@
   <div class="cover-inner">
     <img class="logo" src="logo.png" alt="Timberline Build Co">
     <div class="cover-tag">Project Proposal</div>
-    <h1>Second Story Addition</h1>
+    <h1>Second Story Addition &amp; Guest Bath</h1>
     <h2>21202 Foxtail, Mission Viejo, CA</h2>
     <div class="cover-divider"></div>
     <div class="cover-meta">
@@ -450,13 +433,20 @@
       </div>
     </div>
   </div>
-  <div class="cover-footer">949-229-1692 · Licensed General Contractor · Orange County, CA</div>
+  <div class="cover-footer">949-229-1692 &nbsp;&middot;&nbsp; Licensed General Contractor &nbsp;&middot;&nbsp; Orange County, CA</div>
 </div>
 
-<!-- RENDER -->
+<!-- RENDERS -->
 <div class="render-block">
-  <img src="render.png" alt="Conceptual Render — Foxtail Addition" onerror="this.style.display='none'">
-  <div class="render-caption">Conceptual render — final design subject to architectural plans</div>
+  <div class="render-grid">
+    <div>
+      <img src="render.png" alt="Conceptual Exterior Render" onerror="this.parentElement.style.display='none'">
+    </div>
+    <div>
+      <img src="render-bath.png" alt="Conceptual Bathroom Render" onerror="this.parentElement.style.display='none'">
+    </div>
+  </div>
+  <div class="render-caption">Conceptual renders &mdash; final design subject to architectural plans and client selections</div>
 </div>
 
 <!-- PROJECT OVERVIEW -->
@@ -464,10 +454,10 @@
   <div class="section-label">The Vision</div>
   <h2 class="section-title">Project Overview</h2>
   <p>
-    This project adds a new bedroom to the upper level of the home at 21202 Foxtail, Mission Viejo, and expands an existing bedroom by building out over the current second-story balcony. The result is additional square footage, improved functionality, and increased home value.
+    This project encompasses two distinct scopes at 21202 Foxtail, Mission Viejo: a new second-story bedroom addition paired with an expansion of an existing bedroom (built over the current 2nd-story balcony), and a full remodel of the existing guest bathroom.
   </p>
   <p>
-    Due to the structural nature of this work, the project is best executed in two phases: a design and engineering phase to produce city-approved construction documents, followed by the full construction phase once permits are issued. This approach protects both the client and the contractor — no guesswork, no surprises mid-build.
+    Due to the structural nature of the addition, the project is phased: a design and engineering phase produces city-approved construction documents, followed by full construction once permits are issued. This protects both parties — no guesswork, no mid-build surprises.
   </p>
 </section>
 
@@ -478,7 +468,7 @@
 
   <div class="phase-grid">
     <div class="phase-card gold-border">
-      <div class="phase-num">Phase 1 — Design &amp; Permitting</div>
+      <div class="phase-num">Phase 1 &mdash; Design &amp; Permitting</div>
       <h3>What's Included</h3>
       <ul class="scope-list">
         <li>Complete site measurements and 3D scan of existing structure</li>
@@ -493,9 +483,9 @@
   </div>
 
   <div class="not-included-box" style="margin-top:24px">
-    <strong style="font-size:13px; color:var(--brown); display:block; margin-bottom:12px;">⚠ Phase 1 Does NOT Include:</strong>
+    <strong style="font-size:13px; color:var(--brown); display:block; margin-bottom:12px;">Phase 1 Does NOT Include:</strong>
     <ul class="not-included">
-      <li>Soils report (required only if soil conditions are uncertain — we'll advise after site scan)</li>
+      <li>Soils report (required only if soil conditions are uncertain &mdash; we'll advise after site scan)</li>
       <li>Topographic or boundary surveys</li>
       <li>City permit fees (billed separately by city)</li>
       <li>Plan check fees (assessed by city)</li>
@@ -511,9 +501,11 @@
   <p>
     The full construction scope will be finalized and priced once architectural and engineering plans are approved. The following represents the anticipated scope of work based on the current project description:
   </p>
+
+  <h3 class="scope-sub">Second Story Addition &amp; Bedroom Expansion</h3>
   <ul class="scope-list">
     <li>Demo of existing balcony structure and related framing</li>
-    <li>New structural framing — floor system, walls, roof tie-in</li>
+    <li>New structural framing &mdash; floor system, walls, roof tie-in</li>
     <li>New bedroom addition with closet and access</li>
     <li>Bedroom expansion over converted balcony footprint</li>
     <li>Exterior siding/stucco to match existing home</li>
@@ -521,15 +513,25 @@
     <li>Windows and exterior doors</li>
     <li>Insulation (wall, floor, ceiling) per Title 24</li>
     <li>Drywall, tape, texture, paint (interior)</li>
-    <li>Electrical — new circuits, outlets, lighting, panel review</li>
+    <li>Electrical &mdash; new circuits, outlets, lighting, panel review</li>
     <li>HVAC extension into new square footage</li>
-    <li>Flooring (allowance TBD)</li>
+    <li>Flooring (allowance TBD pending selections)</li>
     <li>Interior doors and hardware</li>
     <li>Final inspections and punch list</li>
   </ul>
-  <p style="margin-top:20px; font-size:13px; color:var(--gray); font-style:italic;">
-    * Bathroom addition, if requested, would be scoped and priced separately as an add-on item.
-  </p>
+
+  <h3 class="scope-sub">Guest Bathroom Remodel</h3>
+  <ul class="scope-list">
+    <li>Demo &mdash; existing tile, fixtures, vanity, and surround</li>
+    <li>Hot mop if shower pan work is required</li>
+    <li>New tile &mdash; floor and shower walls (allowance TBD)</li>
+    <li>New vanity, countertop, and plumbing fixtures</li>
+    <li>Plumbing &mdash; rough and finish</li>
+    <li>Shower enclosure / frameless glass</li>
+    <li>Electrical &mdash; outlets, lighting, vent fan</li>
+    <li>Drywall, paint, and trim</li>
+    <li>Final punch list and inspections</li>
+  </ul>
 </section>
 
 <!-- TIMELINE -->
@@ -538,20 +540,20 @@
   <h2 class="section-title">Project Timeline</h2>
   <div class="timeline-grid">
     <div class="timeline-item">
-      <div class="tl-label">Phase 1 — Plans &amp; Submittal</div>
-      <div class="tl-value">6–10 weeks</div>
+      <div class="tl-label">Phase 1 &mdash; Plans &amp; Submittal</div>
+      <div class="tl-value">6&ndash;10 weeks</div>
     </div>
     <div class="timeline-item">
       <div class="tl-label">City Plan Check &amp; Permit</div>
-      <div class="tl-value">4–8 weeks (city-controlled)</div>
+      <div class="tl-value">4&ndash;8 weeks (city-controlled)</div>
     </div>
     <div class="timeline-item">
-      <div class="tl-label">Phase 2 — Construction</div>
-      <div class="tl-value">12–18 weeks</div>
+      <div class="tl-label">Phase 2 &mdash; Construction</div>
+      <div class="tl-value">3&ndash;4 months</div>
     </div>
     <div class="timeline-item">
       <div class="tl-label">Estimated Total Timeline</div>
-      <div class="tl-value">6–9 months</div>
+      <div class="tl-value">5&ndash;7 months</div>
     </div>
   </div>
   <p style="margin-top:20px; font-size:12px; color:var(--gray); font-style:italic;">
@@ -565,15 +567,19 @@
   <h2 class="section-title">Summary of Investment</h2>
 
   <div class="investment-block">
-    <div class="inv-label">Phase 1 — Plans, Engineering &amp; Submittal</div>
-    <div class="phase1-price">$9,950</div>
+    <div class="inv-label">Phase 1 &mdash; Plans, Engineering &amp; Submittal</div>
+    <div class="phase1-price">$10,950</div>
     <div class="phase1-desc">Due upon authorization to proceed. Excludes city fees, soils reports, and surveys.</div>
 
     <div class="inv-divider"></div>
 
-    <div class="inv-label">Phase 2 — Full Construction (Estimated Range)</div>
-    <div class="phase2-range">$230,000 – $240,000</div>
-    <div class="phase2-note">Final price confirmed upon plan approval and accurate material/labor take-off.<br>This estimate reflects current OC market conditions for structural 2nd-story additions.</div>
+    <div class="inv-label">Phase 2 &mdash; Full Construction (Estimated Range)</div>
+    <div class="phase2-range">$219,050 &ndash; $229,050</div>
+    <div class="phase2-note">
+      Final price confirmed upon plan approval and accurate material/labor take-off.<br>
+      Includes second story addition, bedroom expansion, and guest bathroom remodel.
+    </div>
+    <div class="total-range">Total All-In Investment: $230,000 &ndash; $240,000</div>
   </div>
 
   <p style="margin-top:20px; font-size:13px; color:var(--gray); font-style:italic; text-align:center;">
@@ -586,26 +592,12 @@
   <div class="section-label">Payment</div>
   <h2 class="section-title">Payment Terms</h2>
 
-  <p style="margin-bottom:8px; font-weight:600; color:var(--brown);">Phase 1 — Full payment due upon signing.</p>
+  <p style="margin-bottom:8px; font-weight:600; color:var(--brown);">Phase 1 &mdash; Full payment due upon signing.</p>
 
-  <p style="margin-bottom:24px;">Phase 2 — Standard construction draw schedule:</p>
+  <p style="margin-bottom:20px;">Phase 2 &mdash; Progress payments tied to construction milestones. A detailed draw schedule will be established prior to Phase 2 contract execution.</p>
 
-  <div class="payment-grid">
-    <div class="payment-item">
-      <div class="pct">30%</div>
-      <div class="pct-label">Deposit</div>
-      <div class="pct-desc">Due at contract signing to mobilize and order materials</div>
-    </div>
-    <div class="payment-item">
-      <div class="pct">40%</div>
-      <div class="pct-label">Midpoint</div>
-      <div class="pct-desc">Due when rough framing, electrical, and inspections are complete</div>
-    </div>
-    <div class="payment-item">
-      <div class="pct">30%</div>
-      <div class="pct-label">Completion</div>
-      <div class="pct-desc">Due upon final walkthrough and punch list sign-off</div>
-    </div>
+  <div class="not-included-box">
+    <p style="font-size:14px; color:#5a3e28; margin:0;">Progress payment amounts and milestone triggers will be outlined in the Phase 2 contract once plans are approved and scope is confirmed. Payments will align with key construction inspections and completions.</p>
   </div>
 </section>
 
@@ -636,7 +628,7 @@
   <h2 class="section-title">Let's Get Started</h2>
 
   <div class="signature-block">
-    <p>By signing below, you authorize Timberline Build Co to proceed with <strong>Phase 1 — Plans, Engineering &amp; Submittal</strong> for the project at 21202 Foxtail, Mission Viejo, CA, and agree to the terms outlined in this proposal.</p>
+    <p>By signing below, you authorize Timberline Build Co to proceed with <strong>Phase 1 &mdash; Plans, Engineering &amp; Submittal</strong> for the project at 21202 Foxtail, Mission Viejo, CA, and agree to the terms outlined in this proposal.</p>
 
     <div class="sig-grid">
       <div class="sig-field">
@@ -656,7 +648,7 @@
       <div class="sig-field">
         <label>Contractor</label>
         <div class="sig-line">
-          <div class="prefilled">Justin Sherman — Timberline Build Co</div>
+          <div class="prefilled">Justin Sherman &mdash; Timberline Build Co</div>
         </div>
       </div>
     </div>
@@ -665,8 +657,8 @@
 
 <!-- FOOTER -->
 <div class="proposal-footer">
-  <strong>Timberline Build Co</strong> &nbsp;·&nbsp; Licensed General Contractor &nbsp;·&nbsp; Orange County, CA<br>
-  Justin Sherman &nbsp;·&nbsp; 949-229-1692 &nbsp;·&nbsp; timberlinebuildco.com<br><br>
+  <strong>Timberline Build Co</strong> &nbsp;&middot;&nbsp; Licensed General Contractor &nbsp;&middot;&nbsp; Orange County, CA<br>
+  Justin Sherman &nbsp;&middot;&nbsp; 949-229-1692 &nbsp;&middot;&nbsp; timberlinebuildco.com<br><br>
   This proposal is valid for 30 days from the date of issue.
 </div>
 
