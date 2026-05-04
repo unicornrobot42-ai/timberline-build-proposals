@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitchen Remodel Proposal | Vikki Gillman | Timberline Build Co.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green: #19412c;
+            --brown: #614432;
+            --dark-brown: #312509;
+            --navy: #213245;
+            --gold: #e9af3b;
+            --light-gold: #fdf5e0;
+            --off-white: #f9f9f9;
+            --text: #2a2a2a;
+            --text-light: #666;
+            --border: #e8e8e8;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text);
+            background: #fff;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 { font-weight: 700; line-height: 1.2; letter-spacing: -0.5px; }
+        h2 { font-size: 2rem; }
+        h3 { font-size: 1.2rem; }
+        p { margin-bottom: 1rem; }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(25px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate { animation: fadeInUp 0.7s ease-out both; }
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 2.5rem; }
+        section { padding: 5rem 0; }
+        section:nth-child(even) { background: var(--off-white); }
+
+        header {
+            background: linear-gradient(135deg, var(--green) 0%, #0f2817 100%);
+            color: #fff;
+            padding: 7rem 0 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        header::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            right: -8%;
+            width: 500px; height: 500px;
+            background: rgba(233,175,59,0.06);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 100%; height: 6px;
+            background: linear-gradient(90deg, var(--gold), var(--brown));
+        }
+        .header-content { position: relative; z-index: 2; }
+        .logo-section { margin-bottom: 2.5rem; }
+        .logo-img { height: 65px; margin-bottom: 0.5rem; object-fit: contain; }
+        .brand-tagline {
+            font-size: 0.8rem; font-weight: 600; letter-spacing: 3px;
+            text-transform: uppercase; opacity: 0.7;
+        }
+        .project-title {
+            font-size: 3.5rem; font-weight: 800; letter-spacing: -1.5px;
+            margin-bottom: 0.5rem;
+        }
+        .project-address { font-size: 1.1rem; font-weight: 400; opacity: 0.85; margin-bottom: 3rem; }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+        }
+        .stat-card {
+            background: rgba(255,255,255,0.09);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--gold);
+        }
+        .stat-val { font-size: 1.8rem; font-weight: 800; color: var(--gold); display: block; }
+        .stat-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; opacity: 0.75; }
+
+        .section-label {
+            font-size: 0.75rem; font-weight: 700; letter-spacing: 3px;
+            text-transform: uppercase; color: var(--gold);
+            margin-bottom: 1rem; display: block;
+        }
+        .section-title { color: var(--green); margin-bottom: 1.5rem; }
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        @media (max-width: 768px) {
+            .overview-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .project-title { font-size: 2.4rem; }
+        }
+        .overview-img {
+            width: 100%;
+            border-radius: 12px;
+            object-fit: cover;
+            height: 380px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .zone-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid var(--border);
+        }
+        .zone-number {
+            font-size: 0.7rem; font-weight: 800; letter-spacing: 3px;
+            text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem;
+        }
+        .zone-title { font-size: 1.8rem; color: var(--green); }
+
+        .zone-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+        @media (max-width: 768px) { .zone-grid { grid-template-columns: 1fr; } }
+
+        .scope-list { list-style: none; }
+        .scope-list li {
+            padding: 0.9rem 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+        .scope-list li:last-child { border-bottom: none; }
+        .scope-list li span {
+            font-size: 0.8rem; color: var(--text-light); font-weight: 400;
+        }
+        .scope-list li { font-weight: 600; font-size: 0.95rem; }
+        .scope-list li::before {
+            content: '✓';
+            color: var(--gold);
+            margin-right: 0.5rem;
+        }
+
+        .materials-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+        .materials-title {
+            background: var(--green);
+            color: #fff;
+            padding: 1rem 1.2rem;
+            font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+        }
+        .material-item {
+            padding: 0.85rem 1.2rem;
+            border-bottom: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .material-item:last-child { border-bottom: none; }
+        .mat-name { font-weight: 600; font-size: 0.85rem; }
+        .mat-detail { font-size: 0.8rem; color: var(--text-light); text-align: right; max-width: 50%; }
+        .mat-detail.allowance-tag {
+            background: var(--light-gold); color: var(--brown);
+            padding: 0.2rem 0.6rem; border-radius: 4px;
+            font-weight: 700; font-size: 0.7rem;
+        }
+        .mat-detail.excluded-tag {
+            background: #f0f0f0; color: #888;
+            padding: 0.2rem 0.6rem; border-radius: 4px;
+            font-size: 0.7rem; font-weight: 600;
+        }
+
+        .allowance-box {
+            background: var(--light-gold);
+            border: 1px solid rgba(233,175,59,0.4);
+            border-left: 4px solid var(--gold);
+            border-radius: 8px;
+            padding: 1.2rem 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .allowance-box h4 {
+            font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px;
+            color: var(--brown); margin-bottom: 0.5rem;
+        }
+        .allowance-box p { font-size: 0.9rem; margin: 0; color: var(--dark-brown); }
+
+        .not-included-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        .not-included-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+        }
+        .not-included-card::before {
+            content: '✕';
+            color: #c0392b;
+            font-weight: 800;
+            font-size: 0.9rem;
+            margin-right: 0.5rem;
+        }
+        .not-included-card h4 { font-size: 0.95rem; display: inline; }
+        .not-included-card p { font-size: 0.82rem; color: var(--text-light); margin-top: 0.5rem; margin-bottom: 0; }
+
+        .allowances-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+        }
+        .allowances-table th {
+            background: var(--green); color: #fff;
+            padding: 1rem 1.5rem; text-align: left;
+            font-size: 0.8rem; letter-spacing: 1.5px; text-transform: uppercase;
+        }
+        .allowances-table td {
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.9rem;
+        }
+        .allowances-table tr:last-child td { border-bottom: none; }
+        .allowances-table tr:nth-child(even) td { background: var(--off-white); }
+
+        .render-img {
+            width: 100%; border-radius: 12px; object-fit: cover;
+            height: 500px; box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            margin-bottom: 2rem;
+        }
+
+        .timeline-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+        }
+        .timeline-item {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+            position: relative;
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute; top: 50%; right: -0.75rem;
+            width: 0; height: 0;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            border-left: 8px solid var(--gold);
+            transform: translateY(-50%);
+        }
+        .timeline-item:last-child::after { display: none; }
+        .timeline-week {
+            font-size: 0.65rem; font-weight: 700; letter-spacing: 2px;
+            text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem;
+        }
+        .timeline-task { font-size: 0.9rem; font-weight: 700; color: var(--green); }
+        .timeline-desc { font-size: 0.78rem; color: var(--text-light); margin-top: 0.25rem; }
+
+        .investment-hero {
+            background: linear-gradient(135deg, var(--green) 0%, var(--navy) 100%);
+            color: #fff;
+            border-radius: 16px;
+            padding: 4rem;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            margin-bottom: 2rem;
+        }
+        .investment-total {
+            font-size: 5rem; font-weight: 800; color: var(--gold);
+            line-height: 1; margin: 1rem 0;
+            letter-spacing: -3px;
+        }
+        .investment-label { font-size: 0.85rem; letter-spacing: 3px; text-transform: uppercase; opacity: 0.8; }
+        .investment-notes { margin-top: 2rem; opacity: 0.8; font-size: 0.85rem; line-height: 1.8; }
+
+        .payment-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        @media (max-width: 600px) { .payment-grid { grid-template-columns: 1fr; } }
+        .payment-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .payment-pct {
+            font-size: 2.5rem; font-weight: 800; color: var(--green); display: block;
+        }
+        .payment-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--gold); margin-bottom: 0.5rem; }
+        .payment-amount { font-size: 1.1rem; font-weight: 700; color: var(--brown); margin: 0.5rem 0 0; }
+        .payment-desc { font-size: 0.85rem; color: var(--text-light); margin: 0; }
+
+        .signature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        @media (max-width: 600px) { .signature-grid { grid-template-columns: 1fr; } }
+        .sig-block { border-top: 2px solid var(--text); padding-top: 1rem; }
+        .sig-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-light); }
+        .sig-name { font-weight: 700; font-size: 1rem; margin-top: 0.25rem; }
+        .sig-line {
+            width: 100%; height: 50px; margin: 1.5rem 0 0.5rem;
+            border-bottom: 1px solid #ccc;
+        }
+
+        footer {
+            background: var(--dark-brown);
+            color: rgba(255,255,255,0.8);
+            text-align: center;
+            padding: 3rem 0;
+        }
+        footer p { margin-bottom: 0.3rem; font-size: 0.85rem; }
+        footer strong { color: #fff; }
+        footer .footer-divider {
+            width: 60px; height: 3px;
+            background: var(--gold);
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+
+        @media print {
+            header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .animate { opacity: 1 !important; animation: none !important; }
+        }
+
+        .zone-intro {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .warranty-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+        @media (max-width: 768px) { .warranty-grid { grid-template-columns: 1fr; } }
+
+        .terms-list {
+            list-style: none;
+        }
+        .terms-list li {
+            padding: 0.5rem 0;
+            font-size: 0.9rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .terms-list li:last-child { border-bottom: none; }
+        .terms-list li::before {
+            content: '•';
+            color: var(--gold);
+            margin-right: 0.5rem;
+            font-weight: bold;
+        }
+
+        .timeline-note {
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="container header-content">
+            <div class="logo-section animate">
+                <img src="logo-footer.png" alt="Timberline Build Co." class="logo-img" onerror="this.style.display='none'">
+                <div class="brand-tagline">Licensed General Contractor · Orange County, CA</div>
+            </div>
+            <h1 class="project-title animate delay-1">Kitchen Remodel</h1>
+            <p class="project-address animate delay-2">650 Avenida Sevilla, Unit C · Laguna Woods, CA · March 23, 2026</p>
+            <div class="stats-grid animate delay-3">
+                <div class="stat-card">
+                    <span class="stat-val">$22,957</span>
+                    <span class="stat-label">Total Investment</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-val">4–6 Weeks</span>
+                    <span class="stat-label">Est. Timeline</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-val">Labor + Install</span>
+                    <span class="stat-label">Scope Type</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-val">1 Year</span>
+                    <span class="stat-label">Labor Warranty</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- OVERVIEW -->
+    <section>
+        <div class="container">
+            <div class="overview-grid">
+                <div class="animate">
+                    <span class="section-label">Project Overview</span>
+                    <h2 class="section-title">Complete Kitchen Transformation</h2>
+                    <p>We're doing a full gut-and-rebuild of the kitchen at 650 Avenida Sevilla — demolishing all existing cabinets, sink, and lighting, and installing new cabinetry, quartz countertops, LVP flooring, tile backsplash, and a fully redesigned lighting system across three dedicated dimmer zones.</p>
+                    <p>The layout stays identical to the approved drawings — this is a precision installation with no design changes. All appliances, cabinetry, fixtures, flooring, and tile are owner-supplied unless otherwise noted.</p>
+                    <p>Timberline handles all labor, coordination, HOA package preparation, and permit management.</p>
+                </div>
+                <div class="animate delay-2">
+                    <img src="timberline-vikki-kitchen-1.png" alt="Kitchen Render" class="overview-img" onerror="this.style.background='linear-gradient(135deg, var(--green) 0%, var(--navy) 100%)'; this.style.display='flex'; this.alt='Kitchen Vision'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ZONE 01 — Demolition & Site Preparation -->
+    <section>
+        <div class="container">
+            <div class="zone-header animate">
+                <div>
+                    <div class="zone-number">Zone 01</div>
+                    <h2 class="zone-title">Demolition & Site Preparation</h2>
+                </div>
+            </div>
+            <div class="zone-grid">
+                <div class="animate delay-1">
+                    <ul class="scope-list">
+                        <li>Install plastic dust barriers (visqueen) at all openings<span>Minimize dust migration to adjacent living areas</span></li>
+                        <li>Protect all non-work areas with floor coverings<span>Floors and surfaces protected throughout project</span></li>
+                        <li>Remove all existing cabinets, cabinet wall, sink, and faucet<span>Complete extraction — walls opened and ready for new layout</span></li>
+                        <li>Remove existing fluorescent lighting panel and prepare for recessed lights<span>Electrical rough-in area cleared and prepped</span></li>
+                        <li>Remove abandoned phone jack and exposed wiring<span>Clean removal; patch as needed</span></li>
+                        <li>HOA coordinates removal of all existing appliances<span>Owner to confirm appliance removal timeline with HOA prior to start</span></li>
+                        <li>Haul all demolition debris off-site<span>Site left broom-clean at end of each day</span></li>
+                    </ul>
+                </div>
+                <div class="animate delay-2">
+                    <div class="materials-card">
+                        <div class="materials-title">Demo Scope</div>
+                        <div class="material-item">
+                            <span class="mat-name">Demo Labor</span>
+                            <span class="mat-detail">Full kitchen strip-out</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Appliance Removal</span>
+                            <span class="mat-detail">HOA Coordinates</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Debris Haul-Away</span>
+                            <span class="mat-detail">Included</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Daily Site Clean</span>
+                            <span class="mat-detail">Included</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ZONE 02 — Electrical -->
+    <section>
+        <div class="container">
+            <div class="zone-header animate">
+                <div>
+                    <div class="zone-number">Zone 02</div>
+                    <h2 class="zone-title">Electrical</h2>
+                </div>
+            </div>
+            <p class="zone-intro animate">Full electrical scope — recessed lighting across three dedicated dimmer zones, receptacle updates, circuit relocations, and all finish devices. Parts and labor included unless noted.</p>
+            <div class="zone-grid">
+                <div class="animate delay-1">
+                    <ul class="scope-list">
+                        <li>Install 3 recessed LED wafer lights in kitchen soffit<span>Centered within soffit, evenly spaced, first/last ~12–18" from ends; dedicated dimmer switch. Fixtures owner-supplied.</span></li>
+                        <li>Install 3 recessed LED wafer lights over 120" peninsula<span>Centerlines at 24", 60", 96" from TV/stove wall; centered over peninsula depth; dedicated dimmable smart switch. Fixtures owner-supplied.</span></li>
+                        <li>Replace existing recessed sink light with new 4" wafer to match<span>No relocation or rewiring — uniform appearance. Fixture owner-supplied.</span></li>
+                        <li>Install 3 dedicated dimmer switches — one per lighting group<span>(1) Soffit, (2) Peninsula, (3) Sink. Parts and labor included.</span></li>
+                        <li>Relocate refrigerator power to new location<span>If existing circuit is dedicated: run above wall cabinets, concealed behind top molding, drop to new fridge location. If no dedicated circuit: source power from nearby circuit at new location. Parts and labor included.</span></li>
+                        <li>Relocate receptacle to peninsula end panel<span>Parts and labor included</span></li>
+                        <li>Raise microwave outlet to proper height<span>Parts and labor included</span></li>
+                        <li>Terminate and relocate all electrical from removed cabinetry<span>All abandoned circuits properly closed out</span></li>
+                        <li>Convert disposal switch to air switch<span>Parts and labor included</span></li>
+                        <li>Replace all outlets and switches with white Decora devices<span>Full kitchen — parts and labor included</span></li>
+                        <li>Ensure all outlets are GFCI protected per code<span>Parts and labor included</span></li>
+                        <li>Set backsplash outlets after tile installation is complete<span>Coordinated with tile schedule</span></li>
+                        <li>Remove abandoned phone jack and exposed wiring<span>Clean removal, patch as needed</span></li>
+                        <li>Cap and terminate electrical at former built-in oven location<span>Clean close-out, no live wire exposure</span></li>
+                    </ul>
+                    <div class="allowance-box">
+                        <h4>⚠ Owner-Supplied Fixtures + HOA Confirmation</h4>
+                        <p>All 7 light fixtures are purchased and delivered by owner. All other electrical parts (switches, outlets, GFCI devices, conduit, Decora covers, air switch) are supplied by Timberline. Smart dimmer switches require neutral wire — contractor will verify compatibility at rough-in; if neutral wire is absent, a change order may be required. Per project scope, contractor will confirm HOA requirements for recessed lighting in the existing soffit/ceiling prior to finalizing the lighting work plan.</p>
+                    </div>
+                </div>
+                <div class="animate delay-2">
+                    <div class="materials-card">
+                        <div class="materials-title">Electrical Scope</div>
+                        <div class="material-item">
+                            <span class="mat-name">Light Fixtures (×7)</span>
+                            <span class="mat-detail excluded-tag">Owner Provides</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Dimmer Switches (×3)</span>
+                            <span class="mat-detail allowance-tag">Parts + Labor</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">White Decora Devices</span>
+                            <span class="mat-detail allowance-tag">Parts + Labor</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">GFCI Outlets</span>
+                            <span class="mat-detail allowance-tag">Parts + Labor</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Air Switch (Disposal)</span>
+                            <span class="mat-detail allowance-tag">Parts + Labor</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Peninsula Receptacle Relocation</span>
+                            <span class="mat-detail allowance-tag">Parts + Labor</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Microwave Outlet Raise</span>
+                            <span class="mat-detail allowance-tag">Parts + Labor</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Fridge Circuit Relocation</span>
+                            <span class="mat-detail allowance-tag">Parts + Labor</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Circuit Terminations</span>
+                            <span class="mat-detail">Included</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ZONE 03 — Plumbing -->
+    <section>
+        <div class="container">
+            <div class="zone-header animate">
+                <div>
+                    <div class="zone-number">Zone 03</div>
+                    <h2 class="zone-title">Plumbing</h2>
+                </div>
+            </div>
+            <div class="zone-grid">
+                <div class="animate delay-1">
+                    <ul class="scope-list">
+                        <li>Replace shut-off valve with new matching ½-turn valve<span>Parts and labor included</span></li>
+                        <li>Remove secondary drain; maintain single drain configuration<span>Pending field verification — scope and complexity confirmed on-site prior to final bid</span></li>
+                        <li>Install new refrigerator water line routed through cabinetry<span>Concealed run to new fridge location</span></li>
+                        <li>Connect dishwasher water supply and drain<span>Owner-supplied dishwasher must be on-site prior to scheduling</span></li>
+                        <li>Install and connect owner-supplied 27" Ruvati undermount stainless steel sink<span>Sink provided and delivered by owner; cutout coordinated with countertop vendor</span></li>
+                        <li>Install and connect owner-supplied kitchen faucet<span>Faucet provided and delivered by owner</span></li>
+                        <li>Reconnect existing garbage disposal<span>Reuse existing unit — if disposal is non-functional, replacement is a change order</span></li>
+                        <li>Provide rough-in for future reverse osmosis system<span>Under-sink stub-out only; no RO unit or filters included</span></li>
+                    </ul>
+                </div>
+                <div class="animate delay-2">
+                    <div class="materials-card">
+                        <div class="materials-title">Plumbing Scope</div>
+                        <div class="material-item">
+                            <span class="mat-name">Shut-Off Valve Replacement</span>
+                            <span class="mat-detail allowance-tag">Parts + Labor</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Secondary Drain Removal</span>
+                            <span class="mat-detail">Included</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Fridge Water Line</span>
+                            <span class="mat-detail allowance-tag">Parts + Labor</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Dishwasher Hook-Up</span>
+                            <span class="mat-detail">Labor Included</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Sink Install</span>
+                            <span class="mat-detail excluded-tag">Owner Provides Sink</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Faucet Install</span>
+                            <span class="mat-detail excluded-tag">Owner Provides Faucet</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Disposal Reconnect</span>
+                            <span class="mat-detail">Reuse Existing</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">RO System Rough-In</span>
+                            <span class="mat-detail">Stub-Out Included</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ZONE 04 — Drywall & Texture -->
+    <section>
+        <div class="container">
+            <div class="zone-header animate">
+                <div>
+                    <div class="zone-number">Zone 04</div>
+                    <h2 class="zone-title">Drywall & Texture</h2>
+                </div>
+            </div>
+            <div class="zone-grid">
+                <div class="animate delay-1">
+                    <ul class="scope-list">
+                        <li>Repair all cosmetic drywall damage from demolition<span>Dents, holes, and minor damage only — no wall straightening or skim coating</span></li>
+                        <li>Patch all abandoned openings and penetrations<span>Related to removed items only; no new framing</span></li>
+                        <li>Apply orange peel texture to soffit ceiling areas<span>Texture to match existing kitchen ceilings</span></li>
+                        <li>Prepare all surfaces to paint-ready condition<span>Smooth, sanded, and dust-free</span></li>
+                        <li>⚠ Existing asbestos-containing ceilings remain 100% undisturbed<span>No sanding, scraping, or contact of any kind — zero exceptions</span></li>
+                    </ul>
+                    <div class="allowance-box">
+                        <h4>🛡 Asbestos Protocol</h4>
+                        <p>The existing popcorn/textured ceiling contains asbestos. Timberline will not sand, scrape, disturb, or make contact with these surfaces under any circumstances. All work is performed to protect the integrity of the existing ceiling. This is non-negotiable.</p>
+                    </div>
+                </div>
+                <div class="animate delay-2">
+                    <div class="materials-card">
+                        <div class="materials-title">Drywall Scope</div>
+                        <div class="material-item">
+                            <span class="mat-name">Drywall Repair</span>
+                            <span class="mat-detail">Demo damage only</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Abandoned Patch</span>
+                            <span class="mat-detail">All penetrations</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Orange Peel Texture</span>
+                            <span class="mat-detail">Soffit areas only</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Paint-Ready Finish</span>
+                            <span class="mat-detail">Included</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Asbestos Ceiling</span>
+                            <span class="mat-detail allowance-tag">Zero Disturbance</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ZONE 05 — Paint -->
+    <section>
+        <div class="container">
+            <div class="zone-header animate">
+                <div>
+                    <div class="zone-number">Zone 05</div>
+                    <h2 class="zone-title">Paint</h2>
+                </div>
+            </div>
+            <div class="zone-grid">
+                <div class="animate delay-1">
+                    <ul class="scope-list">
+                        <li>Paint all kitchen walls and repaired soffit areas<span>Color selection by owner prior to project start</span></li>
+                        <li>Includes all repaired and patched areas from drywall work<span>Seamless final appearance</span></li>
+                    </ul>
+                </div>
+                <div class="animate delay-2">
+                    <div class="materials-card">
+                        <div class="materials-title">Paint Scope</div>
+                        <div class="material-item">
+                            <span class="mat-name">Paint Labor</span>
+                            <span class="mat-detail">Included</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Paint Material</span>
+                            <span class="mat-detail">Included</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Color Selection</span>
+                            <span class="mat-detail">Owner Chooses</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ZONE 06 — Flooring -->
+    <section>
+        <div class="container">
+            <div class="zone-header animate">
+                <div>
+                    <div class="zone-number">Zone 06</div>
+                    <h2 class="zone-title">Flooring</h2>
+                </div>
+            </div>
+            <p class="zone-intro animate">Shaw Vista Sand Dollar LVP installed throughout the kitchen for a continuous, seamless flow. Minor prep work over existing vinyl included.</p>
+            <div class="zone-grid">
+                <div class="animate delay-1">
+                    <ul class="scope-list">
+                        <li>Install owner-supplied Shaw Vista Sand Dollar LVP flooring<span>102 sq ft kitchen area — continuous layout, no transitions within kitchen</span></li>
+                        <li>Install owner-supplied underlayment per manufacturer spec<span>Owner purchases per contractor specification</span></li>
+                        <li>Minor floor prep and spot leveling over existing vinyl<span>Feathering, patching, and minor leveling only — no structural subfloor work</span></li>
+                        <li>Install with required expansion gaps<span>Concealed by baseboards and toe kicks — no floor-to-wall bonding</span></li>
+                        <li>Remove and replace transitions and thresholds at kitchen perimeter only<span>Flush transitions where possible. Owner supplies all transition/threshold material. Labor included. No work to flooring or transitions outside the kitchen area.</span></li>
+                    </ul>
+                    <div class="allowance-box">
+                        <h4>⚠ Owner-Supplied Flooring</h4>
+                        <p>Shaw Vista Sand Dollar LVP and underlayment are purchased by owner. Contractor advises on required quantity. All flooring material must be on-site and acclimated before installation begins.</p>
+                    </div>
+                </div>
+                <div class="animate delay-2">
+                    <div class="materials-card">
+                        <div class="materials-title">Flooring Scope</div>
+                        <div class="material-item">
+                            <span class="mat-name">LVP Flooring (102 sq ft)</span>
+                            <span class="mat-detail excluded-tag">Owner Provides</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Underlayment</span>
+                            <span class="mat-detail excluded-tag">Owner Provides</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Floor Prep</span>
+                            <span class="mat-detail">Included</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Transitions & Thresholds</span>
+                            <span class="mat-detail">New — Included</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Install Labor</span>
+                            <span class="mat-detail">Included</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ZONE 07 — Cabinetry -->
+    <section>
+        <div class="container">
+            <div class="zone-header animate">
+                <div>
+                    <div class="zone-number">Zone 07</div>
+                    <h2 class="zone-title">Cabinetry</h2>
+                </div>
+            </div>
+            <div class="zone-grid">
+                <div class="animate delay-1">
+                    <ul class="scope-list">
+                        <li>Install all owner-supplied Cabinets-to-Go white shaker cabinets per approved drawings<span>Layout is locked — installation only, no design changes</span></li>
+                        <li>Install all fillers, panels, scribes, and toe kicks as required for finished appearance<span>No wall modification required</span></li>
+                        <li>Install square molding at cabinets<span>No soffit crown — square profile only, per scope</span></li>
+                        <li>Install all owner-supplied hardware and pulls<span>Hardware delivered by owner before cabinet install day</span></li>
+                        <li>Field-verify all plumbing and electrical coordination prior to install<span>Field verification only — no redesign</span></li>
+                    </ul>
+                    <div class="allowance-box">
+                        <h4>⚠ Owner-Supplied Cabinets</h4>
+                        <p>All cabinetry is ordered, paid, and delivered by owner. Cabinets must be fully on-site and inspected for damage before scheduling installation. Delivery damage is owner's responsibility to resolve with vendor prior to install day. Note: confirm order and delivery date before project start — online cabinet orders can have 4–12 week lead times.</p>
+                    </div>
+                </div>
+                <div class="animate delay-2">
+                    <div class="materials-card">
+                        <div class="materials-title">Cabinetry Scope</div>
+                        <div class="material-item">
+                            <span class="mat-name">Cabinets</span>
+                            <span class="mat-detail excluded-tag">Owner Provides</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Cabinet Hardware</span>
+                            <span class="mat-detail excluded-tag">Owner Provides</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Fillers & Scribes</span>
+                            <span class="mat-detail">Labor Included</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Toe Kicks</span>
+                            <span class="mat-detail">Labor Included</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Field Coordination</span>
+                            <span class="mat-detail">Included</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ZONE 08 — Countertops -->
+    <section>
+        <div class="container">
+            <div class="zone-header animate">
+                <div>
+                    <div class="zone-number">Zone 08</div>
+                    <h2 class="zone-title">Countertops</h2>
+                </div>
+            </div>
+            <div class="zone-grid">
+                <div class="animate delay-1">
+                    <ul class="scope-list">
+                        <li>Coordinate with countertop fabrication vendor<span>Timberline manages vendor relationship and scheduling</span></li>
+                        <li>Perform single template of all quartz surfaces after cabinet installation is complete<span>No early templating — cabinets must be installed and verified first</span></li>
+                        <li>Fabricate and install white Carrara quartz countertops — standard eased edge<span>Full kitchen and peninsula</span></li>
+                        <li>Peninsula overhang: 10" standard (no reinforcement required)<span>We recommend 10" for a clean, structurally sound overhang without added cost. Optional: 12" overhang available with corbel/bracket reinforcement — see below.</span></li>
+                        <li>Sink and faucet cutouts included<span>Coordinated with undermount sink installation</span></li>
+                        <li>Install and seal undermount sink<span>After countertop is set</span></li>
+                        <li>Seal all quartz seams, transitions, and penetrations<span>Color-matched seams</span></li>
+                    </ul>
+                    <div class="allowance-box">
+                        <h4>📋 Countertop Pricing Note</h4>
+                        <p>Countertop pricing is based on current estimate. Final price is subject to adjustment pending material calculations at template. Any variance will be presented as a change order before fabrication begins.</p>
+                    </div>
+                    <div class="allowance-box" style="margin-top: 1rem; border-left-color: var(--brown);">
+                        <h4>✦ Optional Add-Ons (Priced Separately)</h4>
+                        <p><strong>12" Peninsula Overhang with Reinforcement</strong> — Upgrade from standard 10" to 12" overhang with corbel/bracket reinforcement for full structural support. Add by change order if desired.<br><br>
+                        <strong>Quartz Windowsill / Ledge — $650</strong> — Quartz material and installation for window ledge/sill to match countertops. Clean, cohesive look. Confirm yes/no prior to template.</p>
+                    </div>
+                </div>
+                <div class="animate delay-2">
+                    <div class="materials-card">
+                        <div class="materials-title">Countertop Scope</div>
+                        <div class="material-item">
+                            <span class="mat-name">Quartz Material</span>
+                            <span class="mat-detail allowance-tag">Vendor Supplied</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Template</span>
+                            <span class="mat-detail">Included</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Fabrication</span>
+                            <span class="mat-detail">Included</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Install</span>
+                            <span class="mat-detail">Included</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Sink Cutout</span>
+                            <span class="mat-detail">Included</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Sealing</span>
+                            <span class="mat-detail">Included</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ZONE 09 — Tile Backsplash -->
+    <section>
+        <div class="container">
+            <div class="zone-header animate">
+                <div>
+                    <div class="zone-number">Zone 09</div>
+                    <h2 class="zone-title">Tile Backsplash</h2>
+                </div>
+            </div>
+            <div class="zone-grid">
+                <div class="animate delay-1">
+                    <ul class="scope-list">
+                        <li>Install owner-supplied 3x12 white matte ceramic tile vertically — stacked layout<span>From counter surface to underside of wall cabinets, approximately 18" height</span></li>
+                        <li>Continue tile to microwave location<span>Full coverage to microwave — consistent finish throughout kitchen</span></li>
+                        <li>Install with owner-supplied light gray grout<span>Contractor advises owner on quantity needed before purchase</span></li>
+                        <li>Window backsplash treatment: to be determined with owner prior to tile start<span>Optional full tile wrap to ceiling available — price separately as change order</span></li>
+                    </ul>
+                    <div class="allowance-box">
+                        <h4>⚠ Owner-Supplied Tile & Grout</h4>
+                        <p>All 3x12 white matte ceramic tile and light gray grout are purchased by owner. Contractor will advise on quantity. All tile must be on-site before scheduling tile installation. Window treatment is TBD — discuss with contractor before ordering tile.</p>
+                    </div>
+                </div>
+                <div class="animate delay-2">
+                    <div class="materials-card">
+                        <div class="materials-title">Tile Scope</div>
+                        <div class="material-item">
+                            <span class="mat-name">Backsplash Tile</span>
+                            <span class="mat-detail excluded-tag">Owner Provides</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Grout</span>
+                            <span class="mat-detail excluded-tag">Owner Provides</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Tile Labor</span>
+                            <span class="mat-detail">Included</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Setting Materials</span>
+                            <span class="mat-detail">Included</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Window Wrap</span>
+                            <span class="mat-detail">TBD — Change Order</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ZONE 10 — HOA Alteration Package & Permits -->
+    <section>
+        <div class="container">
+            <div class="zone-header animate">
+                <div>
+                    <div class="zone-number">Zone 10</div>
+                    <h2 class="zone-title">HOA Alteration Package & Permits</h2>
+                </div>
+            </div>
+            <div class="zone-grid">
+                <div class="animate delay-1">
+                    <ul class="scope-list">
+                        <li>Prepare and submit full Manor HOA Alteration Package on behalf of owner<span>Complete package preparation and submission</span></li>
+                        <li>Pull and manage all required permits<span>Timberline handles all permit applications and coordination</span></li>
+                        <li>Coordinate all required inspections<span>Timberline schedules and attends all inspections</span></li>
+                        <li>HOA approval management — Laguna Woods<span>Approval timeline varies; over-the-counter approval possible (would allow faster start)</span></li>
+                    </ul>
+                    <div class="allowance-box">
+                        <h4>📋 HOA & Permit Fee Estimate</h4>
+                        <p>HOA alteration fees and permit costs are estimated at approximately $1,200 and are <strong>NOT included in the $22,957 project total</strong> — they are billed to the owner at actual cost with full documentation. Permit submittal will include hand-drawn site drawings prepared by Timberline. In the unlikely event the city or HOA requires stamped engineering drawings or a draftsman, that cost will also be covered by the owner. Timberline manages the full process; Laguna Woods HOA approval can take 2–4 weeks — over-the-counter approval may be available, which would allow a faster project start.</p>
+                    </div>
+                </div>
+                <div class="animate delay-2">
+                    <div class="materials-card">
+                        <div class="materials-title">HOA & Permits</div>
+                        <div class="material-item">
+                            <span class="mat-name">HOA Package Prep</span>
+                            <span class="mat-detail">Included</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Permit Applications</span>
+                            <span class="mat-detail">Included</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Inspection Coordination</span>
+                            <span class="mat-detail">Included</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Permit Fees</span>
+                            <span class="mat-detail allowance-tag">Owner Pays at Cost</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">HOA Fees</span>
+                            <span class="mat-detail allowance-tag">Owner Pays at Cost</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ZONE 11 — Cleanup & Site Management -->
+    <section>
+        <div class="container">
+            <div class="zone-header animate">
+                <div>
+                    <div class="zone-number">Zone 11</div>
+                    <h2 class="zone-title">Cleanup & Site Management</h2>
+                </div>
+            </div>
+            <div class="zone-grid">
+                <div class="animate delay-1">
+                    <ul class="scope-list">
+                        <li>Daily debris removal throughout entire project duration<span>Site left clean at end of each work day</span></li>
+                        <li>Protect all asbestos-containing ceiling areas — zero disturbance<span>Covers maintained at all times</span></li>
+                        <li>Haul all demolition and construction waste off-site<span>No debris left on property</span></li>
+                        <li>Final detail clean at project completion<span>Broom-clean handoff condition</span></li>
+                    </ul>
+                </div>
+                <div class="animate delay-2">
+                    <div class="materials-card">
+                        <div class="materials-title">Cleanup Scope</div>
+                        <div class="material-item">
+                            <span class="mat-name">Daily Cleanup</span>
+                            <span class="mat-detail">Included</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Haul-Away</span>
+                            <span class="mat-detail">Included</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Asbestos Protection</span>
+                            <span class="mat-detail">Included</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Final Clean</span>
+                            <span class="mat-detail">Included</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHAT'S NOT INCLUDED -->
+    <section>
+        <div class="container">
+            <span class="section-label animate">Exclusions</span>
+            <h2 class="section-title animate delay-1">What's Not Included</h2>
+            <div class="not-included-grid animate delay-2">
+                <div class="not-included-card">
+                    <h4>All Appliances</h4>
+                    <p>HOA coordinates removal of existing. Owner purchases and delivers all new appliances. Appliance installation is not included.</p>
+                </div>
+                <div class="not-included-card">
+                    <h4>Cabinet Fabrication & Design</h4>
+                    <p>Layout is locked per approved drawings. Installation only.</p>
+                </div>
+                <div class="not-included-card">
+                    <h4>Flooring Material</h4>
+                    <p>Shaw Vista Sand Dollar LVP and underlayment are owner-purchased and delivered.</p>
+                </div>
+                <div class="not-included-card">
+                    <h4>Backsplash Tile & Grout</h4>
+                    <p>Owner-purchased. Contractor advises on quantity.</p>
+                </div>
+                <div class="not-included-card">
+                    <h4>Sink, Faucet & Dishwasher</h4>
+                    <p>All owner-purchased and delivered to site.</p>
+                </div>
+                <div class="not-included-card">
+                    <h4>Light Fixtures (×7)</h4>
+                    <p>All owner-purchased and delivered. Installation included.</p>
+                </div>
+                <div class="not-included-card">
+                    <h4>Cabinet Hardware</h4>
+                    <p>Owner-purchased. Installation included.</p>
+                </div>
+                <div class="not-included-card">
+                    <h4>Crown Molding</h4>
+                    <p>Not in current scope. Available as a change order.</p>
+                </div>
+                <div class="not-included-card">
+                    <h4>Structural Subfloor Work</h4>
+                    <p>Minor leveling only. No structural subfloor repairs.</p>
+                </div>
+                <div class="not-included-card">
+                    <h4>Furniture Moving</h4>
+                    <p>Owner is responsible for clearing the kitchen of all personal items, furniture, and contents before work begins.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OWNER-SUPPLIED MATERIALS TABLE -->
+    <section>
+        <div class="container">
+            <span class="section-label animate">Materials</span>
+            <h2 class="section-title animate delay-1">Owner-Supplied Materials</h2>
+            <table class="allowances-table animate delay-2">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Details</th>
+                        <th>Owner's Responsibility</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Cabinets</td>
+                        <td>Cabinets-to-Go White Shaker</td>
+                        <td>Order, pay, deliver to site. Confirm lead time early.</td>
+                    </tr>
+                    <tr>
+                        <td>Cabinet Hardware / Pulls</td>
+                        <td>All handles and pulls</td>
+                        <td>Purchase per cabinet count and deliver before install day</td>
+                    </tr>
+                    <tr>
+                        <td>Kitchen Sink</td>
+                        <td>Ruvati 27" Undermount Stainless (16 gauge)</td>
+                        <td>Purchase and deliver before countertop template</td>
+                    </tr>
+                    <tr>
+                        <td>Kitchen Faucet</td>
+                        <td>Owner-selected</td>
+                        <td>Purchase and deliver before plumbing install</td>
+                    </tr>
+                    <tr>
+                        <td>Dishwasher</td>
+                        <td>Owner-selected</td>
+                        <td>Purchase and deliver before plumbing hook-up</td>
+                    </tr>
+                    <tr>
+                        <td>Light Fixtures (×7)</td>
+                        <td>4" IC-rated LED wafer lights</td>
+                        <td>Purchase and deliver before electrical rough-in</td>
+                    </tr>
+                    <tr>
+                        <td>LVP Flooring</td>
+                        <td>Shaw Vista Sand Dollar</td>
+                        <td>Purchase per contractor sq ft spec; allow for 10% waste</td>
+                    </tr>
+                    <tr>
+                        <td>LVP Underlayment</td>
+                        <td>Per manufacturer spec</td>
+                        <td>Purchase per contractor spec</td>
+                    </tr>
+                    <tr>
+                        <td>Backsplash Tile</td>
+                        <td>3x12 White Matte Ceramic</td>
+                        <td>Contractor advises quantity; purchase before tile install</td>
+                    </tr>
+                    <tr>
+                        <td>Grout</td>
+                        <td>Light Gray</td>
+                        <td>Contractor advises quantity; purchase before tile install</td>
+                    </tr>
+                    <tr>
+                        <td>Flooring Transitions &amp; Thresholds</td>
+                        <td>To match LVP — kitchen perimeter only</td>
+                        <td>Owner purchases and delivers before flooring install. Labor included.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section>
+        <div class="container">
+            <span class="section-label animate">Schedule</span>
+            <h2 class="section-title animate delay-1">Estimated Project Timeline</h2>
+            <p class="animate delay-1" style="margin-bottom: 2rem;">4–6 weeks total from contract execution. HOA approval and cabinet delivery are the primary variables. Once those are cleared, construction moves fast — 3 weeks max on-site.</p>
+            <div class="timeline-grid animate delay-2">
+                <div class="timeline-item">
+                    <div class="timeline-week">Week 1</div>
+                    <div class="timeline-task">HOA Submission</div>
+                    <div class="timeline-desc">Package submitted immediately upon contract signing</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-week">Weeks 2–4</div>
+                    <div class="timeline-task">HOA Approval</div>
+                    <div class="timeline-desc">Laguna Woods reviews — over-the-counter possible; 2–4 weeks typical</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-week">Weeks 4–5</div>
+                    <div class="timeline-task">Demo & Rough Work</div>
+                    <div class="timeline-desc">Demo, electrical rough, plumbing rough, drywall repair</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-week">Weeks 4–6</div>
+                    <div class="timeline-task">Cabinets, Countertops & Tile</div>
+                    <div class="timeline-desc">Sequential install: cabs → template → countertops → backsplash</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-week">Weeks 6–7</div>
+                    <div class="timeline-task">Flooring, Paint & Punch-Out</div>
+                    <div class="timeline-desc">Final finishes, fixtures, cleanup, walkthrough</div>
+                </div>
+            </div>
+            <p class="timeline-note animate delay-3">* All timelines subject to HOA approval speed, permit processing, and owner material delivery. Cabinets must be fully delivered and inspected before installation is scheduled.</p>
+        </div>
+    </section>
+
+    <!-- INVESTMENT SUMMARY -->
+    <section>
+        <div class="container">
+            <span class="section-label animate">Investment</span>
+            <h2 class="section-title animate delay-1">Your Investment</h2>
+            <div class="investment-hero animate delay-2">
+                <div class="investment-label">Total Labor &amp; Construction Investment</div>
+                <div class="investment-total">$22,957</div>
+                <div class="investment-notes">
+                    ⚠ HOA alteration fees &amp; permits are estimated at $1,200 and are <strong>NOT included</strong> in the amount above — actual costs billed to owner at cost with full documentation<br>
+                    Countertop pricing subject to final material calculation at template<br>
+                    Price does not include owner-supplied materials (cabinets, flooring, tile, fixtures, appliances)
+                </div>
+            </div>
+            <div class="payment-grid animate delay-3">
+                <div class="payment-card">
+                    <div class="payment-label">Deposit</div>
+                    <span class="payment-pct">30%</span>
+                    <p class="payment-amount">$6,887</p>
+                    <p class="payment-desc">Due at contract signing. Secures your start date and covers project mobilization.</p>
+                </div>
+                <div class="payment-card">
+                    <div class="payment-label">Midpoint</div>
+                    <span class="payment-pct">40%</span>
+                    <p class="payment-amount">$9,183</p>
+                    <p class="payment-desc">Due when rough work is complete — demo done, electrical and plumbing rough-in finished, drywall repaired.</p>
+                </div>
+                <div class="payment-card">
+                    <div class="payment-label">Completion</div>
+                    <span class="payment-pct">30%</span>
+                    <p class="payment-amount">$6,887</p>
+                    <p class="payment-desc">Due at project completion. All work finished, site cleaned, final walkthrough complete.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WARRANTY & TERMS -->
+    <section>
+        <div class="container">
+            <span class="section-label animate">Terms</span>
+            <h2 class="section-title animate delay-1">Warranty & Terms</h2>
+            <div class="warranty-grid animate delay-2">
+                <div>
+                    <p>Timberline Build Co. warrants all labor for 1 year from project completion. Any defects in workmanship will be repaired at no charge.</p>
+                    <p>Manufacturer warranties apply to all fixtures and materials we coordinate (countertops, etc.).</p>
+                </div>
+                <div>
+                    <ul class="terms-list">
+                        <li>All change orders require written approval before work begins</li>
+                        <li>Estimate valid 30 days from issue date</li>
+                        <li>Owner-supplied materials must be on-site before related work is scheduled</li>
+                        <li>Hidden damage discovered during demo may result in a change order</li>
+                        <li>HOA and permit fees billed at actual cost with documentation</li>
+                        <li>Existing asbestos-containing ceilings will not be disturbed under any circumstances</li>
+                        <li>Licensed & Insured · Orange County, CA</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SIGNATURE BLOCK -->
+    <!-- FOOTER -->
+    <footer>
+        <img src="logo-footer.png" alt="Timberline Build Co." style="height: 50px; margin-bottom: 1rem; opacity: 0.9;" onerror="this.style.display='none'">
+        <p><strong>Timberline Build Co.</strong></p>
+        <div class="footer-divider"></div>
+        <p>Licensed General Contractor · Orange County, CA</p>
+        <p>Justin Sherman · 949-229-1692 · timberlinebuild.co</p>
+        <p style="margin-top: 1rem; opacity: 0.6;">© 2026 Timberline Build Co. All Rights Reserved. Estimate valid 30 days from issue date.</p>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, { threshold: 0.08 });
+
+        document.querySelectorAll('.animate').forEach(el => {
+            el.style.animationPlayState = 'paused';
+            observer.observe(el);
+        });
+    </script>
+
+</body>
+</html>
