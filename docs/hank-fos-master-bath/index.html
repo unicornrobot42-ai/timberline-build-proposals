@@ -35,7 +35,7 @@
       justify-content: space-between;
       padding: 60px 80px;
     }
-    .cover-logo img { height: 70px; filter: brightness(0) invert(1); }
+    .cover-logo img { height: 80px; mix-blend-mode: screen; }
     .cover-body { flex: 1; display: flex; flex-direction: column; justify-content: center; }
     .cover-tag {
       font-size: 11px;
@@ -211,33 +211,46 @@
     .tp-3 { background: var(--navy); color: white; }
     .tp-4 { background: var(--gold); color: var(--dark); }
 
-    /* ── INVESTMENT ── */
-    .investment-box {
-      background: var(--green);
-      color: white;
-      border-radius: 8px;
-      padding: 48px;
-      text-align: center;
-      margin: 32px 0;
-    }
-    .investment-box .inv-label {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: var(--gold);
+    /* ── INVESTMENT BREAKDOWN ── */
+    .inv-breakdown {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
       margin-bottom: 16px;
     }
-    .investment-box .inv-amount {
-      font-size: 64px;
-      font-weight: 800;
-      line-height: 1;
+    .inv-card {
+      background: white;
+      border: 1px solid #e5e0d8;
+      border-radius: 6px;
+      padding: 20px 24px;
+      text-align: center;
+    }
+    .inv-card.highlight {
+      background: var(--green);
+      border-color: var(--green);
+    }
+    .inv-card .inv-card-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--brown);
       margin-bottom: 8px;
     }
-    .investment-box .inv-sub {
-      font-size: 14px;
-      opacity: 0.7;
+    .inv-card.highlight .inv-card-label { color: var(--gold); }
+    .inv-card .inv-card-amount {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--green);
     }
+    .inv-card.highlight .inv-card-amount { color: white; }
+    .inv-card .inv-card-note {
+      font-size: 12px;
+      color: #777;
+      margin-top: 4px;
+    }
+    .inv-card.highlight .inv-card-note { color: rgba(255,255,255,0.6); }
+
     .investment-note {
       background: #fff8ec;
       border-left: 4px solid var(--gold);
@@ -316,6 +329,7 @@
       .cover-meta { flex-direction: column; gap: 24px; }
       .section { padding: 48px 24px; }
       .allowance-grid { grid-template-columns: 1fr; }
+      .inv-breakdown { grid-template-columns: 1fr; }
       .payment-steps { flex-direction: column; }
       .sig-grid { grid-template-columns: 1fr; }
       .timeline-bar { flex-direction: column; }
@@ -327,7 +341,7 @@
 <!-- ══════════════════ COVER ══════════════════ -->
 <div class="cover">
   <div class="cover-logo">
-    <img src="./logo.png" alt="Timberline Build Co" />
+    <img src="./logo-dark.png" alt="Timberline Build Co" />
   </div>
   <div class="cover-body">
     <div class="cover-tag">Project Proposal</div>
@@ -376,9 +390,9 @@
     <li>Full demo and haul away of existing bathroom</li>
     <li>Hot mop shower pan (waterproofing base)</li>
     <li>Full tile installation — shower walls floor-to-ceiling (96" high), toilet room walls, and bathroom floor (tile selections per allowances)</li>
-    <li>New walk-in shower — 68"×34" footprint with built-in shampoo niche</li>
+    <li>New walk-in shower — 65"×34" footprint with built-in shampoo niche</li>
     <li>Frameless or semi-frameless shower glass enclosure</li>
-    <li>All shower plumbing rough-in and finish (shower fixture per client selection)</li>
+    <li>All shower plumbing rough-in and finish (shower fixture per allowance or client selection)</li>
     <li>Pocket door for toilet/shower room — frame, install, hardware</li>
     <li>Relocate light switch and outlet (required for pocket door)</li>
     <li>Remove existing soffit + drywall patch</li>
@@ -397,10 +411,8 @@
   <div class="section-label">03 — Exclusions</div>
   <div class="section-title">What's NOT Included</div>
   <ul class="not-list">
-    <li>Paint — walls and ceiling not included; can be added as a change order</li>
+    <li>Paint — walls and ceiling not included; available as an add-on</li>
     <li>Permits — this project is proceeding without permits</li>
-    <li>Faucets / fixtures — client to supply; installation included</li>
-    <li>Shower fixture — client to supply; installation included</li>
     <li>Mirrors (2) — client to supply; hanging included</li>
     <li>Towel bar and toilet paper holder — client to supply; installation included</li>
     <li>Furniture removal or storage</li>
@@ -412,11 +424,11 @@
 <div class="section">
   <div class="section-label">04 — Material Allowances</div>
   <div class="section-title">Budget for Finish Selections</div>
-  <p>The following items are included as allowances. Final cost is based on your actual selections. If your selections come in under the allowance, the difference is credited back. If over, the difference is handled as a written change order.</p>
+  <p>The following items are included as allowances. Timberline can source any of these items per your selection, or you may supply your own. If your selections exceed the allowance, the difference is billed as a change order. If under, the difference is credited back.</p>
   <div class="allowance-grid">
     <div class="allowance-card">
       <div class="label">Shower Tile (Material &amp; Trim)</div>
-      <div class="amount">$1,600</div>
+      <div class="amount">$1,300</div>
       <div class="note">Shower wall tile and trim. Final TBD per selection.</div>
     </div>
     <div class="allowance-card">
@@ -433,6 +445,16 @@
       <div class="label">Bidet Toilet</div>
       <div class="amount">$1,000</div>
       <div class="note">Bidet toilet. Final TBD per selection.</div>
+    </div>
+    <div class="allowance-card">
+      <div class="label">Faucet Set (Double Sink)</div>
+      <div class="amount">$300</div>
+      <div class="note">Faucets and drains. Finish TBD per selection.</div>
+    </div>
+    <div class="allowance-card">
+      <div class="label">Shower Fixture</div>
+      <div class="amount">$600</div>
+      <div class="note">Shower valve, trim &amp; hand shower. Finish TBD per selection.</div>
     </div>
     <div class="allowance-card">
       <div class="label">Above-Mirror Lights (×2)</div>
@@ -477,13 +499,25 @@
 <div class="section">
   <div class="section-label">06 — Investment</div>
   <div class="section-title">Your Total Project Investment</div>
-  <div class="investment-box">
-    <div class="inv-label">Total Project Investment</div>
-    <div class="inv-amount">$22,350</div>
-    <div class="inv-sub">Includes all labor, materials, and allowances as specified</div>
+  <div class="inv-breakdown">
+    <div class="inv-card">
+      <div class="inv-card-label">Construction Total</div>
+      <div class="inv-card-amount">$17,050</div>
+      <div class="inv-card-note">Labor &amp; fixed costs</div>
+    </div>
+    <div class="inv-card">
+      <div class="inv-card-label">Finish Allowances</div>
+      <div class="inv-card-amount">$5,900</div>
+      <div class="inv-card-note">Estimated at midpoint selections</div>
+    </div>
+    <div class="inv-card highlight">
+      <div class="inv-card-label">Estimated Total</div>
+      <div class="inv-card-amount">$22,950</div>
+      <div class="inv-card-note">Pending final selections</div>
+    </div>
   </div>
   <div class="investment-note">
-    💡 <strong>Note:</strong> Allowance items (tile, vanity, bidet, lights, closet doors) are included at the budgeted amounts above. If your selections come in under, the difference is credited. Overages are handled via written change order. Paint is not included — available as an add-on.
+    💡 <strong>Note:</strong> Allowance items are budgeted at midpoint estimates. Timberline can source these items per your selection, or you may supply your own. If your selections come in under, the difference is credited. Overages are handled via written change order. Paint is not included — available as an add-on.
   </div>
 </div>
 
@@ -519,7 +553,7 @@
   </div>
   <ul class="scope-list" style="margin-top:24px;">
     <li>All change orders require written approval before work proceeds</li>
-    <li>Client to supply faucets, shower fixture, mirrors, towel bar, and TP holder prior to finish week</li>
+    <li>Client to supply or select fixtures, mirrors, towel bar, and TP holder prior to finish week</li>
     <li>Timberline Build Co is licensed and insured in the state of California</li>
     <li>A lien waiver will be provided upon final payment</li>
   </ul>
@@ -529,7 +563,7 @@
 <div class="section">
   <div class="section-label">09 — Authorization</div>
   <div class="section-title">Let's Get Started</div>
-  <p>By signing below, you authorize Timberline Build Co to proceed with the scope of work as described in this proposal at the stated investment of $22,350. A 30% deposit ($6,705) is due upon signing to secure your start date.</p>
+  <p>By signing below, you authorize Timberline Build Co to proceed with the scope of work as described in this proposal at the estimated investment of $22,950. A 30% deposit ($6,885) is due upon signing to secure your start date.</p>
   <div class="sig-grid">
     <div class="sig-block">
       <div class="sig-label">Client Signature</div>
