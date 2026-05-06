@@ -1,675 +1,951 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Whole-Home Refresh Proposal | 26495 La Zanja St | Timberline Build Co.</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --green: #19412c;
-      --brown: #614432;
-      --dark-brown: #312509;
-      --navy: #213245;
-      --gold: #e9af3b;
-      --light-gold: #fdf5e0;
-      --off-white: #f9f9f9;
-      --text: #2a2a2a;
-      --text-light: #666;
-      --border: #e8e8e8;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Montserrat', sans-serif;
-      color: var(--text);
-      background: #fff;
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
-    h1,h2,h3,h4 { font-weight: 700; line-height: 1.2; letter-spacing: -0.5px; }
-    h2 { font-size: 2rem; }
-    p { margin-bottom: 1rem; }
-    @keyframes fadeInUp {
-      from { opacity:0; transform:translateY(25px); }
-      to   { opacity:1; transform:translateY(0); }
-    }
-    .animate { animation: fadeInUp 0.7s ease-out both; }
-    .delay-1 { animation-delay:.1s; }
-    .delay-2 { animation-delay:.2s; }
-    .delay-3 { animation-delay:.3s; }
-    .container { max-width:1100px; margin:0 auto; padding:0 2.5rem; }
-    section { padding:5rem 0; }
-    section:nth-child(even) { background: var(--off-white); }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timberline Build Co. | 26495 La Zanja St — Whole-Home Rental Refresh</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --forest: #19412c;
+            --earth: #312509;
+            --navy: #213245;
+            --gold: #e9af3b;
+            --cream: #faf8f4;
+            --white: #ffffff;
+        }
 
-    /* ── HEADER ───────────────────────────────────────────── */
-    header {
-      background: linear-gradient(135deg, var(--green) 0%, #0f2817 100%);
-      color:#fff;
-      padding:7rem 0 5rem;
-      position:relative;
-      overflow:hidden;
-    }
-    header::before {
-      content:''; position:absolute;
-      top:-40%; right:-8%;
-      width:500px; height:500px;
-      background:rgba(233,175,59,.06);
-      border-radius:50%; pointer-events:none;
-    }
-    header::after {
-      content:''; position:absolute;
-      bottom:0; left:0;
-      width:100%; height:6px;
-      background:linear-gradient(90deg, var(--gold), var(--brown));
-    }
-    .header-content { position:relative; z-index:2; }
-    .logo-img { height:60px; margin-bottom:.75rem; object-fit:contain; }
-    .brand-tagline {
-      font-size:.75rem; font-weight:600; letter-spacing:3px;
-      text-transform:uppercase; opacity:.65; margin-bottom:2rem; display:block;
-    }
-    .project-title {
-      font-size:3.2rem; font-weight:800; letter-spacing:-1.5px; margin-bottom:.4rem;
-    }
-    .project-address { font-size:1rem; font-weight:400; opacity:.8; margin-bottom:2.5rem; }
-    .stats-grid {
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-      gap:1.5rem;
-    }
-    .stat-card {
-      background:rgba(255,255,255,.09);
-      padding:1.5rem; border-radius:10px;
-      border-left:4px solid var(--gold);
-    }
-    .stat-val { font-size:1.8rem; font-weight:800; color:var(--gold); display:block; }
-    .stat-label { font-size:.7rem; text-transform:uppercase; letter-spacing:1.5px; opacity:.7; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
-    /* ── SECTION LABELS ──────────────────────────────────── */
-    .section-label {
-      font-size:.7rem; font-weight:700; letter-spacing:3px;
-      text-transform:uppercase; color:var(--gold);
-      margin-bottom:.75rem; display:block;
-    }
-    .section-title { color:var(--green); margin-bottom:1.5rem; }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            background: var(--cream);
+            line-height: 1.7;
+        }
 
-    /* ── OVERVIEW ────────────────────────────────────────── */
-    .overview-grid {
-      display:grid; grid-template-columns:1fr 1fr;
-      gap:4rem; align-items:center;
-    }
-    @media(max-width:768px){
-      .overview-grid{grid-template-columns:1fr;gap:2rem;}
-      .project-title{font-size:2.2rem;}
-    }
+        h1, h2, h3, h4 { font-weight: 700; line-height: 1.2; letter-spacing: -0.5px; }
+        h1 { font-size: 3.2rem; }
+        h2 { font-size: 2rem; }
+        h3 { font-size: 1.3rem; }
 
-    /* ── SCOPE ZONES ─────────────────────────────────────── */
-    .zones-list { display:flex; flex-direction:column; gap:2.5rem; }
-    .zone-card {
-      border:1px solid var(--border); border-radius:12px;
-      overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,.06);
-    }
-    .zone-head {
-      background:var(--green); color:#fff;
-      padding:1.1rem 1.6rem;
-      display:flex; justify-content:space-between; align-items:center;
-    }
-    .zone-name { font-size:.95rem; font-weight:700; letter-spacing:.5px; }
-    .zone-body { padding:1.4rem 1.6rem; }
-    .scope-list { list-style:none; display:flex; flex-wrap:wrap; gap:.5rem .7rem; }
-    .scope-list li {
-      font-size:.82rem; font-weight:600;
-      background:var(--off-white);
-      border:1px solid var(--border);
-      padding:.3rem .75rem;
-      border-radius:20px;
-    }
-    .scope-list li::before { content:'✓ '; color:var(--gold); }
+        .label {
+            text-transform: uppercase;
+            font-size: 0.65rem;
+            letter-spacing: 3px;
+            color: var(--gold);
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            display: block;
+        }
 
-    /* ── NOT INCLUDED / ALLOWANCES ───────────────────────── */
-    .two-col { display:grid; grid-template-columns:1fr 1fr; gap:3rem; }
-    @media(max-width:768px){ .two-col{grid-template-columns:1fr; gap:2rem;} }
-    .info-card {
-      background:#fff; border:1px solid var(--border);
-      border-radius:10px; overflow:hidden;
-      box-shadow:0 4px 20px rgba(0,0,0,.06);
-    }
-    .info-card-head {
-      padding:.9rem 1.2rem;
-      font-size:.72rem; font-weight:700; letter-spacing:2px; text-transform:uppercase;
-    }
-    .info-card-head.green { background:var(--green); color:#fff; }
-    .info-card-head.gold  { background:var(--gold); color:var(--dark-brown); }
-    .info-card-head.navy  { background:var(--navy); color:#fff; }
-    .info-card ul { list-style:none; }
-    .info-card ul li {
-      padding:.7rem 1.2rem;
-      border-bottom:1px solid var(--border);
-      font-size:.85rem;
-    }
-    .info-card ul li:last-child { border-bottom:none; }
-    .allowance-row {
-      display:flex; justify-content:space-between; align-items:center;
-    }
-    .allowance-tag {
-      background:var(--light-gold); color:var(--brown);
-      padding:.2rem .6rem; border-radius:4px;
-      font-size:.7rem; font-weight:700;
-    }
-    .excluded-tag {
-      background:#f0f0f0; color:#888;
-      padding:.2rem .6rem; border-radius:4px;
-      font-size:.7rem; font-weight:600;
-    }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-    /* ── TIMELINE ────────────────────────────────────────── */
-    .timeline { display:flex; flex-direction:column; gap:0; }
-    .tl-item {
-      display:grid; grid-template-columns:48px 1fr;
-      gap:0 1.5rem; align-items:start;
-    }
-    .tl-dot {
-      width:48px; height:48px;
-      background:var(--green); border-radius:50%;
-      display:flex; align-items:center; justify-content:center;
-      color:var(--gold); font-weight:800; font-size:1rem;
-      flex-shrink:0; margin-top:.25rem;
-    }
-    .tl-line { border-left:2px dashed var(--border); margin-left:24px; height:2rem; }
-    .tl-content h4 { color:var(--green); font-size:.95rem; margin-bottom:.2rem; }
-    .tl-content p { font-size:.85rem; color:var(--text-light); margin:0; }
+        /* ── HERO ── */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
 
-    /* ── INVESTMENT ──────────────────────────────────────── */
-    .investment-wrap {
-      max-width:560px; margin:0 auto;
-      background:#fff; border-radius:14px;
-      overflow:hidden; box-shadow:0 12px 50px rgba(0,0,0,.12);
-    }
-    .inv-head {
-      background:linear-gradient(135deg, var(--green), #0f2817);
-      color:#fff; padding:2rem;
-      text-align:center;
-    }
-    .inv-head h3 { font-size:.72rem; letter-spacing:3px; text-transform:uppercase; opacity:.7; margin-bottom:.5rem; }
-    .inv-total {
-      font-size:3.6rem; font-weight:800;
-      color:var(--gold); letter-spacing:-2px;
-    }
-    .inv-body { padding:2rem; }
-    .inv-row {
-      display:flex; justify-content:space-between;
-      padding:.85rem 0; border-bottom:1px solid var(--border);
-      font-size:.9rem;
-    }
-    .inv-row:last-child { border-bottom:none; }
-    .inv-row .label { color:var(--text-light); }
-    .inv-row .val { font-weight:700; }
-    .pay-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin-top:1.5rem; }
-    .pay-card {
-      background:var(--off-white); border-radius:8px;
-      padding:1rem; text-align:center;
-    }
-    .pay-pct { font-size:1.6rem; font-weight:800; color:var(--green); }
-    .pay-amt { font-size:.8rem; font-weight:700; color:var(--brown); margin:.2rem 0; }
-    .pay-lbl { font-size:.7rem; color:var(--text-light); }
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image: url('hero.jpg');
+            background-size: cover;
+            background-position: center 40%;
+            z-index: 0;
+        }
 
-    /* ── WARRANTY ────────────────────────────────────────── */
-    .warranty-box {
-      background:var(--light-gold);
-      border-left:4px solid var(--gold);
-      border-radius:8px; padding:1.5rem;
-      font-size:.9rem;
-    }
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(25,65,44,0.95) 0%, rgba(25,65,44,0.82) 55%, rgba(25,65,44,0.55) 100%);
+        }
 
-    /* ── SIGNATURE ───────────────────────────────────────── */
-    .sig-grid { display:grid; grid-template-columns:1fr 1fr; gap:3rem; }
-    @media(max-width:600px){ .sig-grid{grid-template-columns:1fr;} }
-    .sig-block { display:flex; flex-direction:column; gap:2rem; }
-    .sig-line {
-      border-bottom:2px solid var(--dark-brown);
-      padding-bottom:.5rem;
-      font-size:.8rem; color:var(--text-light);
-      letter-spacing:.5px;
-    }
-    .sig-contact {
-      font-size:.85rem; line-height:1.9;
-    }
+        .hero-top {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2.5rem 3rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
 
-    /* ── FOOTER ──────────────────────────────────────────── */
-    footer {
-      background:var(--dark-brown); color:#fff;
-      padding:2.5rem 0; text-align:center;
-      font-size:.8rem; opacity:.9;
-    }
-    footer a { color:var(--gold); text-decoration:none; }
-  </style>
+        .logo { height: 52px; mix-blend-mode: lighten; }
+
+        .hero-date {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.6);
+            font-weight: 600;
+        }
+
+        .hero-body {
+            position: relative;
+            z-index: 1;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 4rem 3rem;
+            animation: fadeUp 0.8s ease both;
+            color: var(--white);
+        }
+
+        .hero-body h1 { color: var(--white); margin-bottom: 1rem; max-width: 720px; }
+        .hero-body h1 span { color: var(--gold); }
+        .hero-body p { color: rgba(255,255,255,0.7); max-width: 560px; font-size: 0.95rem; }
+
+        .hero-meta {
+            display: flex;
+            gap: 3rem;
+            margin-top: 3rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255,255,255,0.15);
+            flex-wrap: wrap;
+        }
+
+        .meta-label {
+            font-size: 0.62rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.45);
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .meta-val { font-size: 0.95rem; font-weight: 600; color: var(--white); }
+
+        .hero-bottom {
+            position: relative;
+            z-index: 1;
+            padding: 2rem 3rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(233,175,59,0.15);
+            border: 1px solid rgba(233,175,59,0.35);
+            color: var(--gold);
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 0.4rem 1rem;
+            border-radius: 100px;
+        }
+
+        /* ── SECTIONS ── */
+        .section {
+            padding: 5rem 3rem;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(to right, var(--gold), transparent);
+            margin: 0 3rem;
+            opacity: 0.25;
+        }
+
+        /* ── OVERVIEW GRID ── */
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .overview-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid #eee;
+        }
+
+        .overview-card .oc-label {
+            font-size: 0.62rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 800;
+            margin-bottom: 0.4rem;
+        }
+
+        .overview-card .oc-val { font-size: 1rem; font-weight: 700; color: var(--earth); }
+
+        /* ── PHASE CARDS ── */
+        .phase-card {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.07);
+            border: 1px solid #ececec;
+        }
+
+        .phase-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1.8rem 2.5rem;
+            background: var(--forest);
+            color: var(--white);
+        }
+
+        .phase-card.navy .phase-header { background: var(--navy); }
+        .phase-card.earth .phase-header { background: var(--earth); }
+        .phase-card.brown .phase-header { background: #614432; }
+
+        .phase-num {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--gold);
+            color: var(--earth);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            font-weight: 900;
+            flex-shrink: 0;
+        }
+
+        .phase-header-text h3 { font-size: 1.2rem; color: var(--white); margin-bottom: 0.15rem; }
+
+        .phase-sub {
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.5);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        .phase-body { padding: 2rem 2.5rem; }
+        .phase-body p { color: #555; font-size: 0.93rem; line-height: 1.8; margin-bottom: 1.2rem; }
+
+        /* ── SCOPE LIST ── */
+        .scope-list {
+            list-style: none;
+            margin: 1.2rem 0 0;
+        }
+
+        .scope-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.9rem;
+            padding: 0.65rem 0;
+            border-bottom: 1px solid #f0ece5;
+            font-size: 0.88rem;
+            color: #444;
+            line-height: 1.6;
+        }
+
+        .scope-list li:last-child { border-bottom: none; }
+
+        .scope-list li::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--gold);
+            flex-shrink: 0;
+            margin-top: 7px;
+        }
+
+        /* ── ALLOWANCE BLOCK ── */
+        .allowance-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .allowance-item {
+            background: var(--cream);
+            border: 1px solid #e8e3da;
+            border-radius: 10px;
+            padding: 1.2rem 1.4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .allowance-name { font-size: 0.85rem; font-weight: 600; color: var(--earth); }
+        .allowance-tag {
+            background: rgba(233,175,59,0.15);
+            border: 1px solid rgba(233,175,59,0.4);
+            color: #7a5c10;
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 0.3rem 0.7rem;
+            border-radius: 6px;
+            white-space: nowrap;
+        }
+
+        /* ── NOT INCLUDED ── */
+        .not-included-list {
+            list-style: none;
+            margin-top: 1.5rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+        }
+
+        .not-included-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            font-size: 0.88rem;
+            color: #555;
+        }
+
+        .not-included-list li::before {
+            content: '—';
+            color: var(--forest);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        /* ── TIMELINE ── */
+        .timeline-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .tl-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid #eee;
+            border-top: 3px solid var(--gold);
+        }
+
+        .tl-week { font-size: 0.62rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); font-weight: 800; margin-bottom: 0.4rem; }
+        .tl-phase { font-size: 0.92rem; font-weight: 700; color: var(--earth); margin-bottom: 0.5rem; }
+        .tl-desc { font-size: 0.78rem; color: #777; line-height: 1.6; }
+
+        /* ── TOTAL BLOCK ── */
+        .total-block {
+            background: var(--forest);
+            border-radius: 16px;
+            padding: 3rem;
+            color: var(--white);
+        }
+
+        .total-phases { display: flex; flex-direction: column; gap: 0; margin: 1.5rem 0; }
+
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .total-row:last-child { border-bottom: none; }
+        .total-row .tr-label { color: rgba(255,255,255,0.65); font-weight: 500; }
+        .total-row .tr-val { color: var(--white); font-weight: 700; white-space: nowrap; }
+        .total-row.section-header .tr-label {
+            color: rgba(255,255,255,0.35);
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 800;
+            padding-top: 1.2rem;
+        }
+
+        .total-final {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding-top: 1.5rem;
+            margin-top: 0.5rem;
+            border-top: 1px solid rgba(255,255,255,0.15);
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tf-label { font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); font-weight: 800; }
+        .tf-range { font-size: 2.4rem; font-weight: 900; color: var(--gold); letter-spacing: -1px; }
+
+        .total-caveat {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.83rem;
+            color: rgba(255,255,255,0.5);
+            line-height: 1.7;
+        }
+
+        /* ── PAYMENT ── */
+        .payment-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.2rem;
+            margin-top: 2rem;
+        }
+
+        .pay-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 1.8rem 1.5rem;
+            text-align: center;
+            border: 1px solid #eee;
+        }
+
+        .pay-pct { font-size: 2.2rem; font-weight: 900; color: var(--forest); line-height: 1; margin-bottom: 0.5rem; }
+        .pay-label { font-size: 0.65rem; font-weight: 800; color: var(--earth); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 0.4rem; }
+        .pay-amt { font-size: 1rem; font-weight: 700; color: var(--forest); margin-bottom: 0.4rem; }
+        .pay-desc { font-size: 0.82rem; color: #777; }
+
+        /* ── WARRANTY ── */
+        .warranty-block {
+            background: var(--navy);
+            border-radius: 16px;
+            padding: 2.5rem 3rem;
+            color: var(--white);
+        }
+
+        .warranty-block .label { color: var(--gold); }
+        .warranty-block p { color: rgba(255,255,255,0.65); font-size: 0.92rem; line-height: 1.8; }
+
+        /* ── SIGNATURE ── */
+        .sig-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem 2rem;
+            margin-top: 2rem;
+        }
+
+        .sig-line { border-bottom: 1.5px solid #333; margin-bottom: 0.5rem; height: 44px; }
+        .sig-label { font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; color: #999; font-weight: 700; }
+
+        /* ── PORTFOLIO ── */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 6px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: 2rem;
+        }
+
+        .portfolio-grid img { width: 100%; height: 220px; object-fit: cover; object-position: center 30%; display: block; }
+        .portfolio-grid .wide { grid-column: span 2; }
+        .portfolio-grid .tall { height: 300px; }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--earth);
+            color: var(--white);
+            padding: 3rem;
+            text-align: center;
+        }
+
+        footer img { height: 44px; margin-bottom: 1.5rem; mix-blend-mode: lighten; opacity: 0.85; }
+        footer p { font-size: 0.83rem; color: rgba(255,255,255,0.45); margin-bottom: 0.4rem; }
+        footer a { color: var(--gold); }
+
+        @media (max-width: 720px) {
+            h1 { font-size: 2rem; }
+            .hero-top, .hero-body, .hero-bottom { padding: 1.5rem; }
+            .section { padding: 3rem 1.5rem; }
+            .not-included-list, .payment-grid, .allowance-grid, .timeline-grid, .overview-grid { grid-template-columns: 1fr; }
+            .hero-meta { flex-direction: column; gap: 1.2rem; }
+            .phase-header, .phase-body { padding: 1.5rem; }
+            .total-block { padding: 2rem 1.5rem; }
+            .tf-range { font-size: 1.8rem; }
+            .sig-grid { grid-template-columns: 1fr; }
+            .portfolio-grid { grid-template-columns: 1fr; }
+            .portfolio-grid .wide { grid-column: span 1; }
+        }
+    </style>
 </head>
 <body>
 
-<!-- ════════════════════════════════════════════════════════
-     HEADER
-════════════════════════════════════════════════════════ -->
-<header>
-  <div class="container header-content animate">
-    <div>
-      <img src="./logo.png" alt="Timberline Build Co." class="logo-img">
-      <span class="brand-tagline">Licensed General Contractor · Orange County, CA</span>
+<!-- ── HERO ── -->
+<section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-top">
+        <img src="logo.png" alt="Timberline Build Co." class="logo">
+        <span class="hero-date">May 2026</span>
     </div>
-    <h1 class="project-title">Whole-Home Refresh</h1>
-    <p class="project-address">26495 La Zanja St #11C · San Juan Capistrano, CA 92675</p>
-    <div class="stats-grid animate delay-2">
-      <div class="stat-card">
-        <span class="stat-val">$71,880</span>
-        <span class="stat-label">Total Investment</span>
-      </div>
-      <div class="stat-card">
-        <span class="stat-val">10–14</span>
-        <span class="stat-label">Weeks Est.</span>
-      </div>
-      <div class="stat-card">
-        <span class="stat-val">8</span>
-        <span class="stat-label">Scope Areas</span>
-      </div>
-      <div class="stat-card">
-        <span class="stat-val">1 Year</span>
-        <span class="stat-label">Labor Warranty</span>
-      </div>
+    <div class="hero-body">
+        <span class="label">Whole-Home Rental Refresh · Proposal</span>
+        <h1>26495 La Zanja St<br><span>#11C · San Juan Capistrano</span></h1>
+        <p>A complete unit refresh — new flooring, kitchen update, full bath remodel, windows, doors, lighting, and fresh paint throughout. Built to attract quality tenants and hold up to rental use.</p>
+        <div class="hero-meta">
+            <div>
+                <div class="meta-label">Property</div>
+                <div class="meta-val">26495 La Zanja St #11C, SJC</div>
+            </div>
+            <div>
+                <div class="meta-label">Total Investment</div>
+                <div class="meta-val">$71,880</div>
+            </div>
+            <div>
+                <div class="meta-label">Estimated Timeline</div>
+                <div class="meta-val">8 Weeks</div>
+            </div>
+            <div>
+                <div class="meta-label">Contractor</div>
+                <div class="meta-val">Justin Sherman · 949-229-1692</div>
+            </div>
+        </div>
     </div>
-  </div>
-</header>
+    <div class="hero-bottom">
+        <span class="tag">Whole-Home Flooring</span>
+        <span class="tag">Kitchen Update</span>
+        <span class="tag">Bath 1 Full Remodel</span>
+        <span class="tag">Bath 2 Refresh</span>
+        <span class="tag">5 Windows + Sliding Door</span>
+        <span class="tag">Stair Railing</span>
+        <span class="tag">Recessed Lighting</span>
+    </div>
+</section>
 
-
-<!-- ════════════════════════════════════════════════════════
-     PROJECT OVERVIEW
-════════════════════════════════════════════════════════ -->
-<section>
-  <div class="container animate">
-    <span class="section-label">Project Overview</span>
-    <h2 class="section-title">Rental-Ready Refresh</h2>
+<!-- ── OVERVIEW ── -->
+<div class="section">
+    <span class="label">Project Overview</span>
+    <h2 style="color: var(--earth); margin-bottom: 1rem;">Rental-Ready in 8 Weeks</h2>
+    <p style="color: #555; max-width: 680px;">This proposal covers everything needed to bring Unit 11C to clean, modern, rental-ready condition. Scope is organized by area — all work is performed by Timberline Build Co. and trusted subcontractors, sequenced to minimize total project time. No permits required for this scope.</p>
     <div class="overview-grid">
-      <div>
-        <p>This proposal covers a comprehensive whole-home refresh at 26495 La Zanja St #11C to bring the unit to clean, modern, rental-ready condition. Scope includes new LVP flooring throughout, full kitchen update, two bathroom updates, new windows and exterior doors, interior doors, stair railing, closet doors, recessed lighting, fresh paint, and popcorn ceiling removal.</p>
-        <p>All work is performed by Timberline Build Co. and trusted subcontractors. No permits required for this scope. Work will be sequenced to minimize downtime and protect the property.</p>
-      </div>
-      <div>
-        <div class="info-card">
-          <div class="info-card-head green">Project Details</div>
-          <ul>
-            <li><strong>Address:</strong> 26495 La Zanja St #11C, SJC</li>
-            <li><strong>Type:</strong> Condominium / Rental Unit</li>
-            <li><strong>Scope:</strong> Whole-Home Refresh</li>
-            <li><strong>Permits:</strong> Not required for this scope</li>
-            <li><strong>Prepared by:</strong> Justin Sherman, Timberline Build Co.</li>
-            <li><strong>Date:</strong> May 6, 2026</li>
-          </ul>
+        <div class="overview-card">
+            <div class="oc-label">Total Price</div>
+            <div class="oc-val">$71,880</div>
         </div>
-      </div>
+        <div class="overview-card">
+            <div class="oc-label">Timeline</div>
+            <div class="oc-val">8 Weeks</div>
+        </div>
+        <div class="overview-card">
+            <div class="oc-label">Scope Areas</div>
+            <div class="oc-val">8 Zones</div>
+        </div>
+        <div class="overview-card">
+            <div class="oc-label">Permits</div>
+            <div class="oc-val">Not Required</div>
+        </div>
     </div>
-  </div>
-</section>
+</div>
 
+<div class="section-divider"></div>
 
-<!-- ════════════════════════════════════════════════════════
-     SCOPE OF WORK
-════════════════════════════════════════════════════════ -->
-<section>
-  <div class="container animate">
-    <span class="section-label">Scope of Work</span>
-    <h2 class="section-title">What's Included</h2>
-    <div class="zones-list">
+<!-- ── SCOPE ── -->
+<div class="section">
+    <span class="label">Scope of Work</span>
+    <h2 style="color: var(--earth); margin-bottom: 0.5rem;">What's Included</h2>
+    <p style="color: #888; font-size: 0.85rem; margin-bottom: 2.5rem;">Complete breakdown by area. All labor and materials included unless noted as an allowance.</p>
 
-      <div class="zone-card">
-        <div class="zone-head">
-          <span class="zone-name">🏠 Whole House</span>
-        </div>
-        <div class="zone-body">
-          <ul class="scope-list">
-            <li>Scrape &amp; remove all popcorn ceilings (~1,134 sf)</li>
-            <li>Paint walls, ceilings &amp; trim throughout</li>
-            <li>Install 16 recessed lights (full home)</li>
-            <li>LVP flooring — 1,134 sf installed</li>
-            <li>Floor prep / leveling — upstairs</li>
-            <li>New baseboard — ~275 LF installed</li>
-            <li>5 interior doors (material + install)</li>
-            <li>1 fire-rated door (material + install)</li>
-            <li>Kitchen soffit removal (TBD pending inspection)</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="zone-card">
-        <div class="zone-head">
-          <span class="zone-name">🍳 Kitchen</span>
-        </div>
-        <div class="zone-body">
-          <ul class="scope-list">
-            <li>New cabinet installation (material + labor)</li>
-            <li>Quartz countertop — small kitchen</li>
-            <li>Sink &amp; faucet allowance</li>
-            <li>Appliance hook-up (stove &amp; dishwasher)</li>
-            <li>Plumbing — rough + finish</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="zone-card">
-        <div class="zone-head">
-          <span class="zone-name">🪟 Windows &amp; Exterior Doors</span>
-        </div>
-        <div class="zone-body">
-          <ul class="scope-list">
-            <li>5 replacement windows (material + install)</li>
-            <li>1 sliding glass door (material + install)</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="zone-card">
-        <div class="zone-head">
-          <span class="zone-name">🪜 Stairs</span>
-        </div>
-        <div class="zone-body">
-          <ul class="scope-list">
-            <li>Stair LVP install — 1 flight</li>
-            <li>Full stair railing replacement</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="zone-card">
-        <div class="zone-head">
-          <span class="zone-name">🚿 Bathroom 1 — Full Remodel</span>
-        </div>
-        <div class="zone-body">
-          <ul class="scope-list">
-            <li>Demo — tub, tile, vanity, fixtures</li>
-            <li>Hot mop / shower pan liner</li>
-            <li>Tile labor — shower walls (60×30×96)</li>
-            <li>Tile material allowance</li>
-            <li>Shower fixture allowance (valve, head, trim)</li>
-            <li>Double sink vanity + cabinet (material + install)</li>
-            <li>Quartz countertop</li>
-            <li>Sinks &amp; faucets</li>
-            <li>Plumbing — rough + finish</li>
-            <li>2 recessed lights</li>
-            <li>Vanity light bar</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="zone-card">
-        <div class="zone-head">
-          <span class="zone-name">🚿 Bathroom 2 — Vanity Refresh</span>
-        </div>
-        <div class="zone-body">
-          <ul class="scope-list">
-            <li>42" single vanity + cabinet (material + install)</li>
-            <li>Quartz countertop</li>
-            <li>Sink &amp; faucet</li>
-            <li>Plumbing — swap &amp; connect</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="zone-card">
-        <div class="zone-head">
-          <span class="zone-name">👕 Closets &amp; Laundry</span>
-        </div>
-        <div class="zone-body">
-          <ul class="scope-list">
-            <li>3 × closet bi-fold door replacement (6 ft each)</li>
-            <li>Laundry bi-fold door replacement</li>
-            <li>Laundry subfloor repair (~40 sf)</li>
-          </ul>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- ════════════════════════════════════════════════════════
-     NOT INCLUDED / ALLOWANCES
-════════════════════════════════════════════════════════ -->
-<section>
-  <div class="container animate">
-    <span class="section-label">Scope Boundaries</span>
-    <h2 class="section-title">What's Not Included &amp; Allowances</h2>
-    <div class="two-col">
-
-      <div class="info-card">
-        <div class="info-card-head navy">Not Included</div>
-        <ul>
-          <li>Appliance purchase (hook-up only)</li>
-          <li>Furniture removal or staging</li>
-          <li>Landscaping or exterior improvements</li>
-          <li>HVAC, electrical panel, or structural work</li>
-          <li>Any work outside unit boundaries</li>
-          <li>Damage discovered after demo (billed as CO)</li>
-        </ul>
-      </div>
-
-      <div class="info-card">
-        <div class="info-card-head gold">Material Allowances</div>
-        <ul>
-          <li>
-            <div class="allowance-row">
-              <span>LVP Flooring</span>
-              <span class="allowance-tag">$3.50/sf allowance</span>
+    <!-- Whole House -->
+    <div class="phase-card">
+        <div class="phase-header">
+            <div class="phase-num">1</div>
+            <div class="phase-header-text">
+                <h3>Whole House</h3>
+                <div class="phase-sub">Flooring · Ceilings · Paint · Lighting · Doors</div>
             </div>
-          </li>
-          <li>
-            <div class="allowance-row">
-              <span>Kitchen Cabinets</span>
-              <span class="allowance-tag">~$5,000 allowance</span>
-            </div>
-          </li>
-          <li>
-            <div class="allowance-row">
-              <span>Quartz Countertops (all)</span>
-              <span class="allowance-tag">Included allowance</span>
-            </div>
-          </li>
-          <li>
-            <div class="allowance-row">
-              <span>Shower Tile Material</span>
-              <span class="allowance-tag">Included allowance</span>
-            </div>
-          </li>
-          <li>
-            <div class="allowance-row">
-              <span>Windows &amp; Sliding Door</span>
-              <span class="allowance-tag">$500/unit · $800 door</span>
-            </div>
-          </li>
-          <li>
-            <div class="allowance-row">
-              <span>Kitchen Sink &amp; Faucet</span>
-              <span class="allowance-tag">Included allowance</span>
-            </div>
-          </li>
-        </ul>
-      </div>
-
+        </div>
+        <div class="phase-body">
+            <ul class="scope-list">
+                <li>Scrape and remove all popcorn ceilings (~1,134 sf) — debris removal included</li>
+                <li>Paint walls, ceilings, and trim throughout entire unit</li>
+                <li>Install 16 recessed lights — wiring, cans, trim (full home)</li>
+                <li>LVP flooring — 1,134 sf installed (material allowance + labor)</li>
+                <li>Floor prep / leveling — upstairs (allowance)</li>
+                <li>New baseboard — ~275 LF installed</li>
+                <li>5 interior doors — material + install</li>
+                <li>1 fire-rated door — material + install</li>
+                <li>Kitchen soffit removal — pending inspection (HVAC/plumbing confirmation required before demolition)</li>
+            </ul>
+        </div>
     </div>
-    <br>
-    <div class="warranty-box">
-      <strong>Change Orders:</strong> Any work outside the scope described above will be documented as a written change order with client approval required before work begins. Common triggers include hidden damage discovered during demo, code-required upgrades, or client-requested additions mid-project.
+
+    <!-- Kitchen -->
+    <div class="phase-card navy">
+        <div class="phase-header">
+            <div class="phase-num">2</div>
+            <div class="phase-header-text">
+                <h3>Kitchen</h3>
+                <div class="phase-sub">Cabinets · Countertops · Plumbing · Hook-Up</div>
+            </div>
+        </div>
+        <div class="phase-body">
+            <ul class="scope-list">
+                <li>New cabinet installation — material allowance + install labor</li>
+                <li>Quartz countertop — small kitchen (material allowance + install)</li>
+                <li>Kitchen sink + faucet — material allowance + install</li>
+                <li>Appliance hook-up — stove and dishwasher connection (appliances owner-supplied)</li>
+                <li>Plumbing — rough + finish, sink connection</li>
+            </ul>
+        </div>
     </div>
-  </div>
-</section>
 
-
-<!-- ════════════════════════════════════════════════════════
-     TIMELINE
-════════════════════════════════════════════════════════ -->
-<section>
-  <div class="container animate">
-    <span class="section-label">Project Timeline</span>
-    <h2 class="section-title">Estimated Schedule</h2>
-    <p style="color:var(--text-light); font-size:.9rem; margin-bottom:2.5rem;">Pending material lead times. All phases sequenced to minimize total project duration.</p>
-    <div class="timeline">
-      <div class="tl-item">
-        <div class="tl-dot">1</div>
-        <div class="tl-content">
-          <h4>Demo &amp; Rough-In (Weeks 1–2)</h4>
-          <p>Popcorn ceiling scrape, demo bathrooms, remove old flooring, rough plumbing and electrical for new layout.</p>
+    <!-- Windows & Doors -->
+    <div class="phase-card earth">
+        <div class="phase-header">
+            <div class="phase-num">3</div>
+            <div class="phase-header-text">
+                <h3>Windows &amp; Exterior Doors</h3>
+                <div class="phase-sub">5 Windows · Sliding Glass Door</div>
+            </div>
         </div>
-      </div>
-      <div class="tl-line"></div>
-      <div class="tl-item">
-        <div class="tl-dot">2</div>
-        <div class="tl-content">
-          <h4>Windows, Doors &amp; Framing (Weeks 2–4)</h4>
-          <p>Install replacement windows, sliding door, interior doors, fire-rated door. Drywall patch after soffit removal.</p>
+        <div class="phase-body">
+            <ul class="scope-list">
+                <li>5 replacement windows — material + install labor ($500 material / $250 install per unit)</li>
+                <li>Sliding glass door — material + install labor ($800 material / $500 install)</li>
+                <li>Stucco patch and interior drywall repair around all new openings included</li>
+            </ul>
         </div>
-      </div>
-      <div class="tl-line"></div>
-      <div class="tl-item">
-        <div class="tl-dot">3</div>
-        <div class="tl-content">
-          <h4>Tile, Plumbing &amp; Electrical (Weeks 4–7)</h4>
-          <p>Bathroom tile work, shower liner, vanity installs, kitchen rough plumbing, recessed lighting rough-in.</p>
-        </div>
-      </div>
-      <div class="tl-line"></div>
-      <div class="tl-item">
-        <div class="tl-dot">4</div>
-        <div class="tl-content">
-          <h4>Paint, Cabinets &amp; Countertops (Weeks 7–10)</h4>
-          <p>Full interior paint, cabinet install, countertop templating and install, backsplash, fixture connections.</p>
-        </div>
-      </div>
-      <div class="tl-line"></div>
-      <div class="tl-item">
-        <div class="tl-dot">5</div>
-        <div class="tl-content">
-          <h4>Flooring, Railing &amp; Finish (Weeks 10–14)</h4>
-          <p>LVP installation throughout, stair flooring and railing, baseboard, closet doors, final trim, appliance hook-up, punch list.</p>
-        </div>
-      </div>
     </div>
-  </div>
-</section>
 
-
-<!-- ════════════════════════════════════════════════════════
-     INVESTMENT
-════════════════════════════════════════════════════════ -->
-<section>
-  <div class="container animate">
-    <span class="section-label">Investment</span>
-    <h2 class="section-title" style="text-align:center;">Your Total Investment</h2>
-    <div class="investment-wrap">
-      <div class="inv-head">
-        <h3>Total Project Price</h3>
-        <div class="inv-total">$71,880</div>
-      </div>
-      <div class="inv-body">
-        <div class="inv-row">
-          <span class="label">Whole House (flooring, paint, lighting, doors)</span>
-          <span class="val">Included</span>
+    <!-- Stairs -->
+    <div class="phase-card brown">
+        <div class="phase-header">
+            <div class="phase-num">4</div>
+            <div class="phase-header-text">
+                <h3>Stairs</h3>
+                <div class="phase-sub">LVP · Full Railing Replacement</div>
+            </div>
         </div>
-        <div class="inv-row">
-          <span class="label">Kitchen Update</span>
-          <span class="val">Included</span>
+        <div class="phase-body">
+            <ul class="scope-list">
+                <li>Stair LVP install — 1 flight including stair nosing</li>
+                <li>Full stair railing replacement — remove existing, install new</li>
+            </ul>
         </div>
-        <div class="inv-row">
-          <span class="label">5 Windows + Sliding Door</span>
-          <span class="val">Included</span>
-        </div>
-        <div class="inv-row">
-          <span class="label">Stair Railing + Flooring</span>
-          <span class="val">Included</span>
-        </div>
-        <div class="inv-row">
-          <span class="label">Bathroom 1 — Full Remodel</span>
-          <span class="val">Included</span>
-        </div>
-        <div class="inv-row">
-          <span class="label">Bathroom 2 — Vanity Refresh</span>
-          <span class="val">Included</span>
-        </div>
-        <div class="inv-row">
-          <span class="label">Closets + Laundry</span>
-          <span class="val">Included</span>
-        </div>
-        <br>
-        <p style="font-size:.8rem; color:var(--text-light); text-align:center; margin-bottom:1.5rem;">Payment Schedule — 30 / 40 / 30</p>
-        <div class="pay-grid">
-          <div class="pay-card">
-            <div class="pay-pct">30%</div>
-            <div class="pay-amt">$21,564</div>
-            <div class="pay-lbl">Deposit to Start</div>
-          </div>
-          <div class="pay-card">
-            <div class="pay-pct">40%</div>
-            <div class="pay-amt">$28,752</div>
-            <div class="pay-lbl">At Midpoint</div>
-          </div>
-          <div class="pay-card">
-            <div class="pay-pct">30%</div>
-            <div class="pay-amt">$21,564</div>
-            <div class="pay-lbl">Upon Completion</div>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
-</section>
 
-
-<!-- ════════════════════════════════════════════════════════
-     WARRANTY
-════════════════════════════════════════════════════════ -->
-<section>
-  <div class="container animate">
-    <span class="section-label">Warranty &amp; Terms</span>
-    <h2 class="section-title">Our Commitment</h2>
-    <div class="warranty-box">
-      <p><strong>Labor Warranty:</strong> Timberline Build Co. warrants all labor for 1 year from project completion. Manufacturer warranties apply to all materials and fixtures.</p>
-      <p style="margin:0"><strong>Terms:</strong> All change orders require written client approval before work begins. A lien waiver will be provided upon final payment. This proposal is valid for 30 days from the date above.</p>
+    <!-- Bathroom 1 -->
+    <div class="phase-card">
+        <div class="phase-header">
+            <div class="phase-num">5</div>
+            <div class="phase-header-text">
+                <h3>Bathroom 1 — Full Remodel</h3>
+                <div class="phase-sub">Demo · Tile · Vanity · Plumbing · Lighting</div>
+            </div>
+        </div>
+        <div class="phase-body">
+            <ul class="scope-list">
+                <li>Demo — remove tub, existing tile, vanity, and all fixtures</li>
+                <li>Hot mop / shower liner — shower pan waterproofing</li>
+                <li>Fiberglass shower pan — material + install</li>
+                <li>Tile labor — shower walls (60×30, walls to 96" height)</li>
+                <li>Tile material — allowance for shower walls</li>
+                <li>Shower valve, head, and trim — allowance</li>
+                <li>Double sink vanity + cabinet — material allowance + install</li>
+                <li>Quartz countertop — material allowance + install</li>
+                <li>Sinks and faucets — allowance + install</li>
+                <li>Plumbing — rough + finish, double sink and shower</li>
+                <li>2 recessed lights — wiring, cans, trim</li>
+                <li>Vanity light bar — material + install</li>
+            </ul>
+        </div>
     </div>
-  </div>
-</section>
 
+    <!-- Bathroom 2 -->
+    <div class="phase-card navy">
+        <div class="phase-header">
+            <div class="phase-num">6</div>
+            <div class="phase-header-text">
+                <h3>Bathroom 2 — Vanity Refresh</h3>
+                <div class="phase-sub">42" Vanity · Countertop · Plumbing</div>
+            </div>
+        </div>
+        <div class="phase-body">
+            <ul class="scope-list">
+                <li>42" single-sink vanity + cabinet — material allowance + install</li>
+                <li>Quartz countertop — material allowance + install</li>
+                <li>Sink and faucet — allowance + install</li>
+                <li>Plumbing — swap and connect vanity</li>
+            </ul>
+        </div>
+    </div>
 
-<!-- ════════════════════════════════════════════════════════
-     SIGNATURE
-════════════════════════════════════════════════════════ -->
-<section>
-  <div class="container animate">
-    <span class="section-label">Authorization</span>
-    <h2 class="section-title">Acceptance of Proposal</h2>
-    <p style="color:var(--text-light); margin-bottom:2.5rem;">By signing below, client authorizes Timberline Build Co. to proceed with the scope of work described in this proposal at the agreed investment of <strong>$71,880</strong>.</p>
+    <!-- Closets & Laundry -->
+    <div class="phase-card earth">
+        <div class="phase-header">
+            <div class="phase-num">7</div>
+            <div class="phase-header-text">
+                <h3>Closets &amp; Laundry</h3>
+                <div class="phase-sub">Bi-fold Doors · Subfloor Repair</div>
+            </div>
+        </div>
+        <div class="phase-body">
+            <ul class="scope-list">
+                <li>3 closet bi-fold door replacements — 6 ft each, material + install</li>
+                <li>Laundry room bi-fold door — material + install</li>
+                <li>Laundry room subfloor repair — demo + OSB replacement (~40 sf)</li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ── MATERIAL ALLOWANCES ── -->
+<div class="section">
+    <span class="label">Material Allowances</span>
+    <h2 style="color: var(--earth); margin-bottom: 0.5rem;">Included Allowances</h2>
+    <p style="color: #888; font-size: 0.85rem; margin-bottom: 0.5rem;">The following materials are included in the total price at the allowances shown. Upgrades above allowance are billed as a change order.</p>
+    <div class="allowance-grid">
+        <div class="allowance-item">
+            <span class="allowance-name">LVP Flooring Material</span>
+            <span class="allowance-tag">$3.50 / sf</span>
+        </div>
+        <div class="allowance-item">
+            <span class="allowance-name">Kitchen Cabinets</span>
+            <span class="allowance-tag">~$5,000</span>
+        </div>
+        <div class="allowance-item">
+            <span class="allowance-name">Kitchen Quartz Countertop</span>
+            <span class="allowance-tag">Included est.</span>
+        </div>
+        <div class="allowance-item">
+            <span class="allowance-name">Kitchen Sink + Faucet</span>
+            <span class="allowance-tag">Included est.</span>
+        </div>
+        <div class="allowance-item">
+            <span class="allowance-name">Shower Tile Material — Bath 1</span>
+            <span class="allowance-tag">Included est.</span>
+        </div>
+        <div class="allowance-item">
+            <span class="allowance-name">Bath 1 Vanity, Sink + Faucets</span>
+            <span class="allowance-tag">Included est.</span>
+        </div>
+        <div class="allowance-item">
+            <span class="allowance-name">Bath 2 Vanity, Sink + Faucet</span>
+            <span class="allowance-tag">Included est.</span>
+        </div>
+        <div class="allowance-item">
+            <span class="allowance-name">Stair Railing — New Unit</span>
+            <span class="allowance-tag">Included est.</span>
+        </div>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ── NOT INCLUDED ── -->
+<div class="section">
+    <span class="label">Exclusions</span>
+    <h2 style="color: var(--earth); margin-bottom: 0.4rem;">What's NOT Included</h2>
+    <p style="color: #888; font-size: 0.85rem; margin-bottom: 0.5rem;">The following are excluded unless added via written change order.</p>
+    <ul class="not-included-list">
+        <li>Appliance purchase — hook-up labor only (owner supplies appliances)</li>
+        <li>HOA fees or approvals</li>
+        <li>Permit fees (not required for this scope)</li>
+        <li>Furniture removal, moving, or storage</li>
+        <li>Landscaping or any exterior work beyond windows/door</li>
+        <li>HVAC, electrical panel, or structural modifications</li>
+        <li>Hidden damage discovered after demo (addressed via change order)</li>
+        <li>Any work not explicitly listed in this proposal</li>
+    </ul>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ── TIMELINE ── -->
+<div class="section">
+    <span class="label">Project Timeline</span>
+    <h2 style="color: var(--earth); margin-bottom: 0.5rem;">8-Week Schedule</h2>
+    <p style="color: #888; font-size: 0.85rem; margin-bottom: 0;">Pending material lead times. Phases overlap where possible to minimize total duration.</p>
+    <div class="timeline-grid">
+        <div class="tl-card">
+            <div class="tl-week">Weeks 1–2</div>
+            <div class="tl-phase">Demo &amp; Rough-In</div>
+            <div class="tl-desc">Popcorn ceiling scrape, bath demo, remove old flooring. Rough plumbing + electrical.</div>
+        </div>
+        <div class="tl-card">
+            <div class="tl-week">Weeks 2–4</div>
+            <div class="tl-phase">Windows, Doors &amp; Framing</div>
+            <div class="tl-desc">Install 5 windows, sliding door, interior + fire-rated doors. Drywall patch and soffit work.</div>
+        </div>
+        <div class="tl-card">
+            <div class="tl-week">Weeks 3–6</div>
+            <div class="tl-phase">Tile, Plumbing &amp; Electrical</div>
+            <div class="tl-desc">Bath 1 tile work, shower pan, vanity installs. Kitchen plumbing. Recessed lighting rough.</div>
+        </div>
+        <div class="tl-card">
+            <div class="tl-week">Weeks 6–8</div>
+            <div class="tl-phase">Paint, Flooring &amp; Finish</div>
+            <div class="tl-desc">Full interior paint, LVP install, stair railing, cabinets, countertops, closet doors, punch list.</div>
+        </div>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ── TOTAL ── -->
+<div class="section">
+    <span class="label">Investment Summary</span>
+    <div class="total-block">
+        <span class="label">26495 La Zanja St #11C · Whole-Home Rental Refresh</span>
+        <div class="total-phases">
+            <div class="total-row section-header">
+                <span class="tr-label">Whole-Home Systems</span>
+                <span class="tr-val"></span>
+            </div>
+            <div class="total-row">
+                <span class="tr-label">Flooring, Ceilings, Paint, Lighting, Doors</span>
+                <span class="tr-val">Included</span>
+            </div>
+            <div class="total-row section-header">
+                <span class="tr-label">Room-by-Room</span>
+                <span class="tr-val"></span>
+            </div>
+            <div class="total-row">
+                <span class="tr-label">Kitchen Update — Cabinets, Countertops, Sink, Plumbing</span>
+                <span class="tr-val">Included</span>
+            </div>
+            <div class="total-row">
+                <span class="tr-label">5 Replacement Windows + Sliding Glass Door</span>
+                <span class="tr-val">Included</span>
+            </div>
+            <div class="total-row">
+                <span class="tr-label">Stairs — LVP + Full Railing Replacement</span>
+                <span class="tr-val">Included</span>
+            </div>
+            <div class="total-row">
+                <span class="tr-label">Bathroom 1 — Full Remodel (demo, tile, vanity, plumbing)</span>
+                <span class="tr-val">Included</span>
+            </div>
+            <div class="total-row">
+                <span class="tr-label">Bathroom 2 — Vanity Refresh</span>
+                <span class="tr-val">Included</span>
+            </div>
+            <div class="total-row">
+                <span class="tr-label">Closets + Laundry — Doors + Subfloor</span>
+                <span class="tr-val">Included</span>
+            </div>
+        </div>
+        <div class="total-final">
+            <div>
+                <div class="tf-label">Total Investment</div>
+            </div>
+            <span class="tf-range">$71,880</span>
+        </div>
+        <div class="total-caveat">
+            Material allowances included at specifications above. Appliances are owner-supplied; hook-up labor included. Soffit removal contingent on inspection — included in scope, TBD on execution. Hidden conditions discovered during demo addressed via written change order.
+        </div>
+    </div>
+
+    <div style="margin-top: 2.5rem;">
+        <span class="label">Payment Schedule</span>
+        <div class="payment-grid">
+            <div class="pay-card">
+                <div class="pay-pct">30%</div>
+                <div class="pay-label">Deposit to Start</div>
+                <div class="pay-amt">$21,564</div>
+                <div class="pay-desc">Due upon signing to secure materials and schedule</div>
+            </div>
+            <div class="pay-card">
+                <div class="pay-pct">40%</div>
+                <div class="pay-label">At Midpoint</div>
+                <div class="pay-amt">$28,752</div>
+                <div class="pay-desc">Due when rough work is complete</div>
+            </div>
+            <div class="pay-card">
+                <div class="pay-pct">30%</div>
+                <div class="pay-label">Upon Completion</div>
+                <div class="pay-amt">$21,564</div>
+                <div class="pay-desc">Due at final walk-through and punch list sign-off</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ── OUR WORK ── -->
+<div class="section">
+    <span class="label">Our Work</span>
+    <h2 style="color: var(--earth); margin-bottom: 0.5rem;">Recent Projects</h2>
+    <p style="color: #888; font-size: 0.85rem; margin-bottom: 0; max-width: 640px; line-height: 1.75;">Every photo below is real work done by Timberline Build Co. — no stock photos. Orange County homeowners who trusted us with their kitchens, bathrooms, and flooring.</p>
+    <div class="portfolio-grid">
+        <img src="portfolio-13.jpg" alt="Kitchen — Warm Wood Shaker Cabinets, Quartz Island" class="wide tall" style="height:300px;">
+        <img src="portfolio-10-clean.jpg" alt="Master Bath — Freestanding Tub" style="height:300px;">
+        <img src="portfolio-8-clean.jpg" alt="Master Bath — Glass Shower, Pattern Tile" class="wide" style="height:240px;">
+        <img src="portfolio-9-clean.jpg" alt="Master Bath — Double Vanity, Quartz" style="height:240px;">
+        <img src="portfolio-11.jpg" alt="Guest Bath — Marble-Look Tile" style="height:220px;">
+        <img src="portfolio-4-clean.jpg" alt="Kitchen — Open Concept Island" style="height:220px;">
+        <img src="portfolio-12-clean.jpg" alt="Bathroom — Green Vanity, Gold Fixtures" style="height:220px;">
+    </div>
+    <p style="margin-top: 1rem; font-size: 0.78rem; color: #aaa; text-align: center; font-style: italic;">All photos are actual Timberline Build Co. completed projects · Orange County, CA</p>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ── WARRANTY ── -->
+<div class="section">
+    <div class="warranty-block">
+        <span class="label">Our Commitment</span>
+        <h2 style="color: var(--white); margin-bottom: 1rem;">Warranty &amp; Terms</h2>
+        <p>Timberline Build Co. warrants all labor for <strong style="color: var(--white);">1 year from project completion</strong>. Manufacturer warranties apply to all materials, fixtures, and equipment. All change orders require written, signed approval before any additional work proceeds. This proposal is valid for 30 days from the date of issue.</p>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ── SIGNATURE ── -->
+<div class="section">
+    <span class="label">Authorization</span>
+    <h2 style="color: var(--earth); margin-bottom: 0.5rem;">Acceptance of Proposal</h2>
+    <p style="color: #555; font-size: 0.9rem; margin-bottom: 2rem;">By signing below, client authorizes Timberline Build Co. to proceed with the scope of work described in this proposal at the agreed investment of <strong>$71,880</strong>. A 30% deposit ($21,564) is due upon signing to secure scheduling and materials.</p>
     <div class="sig-grid">
-      <div class="sig-block">
-        <div class="sig-line">Client Signature</div>
-        <div class="sig-line">Print Name</div>
-        <div class="sig-line">Date</div>
-      </div>
-      <div class="sig-contact">
-        <strong>Justin Sherman</strong><br>
-        Timberline Build Co.<br>
-        Licensed General Contractor<br>
-        Orange County, CA<br>
-        <a href="tel:9492291692" style="color:var(--green); font-weight:700;">949-229-1692</a>
-      </div>
+        <div>
+            <div class="sig-line"></div>
+            <div class="sig-label">Client Signature</div>
+        </div>
+        <div>
+            <div class="sig-line"></div>
+            <div class="sig-label">Print Name</div>
+        </div>
+        <div>
+            <div class="sig-line"></div>
+            <div class="sig-label">Date</div>
+        </div>
+        <div style="font-size: 0.88rem; line-height: 2;">
+            <strong>Justin Sherman</strong><br>
+            Timberline Build Co.<br>
+            Licensed General Contractor · Orange County, CA<br>
+            <a href="tel:9492291692" style="color: var(--forest); font-weight: 700;">949-229-1692</a>
+        </div>
     </div>
-  </div>
-</section>
+</div>
 
-
-<!-- ════════════════════════════════════════════════════════
-     FOOTER
-════════════════════════════════════════════════════════ -->
+<!-- ── FOOTER ── -->
 <footer>
-  <div class="container">
-    <p><strong>Timberline Build Co.</strong> · Licensed General Contractor · Orange County, CA</p>
-    <p style="margin-top:.5rem; opacity:.7;">949-229-1692 · Prepared for: 26495 La Zanja St #11C · May 2026</p>
-  </div>
+    <img src="logo.png" alt="Timberline Build Co.">
+    <p>Timberline Build Co. · Licensed General Contractor · Orange County, CA</p>
+    <p><a href="tel:9492291692">949-229-1692</a></p>
+    <p style="margin-top: 1rem; font-size: 0.72rem; opacity: 0.35;">© 2026 Timberline Build Co. All rights reserved. This proposal is valid for 30 days from the date of issue.</p>
 </footer>
 
 </body>
