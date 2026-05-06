@@ -847,12 +847,18 @@
 
     <div style="margin-top: 2.5rem;">
         <span class="label">Payment Schedule</span>
-        <div class="payment-grid">
+        <div class="payment-grid" style="grid-template-columns: repeat(4, 1fr);">
+            <div class="pay-card">
+                <div class="pay-pct" style="font-size:1.4rem;">$1,000</div>
+                <div class="pay-label">At Signing</div>
+                <div class="pay-amt">&nbsp;</div>
+                <div class="pay-desc">Due at contract signature to hold your start date</div>
+            </div>
             <div class="pay-card">
                 <div class="pay-pct">30%</div>
-                <div class="pay-label">Deposit to Start</div>
-                <div class="pay-amt">$21,564</div>
-                <div class="pay-desc">Due upon signing to secure materials and schedule</div>
+                <div class="pay-label">Day 1 of Work</div>
+                <div class="pay-amt">$20,564</div>
+                <div class="pay-desc">30% of total less $1,000 signing deposit</div>
             </div>
             <div class="pay-card">
                 <div class="pay-pct">40%</div>
