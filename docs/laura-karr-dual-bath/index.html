@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Timberline Build Co — Laura Karr Dual Bathroom Remodel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:  #19412c;
+      --brown:  #614432;
+      --dark:   #312509;
+      --navy:   #213245;
+      --gold:   #e9af3b;
+      --cream:  #f9f6f1;
+      --light:  #fdfcfa;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--cream);
+      color: #1a1a1a;
+      line-height: 1.6;
+    }
+
+    /* ── COVER ── */
+    .cover {
+      background: var(--green);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 60px 80px;
+    }
+    .cover-logo img { height: 80px; mix-blend-mode: screen; }
+    .cover-body { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+    .cover-tag {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+    }
+    .cover-title {
+      font-size: 56px;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .cover-subtitle {
+      font-size: 22px;
+      font-weight: 300;
+      opacity: 0.85;
+      margin-bottom: 48px;
+    }
+    .cover-divider {
+      width: 60px;
+      height: 3px;
+      background: var(--gold);
+      margin-bottom: 40px;
+    }
+    .cover-meta { display: flex; gap: 60px; }
+    .cover-meta-item label {
+      display: block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+    .cover-meta-item span { font-size: 16px; font-weight: 500; }
+    .cover-footer {
+      font-size: 13px;
+      opacity: 0.6;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* ── SECTIONS ── */
+    .section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 80px 40px;
+    }
+    .section + .section { border-top: 1px solid #e5e0d8; }
+
+    .section-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--green);
+      margin-bottom: 28px;
+      line-height: 1.2;
+    }
+    .section p {
+      font-size: 16px;
+      font-weight: 400;
+      color: #333;
+      margin-bottom: 16px;
+      max-width: 720px;
+    }
+
+    /* ── RENDER ── */
+    .render-block {
+      width: 100%;
+      border-radius: 8px;
+      overflow: hidden;
+      margin: 40px 0;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+    }
+    .render-block img { width: 100%; display: block; }
+    .render-caption {
+      background: var(--dark);
+      color: white;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 14px 20px;
+      opacity: 0.85;
+    }
+
+    /* ── SCOPE BANNERs ── */
+    .bath-banner {
+      background: var(--navy);
+      color: white;
+      padding: 14px 20px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin: 32px 0 16px;
+    }
+    .bath-banner.upstairs { background: var(--green); }
+
+    /* ── SCOPE LIST ── */
+    .scope-list { list-style: none; margin-top: 8px; }
+    .scope-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 12px 0;
+      border-bottom: 1px solid #ede8e0;
+      font-size: 15px;
+      color: #2a2a2a;
+    }
+    .scope-list li:last-child { border-bottom: none; }
+    .scope-list li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      margin-top: 8px;
+      flex-shrink: 0;
+    }
+
+    /* ── NOT INCLUDED ── */
+    .not-list { list-style: none; margin-top: 8px; }
+    .not-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 10px 0;
+      border-bottom: 1px solid #ede8e0;
+      font-size: 15px;
+      color: #555;
+    }
+    .not-list li:last-child { border-bottom: none; }
+    .not-list li::before {
+      content: '—';
+      color: #aaa;
+      flex-shrink: 0;
+      font-weight: 700;
+    }
+
+    /* ── ALLOWANCES ── */
+    .allowance-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 8px;
+    }
+    .allowance-card {
+      background: white;
+      border: 1px solid #e5e0d8;
+      border-radius: 6px;
+      padding: 20px 24px;
+    }
+    .allowance-card .label { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--brown); margin-bottom: 6px; }
+    .allowance-card .amount { font-size: 24px; font-weight: 800; color: var(--green); }
+    .allowance-card .note { font-size: 12px; color: #777; margin-top: 4px; }
+
+    /* ── TIMELINE ── */
+    .timeline-bar {
+      display: flex;
+      gap: 0;
+      margin: 24px 0;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .timeline-phase {
+      flex: 1;
+      padding: 16px 12px;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .timeline-phase .week { font-size: 10px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; opacity: 0.7; margin-bottom: 4px; }
+    .tp-1 { background: var(--green); color: white; }
+    .tp-2 { background: var(--brown); color: white; }
+    .tp-3 { background: var(--navy); color: white; }
+    .tp-4 { background: var(--gold); color: var(--dark); }
+
+    /* ── INVESTMENT ── */
+    .inv-breakdown {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .inv-card {
+      background: white;
+      border: 1px solid #e5e0d8;
+      border-radius: 6px;
+      padding: 20px 24px;
+      text-align: center;
+    }
+    .inv-card.highlight {
+      background: var(--green);
+      border-color: var(--green);
+    }
+    .inv-card .inv-card-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--brown);
+      margin-bottom: 8px;
+    }
+    .inv-card.highlight .inv-card-label { color: var(--gold); }
+    .inv-card .inv-card-amount {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--green);
+    }
+    .inv-card.highlight .inv-card-amount { color: white; }
+    .inv-card .inv-card-note {
+      font-size: 12px;
+      color: #777;
+      margin-top: 4px;
+    }
+    .inv-card.highlight .inv-card-note { color: rgba(255,255,255,0.6); }
+
+    .investment-note {
+      background: #fff8ec;
+      border-left: 4px solid var(--gold);
+      padding: 16px 20px;
+      font-size: 14px;
+      color: #444;
+      border-radius: 0 4px 4px 0;
+      margin-top: 16px;
+    }
+
+    /* ── PAYMENT ── */
+    .payment-steps {
+      display: flex;
+      gap: 16px;
+      margin-top: 16px;
+    }
+    .payment-step {
+      flex: 1;
+      background: white;
+      border: 1px solid #e5e0d8;
+      border-radius: 6px;
+      padding: 24px;
+      text-align: center;
+    }
+    .payment-step .pct { font-size: 40px; font-weight: 800; color: var(--green); }
+    .payment-step .pct-label { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--brown); margin: 8px 0 4px; }
+    .payment-step .pct-desc { font-size: 13px; color: #666; }
+
+    /* ── WARRANTY ── */
+    .warranty-box {
+      background: white;
+      border: 1px solid #e5e0d8;
+      border-radius: 6px;
+      padding: 28px 32px;
+      font-size: 15px;
+      color: #333;
+      font-style: italic;
+    }
+
+    /* ── SIGNATURE ── */
+    .sig-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 32px;
+    }
+    .sig-block .sig-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #999;
+      margin-bottom: 40px;
+    }
+    .sig-block .sig-line {
+      border-top: 2px solid #333;
+      padding-top: 10px;
+      font-size: 13px;
+      color: #555;
+    }
+
+    /* ── FOOTER ── */
+    .proposal-footer {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 40px;
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    @media (max-width: 600px) {
+      .cover { padding: 40px 24px; }
+      .cover-title { font-size: 36px; }
+      .cover-meta { flex-direction: column; gap: 24px; }
+      .section { padding: 48px 24px; }
+      .allowance-grid { grid-template-columns: 1fr; }
+      .inv-breakdown { grid-template-columns: 1fr; }
+      .payment-steps { flex-direction: column; }
+      .sig-grid { grid-template-columns: 1fr; }
+      .timeline-bar { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════ COVER ══════════════════ -->
+<div class="cover">
+  <div class="cover-logo">
+    <img src="./logo-dark.png" alt="Timberline Build Co" />
+  </div>
+  <div class="cover-body">
+    <div class="cover-tag">Project Proposal</div>
+    <div class="cover-title">Dual Bathroom<br>Remodel</div>
+    <div class="cover-subtitle">Upstairs Master Bath Conversion &amp; Downstairs Bath Update</div>
+    <div class="cover-divider"></div>
+    <div class="cover-meta">
+      <div class="cover-meta-item">
+        <label>Prepared For</label>
+        <span>Laura Karr</span>
+      </div>
+      <div class="cover-meta-item">
+        <label>Location</label>
+        <span>23062 Sonoita, Mission Viejo</span>
+      </div>
+      <div class="cover-meta-item">
+        <label>Date</label>
+        <span>May 2026</span>
+      </div>
+    </div>
+  </div>
+  <div class="cover-footer">
+    <span>Timberline Build Co &nbsp;·&nbsp; Licensed General Contractor &nbsp;·&nbsp; Orange County, CA</span>
+    <span>949-229-1692</span>
+  </div>
+</div>
+
+<!-- ══════════════════ OVERVIEW ══════════════════ -->
+<div class="section">
+  <div class="section-label">01 — Project Overview</div>
+  <div class="section-title">Two Bathrooms. One Seamless Project.</div>
+  <p>This proposal covers a complete transformation of both bathrooms at 23062 Sonoita. Upstairs, the existing tub/shower combo becomes a fully tiled walk-in shower with frameless glass, a new 83" double vanity, recessed niche, and all-new electrical and plumbing. Downstairs, we're updating the vanity and adding bidet electrical — clean, efficient, done right.</p>
+  <p>All work performed by Timberline Build Co and our trusted trade partners, with Justin Sherman on-site throughout.</p>
+
+  <div class="render-block">
+    <img src="./render-1.png" alt="Upstairs Bathroom Concept Render" />
+    <div class="render-caption">Concept Render — Upstairs Bath · Final finishes TBD per selections</div>
+  </div>
+</div>
+
+<!-- ══════════════════ SCOPE ══════════════════ -->
+<div class="section">
+  <div class="section-label">02 — Scope of Work</div>
+  <div class="section-title">What's Included</div>
+
+  <div class="bath-banner">Downstairs Bathroom</div>
+  <ul class="scope-list">
+    <li>Add dedicated electrical circuit for bidet</li>
+    <li>Install owner-supplied bidet (labor only)</li>
+    <li>Remove existing vanity; install owner-supplied replacement vanity — plumbing and set included</li>
+  </ul>
+
+  <div class="bath-banner upstairs">Upstairs Bathroom — Master Bath Conversion</div>
+  <ul class="scope-list">
+    <li>Full demo of existing tub/shower surround and flooring — haul away included</li>
+    <li>Hot mop shower pan (waterproofing base)</li>
+    <li>Build walk-in shower — 32"×60"×96" with recessed shampoo niche and blocking</li>
+    <li>Full tile installation — shower walls floor-to-ceiling, shower floor, bathroom floor (one window to tile around)</li>
+    <li>Frameless glass shower enclosure</li>
+    <li>All shower plumbing rough-in and finish (shower valve per allowance)</li>
+    <li>Set owner-supplied toilet</li>
+    <li>Supply and install 83" double vanity — cabinets, custom countertop, 2 undermount sinks, faucets, plumbing hookups</li>
+    <li>Frame 2 medicine cabinets into vanity wall (mirrors)</li>
+    <li>Add 1 new vanity light above mirror</li>
+    <li>Add 2 recessed lights in ceiling</li>
+    <li>Replace vent fan</li>
+    <li>Drywall repair as needed (including behind builder mirror removal)</li>
+    <li>Paint bathroom walls and ceiling</li>
+  </ul>
+</div>
+
+<!-- ══════════════════ NOT INCLUDED ══════════════════ -->
+<div class="section">
+  <div class="section-label">03 — Exclusions</div>
+  <div class="section-title">What's NOT Included</div>
+  <ul class="not-list">
+    <li>Permits — this project is proceeding without permits</li>
+    <li>Bidet (downstairs) — owner to supply; installation included</li>
+    <li>Vanity (downstairs) — owner to supply; installation included</li>
+    <li>Toilet (upstairs) — owner to supply; installation included</li>
+    <li>Any structural changes beyond described scope</li>
+    <li>Furniture removal or storage</li>
+    <li>Downstairs bathroom flooring</li>
+  </ul>
+</div>
+
+<!-- ══════════════════ ALLOWANCES ══════════════════ -->
+<div class="section">
+  <div class="section-label">04 — Material Allowances</div>
+  <div class="section-title">Budget for Finish Selections</div>
+  <p>The following items are included as allowances. Timberline can source any of these items per your selection, or you may supply your own. If your selections exceed the allowance, the difference is billed as a change order. If under, the difference is credited back.</p>
+  <div class="allowance-grid">
+    <div class="allowance-card">
+      <div class="label">Shower Tile — Walls, Floor &amp; Window Surround</div>
+      <div class="amount">$1,800</div>
+      <div class="note">~200 sq ft. Finish and style TBD per selection.</div>
+    </div>
+    <div class="allowance-card">
+      <div class="label">Frameless Glass Enclosure</div>
+      <div class="amount">$2,500</div>
+      <div class="note">32"×60"×96" custom fit with hardware. Finish TBD.</div>
+    </div>
+    <div class="allowance-card">
+      <div class="label">2 Medicine Cabinets</div>
+      <div class="amount">$200</div>
+      <div class="note">Framed in as vanity wall mirrors. Style TBD.</div>
+    </div>
+    <div class="allowance-card">
+      <div class="label">Shower Valve + Trim Kit</div>
+      <div class="amount">$500</div>
+      <div class="note">Valve, trim, and hand shower. Finish TBD.</div>
+    </div>
+    <div class="allowance-card">
+      <div class="label">Vanity Light Fixture</div>
+      <div class="amount">$200</div>
+      <div class="note">Above vanity. Finish TBD per selection.</div>
+    </div>
+    <div class="allowance-card">
+      <div class="label">Vent Fan</div>
+      <div class="amount">$150</div>
+      <div class="note">Replacement exhaust fan.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ TIMELINE ══════════════════ -->
+<div class="section">
+  <div class="section-label">05 — Timeline</div>
+  <div class="section-title">Estimated Project Schedule</div>
+  <p>This project is estimated at approximately <strong>3–4 weeks of construction</strong>. Shower glass requires a 10-day lead time after tile completion and is installed at the end of the project.</p>
+  <div class="timeline-bar">
+    <div class="timeline-phase tp-1">
+      <div class="week">Week 1</div>
+      Demo, Rough Plumbing &amp; Electrical, Hot Mop, Drywall
+    </div>
+    <div class="timeline-phase tp-2">
+      <div class="week">Week 2–3</div>
+      Tile, Vanity Install, Downstairs Bath
+    </div>
+    <div class="timeline-phase tp-3">
+      <div class="week">+10 Days</div>
+      Shower Glass Fabrication &amp; Install
+    </div>
+    <div class="timeline-phase tp-4">
+      <div class="week">Final</div>
+      Punch List &amp; Walkthrough
+    </div>
+  </div>
+  <p style="font-size:13px; color:#777; margin-top:12px;">Pending material lead times. Timberline will communicate any schedule changes promptly.</p>
+</div>
+
+<!-- ══════════════════ INVESTMENT ══════════════════ -->
+<div class="section">
+  <div class="section-label">06 — Investment</div>
+  <div class="section-title">Your Total Project Investment</div>
+  <div class="inv-breakdown">
+    <div class="inv-card">
+      <div class="inv-card-label">Construction Total</div>
+      <div class="inv-card-amount">$20,990</div>
+      <div class="inv-card-note">Labor &amp; fixed costs</div>
+    </div>
+    <div class="inv-card">
+      <div class="inv-card-label">Estimated Finish Materials</div>
+      <div class="inv-card-amount">$5,350</div>
+      <div class="inv-card-note">Tile, glass, fixtures &amp; finishes</div>
+    </div>
+    <div class="inv-card highlight">
+      <div class="inv-card-label">Estimated Total</div>
+      <div class="inv-card-amount">$26,340</div>
+      <div class="inv-card-note">Pending final selections</div>
+    </div>
+  </div>
+  <div class="investment-note">
+    💡 <strong>Note:</strong> Allowance items are budgeted at midpoint estimates. If your selections come in under allowance, the difference is credited. Overages are handled via written change order. Owner-supplied items (bidet, vanities, toilet) are not included in this total.
+  </div>
+</div>
+
+<!-- ══════════════════ PAYMENT ══════════════════ -->
+<div class="section">
+  <div class="section-label">07 — Payment Terms</div>
+  <div class="section-title">Simple, Milestone-Based Payments</div>
+  <div class="payment-steps">
+    <div class="payment-step">
+      <div class="pct">30%</div>
+      <div class="pct-label">Deposit</div>
+      <div class="pct-desc">Due at contract signing to secure your start date and order materials</div>
+    </div>
+    <div class="payment-step">
+      <div class="pct">40%</div>
+      <div class="pct-label">Midpoint</div>
+      <div class="pct-desc">Due when rough work is complete — plumbing, electrical, hot mop done</div>
+    </div>
+    <div class="payment-step">
+      <div class="pct">30%</div>
+      <div class="pct-label">Completion</div>
+      <div class="pct-desc">Due upon final walkthrough and your sign-off</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ WARRANTY & TERMS ══════════════════ -->
+<div class="section">
+  <div class="section-label">08 — Warranty &amp; Terms</div>
+  <div class="section-title">Our Commitment to Your Project</div>
+  <div class="warranty-box">
+    "Timberline Build Co warrants all labor for 1 year from project completion. Manufacturer warranties apply to all materials and fixtures."
+  </div>
+  <ul class="scope-list" style="margin-top:24px;">
+    <li>All change orders require written approval before work proceeds</li>
+    <li>Client to select or supply finish materials prior to scheduled install week</li>
+    <li>Timberline Build Co is licensed and insured in the state of California</li>
+    <li>A lien waiver will be provided upon final payment</li>
+  </ul>
+</div>
+
+<!-- ══════════════════ SIGNATURE ══════════════════ -->
+<div class="section">
+  <div class="section-label">09 — Authorization</div>
+  <div class="section-title">Let's Get Started</div>
+  <p>By signing below, you authorize Timberline Build Co to proceed with the scope of work as described in this proposal at the estimated investment of $26,340. A 30% deposit ($7,902) is due upon signing to secure your start date.</p>
+  <div class="sig-grid">
+    <div class="sig-block">
+      <div class="sig-label">Client Signature</div>
+      <div class="sig-line">Laura Karr &nbsp;&nbsp;&nbsp;&nbsp; Date: ___________</div>
+    </div>
+    <div class="sig-block">
+      <div class="sig-label">Timberline Build Co</div>
+      <div class="sig-line">Justin Sherman &nbsp;&nbsp;&nbsp;&nbsp; Date: ___________</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ FOOTER ══════════════════ -->
+<div class="proposal-footer">
+  <p><strong>Timberline Build Co</strong> &nbsp;·&nbsp; Licensed General Contractor &nbsp;·&nbsp; Orange County, CA</p>
+  <p style="margin-top:8px;opacity:0.7;">949-229-1692 &nbsp;·&nbsp; Questions? Call or text Justin directly.</p>
+</div>
+
+</body>
+</html>
