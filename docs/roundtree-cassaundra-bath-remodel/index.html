@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cassaundra Roundtree | Bathroom Remodel | Timberline Build Co.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green: #19412c;
+            --brown: #614432;
+            --dark-brown: #312509;
+            --navy: #213245;
+            --gold: #e9af3b;
+            --light-gold: #fdf5e0;
+            --off-white: #f9f9f9;
+            --text: #333;
+            --text-light: #666;
+            --border: #e0e0e0;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text);
+            background: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 { font-weight: 700; line-height: 1.2; }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate { animation: fadeInUp 0.8s ease-out forwards; opacity: 0; }
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+        section { padding: 5rem 0; border-bottom: 1px solid var(--border); }
+
+        /* Header */
+        header {
+            background: var(--green);
+            color: #fff;
+            padding: 6rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 100%; height: 10px;
+            background: var(--gold);
+        }
+        .project-title { font-size: 3.5rem; margin-bottom: 1rem; }
+        .project-subtitle { font-size: 1.2rem; font-weight: 400; opacity: 0.9; margin-bottom: 3rem; }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .stat-card {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 4px;
+            border-left: 4px solid var(--gold);
+        }
+        .stat-val { font-size: 1.8rem; font-weight: 700; display: block; }
+        .stat-label { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; }
+
+        /* Option Toggle */
+        .options-nav {
+            background: var(--navy);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 1rem 0;
+        }
+        .options-nav .container {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .options-nav span {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-right: 0.5rem;
+        }
+        .option-btn {
+            padding: 0.6rem 1.5rem;
+            border-radius: 4px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border: 2px solid var(--gold);
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+        .option-btn.active {
+            background: var(--gold);
+            color: var(--dark-brown);
+        }
+        .option-btn:not(.active) {
+            background: transparent;
+            color: var(--gold);
+        }
+        .option-btn:hover { opacity: 0.85; }
+
+        /* Option Panels */
+        .option-panel { display: none; }
+        .option-panel.active { display: block; }
+
+        /* Option Banner */
+        .option-banner {
+            padding: 2rem 0;
+            border-bottom: 4px solid var(--gold);
+        }
+        .option-banner.a { background: var(--light-gold); }
+        .option-banner.b { background: #e8f0ed; }
+        .option-tag {
+            display: inline-block;
+            background: var(--navy);
+            color: #fff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 0.3rem 0.8rem;
+            border-radius: 2px;
+            margin-bottom: 0.5rem;
+        }
+        .option-name { font-size: 2rem; color: var(--green); margin-bottom: 0.5rem; }
+        .option-price-badge {
+            display: inline-block;
+            background: var(--green);
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: 800;
+            padding: 0.5rem 1.5rem;
+            border-radius: 4px;
+            margin-top: 0.5rem;
+        }
+
+        /* Scope / Materials Grid */
+        .zone-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .zone-title { font-size: 2rem; color: var(--green); }
+
+        .zone-grid {
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+            gap: 4rem;
+        }
+        @media(max-width: 768px) {
+            .zone-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .project-title { font-size: 2.2rem; }
+        }
+
+        .scope-list { list-style: none; }
+        .scope-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .scope-list li::before {
+            content: '✓';
+            color: var(--gold);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        .scope-list li span {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-top: 0.3rem;
+        }
+
+        .not-included-list { list-style: none; }
+        .not-included-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 0.95rem;
+        }
+        .not-included-list li::before {
+            content: '✗';
+            color: #c0392b;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .materials-card {
+            background: var(--off-white);
+            padding: 2rem;
+            border-radius: 8px;
+            border-top: 4px solid var(--navy);
+        }
+        .materials-title {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+        .material-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.8rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.8rem;
+            font-size: 0.9rem;
+        }
+        .material-item:last-child { border: none; }
+        .mat-name { font-weight: 600; color: var(--dark-brown); }
+        .mat-detail { color: var(--text-light); text-align: right; }
+
+        /* Client Supply Callout */
+        .client-supply-box {
+            background: #fff8e1;
+            border: 2px solid var(--gold);
+            border-radius: 8px;
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+        }
+        .client-supply-box h4 {
+            color: var(--dark-brown);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+        .client-supply-box p {
+            font-size: 0.95rem;
+            color: var(--text);
+        }
+        .client-supply-box ul {
+            list-style: none;
+            margin-top: 0.5rem;
+        }
+        .client-supply-box ul li {
+            padding-left: 1.2rem;
+            position: relative;
+            margin-bottom: 0.3rem;
+            font-size: 0.95rem;
+        }
+        .client-supply-box ul li::before {
+            content: '→';
+            color: var(--gold);
+            position: absolute;
+            left: 0;
+        }
+
+        /* Financial Table */
+        .financial-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+        }
+        .financial-table th {
+            text-align: left;
+            padding: 1rem;
+            background: var(--navy);
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+        .financial-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        .financial-table tr:last-child td {
+            border-bottom: none;
+            font-weight: 800;
+            font-size: 1.2rem;
+            background: var(--light-gold);
+            color: var(--green);
+        }
+
+        /* Payment Terms */
+        .payment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .payment-card {
+            background: var(--off-white);
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            border-top: 4px solid var(--green);
+        }
+        .payment-pct {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--green);
+            display: block;
+        }
+        .payment-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-light);
+            margin-top: 0.3rem;
+        }
+        .payment-note {
+            font-size: 0.8rem;
+            color: var(--brown);
+            margin-top: 0.5rem;
+        }
+
+        /* Warranty */
+        .warranty-box {
+            border: 2px solid var(--green);
+            padding: 2rem;
+            text-align: center;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+
+        /* Signature */
+        .signature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        @media(max-width: 600px) { .signature-grid { grid-template-columns: 1fr; } }
+        .sig-line {
+            border-top: 2px solid #333;
+            margin-top: 3rem;
+            padding-top: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-brown);
+            color: #fff;
+            text-align: center;
+            padding: 3rem 0;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <div class="animate delay-1">
+                <img src="./logo.png" alt="Timberline Build Co." style="height: 160px; margin-bottom: 2rem;">
+            </div>
+            <div class="animate delay-2">
+                <h1 class="project-title">Bathroom Remodel</h1>
+                <p class="project-subtitle">Proposal for Cassaundra Roundtree &nbsp;·&nbsp; Two Option Comparison</p>
+            </div>
+            <div class="stats-grid animate delay-3">
+                <div class="stat-card">
+                    <span class="stat-val">Option A: $6,600</span>
+                    <span class="stat-label">Surround Kit</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-val">Option B: $7,500</span>
+                    <span class="stat-label">Full Tile</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-val">2–3 Weeks</span>
+                    <span class="stat-label">Estimated Timeline</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-val">Licensed & Insured</span>
+                    <span class="stat-label">Orange County GC</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- STICKY OPTION NAV -->
+    <nav class="options-nav">
+        <div class="container">
+            <span>Jump to:</span>
+            <a class="option-btn active" href="#" onclick="showOption('a'); return false;">Option A — Surround Kit</a>
+            <a class="option-btn" href="#" onclick="showOption('b'); return false;">Option B — Full Tile</a>
+        </div>
+    </nav>
+
+    <!-- PROJECT OVERVIEW -->
+    <section>
+        <div class="container">
+            <div class="animate">
+                <h2 class="zone-title" style="margin-bottom: 1.5rem;">Project Overview</h2>
+                <p style="font-size: 1.1rem; max-width: 780px; color: var(--text-light); line-height: 1.8;">
+                    This proposal covers a complete bathtub and surround replacement, including demolition of the existing tub and surround, rough and finish plumbing, drywall repair on the opposite wall, and installation of the new tub and wall finish. We've put together two options so you can choose the finish level that fits your goals and budget.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- OPTION A -->
+    <!-- ============================================================ -->
+    <div id="panel-a" class="option-panel active">
+
+        <div class="option-banner a">
+            <div class="container">
+                <div class="option-tag">Option A</div>
+                <h2 class="option-name">Drop-In Tub + 3-Piece Acrylic Surround</h2>
+                <p style="color: var(--text-light); max-width: 680px; margin-bottom: 0.5rem;">Clean, durable finish. Faster install. A smart choice for a bathroom that looks great without the premium tile price tag.</p>
+                <div class="option-price-badge">$6,600 Total</div>
+            </div>
+        </div>
+
+        <!-- Demo -->
+        <section>
+            <div class="container">
+                <div class="zone-header animate">
+                    <h2 class="zone-title">01. Demo & Removal</h2>
+                </div>
+                <div class="zone-grid">
+                    <div class="animate delay-1">
+                        <ul class="scope-list">
+                            <li>Remove existing tub, surround, and all fixtures <span>Full demo down to studs</span></li>
+                            <li>Demo and patch drywall on opposite wall <span>Remove damaged drywall, install new, tape, texture, and prime</span></li>
+                            <li>Debris hauled off-site <span>Site left clean and ready for install</span></li>
+                        </ul>
+                    </div>
+                    <div class="animate delay-2">
+                        <div class="materials-card">
+                            <div class="materials-title">What's Included</div>
+                            <div class="material-item">
+                                <span class="mat-name">Labor</span>
+                                <span class="mat-detail">Full demolition</span>
+                            </div>
+                            <div class="material-item">
+                                <span class="mat-name">Drywall Repair</span>
+                                <span class="mat-detail">Opp. wall — patch & finish</span>
+                            </div>
+                            <div class="material-item">
+                                <span class="mat-name">Disposal</span>
+                                <span class="mat-detail">All debris removed</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Plumbing -->
+        <section style="background: #fafafa;">
+            <div class="container">
+                <div class="zone-header animate">
+                    <h2 class="zone-title">02. Plumbing</h2>
+                </div>
+                <div class="zone-grid">
+                    <div class="animate delay-1">
+                        <ul class="scope-list">
+                            <li>Rough plumbing as needed <span>Supply lines, drain, and connections</span></li>
+                            <li>Finish plumbing — valve and trim hookup <span>Ready for your fixtures</span></li>
+                            <li>Test and inspect all connections <span>Leak-free before wall close-up</span></li>
+                        </ul>
+                        <div class="client-supply-box" style="margin-top: 1.5rem;">
+                            <h4>⚠️ Client to Provide</h4>
+                            <ul>
+                                <li>Shower/tub valve, trim kit, spout, and showerhead (all fixtures)</li>
+                            </ul>
+                            <p style="margin-top: 0.5rem; font-size: 0.85rem; color: var(--text-light);">Fixture installation is included — bring what you love and we'll install it.</p>
+                        </div>
+                    </div>
+                    <div class="animate delay-2">
+                        <div class="materials-card">
+                            <div class="materials-title">Plumbing Scope</div>
+                            <div class="material-item">
+                                <span class="mat-name">Supply Lines</span>
+                                <span class="mat-detail">Hot & cold</span>
+                            </div>
+                            <div class="material-item">
+                                <span class="mat-name">Drain</span>
+                                <span class="mat-detail">Tub drain & overflow</span>
+                            </div>
+                            <div class="material-item">
+                                <span class="mat-name">Valve Rough-In</span>
+                                <span class="mat-detail">Included</span>
+                            </div>
+                            <div class="material-item">
+                                <span class="mat-name">Finish Hookup</span>
+                                <span class="mat-detail">Included</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tub & Surround Install -->
+        <section>
+            <div class="container">
+                <div class="zone-header animate">
+                    <h2 class="zone-title">03. Tub & Surround Installation</h2>
+                </div>
+                <div class="zone-grid">
+                    <div class="animate delay-1">
+                        <ul class="scope-list">
+                            <li>Set and level Delta EverEdge alcove soaking tub <span>Secure installation, properly bedded</span></li>
+                            <li>Install Delta EverEdge 3-piece wall surround <span>Direct-to-stud, gloss white — one full day, two-person crew</span></li>
+                            <li>Caulk all seams and transitions <span>Waterproof seal throughout</span></li>
+                        </ul>
+                        <div class="client-supply-box" style="margin-top: 1.5rem;">
+                            <h4>Materials — Included in Price</h4>
+                            <ul>
+                                <li>Delta EverEdge 60"×32" Alcove Soaking Tub (Left Drain) — $350</li>
+                                <li>Delta EverEdge 3-Piece Direct-to-Stud Surround — $450</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="animate delay-2">
+                        <div class="materials-card">
+                            <div class="materials-title">Product Details</div>
+                            <div class="material-item">
+                                <span class="mat-name">Tub</span>
+                                <span class="mat-detail">Delta EverEdge Alcove</span>
+                            </div>
+                            <div class="material-item">
+                                <span class="mat-name">Drain</span>
+                                <span class="mat-detail">Left drain configuration</span>
+                            </div>
+                            <div class="material-item">
+                                <span class="mat-name">Surround</span>
+                                <span class="mat-detail">3-pc, high gloss white</span>
+                            </div>
+                            <div class="material-item">
+                                <span class="mat-name">Install</span>
+                                <span class="mat-detail">Direct-to-stud</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Not Included -->
+        <section style="background: #fafafa;">
+            <div class="container">
+                <div class="animate">
+                    <h2 class="zone-title" style="margin-bottom: 1.5rem;">What's NOT Included</h2>
+                    <ul class="not-included-list">
+                        <li>Shower/tub fixtures (valve, trim kit, spout, showerhead) — client to supply</li>
+                        <li>Vanity, toilet, flooring, or any other bathroom work outside the tub/shower zone</li>
+                        <li>Permits (available as an add-on if required by city)</li>
+                        <li>Tile or any finish beyond the surround kit</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Investment A -->
+        <section>
+            <div class="container">
+                <h2 class="zone-title animate" style="text-align: center; margin-bottom: 3rem;">Option A — Investment Summary</h2>
+                <div class="animate delay-1">
+                    <table class="financial-table">
+                        <thead>
+                            <tr>
+                                <th>Scope Item</th>
+                                <th style="text-align: right;">Investment</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Demo, Drywall Repair & Site Cleanup</strong></td>
+                                <td style="text-align: right;">Included</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Plumbing (Rough & Finish)</strong></td>
+                                <td style="text-align: right;">Included</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Delta EverEdge Tub — Material & Installation</strong></td>
+                                <td style="text-align: right;">Included</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Delta EverEdge 3-Piece Surround — Material & Installation</strong></td>
+                                <td style="text-align: right;">Included</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Fixtures</strong><br><span style="font-size:0.85em;color:#666;">Client to provide — installation included</span></td>
+                                <td style="text-align: right;">Client Supplied</td>
+                            </tr>
+                            <tr>
+                                <td><strong>TOTAL INVESTMENT</strong></td>
+                                <td style="text-align: right;"><strong>$6,600</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+    </div><!-- end panel-a -->
+
+
+    <!-- ============================================================ -->
+    <!-- OPTION B -->
+    <!-- ============================================================ -->
+    <div id="panel-b" class="option-panel">
+
+        <div class="option-banner b">
+            <div class="container">
+                <div class="option-tag">Option B</div>
+                <h2 class="option-name">Drop-In Tub + Full Tile Walls</h2>
+                <p style="color: var(--text-light); max-width: 680px; margin-bottom: 0.5rem;">The premium finish. Custom tile walls built to last, with a look that adds real value to your home. You pick the tile — we do everything else.</p>
+                <div class="option-price-badge">$7,500 Total</div>
+            </div>
+        </div>
+
+        <!-- Demo -->
+        <section>
+            <div class="container">
+                <div class="zone-header animate">
+                    <h2 class="zone-title">01. Demo & Removal</h2>
+                </div>
+                <div class="zone-grid">
+                    <div class="animate delay-1">
+                        <ul class="scope-list">
+                            <li>Remove existing tub, surround, and all fixtures <span>Full demo down to studs</span></li>
+                            <li>Demo and patch drywall on opposite wall <span>Remove damaged drywall, install new, tape, texture, and prime</span></li>
+                            <li>Debris hauled off-site <span>Site left clean and ready for install</span></li>
+                        </ul>
+                    </div>
+                    <div class="animate delay-2">
+                        <div class="materials-card">
+                            <div class="materials-title">What's Included</div>
+                            <div class="material-item">
+                                <span class="mat-name">Labor</span>
+                                <span class="mat-detail">Full demolition</span>
+                            </div>
+                            <div class="material-item">
+                                <span class="mat-name">Drywall Repair</span>
+                                <span class="mat-detail">Opp. wall — patch & finish</span>
+                            </div>
+                            <div class="material-item">
+                                <span class="mat-name">Disposal</span>
+                                <span class="mat-detail">All debris removed</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Plumbing -->
+        <section style="background: #fafafa;">
+            <div class="container">
+                <div class="zone-header animate">
+                    <h2 class="zone-title">02. Plumbing</h2>
+                </div>
+                <div class="zone-grid">
+                    <div class="animate delay-1">
+                        <ul class="scope-list">
+                            <li>Rough plumbing as needed <span>Supply lines, drain, and connections</span></li>
+                            <li>Finish plumbing — valve and trim hookup <span>Ready for your fixtures</span></li>
+                            <li>Test and inspect all connections <span>Leak-free before tile begins</span></li>
+                        </ul>
+                        <div class="client-supply-box" style="margin-top: 1.5rem;">
+                            <h4>⚠️ Client to Provide</h4>
+                            <ul>
+                                <li>Shower/tub valve, trim kit, spout, and showerhead (all fixtures)</li>
+                            </ul>
+                            <p style="margin-top: 0.5rem; font-size: 0.85rem; color: var(--text-light);">Fixture installation is included — bring what you love and we'll install it.</p>
+                        </div>
+                    </div>
+                    <div class="animate delay-2">
+                        <div class="materials-card">
+                            <div class="materials-title">Plumbing Scope</div>
+                            <div class="material-item">
+                                <span class="mat-name">Supply Lines</span>
+                                <span class="mat-detail">Hot & cold</span>
+                            </div>
+                            <div class="material-item">
+                                <span class="mat-name">Drain</span>
+                                <span class="mat-detail">Tub drain & overflow</span>
+                            </div>
+                            <div class="material-item">
+                                <span class="mat-name">Valve Rough-In</span>
+                                <span class="mat-detail">Included</span>
+                            </div>
+                            <div class="material-item">
+                                <span class="mat-name">Finish Hookup</span>
+                                <span class="mat-detail">Included</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tub -->
+        <section>
+            <div class="container">
+                <div class="zone-header animate">
+                    <h2 class="zone-title">03. Tub — Supply & Set</h2>
+                </div>
+                <div class="zone-grid">
+                    <div class="animate delay-1">
+                        <ul class="scope-list">
+                            <li>Tub supplied and set by Timberline <span>Properly leveled, bedded, and secured</span></li>
+                            <li>Drain and overflow connected <span>Fully tested before tile begins</span></li>
+                        </ul>
+                        <div class="client-supply-box" style="margin-top: 1.5rem;">
+                            <h4>Material — Included in Price</h4>
+                            <ul>
+                                <li>Alcove soaking tub — included ($400 allowance)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="animate delay-2">
+                        <div class="materials-card">
+                            <div class="materials-title">Tub Details</div>
+                            <div class="material-item">
+                                <span class="mat-name">Type</span>
+                                <span class="mat-detail">Alcove drop-in</span>
+                            </div>
+                            <div class="material-item">
+                                <span class="mat-name">Material</span>
+                                <span class="mat-detail">Included ($400 allowance)</span>
+                            </div>
+                            <div class="material-item">
+                                <span class="mat-name">Set Labor</span>
+                                <span class="mat-detail">Included</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tile -->
+        <section style="background: #fafafa;">
+            <div class="container">
+                <div class="zone-header animate">
+                    <h2 class="zone-title">04. Full Tile Walls</h2>
+                </div>
+                <div class="zone-grid">
+                    <div class="animate delay-1">
+                        <ul class="scope-list">
+                            <li>Cement board installation on all tub surround walls <span>Waterproof backer — the right way to do it</span></li>
+                            <li>Full tile layout, cut, and install on three walls <span>Professional installation by Jose (tile specialist)</span></li>
+                            <li>Thinset, grout, and all setting materials <span>Included in labor</span></li>
+                            <li>All seams caulked and sealed <span>Grout lines sealed for longevity</span></li>
+                        </ul>
+
+                        <div class="client-supply-box" style="margin-top: 1.5rem;">
+                            <h4>⚠️ Client to Provide — Tile & Materials</h4>
+                            <p>All tile, trim pieces, and grout are to be supplied by the client. We'll work with whatever you choose. Need a recommendation? Just ask — happy to point you toward what works well.</p>
+                            <ul style="margin-top: 0.5rem;">
+                                <li>Wall tile (ceramic, porcelain, or stone)</li>
+                                <li>Trim / listello / border pieces as desired</li>
+                                <li>Grout color selection</li>
+                            </ul>
+                            <p style="margin-top: 0.5rem; font-size: 0.85rem; color: var(--text-light);">Suggested budget for materials: ~$800 for a standard tub surround (tile + trim + grout).</p>
+                        </div>
+                    </div>
+                    <div class="animate delay-2">
+                        <div class="materials-card">
+                            <div class="materials-title">Tile Labor Includes</div>
+                            <div class="material-item">
+                                <span class="mat-name">Cement Board</span>
+                                <span class="mat-detail">All 3 walls</span>
+                            </div>
+                            <div class="material-item">
+                                <span class="mat-name">Tile Install</span>
+                                <span class="mat-detail">Labor + setting materials</span>
+                            </div>
+                            <div class="material-item">
+                                <span class="mat-name">Thinset & Supplies</span>
+                                <span class="mat-detail">Included</span>
+                            </div>
+                            <div class="material-item">
+                                <span class="mat-name">Grout & Seal</span>
+                                <span class="mat-detail">Labor included</span>
+                            </div>
+                            <div class="material-item">
+                                <span class="mat-name">Tile Material</span>
+                                <span class="mat-detail">Client to supply</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Not Included -->
+        <section>
+            <div class="container">
+                <div class="animate">
+                    <h2 class="zone-title" style="margin-bottom: 1.5rem;">What's NOT Included</h2>
+                    <ul class="not-included-list">
+                        <li>Tile, trim, and grout — client to supply (suggested ~$800 budget)</li>
+                        <li>Shower/tub fixtures (valve, trim kit, spout, showerhead) — client to supply</li>
+                        <li>Vanity, toilet, flooring, or any other bathroom work outside the tub/shower zone</li>
+                        <li>Permits (available as an add-on if required by city)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Investment B -->
+        <section style="background: #fafafa;">
+            <div class="container">
+                <h2 class="zone-title animate" style="text-align: center; margin-bottom: 3rem;">Option B — Investment Summary</h2>
+                <div class="animate delay-1">
+                    <table class="financial-table">
+                        <thead>
+                            <tr>
+                                <th>Scope Item</th>
+                                <th style="text-align: right;">Investment</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Demo, Drywall Repair & Site Cleanup</strong></td>
+                                <td style="text-align: right;">Included</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Plumbing (Rough & Finish)</strong></td>
+                                <td style="text-align: right;">Included</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tub — Material & Installation</strong></td>
+                                <td style="text-align: right;">Included</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Full Tile Walls — Cement Board, Labor & Setting Materials</strong></td>
+                                <td style="text-align: right;">Included</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tile, Trim & Grout</strong><br><span style="font-size:0.85em;color:#666;">Client to provide — suggest ~$800 budget</span></td>
+                                <td style="text-align: right;">Client Supplied</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Fixtures</strong><br><span style="font-size:0.85em;color:#666;">Client to provide — installation included</span></td>
+                                <td style="text-align: right;">Client Supplied</td>
+                            </tr>
+                            <tr>
+                                <td><strong>TOTAL INVESTMENT</strong></td>
+                                <td style="text-align: right;"><strong>$7,500</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+    </div><!-- end panel-b -->
+
+
+    <!-- ============================================================ -->
+    <!-- SHARED SECTIONS (always visible) -->
+    <!-- ============================================================ -->
+
+    <!-- Timeline -->
+    <section>
+        <div class="container">
+            <h2 class="zone-title animate" style="margin-bottom: 2rem;">Timeline</h2>
+            <div class="zone-grid">
+                <div class="animate delay-1">
+                    <ul class="scope-list">
+                        <li>Option A (Surround Kit) <span>Estimated 1–2 weeks from start date</span></li>
+                        <li>Option B (Full Tile) <span>Estimated 2–3 weeks from start date</span></li>
+                        <li>Timeline subject to material availability <span>Pending lead times and permit processing if applicable</span></li>
+                    </ul>
+                </div>
+                <div class="animate delay-2">
+                    <div class="materials-card">
+                        <div class="materials-title">Schedule Notes</div>
+                        <div class="material-item">
+                            <span class="mat-name">Tile cure time</span>
+                            <span class="mat-detail">24–48 hrs before use</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Permits</span>
+                            <span class="mat-detail">+2–4 weeks if required</span>
+                        </div>
+                        <div class="material-item">
+                            <span class="mat-name">Client tile delivery</span>
+                            <span class="mat-detail">Must arrive before tile start</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Terms -->
+    <section style="background: #fafafa;">
+        <div class="container">
+            <h2 class="zone-title animate" style="margin-bottom: 1rem;">Payment Terms</h2>
+            <p class="animate delay-1" style="color: var(--text-light); margin-bottom: 2rem;">Standard Timberline payment schedule. No surprises.</p>
+            <div class="payment-grid animate delay-2">
+                <div class="payment-card">
+                    <span class="payment-pct">$1,000</span>
+                    <div class="payment-label">At Signing</div>
+                    <div class="payment-note">Secures your start date</div>
+                </div>
+                <div class="payment-card">
+                    <span class="payment-pct">30% − $1k</span>
+                    <div class="payment-label">Day 1 of Work</div>
+                    <div class="payment-note">Balance of first draw</div>
+                </div>
+                <div class="payment-card">
+                    <span class="payment-pct">40%</span>
+                    <div class="payment-label">Midpoint</div>
+                    <div class="payment-note">Rough work complete</div>
+                </div>
+                <div class="payment-card">
+                    <span class="payment-pct">30%</span>
+                    <div class="payment-label">Completion</div>
+                    <div class="payment-note">Final walk-through</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Warranty -->
+    <section>
+        <div class="container">
+            <div class="animate">
+                <div class="warranty-box">
+                    <h3 style="color: var(--green); font-size: 1.5rem; margin-bottom: 1rem;">🛡️ Our Warranty</h3>
+                    <p style="max-width: 600px; margin: 0 auto; color: var(--text-light);">
+                        Timberline Build Co. warrants all labor for <strong>1 year from project completion</strong>. Manufacturer warranties apply to all materials and fixtures. We stand behind our work.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Signature -->
+    <section style="background: #fafafa;">
+        <div class="container">
+            <h2 class="zone-title animate" style="margin-bottom: 1rem;">Ready to Move Forward?</h2>
+            <p class="animate delay-1" style="color: var(--text-light); margin-bottom: 3rem;">Select your option, sign below, and we'll get you on the schedule.</p>
+
+            <div class="animate delay-2" style="background: var(--light-gold); border-radius: 8px; padding: 1.5rem 2rem; margin-bottom: 2rem; display: inline-block;">
+                <strong>Selected Option:</strong> &nbsp;&nbsp;
+                ☐ Option A — $6,600 &nbsp;&nbsp;&nbsp;&nbsp;
+                ☐ Option B — $7,500
+            </div>
+
+            <div class="signature-grid animate delay-3">
+                <div>
+                    <p style="font-weight: 600; margin-bottom: 0.5rem;">Client</p>
+                    <div class="sig-line">Cassaundra Roundtree — Signature</div>
+                    <div class="sig-line" style="margin-top: 2rem;">Date</div>
+                </div>
+                <div>
+                    <p style="font-weight: 600; margin-bottom: 0.5rem;">Timberline Build Co.</p>
+                    <div class="sig-line">Justin Sherman — Contractor</div>
+                    <div class="sig-line" style="margin-top: 2rem;">Date &nbsp;·&nbsp; CA Lic. # ___________</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p><strong>Timberline Build Co.</strong></p>
+            <p>Residential Remodeling Specialists &nbsp;·&nbsp; Orange County, CA &nbsp;·&nbsp; 949-229-1692</p>
+            <p style="margin-top: 1rem; font-size: 0.8rem; opacity: 0.6;">© 2026 Timberline Build Co. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function showOption(opt) {
+            document.querySelectorAll('.option-panel').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById('panel-' + opt).classList.add('active');
+            document.querySelectorAll('.option-btn').forEach(b => {
+                if (b.getAttribute('onclick').includes("'" + opt + "'")) b.classList.add('active');
+            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Intersection Observer for scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                    entry.target.style.opacity = '1';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.animate').forEach(el => {
+            el.style.animationPlayState = 'paused';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
