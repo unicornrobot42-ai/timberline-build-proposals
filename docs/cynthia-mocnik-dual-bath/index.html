@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Timberline Build Co — Cynthia Mocnik Dual Bathroom Remodel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green:  #19412c;
+      --brown:  #614432;
+      --dark:   #312509;
+      --navy:   #213245;
+      --gold:   #e9af3b;
+      --cream:  #f9f6f1;
+      --light:  #fdfcfa;
+    }
+    body { font-family: 'Montserrat', sans-serif; background: var(--cream); color: #1a1a1a; line-height: 1.6; }
+
+    /* COVER */
+    .cover {
+      background: var(--green); color: white;
+      min-height: 100vh; display: flex; flex-direction: column;
+      justify-content: space-between; padding: 60px 80px;
+    }
+    .cover-logo img { height: 70px; mix-blend-mode: screen; }
+    .cover-body { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+    .cover-tag { font-size: 11px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; }
+    .cover-title { font-size: 52px; font-weight: 800; line-height: 1.1; margin-bottom: 20px; }
+    .cover-sub { font-size: 20px; font-weight: 300; color: rgba(255,255,255,0.8); margin-bottom: 40px; }
+    .cover-divider { width: 60px; height: 3px; background: var(--gold); margin-bottom: 32px; }
+    .cover-meta { font-size: 14px; font-weight: 400; color: rgba(255,255,255,0.7); line-height: 2; }
+    .cover-meta strong { color: white; font-weight: 600; }
+    .cover-footer { display: flex; justify-content: space-between; align-items: flex-end; }
+    .cover-footer-left { font-size: 12px; color: rgba(255,255,255,0.5); }
+    .cover-footer-right { font-size: 13px; font-weight: 600; color: var(--gold); }
+
+    /* SECTIONS */
+    .section { padding: 80px; max-width: 960px; margin: 0 auto; }
+    .section + .section { border-top: 1px solid #e8e3dc; }
+    .section-label { font-size: 10px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+    .section-title { font-size: 32px; font-weight: 800; color: var(--green); margin-bottom: 24px; line-height: 1.2; }
+    .section-body { font-size: 15px; color: #444; line-height: 1.8; }
+
+    /* SCOPE TABLE */
+    .scope-block { margin-bottom: 40px; }
+    .scope-block h3 { font-size: 16px; font-weight: 700; color: var(--green); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid var(--gold); }
+    .scope-list { list-style: none; }
+    .scope-list li { padding: 10px 0; border-bottom: 1px solid #ece8e2; font-size: 14px; color: #333; display: flex; align-items: flex-start; gap: 10px; }
+    .scope-list li::before { content: "✓"; color: var(--green); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+    .not-included li::before { content: "✗"; color: #c0392b; }
+
+    /* FINISH MATERIAL TABLE */
+    .finish-table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 13px; }
+    .finish-table th { background: var(--green); color: white; padding: 12px 14px; text-align: left; font-weight: 700; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; }
+    .finish-table td { padding: 11px 14px; border-bottom: 1px solid #e8e3dc; vertical-align: top; }
+    .finish-table tr:nth-child(even) td { background: #f5f1eb; }
+    .finish-table .avg { color: #1a7a1a; font-weight: 700; }
+    .finish-table .prem { color: var(--dark); font-weight: 700; }
+    .finish-table .note-cell { color: #666; font-size: 12px; }
+    .section-header-row td { background: var(--dark) !important; color: var(--gold); font-weight: 700; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; padding: 10px 14px; }
+
+    /* INVESTMENT */
+    .investment-table { width: 100%; border-collapse: collapse; margin-top: 24px; }
+    .investment-table td { padding: 14px 20px; border-bottom: 1px solid #e8e3dc; font-size: 15px; }
+    .investment-table tr:nth-child(even) td { background: #f5f1eb; }
+    .investment-table .label { font-weight: 600; color: #333; }
+    .investment-table .amount { text-align: right; font-weight: 700; color: var(--green); }
+    .investment-total td { background: var(--green) !important; color: white; font-size: 18px; font-weight: 800; }
+    .investment-total .amount { color: var(--gold); }
+
+    /* TIMELINE */
+    .timeline { display: flex; gap: 20px; margin-top: 24px; flex-wrap: wrap; }
+    .timeline-item { flex: 1; min-width: 200px; background: white; border: 1px solid #e0dbd4; border-radius: 8px; padding: 24px; }
+    .timeline-item .phase { font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+    .timeline-item .duration { font-size: 22px; font-weight: 800; color: var(--green); margin-bottom: 6px; }
+    .timeline-item .desc { font-size: 13px; color: #666; }
+
+    /* PAYMENT */
+    .payment-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 24px; }
+    .payment-card { background: white; border: 1px solid #e0dbd4; border-radius: 8px; padding: 28px 20px; text-align: center; }
+    .payment-card .pct { font-size: 36px; font-weight: 800; color: var(--green); }
+    .payment-card .when { font-size: 13px; font-weight: 600; color: #333; margin: 6px 0; }
+    .payment-card .detail { font-size: 12px; color: #888; }
+
+    /* CALLOUT */
+    .callout { background: #f0f9f4; border-left: 4px solid var(--green); padding: 20px 24px; border-radius: 0 8px 8px 0; margin: 24px 0; font-size: 14px; color: #333; }
+    .callout strong { color: var(--green); }
+
+    /* SIGNATURE */
+    .sig-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px; }
+    .sig-field { border-top: 2px solid #333; padding-top: 12px; }
+    .sig-label { font-size: 12px; color: #888; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+
+    /* WARRANTY BANNER */
+    .warranty-banner { background: var(--navy); color: white; padding: 32px 80px; text-align: center; }
+    .warranty-banner h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+    .warranty-banner p { font-size: 14px; color: rgba(255,255,255,0.7); }
+
+    @media (max-width: 768px) {
+      .cover { padding: 40px 32px; }
+      .cover-title { font-size: 36px; }
+      .section { padding: 48px 24px; }
+      .payment-grid { grid-template-columns: 1fr; }
+      .sig-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-logo"><img src="./logo.png" alt="Timberline Build Co" /></div>
+  <div class="cover-body">
+    <div class="cover-tag">Proposal — Residential Remodel</div>
+    <div class="cover-title">Dual Bathroom<br>Remodel</div>
+    <div class="cover-sub">9 Mallard · Aliso Viejo, CA</div>
+    <div class="cover-divider"></div>
+    <div class="cover-meta">
+      <strong>Prepared for:</strong> Cynthia Mocnik<br>
+      <strong>License #:</strong> CSLB 1136140<br>
+      <strong>Date:</strong> May 2026
+    </div>
+  </div>
+  <div class="cover-footer">
+    <div class="cover-footer-left">Timberline Build Co · Justin Sherman · 949-229-1692</div>
+    <div class="cover-footer-right">Confidential</div>
+  </div>
+</div>
+
+<!-- PROJECT OVERVIEW -->
+<div class="section">
+  <div class="section-label">Overview</div>
+  <div class="section-title">A Complete Two-Bathroom Transformation</div>
+  <div class="section-body">
+    <p>Timberline Build Co will perform a full remodel of both the master and guest bathrooms at 9 Mallard, Aliso Viejo. The master bath will receive an expanded walk-in shower with a full bench, widened shower opening, dual vanity refresh, updated plumbing, electrical, and fresh paint throughout. The guest bathroom will be converted from a tub surround to a modern walk-in shower with slider glass, new vanity, new window, updated plumbing, vent fan, and paint.</p>
+    <br>
+    <p>All finish materials (tile, stone, fixtures, vanity, sinks, faucets) are <strong>client-supplied</strong>. Timberline provides all labor, installation, demo, and structural work. See the Finish Material Guide section for budget ranges by item.</p>
+  </div>
+</div>
+
+<!-- SCOPE OF WORK -->
+<div class="section">
+  <div class="section-label">Scope of Work</div>
+  <div class="section-title">What's Included</div>
+
+  <div class="scope-block">
+    <h3>Master Bathroom</h3>
+    <ul class="scope-list">
+      <li>Full demo — existing shower/tub surround, vanity area, mirrors, med cabs</li>
+      <li>Framing modification — widen shower opening approx. 3" (pending in-wall inspection)</li>
+      <li>Hot mop shower pan</li>
+      <li>Tile installation — approx. 130 sq ft (shower walls, tub walls, bench) — client provides tile</li>
+      <li>Plumbing — tub rough-in, shower valve, dual sink supply and drain</li>
+      <li>Frameless glass enclosure — supplied and installed by Timberline</li>
+      <li>Electrical — new lighting, new vent fan per sketch</li>
+      <li>Drywall / cement board in wet areas</li>
+      <li>Vanity, cabinet, and mirror install — labor only, client-supplied fixtures</li>
+      <li>Countertop fabrication and installation — $900 labor; client supplies stone slab</li>
+      <li>Full bathroom paint</li>
+      <li>Final cleanup and haul-off</li>
+    </ul>
+  </div>
+
+  <div class="scope-block">
+    <h3>Guest Bathroom</h3>
+    <ul class="scope-list">
+      <li>Full demo — existing tub/shower surround, vanity, window</li>
+      <li>Hot mop walk-in shower pan</li>
+      <li>Tile installation — approx. 90 sq ft (3 walls, walk-in shower) — client provides tile</li>
+      <li>Plumbing — new shower valve, vanity sink supply and drain</li>
+      <li>Slider glass enclosure — supplied and installed by Timberline</li>
+      <li>Window replacement — labor to remove existing and install new window unit (client supplies window)</li>
+      <li>Electrical — replace vent fan, new lighting</li>
+      <li>Drywall repair — cement board wet area, window patch</li>
+      <li>Vanity install — labor only, client-supplied vanity and cabinet</li>
+      <li>Vanity light replacement — labor only, client supplies fixture</li>
+      <li>Mount mirror, towel bar, and TP holder — complimentary when client provides hardware</li>
+      <li>Full bathroom paint</li>
+      <li>Final cleanup and haul-off</li>
+    </ul>
+  </div>
+
+  <div class="scope-block">
+    <h3>What's NOT Included</h3>
+    <ul class="scope-list not-included">
+      <li>All tile material (client-supplied — see Finish Material Guide below)</li>
+      <li>Tub, vanity/cabinets, sinks, faucets, shower fixtures, tub filler (client-supplied)</li>
+      <li>Stone slab for countertops (client-supplied; Timberline fabricates and installs for $900)</li>
+      <li>Mirrors, lighting fixtures, towel bars, TP holder (client-supplied)</li>
+      <li>Window unit for guest bath (client-supplied)</li>
+      <li>Appliance purchase, furniture moving, landscaping</li>
+      <li>Any work outside the bathroom footprints</li>
+      <li>Permits (if required — see note below)</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <strong>Permit Note:</strong> Bathroom remodels in Orange County cities typically require permits depending on scope. If permits are required, Timberline can pull them at cost + coordination fee. Please confirm with your city before work begins.
+  </div>
+</div>
+
+<!-- FINISH MATERIAL GUIDE -->
+<div class="section">
+  <div class="section-label">Finish Material Guide</div>
+  <div class="section-title">Client-Supplied Materials — Budget Reference</div>
+  <div class="section-body">
+    <p>All finish materials are client-supplied. The ranges below reflect current OC market pricing to help you plan your budget. <strong>Average</strong> = standard quality / mid-grade. <strong>Premium</strong> = designer, custom, or luxury grade.</p>
+  </div>
+
+  <table class="finish-table">
+    <thead>
+      <tr>
+        <th style="width:30%">Item</th>
+        <th style="width:18%">Average Budget</th>
+        <th style="width:18%">Premium</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="section-header-row"><td colspan="4">MASTER BATHROOM</td></tr>
+      <tr><td>Tile (shower/tub walls + floor)</td><td class="avg">$400–$800</td><td class="prem">$1,200–$3,000+</td><td class="note-cell">Mid: porcelain or ceramic. Premium: large-format stone, marble, designer tile.</td></tr>
+      <tr><td>Stone Slab (countertops)</td><td class="avg">$500–$900</td><td class="prem">$1,500–$3,500+</td><td class="note-cell">Mid: quartz remnant. Premium: full slab natural stone (Calacatta, Carrara, quartzite). Timberline fabricates &amp; installs for $900.</td></tr>
+      <tr><td>Bathtub / Soaking Tub</td><td class="avg">$400–$800</td><td class="prem">$1,500–$4,000+</td><td class="note-cell">Mid: acrylic alcove tub. Premium: freestanding soaking tub (cast iron, stone resin).</td></tr>
+      <tr><td>Shower Fixture / Valve Set</td><td class="avg">$200–$400</td><td class="prem">$800–$2,000+</td><td class="note-cell">Mid: Moen/Delta pressure-balance. Premium: Kohler/Hansgrohe thermostatic w/ rain head + handheld.</td></tr>
+      <tr><td>Tub Filler / Faucet</td><td class="avg">$150–$300</td><td class="prem">$500–$1,500+</td><td class="note-cell">Mid: deck-mount chrome or brushed nickel. Premium: floor-mount or wall-mount in designer finish.</td></tr>
+      <tr><td>Vanity Cabinets</td><td class="avg">$800–$1,500</td><td class="prem">$2,500–$6,000+</td><td class="note-cell">Mid: RTA or semi-custom (IKEA, Home Depot). Premium: custom or semi-custom brand.</td></tr>
+      <tr><td>Sinks — 2 undermount</td><td class="avg">$100–$200 ea.</td><td class="prem">$300–$600+ ea.</td><td class="note-cell">Mid: porcelain undermount. Premium: stone vessel or designer ceramic.</td></tr>
+      <tr><td>Sink Faucets — 2</td><td class="avg">$100–$200 ea.</td><td class="prem">$400–$900+ ea.</td><td class="note-cell">Mid: Moen/Delta widespread. Premium: Brizo/Kohler in matte black, brushed gold, etc.</td></tr>
+      <tr><td>Mirrors</td><td class="avg">$100–$250 ea.</td><td class="prem">$400–$1,000+ ea.</td><td class="note-cell">Mid: frameless or simple frame. Premium: backlit LED, custom frame, arched.</td></tr>
+      <tr><td>Vanity Lighting</td><td class="avg">$100–$250</td><td class="prem">$400–$1,200+</td><td class="note-cell">Mid: standard bar light. Premium: designer sconces or integrated LED strip.</td></tr>
+      <tr><td>Accessories (towel bars, TP, hooks)</td><td class="avg">$100–$200 set</td><td class="prem">$300–$800+ set</td><td class="note-cell">Mid: brushed nickel set. Premium: matte black, brushed gold designer finish.</td></tr>
+
+      <tr class="section-header-row"><td colspan="4">GUEST BATHROOM</td></tr>
+      <tr><td>Tile (shower walls + floor)</td><td class="avg">$250–$500</td><td class="prem">$800–$2,000+</td><td class="note-cell">Mid: porcelain or ceramic. Premium: large-format stone, textured, designer pattern.</td></tr>
+      <tr><td>Vanity Cabinet</td><td class="avg">$400–$800</td><td class="prem">$1,500–$3,500+</td><td class="note-cell">Mid: RTA/semi-custom single vanity. Premium: custom or semi-custom built-in.</td></tr>
+      <tr><td>Sink (undermount)</td><td class="avg">$80–$150</td><td class="prem">$250–$500+</td><td class="note-cell">Mid: porcelain undermount. Premium: stone vessel or designer ceramic.</td></tr>
+      <tr><td>Sink Faucet</td><td class="avg">$80–$150</td><td class="prem">$300–$700+</td><td class="note-cell">Mid: Moen/Delta single-hole. Premium: Brizo/Kohler in designer finish.</td></tr>
+      <tr><td>Shower Fixture / Valve Set</td><td class="avg">$150–$300</td><td class="prem">$600–$1,500+</td><td class="note-cell">Mid: pressure-balance with hand shower. Premium: thermostatic with rain head.</td></tr>
+      <tr><td>Window Unit</td><td class="avg">$300–$600</td><td class="prem">$800–$1,800+</td><td class="note-cell">Client sources window; Timberline removes old and installs new (labor included).</td></tr>
+      <tr><td>Vanity Light</td><td class="avg">$60–$120</td><td class="prem">$200–$500+</td><td class="note-cell">Client-supplied; Timberline installs (labor included).</td></tr>
+      <tr><td>Mirror</td><td class="avg">$60–$150</td><td class="prem">$250–$600+</td><td class="note-cell">Client-supplied; Timberline mounts complimentary.</td></tr>
+      <tr><td>Accessories (towel bar, TP, hooks)</td><td class="avg">$80–$150 set</td><td class="prem">$250–$600+ set</td><td class="note-cell">Client-supplied; Timberline mounts complimentary.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout" style="margin-top: 24px;">
+    <strong>Shopping Tips:</strong> Tile — Pacific Coast Tile, MSI, Floor &amp; Decor. Stone slabs — Arturos Stone or local fabricators. Plumbing fixtures — Ferguson Showroom, Costco, Build.com, Amazon. Vanities — IKEA, Home Depot, Wayfair.
+  </div>
+</div>
+
+<!-- TIMELINE -->
+<div class="section">
+  <div class="section-label">Timeline</div>
+  <div class="section-title">Estimated Project Duration</div>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="phase">Phase 1</div>
+      <div class="duration">Week 1–2</div>
+      <div class="desc">Demo, framing mod, hot mop, rough plumbing and electrical</div>
+    </div>
+    <div class="timeline-item">
+      <div class="phase">Phase 2</div>
+      <div class="duration">Week 3–5</div>
+      <div class="desc">Tile installation (both baths), drywall, cement board</div>
+    </div>
+    <div class="timeline-item">
+      <div class="phase">Phase 3</div>
+      <div class="duration">Week 6–8</div>
+      <div class="desc">Glass enclosures, vanity installs, countertop fab, fixtures, paint</div>
+    </div>
+    <div class="timeline-item">
+      <div class="phase">Phase 4</div>
+      <div class="duration">Week 8–10</div>
+      <div class="desc">Final trim, punch list, walk-through, cleanup</div>
+    </div>
+  </div>
+  <div class="callout" style="margin-top: 24px;">Estimated total duration: <strong>8–10 weeks</strong> pending material lead times and permit processing. Both bathrooms will be worked simultaneously where possible.</div>
+</div>
+
+<!-- INVESTMENT -->
+<div class="section">
+  <div class="section-label">Investment Summary</div>
+  <div class="section-title">Your Project Investment</div>
+  <div class="section-body" style="margin-bottom: 24px;">The following reflects Timberline's labor and installation charges. Finish materials are client-supplied and not included in this total.</div>
+
+  <table class="investment-table">
+    <tr>
+      <td class="label">Master Bathroom — Labor &amp; Installation</td>
+      <td class="amount">$17,780</td>
+    </tr>
+    <tr>
+      <td class="label">Guest Bathroom — Labor &amp; Installation</td>
+      <td class="amount">$13,230</td>
+    </tr>
+    <tr>
+      <td class="label">Countertop Fabrication &amp; Installation (Master)</td>
+      <td class="amount">$900</td>
+    </tr>
+    <tr class="investment-total">
+      <td class="label">TOTAL INVESTMENT (Labor Only)</td>
+      <td class="amount">$31,910</td>
+    </tr>
+  </table>
+
+  <div class="callout" style="margin-top: 24px;">
+    <strong>Finish materials are not included.</strong> Based on the guide above, budget an additional <strong>$8,000–$18,000</strong> for average-grade finishes across both baths, or <strong>$18,000–$40,000+</strong> for premium selections. Total project cost (labor + materials): approximately <strong>$40,000–$72,000</strong> depending on your choices.
+  </div>
+</div>
+
+<!-- PAYMENT TERMS -->
+<div class="section">
+  <div class="section-label">Payment Terms</div>
+  <div class="section-title">Simple 3-Payment Schedule</div>
+  <div class="payment-grid">
+    <div class="payment-card">
+      <div class="pct">30%</div>
+      <div class="when">At Contract Signing</div>
+      <div class="detail">Holds your start date and secures materials ordering</div>
+    </div>
+    <div class="payment-card">
+      <div class="pct">40%</div>
+      <div class="when">At Midpoint</div>
+      <div class="detail">Rough work complete, inspections passed</div>
+    </div>
+    <div class="payment-card">
+      <div class="pct">30%</div>
+      <div class="when">Upon Completion</div>
+      <div class="detail">Final walk-through and punch list sign-off</div>
+    </div>
+  </div>
+  <div class="callout" style="margin-top: 24px;"><strong>California law (B&amp;P §7159):</strong> No contractor may collect more than $1,000 before signing a written contract. Timberline complies fully.</div>
+</div>
+
+<!-- WARRANTY -->
+<div class="warranty-banner">
+  <h3>1-Year Labor Warranty</h3>
+  <p>Timberline Build Co warrants all labor for 1 year from project completion. Manufacturer warranties apply to all materials and fixtures.</p>
+</div>
+
+<!-- TERMS -->
+<div class="section">
+  <div class="section-label">Terms &amp; Conditions</div>
+  <div class="section-title">A Few Important Details</div>
+  <div class="section-body">
+    <p><strong>Change Orders:</strong> Any changes to the approved scope of work require a written change order signed by both parties before work proceeds. Verbal approvals are not binding.</p>
+    <br>
+    <p><strong>Client-Supplied Materials:</strong> Client is responsible for sourcing and delivering all finish materials (tile, fixtures, vanity, stone, etc.) prior to installation. Timberline is not responsible for delays caused by late material delivery.</p>
+    <br>
+    <p><strong>Unforeseen Conditions:</strong> Hidden damage discovered during demo (e.g., mold, rotted framing, out-of-code plumbing) will be addressed via change order at cost plus standard markup.</p>
+    <br>
+    <p><strong>Lien Waiver:</strong> Timberline will provide a conditional lien release upon final payment.</p>
+  </div>
+
+  <!-- SIGNATURE -->
+  <div class="sig-grid" style="margin-top: 60px;">
+    <div>
+      <div class="sig-field" style="min-height: 60px;"></div>
+      <div class="sig-label">Client Signature — Cynthia Mocnik</div>
+    </div>
+    <div>
+      <div class="sig-field" style="min-height: 60px;"></div>
+      <div class="sig-label">Date</div>
+    </div>
+    <div>
+      <div class="sig-field" style="min-height: 60px;"></div>
+      <div class="sig-label">Timberline Build Co — Justin Sherman, CSLB #1136140</div>
+    </div>
+    <div>
+      <div class="sig-field" style="min-height: 60px;"></div>
+      <div class="sig-label">Date</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
