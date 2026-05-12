@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Timberline Build Co — Bathroom Remodel | 309 Calle Escuela, San Clemente</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:  #19412c;
+      --brown:  #614432;
+      --dark:   #312509;
+      --navy:   #213245;
+      --gold:   #e9af3b;
+      --cream:  #f9f6f1;
+      --light:  #fdfcfa;
+      --border: #e5e0d8;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--cream);
+      color: #1a1a1a;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── COVER ── */
+    .cover {
+      background: var(--green);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 60px 80px;
+    }
+
+    .cover-logo img { height: 68px; filter: brightness(0) invert(1); }
+
+    .cover-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .cover-tag {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+    }
+
+    .cover-title {
+      font-size: 58px;
+      font-weight: 800;
+      line-height: 1.05;
+      margin-bottom: 16px;
+    }
+
+    .cover-subtitle {
+      font-size: 19px;
+      font-weight: 300;
+      opacity: 0.75;
+      margin-bottom: 48px;
+      max-width: 540px;
+      line-height: 1.6;
+    }
+
+    .cover-divider {
+      width: 60px;
+      height: 3px;
+      background: var(--gold);
+      margin-bottom: 40px;
+    }
+
+    .cover-meta { display: flex; gap: 60px; flex-wrap: wrap; }
+
+    .cover-meta-item label {
+      display: block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .cover-meta-item span { font-size: 15px; font-weight: 600; }
+
+    .cover-footer {
+      font-size: 12px;
+      opacity: 0.45;
+      display: flex;
+      justify-content: space-between;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      margin-top: 40px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    /* ── SECTIONS ── */
+    .section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 80px 40px;
+    }
+
+    .section + .section { border-top: 1px solid var(--border); }
+
+    .section-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--green);
+      margin-bottom: 28px;
+      line-height: 1.2;
+    }
+
+    .section p {
+      font-size: 15px;
+      font-weight: 400;
+      color: #333;
+      margin-bottom: 16px;
+      max-width: 720px;
+      line-height: 1.8;
+    }
+
+    /* ── DARK BAND ── */
+    .band { background: var(--green); color: white; }
+    .band .section { padding: 80px 40px; }
+    .band .section-title { color: white; }
+    .band .section-label { color: var(--gold); }
+    .band p { color: rgba(255,255,255,0.75); }
+
+    /* ── SCOPE LIST ── */
+    .scope-list { list-style: none; margin-top: 8px; }
+
+    .scope-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 15px;
+      font-weight: 500;
+      color: #2a2a2a;
+    }
+
+    .scope-list li:last-child { border-bottom: none; }
+
+    .scope-list li::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+      margin-top: 8px;
+      flex-shrink: 0;
+    }
+
+    /* ── EXCLUSIONS ── */
+    .exclusion-list { list-style: none; margin-top: 8px; }
+
+    .exclusion-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      font-size: 14px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .exclusion-list li:last-child { border-bottom: none; }
+
+    .exclusion-list li::before {
+      content: '—';
+      color: var(--gold);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* ── RENDER ── */
+    .render-block {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 40px 60px;
+    }
+
+    .render-block img {
+      width: 100%;
+      border-radius: 4px;
+      display: block;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+    }
+
+    .render-caption {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #999;
+      margin-top: 14px;
+      text-align: center;
+    }
+
+    /* ── TIMELINE ── */
+    .timeline { display: flex; gap: 0; margin-top: 8px; flex-wrap: wrap; }
+
+    .timeline-step {
+      flex: 1;
+      min-width: 160px;
+      padding: 28px 24px;
+      border-left: 3px solid var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .timeline-step .step-num {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .timeline-step .step-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 4px;
+    }
+
+    .timeline-step .step-desc {
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* ── INVESTMENT TABLE ── */
+    .invest-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 24px;
+      font-size: 14px;
+    }
+
+    .invest-table thead tr {
+      background: var(--green);
+      color: white;
+    }
+
+    .invest-table thead th {
+      padding: 14px 18px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .invest-table thead th:last-child { text-align: right; }
+
+    .invest-table tbody tr {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .invest-table tbody tr:nth-child(even) { background: rgba(0,0,0,0.02); }
+
+    .invest-table tbody td {
+      padding: 14px 18px;
+      font-size: 14px;
+      color: #333;
+      vertical-align: top;
+    }
+
+    .invest-table tbody td:last-child {
+      text-align: right;
+      font-weight: 600;
+      color: var(--green);
+    }
+
+    .invest-table tfoot tr {
+      background: var(--green);
+      color: white;
+    }
+
+    .invest-table tfoot td {
+      padding: 18px 18px;
+      font-weight: 800;
+      font-size: 16px;
+    }
+
+    .invest-table tfoot td:last-child {
+      text-align: right;
+      color: var(--gold);
+    }
+
+    .client-note {
+      font-size: 12px;
+      color: #888;
+      margin-top: 14px;
+      font-style: italic;
+    }
+
+    /* ── PAYMENT ── */
+    .payment-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 24px;
+    }
+
+    .payment-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 4px;
+      padding: 24px 20px;
+    }
+
+    .payment-card .pay-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .payment-card .pay-amount {
+      font-size: 24px;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 6px;
+    }
+
+    .payment-card .pay-desc {
+      font-size: 12px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.5;
+    }
+
+    /* ── WARRANTY / TERMS ── */
+    .terms-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 24px;
+    }
+
+    .terms-card {
+      padding: 28px;
+      background: white;
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--gold);
+    }
+
+    .terms-card h4 {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 12px;
+    }
+
+    .terms-card p {
+      font-size: 13px;
+      color: #555;
+      line-height: 1.7;
+    }
+
+    /* ── SIGNATURE ── */
+    .signature-block {
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    .sig-field { border-top: 2px solid var(--border); padding-top: 12px; }
+
+    .sig-field label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #999;
+    }
+
+    /* ── FOOTER ── */
+    .page-footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.4);
+      text-align: center;
+      padding: 32px 40px;
+      font-size: 12px;
+    }
+
+    .page-footer strong { color: rgba(255,255,255,0.7); }
+
+    @media (max-width: 640px) {
+      .cover { padding: 40px 28px; }
+      .cover-title { font-size: 36px; }
+      .section { padding: 56px 24px; }
+      .render-block { padding: 0 24px 48px; }
+      .terms-grid { grid-template-columns: 1fr; }
+      .signature-block { grid-template-columns: 1fr; }
+      .cover-meta { gap: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════ COVER -->
+<div class="cover">
+  <div class="cover-logo">
+    <img src="./logo.png" alt="Timberline Build Co" />
+  </div>
+
+  <div class="cover-body">
+    <p class="cover-tag">Project Proposal</p>
+    <h1 class="cover-title">Bathroom<br>Remodel</h1>
+    <p class="cover-subtitle">Full rebuild — walk-in shower conversion, new tile, plumbing, vanity, glass enclosure, and finishes.</p>
+    <div class="cover-divider"></div>
+    <div class="cover-meta">
+      <div class="cover-meta-item">
+        <label>Prepared For</label>
+        <span>Tom Faris</span>
+      </div>
+      <div class="cover-meta-item">
+        <label>Property</label>
+        <span>309 Calle Escuela, San Clemente, CA</span>
+      </div>
+      <div class="cover-meta-item">
+        <label>Date</label>
+        <span>May 12, 2026</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cover-footer">
+    <span>Timberline Build Co &nbsp;·&nbsp; CSLB #1136140 &nbsp;·&nbsp; Licensed &amp; Insured</span>
+    <span>Justin Sherman &nbsp;·&nbsp; 949-229-1692</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════ OVERVIEW -->
+<div class="section">
+  <p class="section-label">01 — Overview</p>
+  <h2 class="section-title">What We're Building</h2>
+  <p>This is a complete bathroom rebuild at 309 Calle Escuela in San Clemente. We're demolishing the existing tub/shower combo and converting the space into a full walk-in shower — new tile, new plumbing, new vanity, frameless glass, and fresh finishes throughout.</p>
+  <p>Tom is supplying tile, vanity, cabinet, and fixtures. Timberline handles all labor, waterproofing, installation, plumbing, electrical, and finish work. Our goal is to have this space completely transformed in 3–4 weeks.</p>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════ RENDER -->
+<div class="render-block">
+  <img src="./render-1.png" alt="Bathroom remodel concept render" />
+  <p class="render-caption">Concept Render — Walk-In Shower Conversion &nbsp;·&nbsp; Timberline Build Co</p>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════ SCOPE -->
+<div class="section">
+  <p class="section-label">02 — Scope of Work</p>
+  <h2 class="section-title">What's Included</h2>
+  <ul class="scope-list">
+    <li>Full demo — remove existing tub, shower surround, flooring, vanity, and drywall as needed</li>
+    <li>Hot mop shower pan — waterproof membrane installation (required for walk-in shower)</li>
+    <li>Tile installation — walk-in shower walls, shower floor, and bathroom floor (labor; tile supplied by client)</li>
+    <li>Complete plumbing — new shower valve and trim, toilet reset, vanity supply lines and drain connections</li>
+    <li>Countertop fabrication and installation (labor only; client-supplied material)</li>
+    <li>Frameless shower glass enclosure — supply and install</li>
+    <li>Drywall — patch and replace as needed, moisture-resistant in wet areas</li>
+    <li>Electrical — replace outlets, switches, and covers throughout</li>
+    <li>New exhaust vent fan with duct</li>
+    <li>Paint — walls and ceiling</li>
+    <li>Final clean and walk-through</li>
+  </ul>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════ EXCLUSIONS -->
+<div class="band">
+  <div class="section">
+    <p class="section-label">03 — Exclusions</p>
+    <h2 class="section-title">What's Not Included</h2>
+    <p>The following are excluded from this proposal. Items marked as client-supplied will be installed by Timberline once delivered to the job site.</p>
+    <ul class="exclusion-list">
+      <li>Tile material (client-supplied — labor included)</li>
+      <li>Vanity and cabinet (client-supplied — installation included)</li>
+      <li>Plumbing fixtures / hardware (client-supplied — installation included)</li>
+      <li>Countertop material (client-supplied — fabrication and installation labor included)</li>
+      <li>Permits — available upon request (San Clemente building dept; est. $500–$2,500)</li>
+      <li>Appliance purchase or haul-away</li>
+      <li>Furniture moving</li>
+      <li>Any work outside the bathroom</li>
+      <li>Hidden damage discovered during demo — addressed via change order if needed</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════ TIMELINE -->
+<div class="band" style="background: var(--navy);">
+  <div class="section">
+    <p class="section-label">04 — Timeline</p>
+    <h2 class="section-title">Project Schedule</h2>
+    <p>Estimated 3–4 weeks from start date, pending material delivery and permit processing.</p>
+    <div class="timeline">
+      <div class="timeline-step">
+        <p class="step-num">Week 1</p>
+        <p class="step-title">Demo &amp; Rough Work</p>
+        <p class="step-desc">Full demo, hot mop, drywall, plumbing rough-in, electrical rough-in</p>
+      </div>
+      <div class="timeline-step">
+        <p class="step-num">Week 2</p>
+        <p class="step-title">Tile &amp; Waterproofing</p>
+        <p class="step-desc">Shower tile walls, floor tile installation, grout and seal</p>
+      </div>
+      <div class="timeline-step">
+        <p class="step-num">Week 3</p>
+        <p class="step-title">Fixtures &amp; Glass</p>
+        <p class="step-desc">Vanity install, plumbing trim-out, shower glass enclosure</p>
+      </div>
+      <div class="timeline-step">
+        <p class="step-num">Week 4</p>
+        <p class="step-title">Finishes &amp; Punch List</p>
+        <p class="step-desc">Paint, electrical covers, final clean, walk-through</p>
+      </div>
+    </div>
+    <p style="font-size:12px; color:rgba(255,255,255,0.4); margin-top:24px;">* Timeline pending material lead times. Any permit requirement adds 2–4 weeks.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════ INVESTMENT -->
+<div class="section">
+  <p class="section-label">05 — Investment</p>
+  <h2 class="section-title">Project Investment</h2>
+  <table class="invest-table">
+    <thead>
+      <tr>
+        <th>Line Item</th>
+        <th>Notes</th>
+        <th>Investment</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Demo</td>
+        <td>Full gut — tub, existing surround, flooring, drywall</td>
+        <td>$1,500</td>
+      </tr>
+      <tr>
+        <td>Hot Mop</td>
+        <td>Shower pan waterproof membrane (required)</td>
+        <td>$700</td>
+      </tr>
+      <tr>
+        <td>Tile Installation</td>
+        <td>Shower walls, shower floor, bathroom floor (labor — tile by client)</td>
+        <td>$4,900</td>
+      </tr>
+      <tr>
+        <td>Plumbing</td>
+        <td>New shower valve/trim, toilet reset, vanity supply/drain</td>
+        <td>$1,680</td>
+      </tr>
+      <tr>
+        <td>Countertop Labor</td>
+        <td>Fabrication &amp; installation (material supplied by client)</td>
+        <td>$900</td>
+      </tr>
+      <tr>
+        <td>Shower Glass</td>
+        <td>Frameless glass enclosure — supply and install</td>
+        <td>$2,240</td>
+      </tr>
+      <tr>
+        <td>Drywall</td>
+        <td>Patch and replace as needed; moisture-resistant in wet areas</td>
+        <td>$1,120</td>
+      </tr>
+      <tr>
+        <td>Electrical</td>
+        <td>Replace outlets, switches, and covers</td>
+        <td>$420</td>
+      </tr>
+      <tr>
+        <td>Vent Fan</td>
+        <td>New exhaust fan and duct</td>
+        <td>$490</td>
+      </tr>
+      <tr>
+        <td>Paint</td>
+        <td>Walls and ceiling</td>
+        <td>$1,120</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="2">Total Investment</td>
+        <td>$15,070</td>
+      </tr>
+    </tfoot>
+  </table>
+  <p class="client-note">* Tile, vanity/cabinet, fixtures, and countertop material are client-supplied and not included in this total. Installation of client-supplied items is included above.</p>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════ PAYMENT -->
+<div class="band">
+  <div class="section">
+    <p class="section-label">06 — Payment</p>
+    <h2 class="section-title">Payment Schedule</h2>
+    <p>We use a straightforward milestone-based payment structure. No surprises.</p>
+    <div class="payment-grid">
+      <div class="payment-card">
+        <p class="pay-label">At Signing</p>
+        <p class="pay-amount">$1,000</p>
+        <p class="pay-desc">Holds your start date. Credited toward first payment.</p>
+      </div>
+      <div class="payment-card">
+        <p class="pay-label">Day 1 of Work</p>
+        <p class="pay-amount">$3,521</p>
+        <p class="pay-desc">Work begins. Demo, rough plumbing, electrical, and hot mop.</p>
+      </div>
+      <div class="payment-card">
+        <p class="pay-label">Midpoint</p>
+        <p class="pay-amount">$6,028</p>
+        <p class="pay-desc">Rough work complete, inspections passed, tile underway.</p>
+      </div>
+      <div class="payment-card">
+        <p class="pay-label">Completion</p>
+        <p class="pay-amount">$4,521</p>
+        <p class="pay-desc">Final walk-through and punch list sign-off.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════ WARRANTY / TERMS -->
+<div class="section">
+  <p class="section-label">07 — Warranty &amp; Terms</p>
+  <h2 class="section-title">Our Commitment</h2>
+  <div class="terms-grid">
+    <div class="terms-card">
+      <h4>Labor Warranty</h4>
+      <p>Timberline Build Co warrants all labor for 1 year from project completion. We stand behind our work — if anything we installed fails due to workmanship, we'll make it right at no cost.</p>
+    </div>
+    <div class="terms-card">
+      <h4>Material Warranties</h4>
+      <p>Manufacturer warranties apply to all materials, fixtures, and products supplied by Timberline. Client-supplied items carry the manufacturer's warranty directly.</p>
+    </div>
+    <div class="terms-card">
+      <h4>Change Orders</h4>
+      <p>Any scope changes require written approval before work proceeds. Hidden damage discovered during demo (old plumbing, water damage, structural issues) will be documented and priced separately.</p>
+    </div>
+    <div class="terms-card">
+      <h4>Lien Waiver</h4>
+      <p>Upon final payment, Timberline Build Co will provide a signed unconditional lien waiver, releasing any lien rights on the property.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════ SIGNATURE -->
+<div class="band" style="background: var(--dark);">
+  <div class="section">
+    <p class="section-label">08 — Acceptance</p>
+    <h2 class="section-title">Let's Get Started</h2>
+    <p>By signing below, you authorize Timberline Build Co to proceed with the scope of work described in this proposal under the terms and pricing stated above.</p>
+    <div class="signature-block">
+      <div class="sig-field">
+        <label>Client Signature</label>
+        <br><br><br>
+      </div>
+      <div class="sig-field">
+        <label>Date</label>
+        <br><br><br>
+      </div>
+      <div class="sig-field">
+        <label>Printed Name</label>
+        <br><br>
+        <span style="font-size:14px; color:rgba(255,255,255,0.5);">Tom Faris</span>
+      </div>
+      <div class="sig-field">
+        <label>Contractor — Justin Sherman</label>
+        <br><br>
+        <span style="font-size:14px; color:rgba(255,255,255,0.5);">Timberline Build Co &nbsp;·&nbsp; CSLB #1136140</span>
+      </div>
+    </div>
+    <p style="font-size:12px; color:rgba(255,255,255,0.3); margin-top:40px;">Questions? Call or text Justin directly: 949-229-1692</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════ FOOTER -->
+<div class="page-footer">
+  <strong>Timberline Build Co</strong> &nbsp;·&nbsp; CSLB #1136140 &nbsp;·&nbsp; Licensed &amp; Insured &nbsp;·&nbsp; Orange County, CA<br>
+  Justin Sherman &nbsp;·&nbsp; 949-229-1692 &nbsp;·&nbsp; Serving San Clemente and all of Orange County
+</div>
+
+</body>
+</html>
