@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Timberline Build Co — Bathroom Remodel Proposal | 609 E Avenida San Juan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:  #19412c;
+      --green2: #1f5238;
+      --gold:   #e9af3b;
+      --gold2:  #c8941f;
+      --brown:  #614432;
+      --dark:   #312509;
+      --navy:   #213245;
+      --white:  #ffffff;
+      --cream:  #f9f6f0;
+      --stone:  #ede9e1;
+      --text:   #1a1a1a;
+      --muted:  #666;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── COVER ── */
+    .cover {
+      min-height: 100vh;
+      background: var(--green);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cover::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 70% 20%, rgba(233,175,59,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 80% at 10% 80%, rgba(0,0,0,0.3) 0%, transparent 70%);
+    }
+
+    .cover-texture {
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M0 0h60v60H0z' fill='none'/%3E%3Cpath d='M0 30h60M30 0v60' stroke='rgba(255,255,255,0.03)' stroke-width='1'/%3E%3C/svg%3E");
+    }
+
+    .cover-nav {
+      position: relative;
+      z-index: 2;
+      padding: 2.5rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .cover-logo {
+      height: 52px;
+      filter: brightness(0) invert(1);
+    }
+
+    .cover-badge {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+    }
+
+    .cover-body {
+      position: relative;
+      z-index: 2;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 3rem 3rem 2rem;
+    }
+
+    .cover-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+
+    .cover-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.05;
+      margin-bottom: 1rem;
+    }
+
+    .cover-title em {
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    .cover-subtitle {
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 0.04em;
+      max-width: 480px;
+      line-height: 1.7;
+      margin-bottom: 3rem;
+    }
+
+    .cover-divider {
+      width: 80px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      margin-bottom: 2.5rem;
+    }
+
+    .cover-meta {
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      gap: 0 3rem;
+      align-items: start;
+    }
+
+    .cover-meta-item label {
+      display: block;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: rgba(255,255,255,0.35);
+      text-transform: uppercase;
+      margin-bottom: 0.35rem;
+    }
+
+    .cover-meta-item span {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .cover-bottom {
+      position: relative;
+      z-index: 2;
+      padding: 2rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .cover-license {
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.08em;
+    }
+
+    .cover-gold-bar {
+      width: 120px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold2), var(--gold), transparent);
+      border-radius: 2px;
+    }
+
+    /* ── SECTION WRAPPER ── */
+    .section {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+    }
+
+    .section + .section {
+      padding-top: 0;
+    }
+
+    /* ── SECTION HEADER ── */
+    .section-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+      margin-bottom: 2.8rem;
+    }
+
+    .section-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      font-weight: 600;
+      color: var(--stone);
+      line-height: 1;
+      min-width: 2.5rem;
+      user-select: none;
+    }
+
+    .section-label {
+      padding-top: 0.3rem;
+    }
+
+    .section-eyebrow {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      color: var(--gold2);
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.9rem;
+      font-weight: 600;
+      color: var(--green);
+      line-height: 1.2;
+    }
+
+    /* ── OVERVIEW ── */
+    .overview-block {
+      background: var(--white);
+      border-left: 4px solid var(--gold);
+      border-radius: 0 12px 12px 0;
+      padding: 2rem 2.5rem;
+      font-size: 1rem;
+      line-height: 1.85;
+      color: #333;
+      font-weight: 400;
+    }
+
+    /* ── BAND (dark background sections) ── */
+    .band {
+      background: var(--green);
+      padding: 5rem 2rem;
+    }
+
+    .band .section {
+      padding: 0;
+    }
+
+    .band .section-number { color: rgba(255,255,255,0.07); }
+    .band .section-title { color: var(--white); }
+    .band .section-eyebrow { color: var(--gold); }
+
+    /* ── SCOPE GRID ── */
+    .scope-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--stone);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 24px rgba(0,0,0,0.07);
+    }
+
+    .scope-item {
+      background: var(--white);
+      padding: 1.5rem 1.8rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .scope-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: var(--green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1rem;
+    }
+
+    .scope-text strong {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 0.25rem;
+      letter-spacing: 0.03em;
+    }
+
+    .scope-text p {
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.5;
+      font-weight: 400;
+    }
+
+    /* ── NOT INCLUDED ── */
+    .not-included-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+
+    .ni-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 0.9rem 1.2rem;
+    }
+
+    .ni-x {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: rgba(233,175,59,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 0.75rem;
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    .ni-item span {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.75);
+      font-weight: 500;
+    }
+
+    /* ── TIMELINE ── */
+    .timeline {
+      display: flex;
+      gap: 0;
+      position: relative;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: 28px;
+      right: 28px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--green2));
+      z-index: 0;
+    }
+
+    .timeline-step {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .timeline-dot {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--green);
+      border: 3px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      box-shadow: 0 0 0 6px var(--cream);
+    }
+
+    .timeline-label {
+      text-align: center;
+    }
+
+    .timeline-label strong {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--green);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 0.25rem;
+    }
+
+    .timeline-label span {
+      font-size: 0.72rem;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    /* ── INVESTMENT ── */
+    .investment-card {
+      background: var(--green);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(25,65,44,0.25);
+    }
+
+    .investment-header {
+      padding: 2.5rem 3rem 2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+
+    .investment-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      font-weight: 700;
+      color: rgba(255,255,255,0.4);
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .investment-total {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      font-weight: 600;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .investment-note {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.4);
+      text-align: right;
+      line-height: 1.5;
+    }
+
+    .investment-body {
+      padding: 2rem 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .payment-step {
+      text-align: center;
+    }
+
+    .payment-step .pct {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: var(--gold);
+      margin-bottom: 0.3rem;
+    }
+
+    .payment-step .phase {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+
+    .payment-step .detail {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.35);
+      line-height: 1.5;
+    }
+
+    .investment-divider {
+      width: 1px;
+      background: rgba(255,255,255,0.08);
+      align-self: stretch;
+    }
+
+    /* ── WARRANTY + TERMS ── */
+    .terms-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .terms-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 2rem;
+      border-top: 3px solid var(--gold);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+    }
+
+    .terms-card h3 {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 1rem;
+    }
+
+    .terms-card p, .terms-card li {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .terms-card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .terms-card ul li::before {
+      content: '→ ';
+      color: var(--gold2);
+      font-weight: 700;
+    }
+
+    /* ── SIGNATURE ── */
+    .sig-block {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 3rem;
+      box-shadow: 0 2px 24px rgba(0,0,0,0.06);
+    }
+
+    .sig-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-top: 2.5rem;
+    }
+
+    .sig-field label {
+      display: block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 0.75rem;
+    }
+
+    .sig-line {
+      border-bottom: 2px solid var(--stone);
+      height: 42px;
+      position: relative;
+    }
+
+    .sig-line::after {
+      content: 'X';
+      position: absolute;
+      left: 0;
+      bottom: 8px;
+      font-size: 0.7rem;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark);
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.08em;
+      line-height: 1.8;
+    }
+
+    footer strong {
+      color: var(--gold);
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .cover-eyebrow  { animation: fadeUp 0.7s ease 0.1s both; }
+    .cover-title    { animation: fadeUp 0.7s ease 0.25s both; }
+    .cover-subtitle { animation: fadeUp 0.7s ease 0.4s both; }
+    .cover-divider  { animation: fadeUp 0.7s ease 0.5s both; }
+    .cover-meta     { animation: fadeUp 0.7s ease 0.6s both; }
+
+    /* ── PRINT ── */
+    @media print {
+      .cover { min-height: auto; page-break-after: always; }
+      .band { background: #eee !important; }
+      body { background: white; }
+    }
+
+    @media (max-width: 700px) {
+      .scope-grid, .not-included-list, .terms-grid, .sig-row { grid-template-columns: 1fr; }
+      .timeline { flex-direction: column; gap: 2rem; }
+      .timeline::before { display: none; }
+      .investment-body { grid-template-columns: 1fr; }
+      .cover-meta { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════ COVER ══ -->
+<div class="cover">
+  <div class="cover-texture"></div>
+  <nav class="cover-nav">
+    <img src="./logo.png" alt="Timberline Build Co" class="cover-logo" />
+    <span class="cover-badge">CSLB #1136140</span>
+  </nav>
+  <div class="cover-body">
+    <div class="cover-eyebrow">Bathroom Remodel Proposal</div>
+    <h1 class="cover-title">609 E Avenida<br><em>San Juan</em></h1>
+    <p class="cover-subtitle">Full bathroom renovation — labor &amp; installation. Client-supplied finish materials.</p>
+    <div class="cover-divider"></div>
+    <div class="cover-meta">
+      <div class="cover-meta-item">
+        <label>Prepared for</label>
+        <span>Bob</span>
+      </div>
+      <div class="cover-meta-item">
+        <label>Date</label>
+        <span>May 2026</span>
+      </div>
+      <div class="cover-meta-item">
+        <label>Contact</label>
+        <span>949-229-1692</span>
+      </div>
+    </div>
+  </div>
+  <div class="cover-bottom">
+    <span class="cover-license">Timberline Build Co · Orange County, CA · timberlinebuild.co</span>
+    <div class="cover-gold-bar"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ OVERVIEW ══ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-number">01</div>
+    <div class="section-label">
+      <div class="section-eyebrow">Project Overview</div>
+      <h2 class="section-title">What We're Building</h2>
+    </div>
+  </div>
+  <div class="overview-block">
+    This proposal covers a full bathroom remodel at 609 E Avenida San Juan, San Clemente, CA. The scope includes complete demolition of the existing bathroom, construction of a fully enclosed cave-style shower with no glass enclosure, comprehensive tile installation throughout, updated electrical with new recessed lighting and sconces, all new plumbing connections including shower valve and toilet relocation, vanity and medicine cabinet installation, a new exhaust fan, ceiling repaint, and door replacement. <strong>All finish materials — tile, vanity, medicine cabinet, countertop slab, sconce fixtures, and ceiling paint — are provided by the client.</strong> Timberline supplies all labor, rough materials, and installation expertise.
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ SCOPE ══ -->
+<div class="band">
+  <div class="section" style="max-width:920px;margin:0 auto;">
+    <div class="section-header">
+      <div class="section-number" style="color:rgba(255,255,255,0.07)">02</div>
+      <div class="section-label">
+        <div class="section-eyebrow" style="color:var(--gold)">Scope of Work</div>
+        <h2 class="section-title" style="color:var(--white)">What's Included</h2>
+      </div>
+    </div>
+    <div class="scope-grid">
+      <div class="scope-item">
+        <div class="scope-icon">🔨</div>
+        <div class="scope-text">
+          <strong>Full Demolition</strong>
+          <p>Complete tear-out of existing bathroom finishes, fixtures, and flooring. Removal of partition wall between vanity and toilet.</p>
+        </div>
+      </div>
+      <div class="scope-item">
+        <div class="scope-icon">🧱</div>
+        <div class="scope-text">
+          <strong>Shower Wall Framing</strong>
+          <p>Frame and build fully enclosed shower walls — cave-style design with no glass enclosure required.</p>
+        </div>
+      </div>
+      <div class="scope-item">
+        <div class="scope-icon">🪵</div>
+        <div class="scope-text">
+          <strong>Drywall &amp; Substrate Prep</strong>
+          <p>Patch and repair non-wet areas. Install cement board and RedGuard waterproofing membrane in all wet zones.</p>
+        </div>
+      </div>
+      <div class="scope-item">
+        <div class="scope-icon">🔥</div>
+        <div class="scope-text">
+          <strong>Hot Mop (Shower Pan)</strong>
+          <p>Professional hot mop of shower pan for complete waterproof integrity before tile installation.</p>
+        </div>
+      </div>
+      <div class="scope-item">
+        <div class="scope-icon">◼️</div>
+        <div class="scope-text">
+          <strong>Tile Installation — All Areas</strong>
+          <p>Labor for tile on all bathroom walls and floor. Client supplies all tile. Includes setting, grouting, and finishing.</p>
+        </div>
+      </div>
+      <div class="scope-item">
+        <div class="scope-icon">🚿</div>
+        <div class="scope-text">
+          <strong>Plumbing — Shower Valve &amp; Drain</strong>
+          <p>Install and set shower valve. Relocate toilet drain. Reconnect toilet and vanity plumbing.</p>
+        </div>
+      </div>
+      <div class="scope-item">
+        <div class="scope-icon">💡</div>
+        <div class="scope-text">
+          <strong>Electrical — 4 Recessed Can Lights</strong>
+          <p>Supply and install four recessed lights with proper electrical runs and switches.</p>
+        </div>
+      </div>
+      <div class="scope-item">
+        <div class="scope-icon">🕯️</div>
+        <div class="scope-text">
+          <strong>Electrical — 2 Sconces</strong>
+          <p>Wire and install two vanity sconces. Client supplies fixture. Includes junction boxes and proper wiring.</p>
+        </div>
+      </div>
+      <div class="scope-item">
+        <div class="scope-icon">💨</div>
+        <div class="scope-text">
+          <strong>Exhaust Vent Fan</strong>
+          <p>Supply and install new exhaust fan with exterior venting. No existing fan in this bathroom.</p>
+        </div>
+      </div>
+      <div class="scope-item">
+        <div class="scope-icon">🪞</div>
+        <div class="scope-text">
+          <strong>Vanity &amp; Medicine Cabinet</strong>
+          <p>Install client-supplied vanity. Frame and install medicine cabinet over sink. Labor only.</p>
+        </div>
+      </div>
+      <div class="scope-item">
+        <div class="scope-icon">🎨</div>
+        <div class="scope-text">
+          <strong>Ceiling Repaint</strong>
+          <p>Prep and paint bathroom ceiling. Client supplies paint.</p>
+        </div>
+      </div>
+      <div class="scope-item">
+        <div class="scope-icon">🚪</div>
+        <div class="scope-text">
+          <strong>Door &amp; Casing Replacement</strong>
+          <p>Install 28" RH 6-panel door with generic casing. Includes door, hardware, and casing installation.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════ NOT INCLUDED ══ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-number">03</div>
+    <div class="section-label">
+      <div class="section-eyebrow">Exclusions</div>
+      <h2 class="section-title">What's Not Included</h2>
+    </div>
+  </div>
+  <p style="font-size:0.88rem;color:var(--muted);margin-bottom:1.5rem;line-height:1.7">The following items are excluded from this proposal. Client is responsible for sourcing and delivering all finish materials prior to installation.</p>
+  <div class="not-included-list">
+    <div class="ni-item"><div class="ni-x">✕</div><span>All tile (client supplied)</span></div>
+    <div class="ni-item"><div class="ni-x">✕</div><span>Vanity unit (client supplied)</span></div>
+    <div class="ni-item"><div class="ni-x">✕</div><span>Medicine cabinet (client supplied)</span></div>
+    <div class="ni-item"><div class="ni-x">✕</div><span>Countertop slab (client supplied)</span></div>
+    <div class="ni-item"><div class="ni-x">✕</div><span>Sconce fixtures (client supplied)</span></div>
+    <div class="ni-item"><div class="ni-x">✕</div><span>Ceiling paint (client supplied)</span></div>
+    <div class="ni-item"><div class="ni-x">✕</div><span>Baseboard (not included per scope)</span></div>
+    <div class="ni-item"><div class="ni-x">✕</div><span>Countertop fabrication or delivery</span></div>
+    <div class="ni-item"><div class="ni-x">✕</div><span>Permits (consult city requirements)</span></div>
+    <div class="ni-item"><div class="ni-x">✕</div><span>Furniture moving or storage</span></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ TIMELINE ══ -->
+<div style="background:var(--stone); padding: 5rem 2rem;">
+  <div style="max-width:920px;margin:0 auto;">
+    <div class="section-header">
+      <div class="section-number" style="color:rgba(49,37,9,0.12)">04</div>
+      <div class="section-label">
+        <div class="section-eyebrow">Project Schedule</div>
+        <h2 class="section-title">Estimated Timeline</h2>
+      </div>
+    </div>
+    <div class="timeline">
+      <div class="timeline-step">
+        <div class="timeline-dot">📋</div>
+        <div class="timeline-label">
+          <strong>Signed &amp; Deposit</strong>
+          <span>Contract signed,<br>$1,000 secures start date</span>
+        </div>
+      </div>
+      <div class="timeline-step">
+        <div class="timeline-dot">🔨</div>
+        <div class="timeline-label">
+          <strong>Week 1–2</strong>
+          <span>Demo, framing,<br>rough plumbing &amp; electrical</span>
+        </div>
+      </div>
+      <div class="timeline-step">
+        <div class="timeline-dot">🧱</div>
+        <div class="timeline-label">
+          <strong>Week 2–3</strong>
+          <span>Hot mop, cement board,<br>RedGuard, tile install</span>
+        </div>
+      </div>
+      <div class="timeline-step">
+        <div class="timeline-dot">✨</div>
+        <div class="timeline-label">
+          <strong>Week 3–4</strong>
+          <span>Fixtures, vanity, lights,<br>door, final punch list</span>
+        </div>
+      </div>
+    </div>
+    <p style="margin-top:2.5rem;font-size:0.75rem;color:var(--muted);text-align:center;font-style:italic;">Estimated 3–4 weeks pending material availability and permit requirements.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════ INVESTMENT ══ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-number">05</div>
+    <div class="section-label">
+      <div class="section-eyebrow">Investment</div>
+      <h2 class="section-title">Your Investment</h2>
+    </div>
+  </div>
+  <div class="investment-card">
+    <div class="investment-header">
+      <div>
+        <div class="investment-label">Total Project Investment</div>
+        <div class="investment-total">$17,570</div>
+      </div>
+      <div class="investment-note">
+        Labor &amp; installation only<br>
+        Finish materials provided by client
+      </div>
+    </div>
+    <div class="investment-body">
+      <div class="payment-step">
+        <div class="pct">$1,000</div>
+        <div class="phase">At Signing</div>
+        <div class="detail">Secures your start date<br>per CA contractor law</div>
+      </div>
+      <div class="investment-divider"></div>
+      <div class="payment-step">
+        <div class="pct">40%</div>
+        <div class="phase">At Midpoint</div>
+        <div class="detail">Rough work complete,<br>inspections passed</div>
+      </div>
+      <div class="investment-divider"></div>
+      <div class="payment-step">
+        <div class="pct">30%</div>
+        <div class="phase">At Completion</div>
+        <div class="detail">Final walkthrough,<br>punch list sign-off</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═════════════════════════════════ WARRANTY + TERMS ══ -->
+<div class="section" style="padding-top:0;">
+  <div class="section-header">
+    <div class="section-number">06</div>
+    <div class="section-label">
+      <div class="section-eyebrow">Terms &amp; Warranty</div>
+      <h2 class="section-title">Our Commitment</h2>
+    </div>
+  </div>
+  <div class="terms-grid">
+    <div class="terms-card">
+      <h3>Warranty</h3>
+      <p>Timberline Build Co warrants all labor for <strong>1 year</strong> from project completion. Manufacturer warranties apply to all materials and fixtures supplied by Timberline. Client-supplied materials carry their own manufacturer warranty.</p>
+    </div>
+    <div class="terms-card">
+      <h3>Terms &amp; Conditions</h3>
+      <ul>
+        <li>All change orders require written approval before work begins</li>
+        <li>Client materials must be on-site before scheduled installation</li>
+        <li>Scope changes may affect timeline and investment</li>
+        <li>Lien waiver provided at final payment</li>
+        <li>Licensed &amp; insured — CSLB #1136140</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════ SIGNATURE ══ -->
+<div class="band">
+  <div class="section" style="max-width:920px;margin:0 auto;">
+    <div class="section-header">
+      <div class="section-number" style="color:rgba(255,255,255,0.07)">07</div>
+      <div class="section-label">
+        <div class="section-eyebrow" style="color:var(--gold)">Authorization</div>
+        <h2 class="section-title" style="color:var(--white)">Ready to Get Started?</h2>
+      </div>
+    </div>
+    <div class="sig-block" style="background:rgba(255,255,255,0.05);border-radius:16px;padding:2.5rem;border:1px solid rgba(255,255,255,0.1);">
+      <p style="font-size:0.88rem;color:rgba(255,255,255,0.65);line-height:1.7;margin-bottom:2rem;">By signing below, you authorize Timberline Build Co to proceed with the scope of work as described in this proposal at the total investment stated. You acknowledge that all change orders require written approval, and that client-supplied materials must be on-site prior to scheduled installation dates.</p>
+      <div class="sig-row">
+        <div class="sig-field">
+          <label>Client Signature</label>
+          <div class="sig-line"></div>
+        </div>
+        <div class="sig-field">
+          <label>Date</label>
+          <div class="sig-line"></div>
+        </div>
+        <div class="sig-field">
+          <label>Printed Name</label>
+          <div class="sig-line"></div>
+        </div>
+        <div class="sig-field">
+          <label>Justin Sherman — Timberline Build Co</label>
+          <div class="sig-line"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═════════════════════════════════════════ FOOTER ══ -->
+<footer>
+  <p>
+    <strong>Timberline Build Co</strong> · Justin Sherman, GC · CSLB #1136140<br>
+    Orange County, CA · <strong>949-229-1692</strong> · timberlinebuild.co<br><br>
+    This proposal is valid for 30 days from date of issue. Pricing subject to change after expiration.
+  </p>
+</footer>
+
+</body>
+</html>
