@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contract — Scott Tenley | Timberline Build Co</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --green: #19412c;
+    --brown: #614432;
+    --dark: #312509;
+    --navy: #213245;
+    --gold: #e9af3b;
+    --light: #f8f5f0;
+    --text: #1a1a1a;
+  }
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: #fff;
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  /* COVER */
+  .cover {
+    background: var(--green);
+    color: #fff;
+    padding: 80px 60px 60px;
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .cover-logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 48px;
+  }
+  .cover-logo img {
+    height: 52px;
+    filter: brightness(0) invert(1);
+  }
+  .cover-logo-text {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: #fff;
+    text-transform: uppercase;
+  }
+  .cover-logo-text span {
+    display: block;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    text-transform: uppercase;
+  }
+  .cover-title {
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+  .cover-sub {
+    font-size: 14px;
+    font-weight: 400;
+    opacity: 0.8;
+    letter-spacing: 0.05em;
+  }
+  .cover-meta {
+    margin-top: 40px;
+    display: flex;
+    gap: 48px;
+    font-size: 12px;
+    opacity: 0.75;
+    letter-spacing: 0.05em;
+  }
+  .cover-meta strong { display: block; font-weight: 600; opacity: 1; font-size: 13px; }
+  /* GOLD BAR */
+  .gold-bar { height: 6px; background: var(--gold); }
+  /* BODY */
+  .body { max-width: 860px; margin: 0 auto; padding: 60px 40px 80px; }
+  h2 {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin: 48px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--gold);
+  }
+  h2:first-child { margin-top: 0; }
+  p { margin-bottom: 12px; color: #333; }
+  ul { margin: 8px 0 16px 20px; }
+  ul li { margin-bottom: 6px; color: #333; }
+  /* PARTIES */
+  .parties-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 8px;
+  }
+  .party-box {
+    background: var(--light);
+    border-left: 4px solid var(--green);
+    padding: 20px 24px;
+    border-radius: 2px;
+  }
+  .party-box .label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 8px;
+  }
+  .party-box .name { font-weight: 700; font-size: 16px; margin-bottom: 4px; }
+  .party-box .detail { font-size: 13px; color: #555; line-height: 1.6; }
+  /* SCOPE TABLE */
+  .scope-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0 16px;
+    font-size: 13px;
+  }
+  .scope-table thead tr {
+    background: var(--green);
+    color: #fff;
+  }
+  .scope-table thead th {
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .scope-table tbody tr:nth-child(even) { background: #f9f7f4; }
+  .scope-table tbody tr:hover { background: #f0ece4; }
+  .scope-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #e8e3da;
+    vertical-align: top;
+  }
+  .scope-table td:last-child { color: #555; font-size: 12px; }
+  .section-header td {
+    background: #eae6df !important;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    color: var(--dark);
+    text-transform: uppercase;
+    padding: 8px 14px;
+  }
+  /* TOTAL BOX */
+  .total-box {
+    background: var(--green);
+    color: #fff;
+    border-radius: 4px;
+    padding: 28px 32px;
+    margin: 24px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .total-box .label { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.8; }
+  .total-box .amount { font-size: 36px; font-weight: 800; color: var(--gold); }
+  /* PAYMENT TABLE */
+  .payment-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0 16px;
+    font-size: 13px;
+  }
+  .payment-table thead tr { background: var(--navy); color: #fff; }
+  .payment-table thead th {
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .payment-table tbody tr:nth-child(even) { background: #f9f7f4; }
+  .payment-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #e8e3da;
+  }
+  .payment-table td.amount { font-weight: 700; color: var(--green); }
+  /* NOTICE BOX */
+  .notice {
+    background: #fff8e8;
+    border-left: 4px solid var(--gold);
+    padding: 16px 20px;
+    border-radius: 2px;
+    margin: 16px 0;
+    font-size: 13px;
+    color: #5a4a1a;
+  }
+  .notice strong { display: block; margin-bottom: 4px; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; }
+  /* EXCLUSIONS */
+  .exclusions-box {
+    background: #fdf2f2;
+    border-left: 4px solid #c0392b;
+    padding: 16px 20px;
+    border-radius: 2px;
+    margin: 8px 0;
+  }
+  .exclusions-box ul li { color: #5a1a1a; }
+  /* TERMS */
+  .terms { font-size: 12px; color: #555; line-height: 1.8; }
+  /* SIGNATURE */
+  .sig-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 32px;
+  }
+  .sig-block .sig-line {
+    border-bottom: 2px solid #333;
+    height: 52px;
+    margin-bottom: 8px;
+  }
+  .sig-block .sig-label { font-size: 11px; color: #777; letter-spacing: 0.06em; text-transform: uppercase; }
+  .sig-block .sig-name { font-weight: 700; font-size: 14px; margin-top: 4px; }
+  /* FOOTER */
+  .footer {
+    background: var(--dark);
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 24px;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    margin-top: 60px;
+  }
+  .footer strong { color: #fff; }
+  @media print {
+    .cover { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .gold-bar { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+  @media (max-width: 600px) {
+    .cover { padding: 40px 24px 40px; }
+    .body { padding: 40px 20px 60px; }
+    .parties-grid { grid-template-columns: 1fr; }
+    .sig-grid { grid-template-columns: 1fr; }
+    .total-box { flex-direction: column; gap: 8px; text-align: center; }
+    .cover-meta { flex-direction: column; gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div>
+    <div class="cover-logo">
+      <img src="../timberline-logo-black.png" alt="Timberline Build Co" onerror="this.style.display='none'">
+      <div class="cover-logo-text">Timberline Build Co<span>Licensed General Contractor · Orange County, CA</span></div>
+    </div>
+    <div class="cover-title">Residential Remodel<br>Contract</div>
+    <div class="cover-sub">Guest Bath + Upstairs Bath · 6 Tidemark, Laguna Niguel</div>
+  </div>
+  <div class="cover-meta">
+    <div><strong>Client</strong>Scott Tenley</div>
+    <div><strong>Property</strong>6 Tidemark, Laguna Niguel, CA 92677</div>
+    <div><strong>Date</strong>May 18, 2026</div>
+    <div><strong>License</strong>CSLB #1136140</div>
+  </div>
+</div>
+<div class="gold-bar"></div>
+
+<!-- BODY -->
+<div class="body">
+
+  <!-- PARTIES -->
+  <h2>Parties to This Agreement</h2>
+  <div class="parties-grid">
+    <div class="party-box">
+      <div class="label">Contractor</div>
+      <div class="name">Timberline Build Co</div>
+      <div class="detail">
+        Justin Sherman, Owner<br>
+        CSLB License #1136140<br>
+        Orange County, CA<br>
+        949-229-1692
+      </div>
+    </div>
+    <div class="party-box">
+      <div class="label">Client</div>
+      <div class="name">Scott Tenley</div>
+      <div class="detail">
+        6 Tidemark<br>
+        Laguna Niguel, CA 92677<br>
+        <br>
+        <em>Property Owner</em>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCOPE -->
+  <h2>Scope of Work</h2>
+  <p>Timberline Build Co agrees to furnish all labor, supervision, and contractor-supplied materials as described below for the remodel of two bathrooms at the property address. <strong>All finish materials (tile, vanity, fixtures, glass, wallpaper, hardware, and accessories) are excluded from this contract.</strong> Client is responsible for purchasing or providing all finishes prior to the scheduled start of each phase.</p>
+
+  <table class="scope-table">
+    <thead>
+      <tr>
+        <th>Line Item</th>
+        <th>Description</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="section-header"><td colspan="3">Downstairs Guest Bathroom — Tub-to-Shower Conversion</td></tr>
+      <tr>
+        <td>Demo</td>
+        <td>Remove existing tub, surround, and prep shower area</td>
+        <td>Labor only</td>
+      </tr>
+      <tr>
+        <td>Hot Mop</td>
+        <td>Waterproof shower pan installation</td>
+        <td>Required for walk-in shower</td>
+      </tr>
+      <tr>
+        <td>Tile Labor</td>
+        <td>Full shower tile installation — walls and floor</td>
+        <td>Client provides tile</td>
+      </tr>
+      <tr>
+        <td>Plumbing</td>
+        <td>Tub-to-shower conversion, new rough-in, shower valve and trim installation</td>
+        <td>Client provides fixtures</td>
+      </tr>
+      <tr>
+        <td>Vanity Install</td>
+        <td>Install client-supplied vanity, sink, and faucet</td>
+        <td>Client provides vanity + fixtures</td>
+      </tr>
+      <tr>
+        <td>Electrical</td>
+        <td>3 new recessed can lights, replace vent fan, relocate vanity electrical from overhead to 2 wall sconces</td>
+        <td>Client provides sconce fixtures and vent fan</td>
+      </tr>
+      <tr>
+        <td>Wainscoting</td>
+        <td>Install wood wainscoting to approximately 42" height around perimeter</td>
+        <td>Labor + framing materials included</td>
+      </tr>
+      <tr>
+        <td>Wallpaper Labor</td>
+        <td>Hang client-supplied wallpaper on all drywall surfaces above wainscoting (excluding ceiling)</td>
+        <td>Client provides wallpaper</td>
+      </tr>
+      <tr>
+        <td>Shampoo Niche</td>
+        <td>Frame and tile one recessed shampoo niche in shower</td>
+        <td>Client provides tile</td>
+      </tr>
+      <tr>
+        <td>Glass Install</td>
+        <td>Install client-supplied single panel glass with opening opposite shower fixture</td>
+        <td>Client provides glass panel</td>
+      </tr>
+      <tr>
+        <td>Paint</td>
+        <td>Paint entire bathroom including wainscoting — labor and standard paint included</td>
+        <td></td>
+      </tr>
+
+      <tr class="section-header"><td colspan="3">Upstairs Bathroom — Restore to Working Order</td></tr>
+      <tr>
+        <td>Tile Labor</td>
+        <td>Install client-supplied tile flooring and baseboard tile</td>
+        <td>Client provides tile</td>
+      </tr>
+      <tr>
+        <td>Drywall Repair</td>
+        <td>Patch and repair drywall as needed</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Paint</td>
+        <td>Paint entire bathroom — labor and standard paint included</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Reset Toilet</td>
+        <td>Remove, reset, and reseal existing toilet</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- EXCLUSIONS -->
+  <h2>What Is NOT Included</h2>
+  <div class="exclusions-box">
+    <ul>
+      <li>All finish materials — tile, grout, vanity, sink, faucets, shower fixtures, glass panel, wallpaper, sconces, vent fan, hardware, accessories, and mirrors</li>
+      <li>Building permits (excluded from this contract — client may request separately)</li>
+      <li>Structural modifications beyond scope listed above</li>
+      <li>Flooring in downstairs bathroom (existing flooring to remain)</li>
+      <li>Appliance or furniture moving not related to scope</li>
+      <li>Any work discovered behind walls not identified prior to demo (subject to change order)</li>
+    </ul>
+  </div>
+
+  <div class="notice">
+    <strong>Client Responsibility — Finishes</strong>
+    Client agrees to purchase and have all finish materials on-site and approved prior to the scheduled start of each phase. Delays caused by late or missing materials may result in schedule adjustments and/or additional costs billed at time-and-materials rates.
+  </div>
+
+  <!-- INVESTMENT -->
+  <h2>Contract Price</h2>
+  <p>The total contract price for labor, supervision, and contractor-supplied materials as described above is:</p>
+  <div class="total-box">
+    <div>
+      <div class="label">Total Contract Price</div>
+      <div style="font-size:13px; opacity:0.7; margin-top:4px;">Both bathrooms · Labor &amp; structure only · Finishes excluded</div>
+    </div>
+    <div class="amount">$16,286</div>
+  </div>
+
+  <!-- PAYMENT -->
+  <h2>Payment Schedule</h2>
+  <p>Payments are due per California B&amp;P Code §7159. No more than $1,000 may be collected prior to contract execution.</p>
+  <table class="payment-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Milestone</th>
+        <th>Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>At contract signature — holds start date</td>
+        <td class="amount">$1,000</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Day 1 of work</td>
+        <td class="amount">$3,886</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>At midpoint — rough work complete / inspections passed</td>
+        <td class="amount">$6,514</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Upon completion — final walk-through and punch list sign-off</td>
+        <td class="amount">$4,886</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="font-size:12px; color:#777;">Payment breakdown: $1,000 deposit + $3,886 (Day 1) = 30% · $6,514 = 40% · $4,886 = 30%</p>
+
+  <!-- TIMELINE -->
+  <h2>Estimated Timeline</h2>
+  <p>Start date is <strong>TBD</strong>, to be confirmed once all finish materials are selected and on-site. Estimated project duration:</p>
+  <ul>
+    <li>Downstairs guest bathroom: 3–5 weeks</li>
+    <li>Upstairs bathroom: 1–2 weeks (may be completed concurrently)</li>
+    <li>Total combined duration: approximately 4–6 weeks pending material availability</li>
+  </ul>
+  <p>All timelines are estimates and may be affected by material lead times, unforeseen conditions, or change orders.</p>
+
+  <!-- WARRANTY -->
+  <h2>Warranty</h2>
+  <p>Timberline Build Co warrants all labor for <strong>1 year from project completion</strong>. Manufacturer warranties apply to all contractor-supplied materials and fixtures. Client-supplied materials carry no labor warranty beyond proper installation.</p>
+
+  <!-- TERMS -->
+  <h2>Terms &amp; Conditions</h2>
+  <div class="terms">
+    <p><strong>Change Orders:</strong> Any work outside the scope described in this contract requires a written change order signed by both parties before work begins. Verbal approvals are not binding. Unforeseen conditions discovered during demo (hidden water damage, non-code plumbing, structural issues, etc.) will be documented and presented as a change order before proceeding.</p>
+    <p><strong>Client-Supplied Materials:</strong> Client is responsible for the quality, quantity, and timely delivery of all finish materials. Timberline Build Co is not responsible for defects in client-supplied materials. Installation of client-supplied materials does not extend the labor warranty to those materials.</p>
+    <p><strong>Access:</strong> Client agrees to provide contractor and subcontractors reasonable access to the property during normal working hours (7am–5pm, Mon–Sat).</p>
+    <p><strong>Lien Waiver:</strong> Upon receipt of final payment, Timberline Build Co will provide a conditional lien waiver releasing all mechanic's lien rights for work completed under this contract.</p>
+    <p><strong>Dispute Resolution:</strong> Any disputes arising from this contract shall first be subject to good-faith mediation. This contract is governed by the laws of the State of California.</p>
+    <p><strong>License:</strong> Timberline Build Co holds California Contractor's License #1136140, insured and bonded.</p>
+  </div>
+
+  <!-- SIGNATURE -->
+  <h2>Agreement &amp; Signature</h2>
+  <p>By signing below, both parties agree to the scope, price, payment schedule, and terms set forth in this contract.</p>
+
+  <div class="sig-grid">
+    <div class="sig-block">
+      <div class="sig-line"></div>
+      <div class="sig-label">Contractor Signature</div>
+      <div class="sig-name">Justin Sherman</div>
+      <div style="font-size:12px; color:#777;">Timberline Build Co · CSLB #1136140</div>
+      <br>
+      <div class="sig-line" style="width:60%; border-bottom: 1px dashed #aaa; height: 32px;"></div>
+      <div class="sig-label">Date</div>
+    </div>
+    <div class="sig-block">
+      <div class="sig-line"></div>
+      <div class="sig-label">Client Signature</div>
+      <div class="sig-name">Scott Tenley</div>
+      <div style="font-size:12px; color:#777;">6 Tidemark, Laguna Niguel, CA 92677</div>
+      <br>
+      <div class="sig-line" style="width:60%; border-bottom: 1px dashed #aaa; height: 32px;"></div>
+      <div class="sig-label">Date</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <strong>Timberline Build Co</strong> · Licensed General Contractor · CSLB #1136140 · Orange County, CA · 949-229-1692
+</div>
+
+</body>
+</html>
