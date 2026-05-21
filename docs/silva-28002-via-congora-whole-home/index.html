@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Timberline Build Co — Silva Whole Home Remodel Proposal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --green:  #19412c;
+      --brown:  #614432;
+      --dark:   #312509;
+      --navy:   #213245;
+      --gold:   #e9af3b;
+      --light:  #f9f6f1;
+      --text:   #1a1a1a;
+      --muted:  #666;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #fff;
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    /* ── COVER ── */
+    .cover {
+      background: var(--green);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 60px 72px;
+    }
+    .cover-logo img { height: 54px; filter: brightness(0) invert(1); }
+    .cover-body { margin-top: auto; padding-bottom: 60px; }
+    .cover-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .cover h1 {
+      font-size: clamp(32px, 5vw, 54px);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 18px;
+    }
+    .cover-sub {
+      font-size: 17px;
+      font-weight: 400;
+      opacity: 0.82;
+      margin-bottom: 36px;
+    }
+    .cover-meta {
+      display: flex;
+      gap: 48px;
+      font-size: 13px;
+      opacity: 0.7;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      padding-top: 24px;
+    }
+    .cover-meta strong { display: block; color: var(--gold); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px; }
+
+    /* ── SECTIONS ── */
+    section { padding: 72px 72px; border-bottom: 1px solid #e8e2d9; }
+    section:last-child { border-bottom: none; }
+    .section-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    h2 {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 24px;
+    }
+    h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--dark);
+      margin: 28px 0 10px;
+    }
+    p { margin-bottom: 14px; color: #333; }
+
+    /* ── SCOPE LIST ── */
+    .scope-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 48px;
+    }
+    ul.scope {
+      list-style: none;
+      padding: 0;
+    }
+    ul.scope li {
+      padding: 9px 0;
+      border-bottom: 1px solid #eee;
+      font-size: 14px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    ul.scope li::before {
+      content: "✓";
+      color: var(--green);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    ul.not-included li::before { content: "✕"; color: #c0392b; }
+
+    /* ── ALLOWANCES TABLE ── */
+    .allowances {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      margin-top: 16px;
+    }
+    .allowances th {
+      background: var(--green);
+      color: #fff;
+      font-weight: 600;
+      padding: 10px 14px;
+      text-align: left;
+      font-size: 12px;
+      letter-spacing: 0.05em;
+    }
+    .allowances td {
+      padding: 10px 14px;
+      border-bottom: 1px solid #eee;
+    }
+    .allowances tr:nth-child(even) td { background: #f9f6f1; }
+    .allowances .note { color: var(--muted); font-size: 12px; }
+
+    /* ── RENDERS ── */
+    .render-block { margin-top: 32px; }
+    .render-block img {
+      width: 100%;
+      max-height: 480px;
+      object-fit: cover;
+      border-radius: 4px;
+      display: block;
+    }
+    .render-caption {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    /* ── TIMELINE ── */
+    .timeline {
+      display: flex;
+      gap: 0;
+      margin-top: 24px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .tl-item {
+      flex: 1;
+      padding: 20px;
+      border-right: 1px solid #ddd;
+      text-align: center;
+    }
+    .tl-item:last-child { border-right: none; }
+    .tl-num {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--green);
+    }
+    .tl-label {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    /* ── INVESTMENT ── */
+    .investment-box {
+      background: var(--green);
+      color: #fff;
+      border-radius: 6px;
+      padding: 48px;
+      text-align: center;
+      margin-top: 24px;
+    }
+    .investment-box .inv-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .investment-box .inv-total {
+      font-size: clamp(42px, 7vw, 72px);
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .investment-box .inv-sub {
+      font-size: 14px;
+      opacity: 0.75;
+    }
+
+    .payment-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 28px;
+      font-size: 14px;
+    }
+    .payment-table th {
+      background: var(--navy);
+      color: #fff;
+      padding: 10px 16px;
+      text-align: left;
+      font-size: 12px;
+      letter-spacing: 0.05em;
+    }
+    .payment-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid #eee;
+    }
+    .payment-table td:last-child { font-weight: 600; color: var(--green); }
+    .payment-table tr:nth-child(even) td { background: #f9f6f1; }
+
+    /* ── TERMS ── */
+    .terms-box {
+      background: var(--light);
+      border-left: 4px solid var(--gold);
+      padding: 24px 28px;
+      border-radius: 0 4px 4px 0;
+      font-size: 13px;
+      color: #444;
+      margin-top: 20px;
+    }
+
+    /* ── SIGNATURE ── */
+    .sig-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      margin-top: 32px;
+    }
+    .sig-block { }
+    .sig-line {
+      border-bottom: 1px solid #333;
+      height: 48px;
+      margin-bottom: 8px;
+    }
+    .sig-label { font-size: 12px; color: var(--muted); }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 32px;
+      font-size: 12px;
+      letter-spacing: 0.05em;
+    }
+    .footer strong { color: var(--gold); }
+
+    @media (max-width: 768px) {
+      .cover, section { padding: 40px 24px; }
+      .scope-grid { grid-template-columns: 1fr; }
+      .timeline { flex-direction: column; }
+      .tl-item { border-right: none; border-bottom: 1px solid #ddd; }
+      .sig-grid { grid-template-columns: 1fr; }
+      .cover-meta { flex-direction: column; gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════ COVER ══ -->
+<div class="cover">
+  <div class="cover-logo">
+    <img src="./logo.png" alt="Timberline Build Co" />
+  </div>
+  <div class="cover-body">
+    <div class="cover-eyebrow">Project Proposal</div>
+    <h1>Whole Home<br>Remodel</h1>
+    <div class="cover-sub">28002 Via Congora Mission &nbsp;·&nbsp; Silva Residence</div>
+    <div class="cover-meta">
+      <div><strong>Prepared For</strong>Ms. Silva</div>
+      <div><strong>Date</strong>May 21, 2026</div>
+      <div><strong>Prepared By</strong>Justin Sherman, GC</div>
+      <div><strong>License</strong>CSLB #1136140</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ OVERVIEW ══ -->
+<section>
+  <div class="section-label">01 — Project Overview</div>
+  <h2>About This Project</h2>
+  <p>
+    This proposal covers a comprehensive whole-home remodel of the residence at 28002 Via Congora Mission.
+    The scope includes a full kitchen renovation, master and guest bathroom refreshes, new LVP flooring throughout,
+    whole-home ceiling and paint, windows and doors, a stone fireplace surround, and all associated demo,
+    drywall, plumbing, and electrical work.
+  </p>
+  <p>
+    All work will be performed by Timberline Build Co and our trusted subcontractor team.
+    Justin Sherman will be on-site and personally managing this project from start to finish.
+  </p>
+</section>
+
+<!-- ══════════════════════════════════════════ SCOPE ══ -->
+<section>
+  <div class="section-label">02 — Scope of Work</div>
+  <h2>What's Included</h2>
+
+  <div class="scope-grid">
+    <div>
+      <h3>Demo &amp; Prep</h3>
+      <ul class="scope">
+        <li>Whole-home demo and debris haul-off</li>
+        <li>Popcorn ceiling scrape (approx. 1,200 sq ft)</li>
+        <li>All bathroom demo included</li>
+        <li>One dumpster pull included</li>
+      </ul>
+
+      <h3>Windows &amp; Doors</h3>
+      <ul class="scope">
+        <li>8 windows — supply &amp; install (kitchen, master bed, master bath, guest bath new opening, 4 additional)</li>
+        <li>6 interior doors — supply &amp; install</li>
+        <li>2 sliding glass/patio doors — supply &amp; install</li>
+        <li>2 closet doors — supply &amp; install (bypass/barn style)</li>
+        <li>Guest bath — new window opening with structural patch</li>
+      </ul>
+
+      <h3>Kitchen</h3>
+      <ul class="scope">
+        <li>Non-load-bearing wall removal (kitchen open concept)</li>
+        <li>Drywall patch — kitchen &amp; dining</li>
+        <li>Cabinet supply &amp; install (semi-custom, allowance)</li>
+        <li>Countertop supply &amp; install — quartz (allowance)</li>
+        <li>Tile backsplash — supply &amp; install</li>
+        <li>Plumbing rough &amp; finish</li>
+        <li>Electrical — circuits &amp; fixtures</li>
+        <li>Appliance install (owner-supplied appliances)</li>
+      </ul>
+
+      <h3>Ceilings &amp; Paint</h3>
+      <ul class="scope">
+        <li>Drywall texture / skim coat — all ceilings</li>
+        <li>Whole-home interior paint — walls, ceilings, trim (2 coats)</li>
+      </ul>
+    </div>
+
+    <div>
+      <h3>Fireplace</h3>
+      <ul class="scope">
+        <li>Stone surround &amp; hearth — labor &amp; material (allowance)</li>
+      </ul>
+
+      <h3>Master Bathroom</h3>
+      <ul class="scope">
+        <li>Walk-in shower — tile labor &amp; material (allowance)</li>
+        <li>Hot mop shower pan</li>
+        <li>Frameless glass shower enclosure</li>
+        <li>Double vanity supply &amp; install (allowance)</li>
+        <li>Countertop (allowance)</li>
+        <li>Tile floor — labor &amp; material (allowance)</li>
+        <li>Plumbing rough &amp; finish</li>
+        <li>Fixtures — faucets, shower valve</li>
+        <li>Electrical — exhaust fan &amp; lighting</li>
+        <li>Drywall &amp; set toilet</li>
+      </ul>
+
+      <h3>Guest Bathroom</h3>
+      <ul class="scope">
+        <li>Single vanity supply &amp; install (allowance)</li>
+        <li>Countertop (allowance)</li>
+        <li>Tile floor — labor &amp; material (allowance)</li>
+        <li>Plumbing rough &amp; finish</li>
+        <li>Fixtures — faucets</li>
+        <li>Electrical — exhaust fan &amp; lighting</li>
+        <li>Drywall &amp; set toilet</li>
+      </ul>
+
+      <h3>Flooring — LVP Throughout</h3>
+      <ul class="scope">
+        <li>LVP supply &amp; install — approx. 1,200 sq ft (allowance)</li>
+        <li>Baseboard supply &amp; install throughout</li>
+      </ul>
+
+      <h3>General</h3>
+      <ul class="scope">
+        <li>Final cleanup &amp; debris removal</li>
+        <li>Project management by Justin Sherman, GC</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- NOT INCLUDED -->
+  <h3 style="margin-top:40px; color:#c0392b;">What's NOT Included</h3>
+  <ul class="scope not-included">
+    <li>Permits (available as an add-on — typical range $500–$2,500 depending on scope and city)</li>
+    <li>Appliance purchase — install of owner-supplied appliances is included</li>
+    <li>Landscaping or exterior work</li>
+    <li>Furniture moving or storage</li>
+    <li>Load-bearing structural changes (wall removal assumes non-load-bearing; structural engineer fees if required would be a change order)</li>
+    <li>Additional dumpster pulls beyond the one included (billed as change order if needed)</li>
+    <li>Any work not explicitly listed above</li>
+  </ul>
+</section>
+
+<!-- ══════════════════════════════════════════ ALLOWANCES ══ -->
+<section>
+  <div class="section-label">03 — Material Allowances</div>
+  <h2>Allowances &amp; Selections</h2>
+  <p>The following items are included as allowances. Final costs will be adjusted to actual selection pricing. Upgrades or downgrades are processed as change orders.</p>
+  <table class="allowances">
+    <thead>
+      <tr><th>Item</th><th>Allowance</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Kitchen cabinets — supply</td><td>$10,000</td><td class="note">Semi-custom; adjust to selection</td></tr>
+      <tr><td>Kitchen countertops — quartz</td><td>$5,500</td><td class="note">Supply &amp; install included</td></tr>
+      <tr><td>Stone fireplace material</td><td>$1,000</td><td class="note">Surround &amp; hearth</td></tr>
+      <tr><td>Master bath — shower tile material</td><td>$1,100</td><td class="note">Walk-in shower</td></tr>
+      <tr><td>Master bath — double vanity supply</td><td>$600</td><td class="note">2 x 42" vanities</td></tr>
+      <tr><td>Master bath — countertop</td><td>$1,200</td><td class="note"></td></tr>
+      <tr><td>Master bath — tile floor material</td><td>$500</td><td class="note"></td></tr>
+      <tr><td>Guest bath — vanity supply</td><td>$800</td><td class="note">Single vanity</td></tr>
+      <tr><td>Guest bath — countertop</td><td>$600</td><td class="note"></td></tr>
+      <tr><td>Guest bath — tile floor material</td><td>$500</td><td class="note"></td></tr>
+      <tr><td>LVP flooring — supply (~1,200 sq ft)</td><td>$4,200</td><td class="note">~$3.50/sq ft; adjust to selection</td></tr>
+      <tr><td>Windows — supply (8 ea)</td><td>$4,000</td><td class="note">$500 ea</td></tr>
+      <tr><td>Doors — supply (10 ea)</td><td>$2,000</td><td class="note">$200 ea</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ══════════════════════════════════════════ RENDERS ══ -->
+<section>
+  <div class="section-label">04 — Design Concept</div>
+  <h2>Kitchen Render</h2>
+  <p>A photorealistic concept render of your kitchen remodel. Final selections may vary.</p>
+  <div class="render-block">
+    <img src="./kitchen-render.png" alt="Kitchen remodel concept render" onerror="this.style.display='none'" />
+    <div class="render-caption">Concept render — Timberline Build Co. Final finishes subject to client selection.</div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════ TIMELINE ══ -->
+<section>
+  <div class="section-label">05 — Timeline</div>
+  <h2>Estimated Project Schedule</h2>
+  <p>Pending material lead times and permit processing. Start date to be confirmed at contract signing.</p>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-num">1–2</div>
+      <div class="tl-label">Weeks<br>Demo &amp; Prep</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-num">2–3</div>
+      <div class="tl-label">Weeks<br>Rough Work — Windows, Doors, Framing, Plumbing, Electrical</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-num">3–4</div>
+      <div class="tl-label">Weeks<br>Kitchen, Baths, Fireplace</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-num">2–3</div>
+      <div class="tl-label">Weeks<br>Flooring, Paint, Finish Work</div>
+    </div>
+  </div>
+  <p style="margin-top:16px; font-size:13px; color:var(--muted);">
+    <strong>Estimated total duration: 10–14 weeks</strong> from start date, pending material lead times and permit processing.
+  </p>
+</section>
+
+<!-- ══════════════════════════════════════════ INVESTMENT ══ -->
+<section>
+  <div class="section-label">06 — Investment</div>
+  <h2>Project Investment</h2>
+
+  <div class="investment-box">
+    <div class="inv-label">Total Project Investment</div>
+    <div class="inv-total">$97,210</div>
+    <div class="inv-sub">Inclusive of all labor, materials per allowances above, and general conditions.<br>Permits and appliances excluded.</div>
+  </div>
+
+  <h3>Payment Schedule</h3>
+  <table class="payment-table">
+    <thead>
+      <tr><th>#</th><th>Milestone</th><th>Amount</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>At contract signing (holds start date)</td><td>$1,000</td></tr>
+      <tr><td>2</td><td>Day 1 of work</td><td>$28,163</td></tr>
+      <tr><td>3</td><td>Midpoint — rough work complete / inspections passed</td><td>$38,884</td></tr>
+      <tr><td>4</td><td>Completion — final walk-through &amp; punch list sign-off</td><td>$29,163</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:12px; color:var(--muted); margin-top:12px;">Per California B&amp;P Code §7159, initial deposit cannot exceed $1,000 prior to contract execution.</p>
+</section>
+
+<!-- ══════════════════════════════════════════ WARRANTY ══ -->
+<section>
+  <div class="section-label">07 — Warranty &amp; Terms</div>
+  <h2>Warranty &amp; Terms</h2>
+
+  <div class="terms-box">
+    <strong>Labor Warranty:</strong> Timberline Build Co warrants all labor for 1 year from project completion.
+    Manufacturer warranties apply to all materials and fixtures installed.<br><br>
+    <strong>Change Orders:</strong> Any changes to scope, materials, or timeline must be agreed upon in writing and signed by both parties before work proceeds. Change orders will be priced and submitted for approval.<br><br>
+    <strong>Allowances:</strong> Material allowances are estimates. Overages or savings are passed through to the client via change order.<br><br>
+    <strong>Permits:</strong> Not included in this proposal. Owner may request permit coordination as an add-on.<br><br>
+    <strong>Lien Waiver:</strong> Final lien waiver provided upon receipt of final payment.
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════ SIGNATURE ══ -->
+<section>
+  <div class="section-label">08 — Acceptance</div>
+  <h2>Proposal Acceptance</h2>
+  <p>By signing below, you authorize Timberline Build Co to proceed with the scope of work described in this proposal for the total investment of <strong>$97,210</strong>.</p>
+
+  <div class="sig-grid">
+    <div class="sig-block">
+      <div class="sig-line"></div>
+      <div class="sig-label">Client Signature</div>
+      <div class="sig-line" style="margin-top:24px;"></div>
+      <div class="sig-label">Printed Name</div>
+      <div class="sig-line" style="margin-top:24px;"></div>
+      <div class="sig-label">Date</div>
+    </div>
+    <div class="sig-block">
+      <div class="sig-line"></div>
+      <div class="sig-label">Justin Sherman — Timberline Build Co, CSLB #1136140</div>
+      <div class="sig-line" style="margin-top:24px;"></div>
+      <div class="sig-label">Date</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════ FOOTER ══ -->
+<div class="footer">
+  <strong>Timberline Build Co</strong> &nbsp;·&nbsp; CSLB #1136140 &nbsp;·&nbsp; 949-229-1692 &nbsp;·&nbsp; Orange County, CA<br>
+  Allowances subject to final material selection. Permits excluded. This proposal is valid for 30 days.
+</div>
+
+</body>
+</html>
