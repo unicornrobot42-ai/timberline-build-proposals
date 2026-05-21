@@ -157,6 +157,29 @@
       margin-top: 8px;
       font-style: italic;
     }
+    .decor-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 28px;
+    }
+    .decor-grid .decor-wide {
+      grid-column: 1 / -1;
+    }
+    .decor-grid img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 4px;
+      display: block;
+    }
+    .decor-grid .decor-wide img {
+      height: 400px;
+    }
+    @media (max-width: 768px) {
+      .decor-grid { grid-template-columns: 1fr; }
+      .decor-grid .decor-wide { grid-column: 1; }
+    }
 
     /* ── TIMELINE ── */
     .timeline {
@@ -446,15 +469,23 @@
   </table>
 </section>
 
-<!-- ══════════════════════════════════════════ RENDERS ══ -->
+<!-- ══════════════════════════════════════════ DESIGN ══ -->
 <section>
-  <div class="section-label">04 — Design Concept</div>
-  <h2>Kitchen Render</h2>
-  <p>A photorealistic concept render of your kitchen remodel. Final selections may vary.</p>
-  <div class="render-block">
-    <img src="./kitchen-render.png" alt="Kitchen remodel concept render" onerror="this.style.display='none'" />
-    <div class="render-caption">Concept render — Timberline Build Co. Final finishes subject to client selection.</div>
+  <div class="section-label">04 — Design Inspiration</div>
+  <h2>The Feel We're Going For</h2>
+  <p>Every detail of this remodel is designed to elevate how the home looks and lives — warm, refined, and built to last. Below is a sense of the quality and atmosphere we bring to every project.</p>
+  <div class="decor-grid">
+    <div class="decor-wide">
+      <img src="./decor-kitchen.png" alt="Kitchen inspiration" onerror="this.style.display='none'" />
+    </div>
+    <div>
+      <img src="./decor-bath.png" alt="Bathroom inspiration" onerror="this.style.display='none'" />
+    </div>
+    <div>
+      <img src="./decor-living.png" alt="Living space inspiration" onerror="this.style.display='none'" />
+    </div>
   </div>
+  <p style="margin-top:16px; font-size:12px; color:var(--muted); font-style:italic;">Decorative images shown for design inspiration only. Final finishes subject to client selection.</p>
 </section>
 
 <!-- ══════════════════════════════════════════ TIMELINE ══ -->
