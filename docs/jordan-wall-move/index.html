@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Timberline Build Co — Wall Move Proposal | Jordan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:  #19412c;
+      --brown:  #614432;
+      --dark:   #312509;
+      --navy:   #213245;
+      --gold:   #e9af3b;
+      --cream:  #f9f6f1;
+      --white:  #ffffff;
+      --text:   #1a1a1a;
+      --muted:  #6b6b6b;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    /* COVER */
+    .cover {
+      background: var(--green);
+      color: var(--white);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 60px 64px;
+    }
+    .cover-logo img { height: 52px; filter: brightness(0) invert(1); }
+    .cover-body { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 60px 0 40px; }
+    .cover-tag {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--dark);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 3px;
+      margin-bottom: 28px;
+    }
+    .cover h1 {
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      letter-spacing: -0.01em;
+    }
+    .cover-meta { font-size: 14px; opacity: 0.75; letter-spacing: 0.04em; line-height: 2; }
+    .cover-meta strong { opacity: 1; font-weight: 600; }
+    .cover-footer {
+      border-top: 1px solid rgba(255,255,255,0.2);
+      padding-top: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      opacity: 0.6;
+    }
+
+    /* CONTENT */
+    .page { max-width: 820px; margin: 0 auto; padding: 72px 40px; }
+
+    .section { margin-bottom: 60px; }
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .section h2 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+    .section p { color: #3a3a3a; margin-bottom: 12px; }
+
+    /* SCOPE LIST */
+    .scope-list { list-style: none; margin-top: 4px; }
+    .scope-list li {
+      padding: 11px 0 11px 24px;
+      border-bottom: 1px solid #e8e3db;
+      position: relative;
+      font-size: 14px;
+      color: #2a2a2a;
+    }
+    .scope-list li:last-child { border-bottom: none; }
+    .scope-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    /* NOT INCLUDED */
+    .not-included-list { list-style: none; margin-top: 4px; }
+    .not-included-list li {
+      padding: 9px 0 9px 24px;
+      border-bottom: 1px solid #e8e3db;
+      position: relative;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .not-included-list li:last-child { border-bottom: none; }
+    .not-included-list li::before {
+      content: '✕';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 10px;
+      color: var(--brown);
+      font-weight: 700;
+    }
+
+    /* INVESTMENT BOX */
+    .investment-box {
+      background: var(--green);
+      color: var(--white);
+      border-radius: 10px;
+      padding: 48px 52px;
+      text-align: center;
+    }
+    .investment-box .inv-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      opacity: 0.65;
+      margin-bottom: 14px;
+    }
+    .investment-box .inv-amount {
+      font-size: clamp(2.8rem, 6vw, 4.2rem);
+      font-weight: 800;
+      color: var(--gold);
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+    .investment-box .inv-sub {
+      font-size: 13px;
+      opacity: 0.65;
+      margin-bottom: 28px;
+    }
+    .investment-note {
+      background: rgba(255,255,255,0.08);
+      border-radius: 6px;
+      padding: 16px 20px;
+      font-size: 13px;
+      opacity: 0.8;
+      text-align: left;
+      line-height: 1.6;
+    }
+
+    /* PAYMENT TERMS */
+    .payment-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 8px;
+    }
+    .payment-card {
+      background: var(--white);
+      border: 1px solid #e0dbd3;
+      border-radius: 8px;
+      padding: 24px 20px;
+      text-align: center;
+    }
+    .payment-card .pct {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--green);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .payment-card .pct-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .payment-card .pct-note {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* TIMELINE */
+    .timeline-bar {
+      display: flex;
+      align-items: center;
+      background: var(--white);
+      border: 1px solid #e0dbd3;
+      border-radius: 8px;
+      padding: 28px 32px;
+      gap: 24px;
+    }
+    .tl-num {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--gold);
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .tl-text { font-size: 14px; color: #3a3a3a; }
+    .tl-text strong { color: var(--green); display: block; font-size: 1rem; margin-bottom: 4px; }
+
+    /* SIGNATURE */
+    .sig-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 8px;
+    }
+    .sig-block { border-top: 2px solid var(--dark); padding-top: 10px; }
+    .sig-block .sig-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+    .sig-block .sig-space { height: 48px; }
+
+    /* WARRANTY */
+    .warranty-box {
+      background: var(--white);
+      border-left: 4px solid var(--gold);
+      border-radius: 0 8px 8px 0;
+      padding: 20px 24px;
+      font-size: 13px;
+      color: #3a3a3a;
+    }
+
+    /* FOOTER */
+    .footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+    }
+    .footer strong { color: var(--gold); }
+
+    @media (max-width: 600px) {
+      .cover { padding: 40px 28px; }
+      .page { padding: 48px 24px; }
+      .payment-grid { grid-template-columns: 1fr; }
+      .sig-grid { grid-template-columns: 1fr; }
+      .timeline-bar { flex-direction: column; text-align: center; }
+      .investment-box { padding: 36px 28px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-logo">
+    <img src="./logo.png" alt="Timberline Build Co" />
+  </div>
+  <div class="cover-body">
+    <div class="cover-tag">Project Proposal</div>
+    <h1>Office Expansion<br/>Wall Move</h1>
+    <div class="cover-meta">
+      <div><strong>Client:</strong> Jordan</div>
+      <div><strong>Address:</strong> 33842 Bridgehampton Drive</div>
+      <div><strong>Date:</strong> May 25, 2026</div>
+      <div><strong>Prepared by:</strong> Justin Sherman — Timberline Build Co</div>
+    </div>
+  </div>
+  <div class="cover-footer">
+    <span>949-229-1692</span>
+    <span>CSLB #1136140</span>
+    <span>Licensed &amp; Insured</span>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="page">
+
+  <!-- OVERVIEW -->
+  <div class="section">
+    <div class="section-label">Project Overview</div>
+    <h2>What We're Doing</h2>
+    <p>We'll be relocating an interior 5-foot wall approximately 24 inches to expand the home office and reduce the adjacent bedroom footprint. The scope includes full demo of the existing wall, new framing at the revised location, drywall on both sides, paint, and installation of closet doors on the office side.</p>
+    <p>This is a clean, efficient project. Typical turnaround is 3–5 days once materials are on site.</p>
+  </div>
+
+  <!-- SCOPE -->
+  <div class="section">
+    <div class="section-label">Scope of Work</div>
+    <h2>What's Included</h2>
+    <ul class="scope-list">
+      <li>Mask off and site protection — floors, adjacent rooms, and furniture zones</li>
+      <li>Demo of existing 5-foot interior wall at current location</li>
+      <li>Framing of new wall at revised location (+24 inches into bedroom)</li>
+      <li>Drywall — hang, tape, mud, and texture to match existing on both sides of wall</li>
+      <li>Paint — both affected rooms, walls cut in and rolled to match</li>
+      <li>Closet door installation (labor only) — office side</li>
+      <li>Cleanup and haul-off of all demo debris</li>
+    </ul>
+  </div>
+
+  <!-- NOT INCLUDED -->
+  <div class="section">
+    <div class="section-label">Exclusions</div>
+    <h2>What's NOT Included</h2>
+    <ul class="not-included-list">
+      <li>Closet doors — to be purchased and supplied by client</li>
+      <li>Door hardware — to be purchased and supplied by client</li>
+      <li>Flooring repair at previous wall footprint (available as add-on)</li>
+      <li>Load-bearing engineering or beam work (wall assumed non-structural)</li>
+      <li>Electrical or low-voltage work inside wall cavity</li>
+      <li>Furniture moving</li>
+    </ul>
+  </div>
+
+  <!-- TIMELINE -->
+  <div class="section">
+    <div class="section-label">Timeline</div>
+    <h2>Estimated Duration</h2>
+    <div class="timeline-bar">
+      <div class="tl-num">3–5</div>
+      <div class="tl-text">
+        <strong>Working Days</strong>
+        Pending material availability and site access. Timeline begins on confirmed start date. Drywall texture and paint may require an additional day for proper dry time.
+      </div>
+    </div>
+  </div>
+
+  <!-- INVESTMENT -->
+  <div class="section">
+    <div class="section-label">Investment</div>
+    <h2>Project Total</h2>
+    <div class="investment-box">
+      <div class="inv-label">Total Investment</div>
+      <div class="inv-amount">$5,930</div>
+      <div class="inv-sub">All labor and materials included per scope above</div>
+      <div class="investment-note">
+        ⚠️ <strong>Note:</strong> Closet doors and hardware are client-supplied and not included in this total. If the wall is found to be load-bearing during demo, a change order will be issued prior to proceeding — typically $800–$1,500 additional.
+      </div>
+    </div>
+  </div>
+
+  <!-- PAYMENT TERMS -->
+  <div class="section">
+    <div class="section-label">Payment Terms</div>
+    <h2>Payment Schedule</h2>
+    <div class="payment-grid">
+      <div class="payment-card">
+        <div class="pct">30%</div>
+        <div class="pct-label">Deposit</div>
+        <div class="pct-note">Due at contract signing to hold your start date</div>
+      </div>
+      <div class="payment-card">
+        <div class="pct">40%</div>
+        <div class="pct-label">Midpoint</div>
+        <div class="pct-note">Due when framing and drywall are complete</div>
+      </div>
+      <div class="payment-card">
+        <div class="pct">30%</div>
+        <div class="pct-label">Completion</div>
+        <div class="pct-note">Due at final walkthrough and punch list sign-off</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WARRANTY -->
+  <div class="section">
+    <div class="section-label">Warranty</div>
+    <h2>Our Guarantee</h2>
+    <div class="warranty-box">
+      Timberline Build Co warrants all labor for <strong>1 year</strong> from project completion. Any defects in workmanship will be corrected at no charge. Manufacturer warranties apply to all materials and fixtures supplied by Timberline.
+    </div>
+  </div>
+
+  <!-- SIGNATURE -->
+  <div class="section">
+    <div class="section-label">Authorization</div>
+    <h2>Approval &amp; Signature</h2>
+    <p style="margin-bottom: 28px; color: #555;">By signing below, you authorize Timberline Build Co to proceed with the scope of work outlined in this proposal at the stated investment. Any changes to scope require a signed change order prior to work beginning.</p>
+    <div class="sig-grid">
+      <div class="sig-block">
+        <div class="sig-space"></div>
+        <div class="sig-label">Client Signature</div>
+      </div>
+      <div class="sig-block">
+        <div class="sig-space"></div>
+        <div class="sig-label">Date</div>
+      </div>
+      <div class="sig-block">
+        <div class="sig-space"></div>
+        <div class="sig-label">Printed Name</div>
+      </div>
+      <div class="sig-block">
+        <div class="sig-space"></div>
+        <div class="sig-label">Justin Sherman — Timberline Build Co</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <strong>Timberline Build Co</strong> &nbsp;·&nbsp; Justin Sherman &nbsp;·&nbsp; 949-229-1692 &nbsp;·&nbsp; CSLB #1136140 &nbsp;·&nbsp; Licensed &amp; Insured &nbsp;·&nbsp; Orange County, CA
+</div>
+
+</body>
+</html>
