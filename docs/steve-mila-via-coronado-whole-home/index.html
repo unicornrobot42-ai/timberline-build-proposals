@@ -8,505 +8,170 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --forest: #19412c;
-      --earth:  #312509;
-      --navy:   #213245;
-      --gold:   #e9af3b;
-      --cream:  #faf8f4;
-      --white:  #ffffff;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Montserrat', sans-serif;
-      color: #333;
-      background: var(--cream);
-      line-height: 1.7;
-    }
-    h1, h2, h3, h4 { font-weight: 700; line-height: 1.2; letter-spacing: -0.5px; }
-    h1 { font-size: 3.2rem; }
-    h2 { font-size: 2rem; }
-    h3 { font-size: 1.3rem; }
-
-    .label {
-      text-transform: uppercase;
-      font-size: 0.65rem;
-      letter-spacing: 3px;
-      color: var(--gold);
-      font-weight: 800;
-      margin-bottom: 1.2rem;
-      display: block;
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ── HERO ── */
-    .hero {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-    }
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      background-image: url('living-render.png');
-      background-size: cover;
-      background-position: center 40%;
-      z-index: 0;
-    }
-    .hero-bg::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(25,65,44,0.93) 0%, rgba(25,65,44,0.78) 50%, rgba(25,65,44,0.45) 100%);
-    }
-    .hero-top {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 2.5rem 3rem;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-    .logo { height: 54px; mix-blend-mode: lighten; }
-    .hero-date {
-      font-size: 0.75rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.6);
-      font-weight: 600;
-    }
-    .hero-body {
-      position: relative;
-      z-index: 1;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 4rem 3rem;
-      animation: fadeUp 0.8s ease both;
-      color: var(--white);
-    }
-    .hero-body h1 { color: var(--white); margin-bottom: 1rem; max-width: 760px; }
-    .hero-body h1 span { color: var(--gold); }
-    .hero-body p { color: rgba(255,255,255,0.72); max-width: 580px; font-size: 0.95rem; }
-    .hero-meta {
-      display: flex;
-      gap: 3rem;
-      margin-top: 3rem;
-      padding-top: 3rem;
-      border-top: 1px solid rgba(255,255,255,0.15);
-      flex-wrap: wrap;
-    }
-    .meta-label {
-      font-size: 0.62rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.45);
-      font-weight: 700;
-      margin-bottom: 0.3rem;
-    }
-    .meta-val { font-size: 0.95rem; font-weight: 600; color: var(--white); }
-    .hero-bottom {
-      position: relative;
-      z-index: 1;
-      padding: 2rem 3rem;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      display: flex;
-      gap: 1.2rem;
-      flex-wrap: wrap;
-    }
-    .tag {
-      background: rgba(233,175,59,0.15);
-      border: 1px solid rgba(233,175,59,0.35);
-      color: var(--gold);
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      padding: 0.4rem 1rem;
-      border-radius: 100px;
-    }
-
-    /* ── SECTIONS ── */
-    .section {
-      padding: 5rem 3rem;
-      max-width: 960px;
-      margin: 0 auto;
-    }
-    .section-divider {
-      height: 1px;
-      background: linear-gradient(to right, var(--gold), transparent);
-      margin: 0 3rem;
-      opacity: 0.25;
-    }
-
-    /* ── IMAGE BREAK ── */
-    .img-break {
-      width: 100%;
-      height: 420px;
-      object-fit: cover;
-      object-position: center;
-      display: block;
-    }
-    .img-break-caption {
-      background: var(--forest);
-      color: rgba(255,255,255,0.6);
-      font-size: 0.7rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      font-weight: 600;
-      padding: 0.75rem 3rem;
-    }
-
-    /* ── OVERVIEW CARDS ── */
-    .overview-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-    .overview-card {
-      background: var(--white);
-      border-radius: 12px;
-      padding: 1.5rem;
-      border: 1px solid #eee;
-    }
-    .overview-card .oc-label {
-      font-size: 0.62rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--gold);
-      font-weight: 800;
-      margin-bottom: 0.4rem;
-    }
-    .overview-card .oc-val { font-size: 1rem; font-weight: 700; color: var(--earth); }
-
-    /* ── PHASE CARDS ── */
-    .phase-card {
-      background: var(--white);
-      border-radius: 16px;
-      overflow: hidden;
-      margin-bottom: 2.5rem;
-      box-shadow: 0 4px 30px rgba(0,0,0,0.07);
-      border: 1px solid #ececec;
-    }
-    .phase-card.highlight { border: 2px solid var(--gold); box-shadow: 0 4px 30px rgba(233,175,59,0.15); }
-    .phase-img {
-      width: 100%;
-      height: 320px;
-      object-fit: cover;
-      object-position: center;
-      display: block;
-    }
-    .phase-header {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      padding: 1.8rem 2.5rem;
-      background: var(--forest);
-      color: var(--white);
-    }
-    .phase-card.navy .phase-header  { background: var(--navy); }
-    .phase-card.earth .phase-header { background: var(--earth); }
-    .phase-num {
-      width: 48px; height: 48px;
-      border-radius: 50%;
-      background: var(--gold);
-      color: var(--earth);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.4rem;
-      font-weight: 900;
-      flex-shrink: 0;
-    }
-    .phase-header-text h3 { font-size: 1.2rem; color: var(--white); margin-bottom: 0.15rem; }
-    .phase-sub {
-      font-size: 0.7rem;
-      color: rgba(255,255,255,0.5);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-weight: 600;
-    }
-    .phase-body { padding: 2rem 2.5rem; }
-    .phase-body p { color: #555; font-size: 0.93rem; line-height: 1.8; margin-bottom: 1.2rem; }
-
-    /* ── SCOPE LIST ── */
-    .scope-list { list-style: none; margin: 1.2rem 0 0; }
-    .scope-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.9rem;
-      padding: 0.65rem 0;
-      border-bottom: 1px solid #f0ece5;
-      font-size: 0.88rem;
-      color: #444;
-      line-height: 1.6;
-    }
-    .scope-list li:last-child { border-bottom: none; }
-    .scope-list li::before {
-      content: '';
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: var(--gold);
-      flex-shrink: 0;
-      margin-top: 7px;
-    }
-    .scope-list.exclusions li::before { background: #c0392b; }
-
-    /* ── TWO COLUMN ── */
-    .two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2.5rem;
-      margin-top: 1.5rem;
-    }
-    @media (max-width: 700px) {
-      .two-col { grid-template-columns: 1fr; }
-      .overview-grid { grid-template-columns: 1fr 1fr; }
-    }
-
-    /* ── ALLOWANCES TABLE ── */
-    .allowances {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.85rem;
-      margin-top: 1.5rem;
-      border-radius: 8px;
-      overflow: hidden;
-    }
-    .allowances thead th {
-      background: var(--forest);
-      color: var(--white);
-      font-weight: 700;
-      padding: 0.9rem 1.2rem;
-      text-align: left;
-      font-size: 0.7rem;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-    }
-    .allowances td {
-      padding: 0.85rem 1.2rem;
-      border-bottom: 1px solid #eee;
-      vertical-align: top;
-    }
-    .allowances tr:nth-child(even) td { background: #f9f6f0; }
-    .allowances .note { color: #888; font-size: 0.78rem; }
-    .allowances .amt { font-weight: 700; color: var(--earth); white-space: nowrap; }
-
-    /* ── INVESTMENT TIERS ── */
-    .tier-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-    .tier-card {
-      background: var(--white);
-      border-radius: 16px;
-      overflow: hidden;
-      border: 2px solid #e8e2d9;
-      box-shadow: 0 2px 20px rgba(0,0,0,0.05);
-    }
-    .tier-card.featured {
-      border-color: var(--gold);
-      box-shadow: 0 4px 30px rgba(233,175,59,0.2);
-    }
-    .tier-top {
-      padding: 1.8rem 2rem;
-      background: var(--forest);
-      color: var(--white);
-    }
-    .tier-card.featured .tier-top { background: var(--earth); }
-    .tier-badge {
-      font-size: 0.62rem;
-      font-weight: 800;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.4rem;
-    }
-    .tier-name { font-size: 1.4rem; font-weight: 800; color: var(--white); margin-bottom: 0.2rem; }
-    .tier-price { font-size: 2.2rem; font-weight: 900; color: var(--gold); margin-top: 0.5rem; line-height: 1; }
-    .tier-body { padding: 1.8rem 2rem; }
-    .tier-features { list-style: none; }
-    .tier-features li {
-      font-size: 0.83rem;
-      padding: 0.6rem 0;
-      border-bottom: 1px solid #f0ece5;
-      color: #444;
-      display: flex;
-      gap: 0.7rem;
-      align-items: flex-start;
-    }
-    .tier-features li:last-child { border-bottom: none; }
-    .tier-features li::before {
-      content: '✓';
-      color: var(--forest);
-      font-weight: 800;
-      flex-shrink: 0;
-    }
-    .tier-features li strong { color: var(--earth); }
-    @media (max-width: 780px) {
-      .tier-grid { grid-template-columns: 1fr; }
-    }
-
-    /* ── TIMELINE ── */
-    .timeline-steps {
-      display: flex;
-      gap: 0;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      overflow: hidden;
-      margin-top: 2rem;
-    }
-    .tl-step {
-      flex: 1;
-      padding: 1.6rem 1.2rem;
-      border-right: 1px solid #ddd;
-      text-align: center;
-    }
-    .tl-step:last-child { border-right: none; }
-    .tl-num { font-size: 2rem; font-weight: 900; color: var(--forest); line-height: 1; margin-bottom: 0.2rem; }
-    .tl-unit { font-size: 0.65rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem; }
-    .tl-desc { font-size: 0.78rem; color: #666; }
-    @media (max-width: 640px) {
-      .timeline-steps { flex-direction: column; }
-      .tl-step { border-right: none; border-bottom: 1px solid #ddd; }
-      .tl-step:last-child { border-bottom: none; }
-    }
-
-    /* ── PAYMENT ── */
-    .payment-row {
-      display: flex;
-      gap: 0;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid #ddd;
-      margin-top: 2rem;
-    }
-    .pay-step { flex: 1; padding: 2rem 1.5rem; text-align: center; border-right: 1px solid #ddd; }
-    .pay-step:last-child { border-right: none; }
-    .pay-step:first-child { background: var(--forest); color: var(--white); }
-    .pay-pct { font-size: 2rem; font-weight: 900; color: var(--gold); line-height: 1; margin-bottom: 0.3rem; }
-    .pay-step:not(:first-child) .pay-pct { color: var(--forest); }
-    .pay-name { font-size: 0.7rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 0.4rem; color: rgba(255,255,255,0.65); }
-    .pay-step:not(:first-child) .pay-name { color: #888; }
-    .pay-desc { font-size: 0.78rem; color: rgba(255,255,255,0.55); }
-    .pay-step:not(:first-child) .pay-desc { color: #777; }
-    @media (max-width: 640px) {
-      .payment-row { flex-direction: column; }
-      .pay-step { border-right: none; border-bottom: 1px solid #ddd; }
-      .pay-step:last-child { border-bottom: none; }
-    }
-
-    /* ── WARRANTY BOX ── */
-    .warranty-box {
-      background: var(--white);
-      border-radius: 12px;
-      padding: 2.5rem;
-      border: 1px solid #e0d8cc;
-      margin-top: 1.5rem;
-    }
-    .warranty-box h4 { font-size: 0.85rem; color: var(--forest); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 1px; }
-    .warranty-box p { font-size: 0.88rem; color: #555; margin-bottom: 1.5rem; line-height: 1.8; }
-    .warranty-box p:last-child { margin-bottom: 0; }
-
-    /* ── SIGNATURE ── */
-    .sig-section {
-      background: var(--forest);
-      color: var(--white);
-      padding: 5rem 3rem;
-    }
-    .sig-section .label { color: var(--gold); }
-    .sig-section h2 { color: var(--white); margin-bottom: 1rem; }
-    .sig-section p { color: rgba(255,255,255,0.7); font-size: 0.92rem; margin-bottom: 1rem; }
-    .tier-select {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 8px;
-      padding: 1.2rem 1.8rem;
-      margin: 1.5rem 0 2.5rem;
-      font-size: 0.9rem;
-      color: rgba(255,255,255,0.8);
-    }
-    .sig-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2.5rem 3rem;
-      margin-top: 1.5rem;
-    }
-    .sig-block {}
-    .sig-line {
-      border-bottom: 1px solid rgba(255,255,255,0.3);
-      height: 52px;
-      margin-bottom: 0.6rem;
-    }
-    .sig-lbl { font-size: 0.68rem; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600; }
-    .sig-footer {
-      margin-top: 4rem;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(255,255,255,0.12);
-      font-size: 0.78rem;
-      color: rgba(255,255,255,0.4);
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-    }
-    @media (max-width: 700px) {
-      .sig-grid { grid-template-columns: 1fr; }
-      .section { padding: 3.5rem 1.5rem; }
-      .sig-section { padding: 3.5rem 1.5rem; }
-      .hero-top, .hero-body, .hero-bottom { padding-left: 1.5rem; padding-right: 1.5rem; }
-    }
+    :root{--forest:#19412c;--earth:#312509;--navy:#213245;--gold:#e9af3b;--cream:#faf8f4;--white:#ffffff;--danger:#c0392b}
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'Montserrat',sans-serif;color:#333;background:var(--cream);line-height:1.7}
+    h1,h2,h3,h4{font-weight:700;line-height:1.2;letter-spacing:-0.5px}
+    h1{font-size:3.2rem}h2{font-size:2.2rem;color:var(--earth)}h3{font-size:1.3rem}
+    .label{text-transform:uppercase;font-size:0.65rem;letter-spacing:3px;color:var(--gold);font-weight:800;margin-bottom:1.2rem;display:block}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+    .fade-in{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}
+    .fade-in.visible{opacity:1;transform:translateY(0)}
+    .sticky-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--forest);border-bottom:1px solid rgba(255,255,255,0.08);transform:translateY(-100%);transition:transform 0.3s ease}
+    .sticky-nav.visible{transform:translateY(0)}
+    .sticky-nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 2rem}
+    .sticky-nav-logo{height:32px;opacity:0.9;padding:0.8rem 0}
+    .sticky-nav-links{display:flex}
+    .sticky-nav-links a{color:rgba(255,255,255,0.7);text-decoration:none;font-size:0.72rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:1rem 1.2rem;transition:all 0.2s ease;border-bottom:2px solid transparent}
+    .sticky-nav-links a:hover{color:var(--white);background:rgba(255,255,255,0.05)}
+    .sticky-nav-links a.active{color:var(--gold);border-bottom-color:var(--gold)}
+    @media(max-width:800px){.sticky-nav-links a{padding:1rem 0.7rem;font-size:0.65rem}.sticky-nav-logo{height:26px}}
+    @media(max-width:600px){.sticky-nav-links{display:none}}
+    .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;overflow:hidden}
+    .hero-bg{position:absolute;inset:0;background-image:url('living-render.png');background-size:cover;background-position:center 40%;z-index:0}
+    .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(25,65,44,0.93) 0%,rgba(25,65,44,0.78) 50%,rgba(25,65,44,0.45) 100%)}
+    .hero-top{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:center;padding:2.5rem 3rem;border-bottom:1px solid rgba(255,255,255,0.1)}
+    .logo{height:54px;mix-blend-mode:lighten}
+    .hero-date{font-size:0.75rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.6);font-weight:600}
+    .hero-body{position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center;padding:4rem 3rem;animation:fadeUp 0.8s ease both;color:var(--white)}
+    .hero-body h1{color:var(--white);margin-bottom:1rem;max-width:760px}
+    .hero-body h1 span{color:var(--gold)}
+    .hero-body>p{color:rgba(255,255,255,0.72);max-width:580px;font-size:0.95rem}
+    .hero-meta{display:flex;gap:3rem;margin-top:3rem;padding-top:3rem;border-top:1px solid rgba(255,255,255,0.15);flex-wrap:wrap}
+    .meta-label{font-size:0.62rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.45);font-weight:700;margin-bottom:0.3rem}
+    .meta-val{font-size:0.95rem;font-weight:600;color:var(--white)}
+    .hero-bottom{position:relative;z-index:1;padding:2rem 3rem;border-top:1px solid rgba(255,255,255,0.1);display:flex;gap:1.2rem;flex-wrap:wrap}
+    .tag{background:rgba(233,175,59,0.15);border:1px solid rgba(233,175,59,0.35);color:var(--gold);font-size:0.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:0.4rem 1rem;border-radius:100px}
+    .section{padding:6rem 3rem;max-width:1100px;margin:0 auto}
+    .section-divider{height:1px;background:linear-gradient(to right,var(--gold),transparent);margin:0 auto;opacity:0.25;max-width:1040px}
+    .overview-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;margin-top:2.5rem}
+    .overview-card{background:var(--white);border-radius:12px;padding:1.8rem;border:1px solid #eee;transition:transform 0.2s ease,box-shadow 0.2s ease}
+    .overview-card:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,0.08)}
+    .overview-card .oc-label{font-size:0.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:800;margin-bottom:0.5rem}
+    .overview-card .oc-val{font-size:1.1rem;font-weight:700;color:var(--earth)}
+    .scope-split{display:grid;grid-template-columns:45% 55%;background:var(--white);border-radius:20px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,0.08);border:1px solid #e8e2d9;margin-bottom:3rem}
+    .scope-split.reverse{grid-template-columns:55% 45%}
+    .scope-split.reverse .scope-split-img{order:2}
+    .scope-split.reverse .scope-split-content{order:1}
+    .scope-split-img{position:relative;min-height:420px}
+    .scope-split-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+    .scope-split-img .scope-badge{position:absolute;top:1.5rem;left:1.5rem;width:52px;height:52px;border-radius:50%;background:var(--gold);color:var(--earth);display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:900;box-shadow:0 4px 16px rgba(0,0,0,0.2)}
+    .scope-split.reverse .scope-split-img .scope-badge{left:auto;right:1.5rem}
+    .scope-split-content{padding:2.5rem 3rem;display:flex;flex-direction:column;justify-content:center}
+    .scope-split-content .scope-label{font-size:0.62rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);font-weight:800;margin-bottom:0.6rem}
+    .scope-split-content h3{font-size:1.6rem;color:var(--earth);margin-bottom:0.4rem}
+    .scope-split-content .scope-subtitle{font-size:0.78rem;color:#888;margin-bottom:1.2rem;font-weight:500}
+    .scope-split-content p{font-size:0.9rem;color:#555;line-height:1.8;margin-bottom:1.2rem}
+    .scope-split.highlight{border:2px solid var(--gold);box-shadow:0 8px 40px rgba(233,175,59,0.15)}
+    @media(max-width:800px){.scope-split,.scope-split.reverse{grid-template-columns:1fr}.scope-split-img{min-height:280px;order:1!important}.scope-split-content{order:2!important;padding:2rem 1.8rem}.scope-split-img .scope-badge,.scope-split.reverse .scope-split-img .scope-badge{left:1.2rem;right:auto}}
+    .scope-list{list-style:none;margin:0.5rem 0 0}
+    .scope-list li{display:flex;align-items:flex-start;gap:0.9rem;padding:0.55rem 0;border-bottom:1px solid #f0ece5;font-size:0.85rem;color:#444;line-height:1.55}
+    .scope-list li:last-child{border-bottom:none}
+    .scope-list li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:7px}
+    .two-col-scope{display:grid;grid-template-columns:1fr 1fr;gap:3rem;background:var(--white);border-radius:20px;padding:3rem;box-shadow:0 8px 40px rgba(0,0,0,0.06);border:1px solid #e8e2d9;margin-bottom:3rem}
+    .two-col-scope h3{color:var(--forest);margin-bottom:1rem;font-size:1.15rem}
+    .two-col-scope .scope-note{margin-top:1rem;font-size:0.8rem;color:#888;line-height:1.6}
+    @media(max-width:700px){.two-col-scope{grid-template-columns:1fr;gap:2rem;padding:2rem 1.5rem}.overview-grid{grid-template-columns:1fr 1fr}}
+    .exclusions-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2rem}
+    .exclusion-card{background:var(--white);border-radius:14px;border:1px solid #eee;padding:1.8rem 2rem;border-left:4px solid var(--danger)}
+    .exclusion-card h4{font-size:0.85rem;font-weight:700;color:var(--earth);margin-bottom:1rem;text-transform:uppercase;letter-spacing:0.5px}
+    .exclusion-card .scope-list li::before{background:var(--danger)}
+    @media(max-width:700px){.exclusions-grid{grid-template-columns:1fr}}
+    .allowances-wrapper{background:var(--white);border-radius:16px;overflow:hidden;box-shadow:0 4px 30px rgba(0,0,0,0.06);border:1px solid #e8e2d9;margin-top:2rem}
+    .allowances{width:100%;border-collapse:collapse;font-size:0.85rem}
+    .allowances thead{position:sticky;top:0;z-index:10}
+    .allowances thead th{background:var(--forest);color:var(--white);font-weight:700;padding:1.1rem 1.4rem;text-align:left;font-size:0.7rem;letter-spacing:1.5px;text-transform:uppercase}
+    .allowances thead th:first-child{padding-left:1.8rem}
+    .allowances td{padding:1rem 1.4rem;border-bottom:1px solid #f0ece5;vertical-align:top;transition:background 0.15s ease}
+    .allowances td:first-child{padding-left:1.8rem;font-weight:600;color:var(--earth)}
+    .allowances tbody tr:nth-child(odd) td{background:#fdf8ef}
+    .allowances tbody tr:nth-child(even) td{background:var(--white)}
+    .allowances tbody tr:hover td{background:#f5efe5}
+    .allowances .note{color:#888;font-size:0.78rem}
+    .allowances .amt{font-weight:700;color:var(--forest);white-space:nowrap}
+    .investment-card{background:var(--forest);border-radius:20px;padding:3rem;color:var(--white);margin-top:2.5rem}
+    .investment-starting-label{font-size:0.68rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:0.5rem}
+    .investment-price-big{font-size:4.5rem;font-weight:900;color:var(--gold);line-height:1;margin-bottom:0.5rem}
+    .investment-price-context{font-size:0.95rem;color:rgba(255,255,255,0.7);max-width:600px;line-height:1.7}
+    .investment-range-pill{display:inline-flex;align-items:center;gap:0.8rem;background:rgba(233,175,59,0.15);border:1px solid rgba(233,175,59,0.35);border-radius:100px;padding:0.8rem 1.6rem;margin:1.5rem 0 2rem}
+    .investment-range-pill .range-label{font-size:0.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.6)}
+    .investment-range-pill .range-value{font-size:1.3rem;font-weight:800;color:var(--gold)}
+    .investment-levers{background:var(--cream);border-radius:14px;padding:2rem 2.5rem;margin-top:1.5rem}
+    .investment-levers-title{font-size:0.68rem;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem}
+    .levers-table{width:100%;border-collapse:collapse;font-size:0.85rem}
+    .levers-table thead th{background:var(--earth);color:var(--white);font-weight:700;padding:0.9rem 1.2rem;text-align:left;font-size:0.68rem;letter-spacing:1.5px;text-transform:uppercase}
+    .levers-table thead th:first-child{border-radius:8px 0 0 0}
+    .levers-table thead th:last-child{border-radius:0 8px 0 0}
+    .levers-table td{padding:0.85rem 1.2rem;border-bottom:1px solid #e8e2d9;color:#444}
+    .levers-table td:first-child{font-weight:600;color:var(--earth)}
+    .levers-table .amt{font-weight:700;color:var(--forest)}
+    .levers-table tbody tr:last-child td{background:rgba(233,175,59,0.12);border-bottom:none;font-weight:700}
+    .levers-table tbody tr:last-child td:first-child{border-radius:0 0 0 8px}
+    .levers-table tbody tr:last-child td:last-child{border-radius:0 0 8px 0}
+    .levers-table tbody tr:last-child .amt{color:var(--earth);font-weight:800}
+    .investment-footnote{font-size:0.82rem;color:rgba(255,255,255,0.55);line-height:1.75;border-top:1px solid rgba(255,255,255,0.12);padding-top:1.5rem;margin-top:2rem}
+    .investment-footnote strong{color:rgba(255,255,255,0.8)}
+    .timeline-steps{display:flex;border:1px solid #ddd;border-radius:14px;overflow:hidden;margin-top:2.5rem;background:var(--white)}
+    .tl-step{flex:1;padding:2rem 1.5rem;border-right:1px solid #ddd;text-align:center;transition:background 0.2s ease}
+    .tl-step:last-child{border-right:none}
+    .tl-step.active{background:var(--forest)}
+    .tl-step.active .tl-num{color:var(--gold)}
+    .tl-step.active .tl-unit{color:rgba(255,255,255,0.6)}
+    .tl-step.active .tl-desc{color:rgba(255,255,255,0.8)}
+    .tl-num{font-size:2.2rem;font-weight:900;color:var(--forest);line-height:1;margin-bottom:0.3rem}
+    .tl-unit{font-size:0.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:0.8rem}
+    .tl-desc{font-size:0.78rem;color:#666;line-height:1.5}
+    @media(max-width:800px){.timeline-steps{flex-direction:column}.tl-step{border-right:none;border-bottom:1px solid #ddd;padding:1.5rem}.tl-step:last-child{border-bottom:none}}
+    .warranty-box{background:var(--white);border-radius:16px;padding:3rem;border:1px solid #e0d8cc;margin-top:2rem}
+    .warranty-box h4{font-size:0.85rem;color:var(--forest);margin-bottom:0.6rem;text-transform:uppercase;letter-spacing:1px}
+    .warranty-box p{font-size:0.9rem;color:#555;margin-bottom:1.8rem;line-height:1.8}
+    .warranty-box p:last-child{margin-bottom:0}
+    .footer{background:var(--forest);color:var(--white);padding:4rem 3rem}
+    .footer-inner{max-width:1100px;margin:0 auto}
+    .footer-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:2rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,0.1)}
+    .footer-brand .footer-logo{height:40px;opacity:0.9;margin-bottom:1rem}
+    .footer-tagline{font-size:0.88rem;color:rgba(255,255,255,0.6);font-style:italic}
+    .footer-contact{text-align:right}
+    .footer-contact-item{font-size:0.88rem;color:rgba(255,255,255,0.7);margin-bottom:0.4rem}
+    .footer-contact-item strong{color:var(--gold)}
+    .footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:1.5rem;flex-wrap:wrap;gap:1rem}
+    .footer-meta{font-size:0.78rem;color:rgba(255,255,255,0.4)}
+    @media(max-width:700px){.section{padding:4rem 1.5rem}.footer{padding:3rem 1.5rem}.footer-contact{text-align:left}.hero-top,.hero-body,.hero-bottom{padding-left:1.5rem;padding-right:1.5rem}.investment-card{padding:2rem 1.5rem}.investment-price-big{font-size:3rem}.investment-levers{padding:1.5rem}}
   </style>
 </head>
 <body>
+<nav class="sticky-nav" id="stickyNav">
+  <div class="sticky-nav-inner">
+    <img src="./logo.png" class="sticky-nav-logo" alt="Timberline" />
+    <div class="sticky-nav-links">
+      <a href="#overview" data-section="overview">Overview</a>
+      <a href="#scope" data-section="scope">Scope</a>
+      <a href="#allowances" data-section="allowances">Allowances</a>
+      <a href="#investment" data-section="investment">Investment</a>
+      <a href="#timeline" data-section="timeline">Timeline</a>
+      <a href="#warranty" data-section="warranty">Warranty</a>
+    </div>
+  </div>
+</nav>
 
-<!-- ════════════════════════════════════════
-     HERO — full bleed living render
-════════════════════════════════════════ -->
 <div class="hero">
   <div class="hero-bg"></div>
-
   <div class="hero-top">
     <img src="./logo.png" class="logo" alt="Timberline Build Co" />
     <span class="hero-date">May 28, 2026</span>
   </div>
-
   <div class="hero-body">
     <span class="label">Project Proposal</span>
     <h1>Whole Home<br><span>Remodel</span></h1>
     <p>A complete transformation for Steve &amp; Mila — kitchen, bathrooms, flooring, windows, electrical, paint, and roof. Every room. Done right.</p>
     <div class="hero-meta">
-      <div>
-        <div class="meta-label">Clients</div>
-        <div class="meta-val">Steve &amp; Mila</div>
-      </div>
-      <div>
-        <div class="meta-label">Address</div>
-        <div class="meta-val">28711 Via Coronado</div>
-      </div>
-      <div>
-        <div class="meta-label">Home Size</div>
-        <div class="meta-val">1,450 sq ft</div>
-      </div>
-      <div>
-        <div class="meta-label">Contractor</div>
-        <div class="meta-val">Justin Sherman · CSLB #1136140</div>
-      </div>
+      <div><div class="meta-label">Clients</div><div class="meta-val">Steve &amp; Mila</div></div>
+      <div><div class="meta-label">Address</div><div class="meta-val">28711 Via Coronado</div></div>
+      <div><div class="meta-label">Home Size</div><div class="meta-val">1,450 sq ft</div></div>
+      <div><div class="meta-label">Contractor</div><div class="meta-val">Justin Sherman · CSLB #1136140</div></div>
     </div>
   </div>
-
   <div class="hero-bottom">
     <span class="tag">Full Kitchen</span>
     <span class="tag">2 Bathrooms</span>
@@ -518,54 +183,33 @@
   </div>
 </div>
 
-<!-- ════════════════════════════════════════
-     PROJECT OVERVIEW
-════════════════════════════════════════ -->
-<div class="section">
-  <span class="label">Overview</span>
-  <h2>Your Vision. Our Expertise.</h2>
-  <p style="margin-top:1rem; color:#555; max-width:700px;">This proposal covers a complete whole-home remodel of your residence at 28711 Via Coronado — every major system refreshed, every room transformed. Timberline Build Co is a licensed General Contractor based in Orange County. We self-perform and closely supervise all work with trusted trade partners. We protect your home, communicate throughout, and don't consider the job done until you're fully satisfied.</p>
-
-  <div class="overview-grid">
-    <div class="overview-card">
-      <div class="oc-label">Home Size</div>
-      <div class="oc-val">1,450 sq ft</div>
-    </div>
-    <div class="overview-card">
-      <div class="oc-label">Timeline</div>
-      <div class="oc-val">8–10 Weeks</div>
-    </div>
-    <div class="overview-card">
-      <div class="oc-label">Scopes</div>
-      <div class="oc-val">7 Major</div>
-    </div>
-    <div class="overview-card">
-      <div class="oc-label">License</div>
-      <div class="oc-val">#1136140</div>
-    </div>
+<div class="section" id="overview">
+  <span class="label fade-in">Overview</span>
+  <h2 class="fade-in">Your Vision. Our Expertise.</h2>
+  <p class="fade-in" style="margin-top:1rem;color:#555;max-width:700px;">This proposal covers a complete whole-home remodel of your residence at 28711 Via Coronado — every major system refreshed, every room transformed. Timberline Build Co is a licensed General Contractor based in Orange County. We self-perform and closely supervise all work with trusted trade partners. We protect your home, communicate throughout, and don't consider the job done until you're fully satisfied.</p>
+  <div class="overview-grid fade-in">
+    <div class="overview-card"><div class="oc-label">Home Size</div><div class="oc-val">1,450 sq ft</div></div>
+    <div class="overview-card"><div class="oc-label">Timeline</div><div class="oc-val">8–10 Weeks</div></div>
+    <div class="overview-card"><div class="oc-label">Scopes</div><div class="oc-val">7 Major</div></div>
+    <div class="overview-card"><div class="oc-label">License</div><div class="oc-val">#1136140</div></div>
   </div>
 </div>
 
 <div class="section-divider"></div>
+<div class="section" id="scope">
+  <span class="label fade-in">Scope of Work</span>
+  <h2 class="fade-in">Kitchen, Bathrooms &amp; Beyond</h2>
 
-<!-- ════════════════════════════════════════
-     KITCHEN
-════════════════════════════════════════ -->
-<div class="section">
-  <span class="label">Scope of Work</span>
-  <h2>Kitchen Remodel</h2>
-
-  <div class="phase-card highlight">
-    <img src="./kitchen-render.png" alt="Kitchen Concept Render" class="phase-img" />
-    <div class="phase-header">
-      <div class="phase-num">1</div>
-      <div class="phase-header-text">
-        <h3>Full Kitchen Renovation</h3>
-        <div class="phase-sub">Demo · Cabinets · Countertops · Plumbing · Electrical</div>
-      </div>
+  <div class="scope-split highlight fade-in" style="margin-top:2.5rem;">
+    <div class="scope-split-img">
+      <img src="./kitchen-render.png" alt="Kitchen Concept Render" />
+      <div class="scope-badge">1</div>
     </div>
-    <div class="phase-body">
-      <p>Your kitchen will be completely gutted and rebuilt from scratch — new cabinetry, countertops, backsplash, plumbing, electrical, and appliance installation. Cabinet and countertop selections drive the tier pricing; everything else is fixed.</p>
+    <div class="scope-split-content">
+      <div class="scope-label">Phase 1</div>
+      <h3>Full Kitchen Renovation</h3>
+      <div class="scope-subtitle">Demo · Cabinets · Countertops · Plumbing · Electrical</div>
+      <p>Your kitchen will be completely gutted and rebuilt from scratch — new cabinetry, countertops, backsplash, plumbing, electrical, and appliance installation.</p>
       <ul class="scope-list">
         <li>Full kitchen demo (included in whole-home demo)</li>
         <li>New cabinetry — allowance per tier selection</li>
@@ -579,34 +223,17 @@
       </ul>
     </div>
   </div>
-</div>
 
-<!-- ════════════════════════════════════════
-     KITCHEN IMAGE BREAK
-════════════════════════════════════════ -->
-<img src="./kitchen-render.png" class="img-break" alt="Kitchen Render" />
-<div class="img-break-caption">Kitchen — concept render · Final finishes subject to client selection</div>
-
-<div class="section-divider"></div>
-
-<!-- ════════════════════════════════════════
-     BATHROOMS
-════════════════════════════════════════ -->
-<div class="section">
-  <span class="label">Scope of Work</span>
-  <h2>Bathroom Remodels</h2>
-
-  <div class="phase-card navy">
-    <img src="./master-bath-render.png" alt="Master Bath Concept" class="phase-img" />
-    <div class="phase-header">
-      <div class="phase-num">2</div>
-      <div class="phase-header-text">
-        <h3>Master Bathroom</h3>
-        <div class="phase-sub">Walk-in Shower · Glass Enclosure · Vanity · Fixtures</div>
-      </div>
+  <div class="scope-split reverse fade-in">
+    <div class="scope-split-img">
+      <img src="./master-bath-render.png" alt="Master Bath Concept" />
+      <div class="scope-badge">2</div>
     </div>
-    <div class="phase-body">
-      <p>The master bathroom gets a full spa-style renovation — walk-in shower with large-format tile, frameless glass enclosure, new vanity, and all-new fixtures throughout.</p>
+    <div class="scope-split-content">
+      <div class="scope-label">Phase 2</div>
+      <h3>Master Bathroom</h3>
+      <div class="scope-subtitle">Walk-in Shower · Glass Enclosure · Vanity · Fixtures</div>
+      <p>The master bathroom gets a full spa-style renovation — walk-in shower with large-format tile, frameless glass enclosure, new vanity, and all-new fixtures.</p>
       <ul class="scope-list">
         <li>Full tile — shower walls and floor (labor + material allowance)</li>
         <li>Frameless glass enclosure</li>
@@ -622,16 +249,15 @@
     </div>
   </div>
 
-  <div class="phase-card earth">
-    <img src="./guest-bath-render.png" alt="Guest Bath Concept" class="phase-img" />
-    <div class="phase-header">
-      <div class="phase-num">3</div>
-      <div class="phase-header-text">
-        <h3>Guest Bathroom</h3>
-        <div class="phase-sub">Tub/Shower Combo · Tile · Glass · Vanity</div>
-      </div>
+  <div class="scope-split fade-in">
+    <div class="scope-split-img">
+      <img src="./guest-bath-render.png" alt="Guest Bath Concept" />
+      <div class="scope-badge">3</div>
     </div>
-    <div class="phase-body">
+    <div class="scope-split-content">
+      <div class="scope-label">Phase 3</div>
+      <h3>Guest Bathroom</h3>
+      <div class="scope-subtitle">Tub/Shower Combo · Tile · Glass · Vanity</div>
       <p>The guest bathroom is fully remodeled with a new tub/shower combo, tile surround, glass enclosure, and updated vanity — clean, modern, and move-in ready.</p>
       <ul class="scope-list">
         <li>New soaking tub with set in place</li>
@@ -647,35 +273,25 @@
       </ul>
     </div>
   </div>
-</div>
 
-<div class="section-divider"></div>
-
-<!-- ════════════════════════════════════════
-     FLOORING + WINDOWS + ELECTRICAL
-════════════════════════════════════════ -->
-<div class="section">
-  <span class="label">Scope of Work</span>
-  <h2>Flooring, Windows &amp; Electrical</h2>
-
-  <div class="two-col">
+  <div class="two-col-scope fade-in">
     <div>
-      <h3 style="color:var(--forest); margin-bottom:0.8rem;">Flooring (Whole Home)</h3>
+      <h3>Flooring (Whole Home)</h3>
       <ul class="scope-list">
         <li>Demo and removal of all existing tile (whole home)</li>
         <li>Slab grind throughout — bamboo option only (1,450 sq ft)</li>
         <li>New flooring installed throughout entire home</li>
         <li>New baseboard throughout</li>
       </ul>
-      <p style="margin-top:1rem; font-size:0.82rem; color:#888;">Two options: Distressed Bamboo (~$12/sqft installed) or Travertine (~$20/sqft installed). Bamboo requires slab grind; travertine does not.</p>
+      <p class="scope-note">Two options: Distressed Bamboo (~$12/sqft installed) or Travertine (~$20/sqft installed). Bamboo requires slab grind; travertine does not.</p>
     </div>
     <div>
-      <h3 style="color:var(--forest); margin-bottom:0.8rem;">Windows &amp; Doors</h3>
+      <h3>Windows &amp; Doors</h3>
       <ul class="scope-list">
         <li>8 retrofit windows — material and installation</li>
         <li>2 sliding glass doors — material and installation</li>
       </ul>
-      <h3 style="color:var(--forest); margin-bottom:0.8rem; margin-top:2rem;">Electrical (Whole House)</h3>
+      <h3 style="margin-top:2rem;">Electrical (Whole House)</h3>
       <ul class="scope-list">
         <li>Replace all outlets throughout home</li>
         <li>Replace all light switches throughout home</li>
@@ -683,31 +299,17 @@
       </ul>
     </div>
   </div>
-</div>
 
-<!-- IMAGE BREAK — living render -->
-<img src="./living-render.png" class="img-break" alt="Interior Living Space Render" />
-<div class="img-break-caption">Interior — concept render showing new flooring and open-concept living</div>
-
-<div class="section-divider"></div>
-
-<!-- ════════════════════════════════════════
-     PAINT + ROOF
-════════════════════════════════════════ -->
-<div class="section">
-  <span class="label">Scope of Work</span>
-  <h2>Paint, Finishes &amp; Roof</h2>
-
-  <div class="two-col">
+  <div class="two-col-scope fade-in">
     <div>
-      <h3 style="color:var(--forest); margin-bottom:0.8rem;">Interior Paint &amp; Finishes</h3>
+      <h3>Interior Paint &amp; Finishes</h3>
       <ul class="scope-list">
         <li>Interior paint — entire home</li>
         <li>New baseboard throughout (coordinated with flooring)</li>
       </ul>
     </div>
     <div>
-      <h3 style="color:var(--forest); margin-bottom:0.8rem;">Roof &amp; Exterior</h3>
+      <h3>Roof &amp; Exterior</h3>
       <ul class="scope-list">
         <li>Full roof replacement (projected cost)</li>
         <li>Rotting fascia repair</li>
@@ -717,40 +319,32 @@
 </div>
 
 <div class="section-divider"></div>
-
-<!-- ════════════════════════════════════════
-     NOT INCLUDED
-════════════════════════════════════════ -->
 <div class="section">
-  <span class="label">Exclusions</span>
-  <h2>What's Not Included</h2>
-  <p style="color:#666; font-size:0.9rem; margin-bottom:1.8rem; max-width:680px;">The following items are explicitly outside the scope of this proposal. We list these up front so there are zero surprises during the project. If you'd like to add any of these, we'll write a change order with a fixed price before any work begins.</p>
-
-  <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.2rem;">
-
-    <div style="background:#fff; border-radius:12px; border:1px solid #eee; padding:1.6rem 2rem;">
-      <div style="font-size:0.65rem; font-weight:800; letter-spacing:2px; text-transform:uppercase; color:#c0392b; margin-bottom:1rem;">Appliances &amp; Equipment</div>
-      <ul class="scope-list exclusions">
+  <span class="label fade-in">Exclusions</span>
+  <h2 class="fade-in">What's Not Included</h2>
+  <p class="fade-in" style="color:#666;font-size:0.9rem;margin-bottom:1.8rem;max-width:680px;">The following items are explicitly outside the scope of this proposal. We list these up front so there are zero surprises during the project.</p>
+  <div class="exclusions-grid fade-in">
+    <div class="exclusion-card">
+      <h4>Appliances &amp; Equipment</h4>
+      <ul class="scope-list">
         <li>Appliance purchase — installation is included, appliances are by owner</li>
         <li>HVAC system repair, replacement, or new installation</li>
         <li>Water heater replacement (unless specifically added)</li>
         <li>Smart home / security system installation</li>
       </ul>
     </div>
-
-    <div style="background:#fff; border-radius:12px; border:1px solid #eee; padding:1.6rem 2rem;">
-      <div style="font-size:0.65rem; font-weight:800; letter-spacing:2px; text-transform:uppercase; color:#c0392b; margin-bottom:1rem;">Permits &amp; Structural</div>
-      <ul class="scope-list exclusions">
+    <div class="exclusion-card">
+      <h4>Permits &amp; Structural</h4>
+      <ul class="scope-list">
         <li>Building permits — available as an add-on ($500–$2,500 est.)</li>
         <li>Structural modifications, load-bearing wall changes</li>
         <li>Foundation work of any kind</li>
         <li>Asbestos or lead paint testing / abatement</li>
       </ul>
     </div>
-
-    <div style="background:#fff; border-radius:12px; border:1px solid #eee; padding:1.6rem 2rem;">
-      <div style="font-size:0.65rem; font-weight:800; letter-spacing:2px; text-transform:uppercase; color:#c0392b; margin-bottom:1rem;">Exterior &amp; Site</div>
-      <ul class="scope-list exclusions">
+    <div class="exclusion-card">
+      <h4>Exterior &amp; Site</h4>
+      <ul class="scope-list">
         <li>Exterior paint</li>
         <li>Landscaping, lawn, irrigation, or hardscape</li>
         <li>Driveway or garage floor</li>
@@ -758,206 +352,102 @@
         <li>Fencing or gate work</li>
       </ul>
     </div>
-
-    <div style="background:#fff; border-radius:12px; border:1px solid #eee; padding:1.6rem 2rem;">
-      <div style="font-size:0.65rem; font-weight:800; letter-spacing:2px; text-transform:uppercase; color:#c0392b; margin-bottom:1rem;">Logistics &amp; Other</div>
-      <ul class="scope-list exclusions">
+    <div class="exclusion-card">
+      <h4>Logistics &amp; Other</h4>
+      <ul class="scope-list">
         <li>Furniture moving, packing, or storage</li>
         <li>Window treatments, blinds, or curtains</li>
         <li>Door hardware (knobs, deadbolts) — unless added</li>
         <li>Any scope not explicitly listed in this proposal</li>
       </ul>
     </div>
-
   </div>
-
-  <div style="margin-top:1.5rem; background:#fdf8ef; border:1px solid #e9af3b55; border-radius:10px; padding:1.2rem 1.8rem; font-size:0.85rem; color:#666; line-height:1.75;">
-    <strong style="color:var(--earth);">Hidden conditions discovered during demo</strong> — such as water damage, mold, deteriorated framing, or out-of-code wiring — are handled via written change order with your approval before any additional work proceeds. We find surprises; we don't hide them.
+  <div class="fade-in" style="margin-top:1.5rem;background:#fdf8ef;border:1px solid #e9af3b55;border-radius:10px;padding:1.2rem 1.8rem;font-size:0.85rem;color:#666;line-height:1.75;">
+    <strong style="color:var(--earth);">Hidden conditions discovered during demo</strong> — such as water damage, mold, deteriorated framing, or out-of-code wiring — are handled via written change order with your approval before any additional work proceeds.
   </div>
 </div>
 
 <div class="section-divider"></div>
 
-<!-- ════════════════════════════════════════
-     MATERIAL ALLOWANCES
-════════════════════════════════════════ -->
-<div class="section">
-  <span class="label">Allowances</span>
-  <h2>Material Allowances by Tier</h2>
-  <p style="color:#666; font-size:0.9rem;">Variable-cost items are budgeted as allowances. Come in under and you receive the credit. Go over and the difference is a pre-approved change order.</p>
-
-  <table class="allowances">
-    <thead>
-      <tr>
-        <th>Item</th>
-        <th>Budget</th>
-        <th>Mid</th>
-        <th>Premium</th>
-        <th>Notes</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Kitchen Cabinets</td>
-        <td class="amt">$12,000</td>
-        <td class="amt">$21,000</td>
-        <td class="amt">$30,000</td>
-        <td class="note">Semi-custom → Full custom</td>
-      </tr>
-      <tr>
-        <td>Countertop Material (allowance)</td>
-        <td class="amt">$3,000</td>
-        <td class="amt">$5,500</td>
-        <td class="amt">$12,000+</td>
-        <td class="note">Material only — quartz entry → luxury stone</td>
-      </tr>
-      <tr>
-        <td>Countertop Installation</td>
-        <td class="amt">$800</td>
-        <td class="amt">$800</td>
-        <td class="amt">$800</td>
-        <td class="note">Labor — template, fabrication delivery, set</td>
-      </tr>
-      <tr>
-        <td>Flooring</td>
-        <td class="amt">Bamboo ~$12/sqft</td>
-        <td class="amt">Bamboo ~$12/sqft</td>
-        <td class="amt">Travertine ~$20/sqft</td>
-        <td class="note">Budget/Mid: bamboo (1,450 sqft). Premium: travertine. Bamboo includes slab grind.</td>
-      </tr>
-      <tr>
-        <td>Guest Bath Tile Material</td>
-        <td class="amt">$800</td>
-        <td class="amt">$1,200</td>
-        <td class="amt">$1,800</td>
-        <td class="note">Tub/shower surround</td>
-      </tr>
-      <tr>
-        <td>Master Bath Tile Material</td>
-        <td class="amt">$1,000</td>
-        <td class="amt">$1,400</td>
-        <td class="amt">$2,000</td>
-        <td class="note">Walk-in shower walls + floor</td>
-      </tr>
-      <tr>
-        <td>Guest Tub</td>
-        <td class="amt">$300</td>
-        <td class="amt">$600</td>
-        <td class="amt">$1,200</td>
-        <td class="note">Material allowance, set labor included</td>
-      </tr>
-      <tr>
-        <td>Guest Bath Vanity + Sink</td>
-        <td class="amt">$800</td>
-        <td class="amt">$1,200</td>
-        <td class="amt">$2,000</td>
-        <td class="note">Per bath</td>
-      </tr>
-      <tr>
-        <td>Master Bath Vanity + Sink</td>
-        <td class="amt">$800</td>
-        <td class="amt">$1,200</td>
-        <td class="amt">$2,000</td>
-        <td class="note">Per bath</td>
-      </tr>
-      <tr>
-        <td>Bath Accessories (each bath)</td>
-        <td class="amt">$200</td>
-        <td class="amt">$400</td>
-        <td class="amt">$800</td>
-        <td class="note">Faucet, mirror, TP holder, towel bar</td>
-      </tr>
-      <tr>
-        <td>Master Shower Fixtures</td>
-        <td class="amt">$400</td>
-        <td class="amt">$800</td>
-        <td class="amt">$1,200</td>
-        <td class="note">Rainfall head, valve, hand held</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<div class="section-divider"></div>
-
-<!-- ════════════════════════════════════════
-     INVESTMENT TIERS
-════════════════════════════════════════ -->
-<div class="section">
-  <span class="label">Investment</span>
-  <h2>Your Investment</h2>
-  <p style="color:#666; font-size:0.9rem; max-width:680px;">Three tiers are provided based on finish level. Labor, scope, and craftsmanship are identical across all three — only your material selections change.</p>
-
-  <!-- SINGLE TOTAL CARD -->
-  <div style="background:var(--forest); border-radius:16px; padding:2.5rem; margin-top:2rem; color:var(--white);">
-    <div style="font-size:0.65rem; font-weight:800; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:0.6rem;">Your Investment</div>
-    <div style="font-size:1.1rem; font-weight:600; color:rgba(255,255,255,0.8); margin-bottom:0.4rem;">Starting investment — all budget-tier selections:</div>
-    <div style="font-size:3.2rem; font-weight:900; color:var(--gold); line-height:1; margin-bottom:1rem;">$134,070</div>
-    <div style="font-size:0.95rem; color:rgba(255,255,255,0.7); margin-bottom:1.5rem; max-width:620px; line-height:1.7;">This is your all-in cost with entry-level material selections across the board — bamboo flooring, budget cabinets, entry countertops, and standard fixtures. Every scope item included. No surprises.</div>
-    <div style="background:rgba(233,175,59,0.12); border:1px solid rgba(233,175,59,0.3); border-radius:10px; padding:1.4rem 1.8rem; margin-bottom:1.5rem;">
-      <div style="font-size:0.68rem; font-weight:800; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:0.5rem;">Full Range — Budget to Premium Selections</div>
-      <div style="font-size:2rem; font-weight:900; color:var(--white); line-height:1; margin-bottom:0.4rem;">$134,070 – $172,880</div>
-      <div style="font-size:0.85rem; color:rgba(255,255,255,0.65);">Your final cost depends on where you land on the selection items below. Mid-level selections land around $145k–$150k. Premium selections throughout bring you toward the top of the range.</div>
-    </div>
-    <div style="font-size:0.82rem; color:rgba(255,255,255,0.55); line-height:1.75; border-top:1px solid rgba(255,255,255,0.12); padding-top:1.2rem;">
-      <strong style="color:rgba(255,255,255,0.75);">The biggest cost levers are cabinets ($12k–$30k), countertop material ($3k–$12k+), and flooring (bamboo vs. travertine).</strong> Bath fixtures, tile, and vanities also vary by tier. All selections are pre-approved before any material is ordered — you always know the number before we move forward.
-    </div>
-  </div>
-
-  <!-- WHAT DRIVES THE PRICE -->
-  <div style="margin-top:2rem; background:var(--white); border-radius:12px; border:1px solid #e0d8cc; padding:2rem 2.5rem;">
-    <div style="font-size:0.65rem; font-weight:800; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:1rem;">The Main Selection Levers</div>
-    <table class="allowances" style="margin-top:0;">
+<div class="section" id="allowances">
+  <span class="label fade-in">Allowances</span>
+  <h2 class="fade-in">Material Allowances by Tier</h2>
+  <p class="fade-in" style="color:#666;font-size:0.9rem;">Variable-cost items are budgeted as allowances. Come in under and you receive the credit. Go over and the difference is a pre-approved change order.</p>
+  <div class="allowances-wrapper fade-in">
+    <table class="allowances">
       <thead>
         <tr>
           <th>Item</th>
           <th>Budget</th>
           <th>Mid</th>
           <th>Premium</th>
+          <th>Notes</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Kitchen Cabinets</td>
-          <td class="amt">$12,000</td>
-          <td class="amt">$21,000</td>
-          <td class="amt">$30,000</td>
-        </tr>
-        <tr>
-          <td>Countertop Material</td>
-          <td class="amt">$3,000</td>
-          <td class="amt">$5,500</td>
-          <td class="amt">$12,000+</td>
-        </tr>
-        <tr>
-          <td>Flooring</td>
-          <td class="amt">Bamboo ~$12/sqft</td>
-          <td class="amt">Bamboo ~$12/sqft</td>
-          <td class="amt">Travertine ~$20/sqft</td>
-        </tr>
-        <tr>
-          <td><strong>Project Total</strong></td>
-          <td class="amt"><strong>~$134,070</strong></td>
-          <td class="amt"><strong>~$145,870</strong></td>
-          <td class="amt"><strong>~$172,880</strong></td>
-        </tr>
+        <tr><td>Kitchen Cabinets</td><td class="amt">$12,000</td><td class="amt">$21,000</td><td class="amt">$30,000</td><td class="note">Semi-custom → Full custom</td></tr>
+        <tr><td>Countertop Material</td><td class="amt">$3,000</td><td class="amt">$5,500</td><td class="amt">$12,000+</td><td class="note">Material only — quartz entry → luxury stone</td></tr>
+        <tr><td>Countertop Installation</td><td class="amt">$800</td><td class="amt">$800</td><td class="amt">$800</td><td class="note">Labor — template, fabrication delivery, set</td></tr>
+        <tr><td>Flooring</td><td class="amt">Bamboo ~$12/sqft</td><td class="amt">Bamboo ~$12/sqft</td><td class="amt">Travertine ~$20/sqft</td><td class="note">Budget/Mid: bamboo (1,450 sqft). Premium: travertine.</td></tr>
+        <tr><td>Guest Bath Tile Material</td><td class="amt">$800</td><td class="amt">$1,200</td><td class="amt">$1,800</td><td class="note">Tub/shower surround</td></tr>
+        <tr><td>Master Bath Tile Material</td><td class="amt">$1,000</td><td class="amt">$1,400</td><td class="amt">$2,000</td><td class="note">Walk-in shower walls + floor</td></tr>
+        <tr><td>Guest Tub</td><td class="amt">$300</td><td class="amt">$600</td><td class="amt">$1,200</td><td class="note">Material allowance, set labor included</td></tr>
+        <tr><td>Guest Bath Vanity + Sink</td><td class="amt">$800</td><td class="amt">$1,200</td><td class="amt">$2,000</td><td class="note">Per bath</td></tr>
+        <tr><td>Master Bath Vanity + Sink</td><td class="amt">$800</td><td class="amt">$1,200</td><td class="amt">$2,000</td><td class="note">Per bath</td></tr>
+        <tr><td>Bath Accessories (each bath)</td><td class="amt">$200</td><td class="amt">$400</td><td class="amt">$800</td><td class="note">Faucet, mirror, TP holder, towel bar</td></tr>
+        <tr><td>Master Shower Fixtures</td><td class="amt">$400</td><td class="amt">$800</td><td class="amt">$1,200</td><td class="note">Rainfall head, valve, hand held</td></tr>
       </tbody>
     </table>
-    <p style="margin-top:1rem; font-size:0.78rem; color:#999;">All other scopes — bathrooms, windows, doors, electrical, paint, baseboard, roof, demo — are fixed cost across all tiers. Only the three items above change.</p>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+<div class="section" id="investment">
+  <span class="label fade-in">Investment</span>
+  <h2 class="fade-in">Your Investment</h2>
+  <p class="fade-in" style="color:#666;font-size:0.9rem;max-width:680px;">Three tiers are provided based on finish level. Labor, scope, and craftsmanship are identical across all three — only your material selections change.</p>
+  <div class="investment-card fade-in">
+    <div class="investment-starting-label">Starting Investment — All Budget-Tier Selections</div>
+    <div class="investment-price-big">$134,070</div>
+    <p class="investment-price-context">This is your all-in cost with entry-level material selections across the board — bamboo flooring, budget cabinets, entry countertops, and standard fixtures. Every scope item included. No surprises.</p>
+    <div class="investment-range-pill">
+      <span class="range-label">Full Range</span>
+      <span class="range-value">$134,070 – $172,880</span>
+    </div>
+    <p class="investment-price-context">Your final cost depends on where you land on the selection items below. Mid-level selections land around $145k–$150k. Premium selections throughout bring you toward the top of the range.</p>
+    <div class="investment-levers">
+      <div class="investment-levers-title">The Main Selection Levers</div>
+      <table class="levers-table">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Budget</th>
+            <th>Mid</th>
+            <th>Premium</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Kitchen Cabinets</td><td class="amt">$12,000</td><td class="amt">$21,000</td><td class="amt">$30,000</td></tr>
+          <tr><td>Countertop Material</td><td class="amt">$3,000</td><td class="amt">$5,500</td><td class="amt">$12,000+</td></tr>
+          <tr><td>Flooring</td><td class="amt">Bamboo ~$12/sqft</td><td class="amt">Bamboo ~$12/sqft</td><td class="amt">Travertine ~$20/sqft</td></tr>
+          <tr><td><strong>Project Total</strong></td><td class="amt"><strong>~$134,070</strong></td><td class="amt"><strong>~$145,870</strong></td><td class="amt"><strong>~$172,880</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="investment-footnote">
+      <strong>The biggest cost levers are cabinets ($12k–$30k), countertop material ($3k–$12k+), and flooring (bamboo vs. travertine).</strong> Bath fixtures, tile, and vanities also vary by tier. All selections are pre-approved before any material is ordered — you always know the number before we move forward.
+    </div>
   </div>
 </div>
 
 <div class="section-divider"></div>
 
-<!-- ════════════════════════════════════════
-     TIMELINE
-════════════════════════════════════════ -->
-<div class="section">
-  <span class="label">Schedule</span>
-  <h2>Project Timeline</h2>
-  <p style="color:#666; font-size:0.9rem;">Estimated duration for full scope: <strong>8–10 weeks</strong>, pending material lead times.</p>
-  <div class="timeline-steps">
-    <div class="tl-step">
+<div class="section" id="timeline">
+  <span class="label fade-in">Schedule</span>
+  <h2 class="fade-in">Project Timeline</h2>
+  <p class="fade-in" style="color:#666;font-size:0.9rem;">Estimated duration for full scope: <strong>8–10 weeks</strong>, pending material lead times.</p>
+  <div class="timeline-steps fade-in">
+    <div class="tl-step active">
       <div class="tl-num">1–2</div>
       <div class="tl-unit">Weeks</div>
       <div class="tl-desc">Demo, rough electrical &amp; plumbing</div>
@@ -983,20 +473,15 @@
       <div class="tl-desc">Punch list &amp; final walk</div>
     </div>
   </div>
-  <p style="margin-top:1rem; font-size:0.78rem; color:#999;">Timeline is an estimate. We communicate proactively on any schedule shifts due to material availability or unforeseen conditions discovered during demo.</p>
+  <p class="fade-in" style="margin-top:1rem;font-size:0.78rem;color:#999;">Timeline is an estimate. We communicate proactively on any schedule shifts due to material availability or unforeseen conditions discovered during demo.</p>
 </div>
-
-
 
 <div class="section-divider"></div>
 
-<!-- ════════════════════════════════════════
-     WARRANTY
-════════════════════════════════════════ -->
-<div class="section">
-  <span class="label">Our Commitment</span>
-  <h2>Warranty &amp; Terms</h2>
-  <div class="warranty-box">
+<div class="section" id="warranty">
+  <span class="label fade-in">Our Commitment</span>
+  <h2 class="fade-in">Warranty &amp; Terms</h2>
+  <div class="warranty-box fade-in">
     <h4>Labor Warranty</h4>
     <p>Timberline Build Co warrants all labor for 1 year from project completion. If anything we built fails due to workmanship, we come back and fix it.</p>
     <h4>Material Warranties</h4>
@@ -1004,19 +489,82 @@
     <h4>Change Orders</h4>
     <p>Any work outside this contract requires a written, signed change order before work begins. No verbal changes. No surprise charges.</p>
     <h4>Lien Waiver &amp; Insurance</h4>
-    <p style="margin-bottom:0;">Upon final payment, Timberline provides a full unconditional lien waiver. We carry general liability and workers' compensation insurance. Certificates available upon request. CSLB License #1136140.</p>
+    <p>Upon final payment, Timberline provides a full unconditional lien waiver. We carry general liability and workers' compensation insurance. Certificates available upon request. CSLB License #1136140.</p>
   </div>
 </div>
-
-<div style="background:var(--forest); color:var(--white); padding:3rem;">
-  <div style="max-width:960px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
-    <div>
-      <div style="font-size:0.65rem; font-weight:800; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:0.5rem;">Timberline Build Co</div>
-      <div style="font-size:0.88rem; color:rgba(255,255,255,0.7);">Justin Sherman &nbsp;·&nbsp; CSLB #1136140 &nbsp;·&nbsp; 949-229-1692</div>
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="./logo.png" class="footer-logo" alt="Timberline Build Co" />
+        <div class="footer-tagline">Built right. Done right.</div>
+      </div>
+      <div class="footer-contact">
+        <div class="footer-contact-item"><strong>Justin Sherman</strong></div>
+        <div class="footer-contact-item">949-229-1692</div>
+        <div class="footer-contact-item">CSLB #1136140</div>
+      </div>
     </div>
-    <div style="font-size:0.78rem; color:rgba(255,255,255,0.4);">28711 Via Coronado &nbsp;·&nbsp; Proposal Date: May 28, 2026</div>
+    <div class="footer-bottom">
+      <div class="footer-meta">28711 Via Coronado · Proposal Date: May 28, 2026</div>
+      <div class="footer-meta">© 2026 Timberline Build Co</div>
+    </div>
   </div>
-</div>
+</footer>
 
+<script>
+(function() {
+  const nav = document.getElementById('stickyNav');
+  const sections = document.querySelectorAll('.section[id]');
+  const navLinks = document.querySelectorAll('.sticky-nav-links a');
+  let lastScrollY = 0;
+  
+  // Show/hide sticky nav
+  function handleScroll() {
+    const scrollY = window.scrollY;
+    if (scrollY > 500) {
+      nav.classList.add('visible');
+    } else {
+      nav.classList.remove('visible');
+    }
+    lastScrollY = scrollY;
+    updateActiveNav();
+  }
+  
+  // Update active nav link
+  function updateActiveNav() {
+    let current = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 100;
+      if (window.scrollY >= sectionTop) {
+        current = section.getAttribute('id');
+      }
+    });
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('data-section') === current) {
+        link.classList.add('active');
+      }
+    });
+  }
+  
+  // Fade-in on scroll
+  const fadeEls = document.querySelectorAll('.fade-in');
+  const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+  
+  fadeEls.forEach(el => observer.observe(el));
+  
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  handleScroll();
+})();
+</script>
 </body>
 </html>
