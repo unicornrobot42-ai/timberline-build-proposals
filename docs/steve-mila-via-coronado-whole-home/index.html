@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Timberline Build Co — Steve &amp; Mila | 28711 Via Coronado Whole Home Remodel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --green:  #19412c;
+      --brown:  #614432;
+      --dark:   #312509;
+      --navy:   #213245;
+      --gold:   #e9af3b;
+      --light:  #f9f6f1;
+      --text:   #1a1a1a;
+      --muted:  #666;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #fff;
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    /* ── COVER ── */
+    .cover {
+      background: var(--green);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 60px 72px;
+      position: relative;
+      overflow: hidden;
+    }
+    .cover::after {
+      content: '';
+      position: absolute;
+      bottom: -80px;
+      right: -80px;
+      width: 480px;
+      height: 480px;
+      border-radius: 50%;
+      border: 60px solid rgba(233,175,59,0.08);
+      pointer-events: none;
+    }
+    .cover::before {
+      content: '';
+      position: absolute;
+      top: -40px;
+      right: 120px;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      border: 30px solid rgba(255,255,255,0.04);
+      pointer-events: none;
+    }
+    .cover-logo img { height: 52px; filter: brightness(0) invert(1); }
+    .cover-body { margin-top: auto; padding-bottom: 60px; position: relative; z-index: 1; }
+    .cover-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .cover h1 {
+      font-size: clamp(34px, 5vw, 58px);
+      font-weight: 800;
+      line-height: 1.08;
+      margin-bottom: 20px;
+    }
+    .cover h1 span { color: var(--gold); }
+    .cover-sub {
+      font-size: 18px;
+      font-weight: 400;
+      opacity: 0.78;
+      margin-bottom: 40px;
+      max-width: 520px;
+    }
+    .cover-meta {
+      display: flex;
+      gap: 48px;
+      font-size: 13px;
+      opacity: 0.65;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      padding-top: 24px;
+      flex-wrap: wrap;
+    }
+    .cover-meta strong {
+      display: block;
+      color: var(--gold);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+      opacity: 1;
+    }
+
+    /* ── HERO IMAGE ── */
+    .hero-img {
+      width: 100%;
+      max-height: 560px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      padding: 72px 72px;
+      border-bottom: 1px solid #e8e2d9;
+    }
+    section:last-child { border-bottom: none; }
+    .section-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    h2 {
+      font-size: 30px;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 24px;
+    }
+    h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--dark);
+      margin: 32px 0 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    p { margin-bottom: 14px; color: #333; }
+
+    /* ── OVERVIEW CALLOUT ── */
+    .overview-callout {
+      background: var(--light);
+      border-left: 4px solid var(--green);
+      padding: 24px 28px;
+      margin-bottom: 28px;
+      border-radius: 0 4px 4px 0;
+    }
+    .overview-callout p { margin-bottom: 0; font-size: 16px; color: #222; line-height: 1.7; }
+
+    /* ── SCOPE ── */
+    .scope-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 56px;
+    }
+    ul.scope { list-style: none; padding: 0; }
+    ul.scope li {
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+      font-size: 14px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    ul.scope li::before {
+      content: "✓";
+      color: var(--green);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    ul.not-included li::before { content: "✕"; color: #b83232; }
+    @media (max-width: 700px) {
+      .scope-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── ALLOWANCES TABLE ── */
+    .allowances {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      margin-top: 16px;
+    }
+    .allowances th {
+      background: var(--green);
+      color: #fff;
+      font-weight: 600;
+      padding: 11px 16px;
+      text-align: left;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .allowances td {
+      padding: 11px 16px;
+      border-bottom: 1px solid #eee;
+      vertical-align: top;
+    }
+    .allowances tr:nth-child(even) td { background: #f9f6f1; }
+    .allowances .note { color: var(--muted); font-size: 12px; }
+    .allowances .amt { font-weight: 600; white-space: nowrap; }
+
+    /* ── RENDERS ── */
+    .render-full img {
+      width: 100%;
+      max-height: 500px;
+      object-fit: cover;
+      border-radius: 4px;
+      display: block;
+    }
+    .render-caption {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 10px;
+      font-style: italic;
+    }
+    .render-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 28px;
+    }
+    .render-grid img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 4px;
+      display: block;
+    }
+    @media (max-width: 700px) {
+      .render-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── INVESTMENT TABLE ── */
+    .investment-tiers {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+      margin-top: 24px;
+    }
+    .tier-card {
+      border: 2px solid #e0d8cc;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .tier-card.recommended {
+      border-color: var(--green);
+    }
+    .tier-header {
+      padding: 18px 20px;
+      background: var(--light);
+      border-bottom: 1px solid #e0d8cc;
+    }
+    .tier-card.recommended .tier-header {
+      background: var(--green);
+      color: #fff;
+    }
+    .tier-badge {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+    .tier-card.recommended .tier-badge { color: var(--gold); }
+    .tier-name {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--dark);
+    }
+    .tier-card.recommended .tier-name { color: #fff; }
+    .tier-body { padding: 20px; }
+    .tier-price {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--green);
+      margin-bottom: 16px;
+      line-height: 1;
+    }
+    .tier-card.recommended .tier-price { color: var(--green); }
+    .tier-features { list-style: none; padding: 0; }
+    .tier-features li {
+      font-size: 13px;
+      padding: 7px 0;
+      border-bottom: 1px solid #eee;
+      color: #444;
+    }
+    .tier-features li:last-child { border-bottom: none; }
+    .tier-features li strong { color: var(--dark); }
+    @media (max-width: 780px) {
+      .investment-tiers { grid-template-columns: 1fr; }
+    }
+
+    /* ── TIMELINE ── */
+    .timeline {
+      display: flex;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      overflow: hidden;
+      margin-top: 24px;
+    }
+    .tl-item {
+      flex: 1;
+      padding: 22px 16px;
+      border-right: 1px solid #ddd;
+      text-align: center;
+    }
+    .tl-item:last-child { border-right: none; }
+    .tl-num {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--green);
+      margin-bottom: 4px;
+    }
+    .tl-label {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .tl-desc { font-size: 12px; color: #555; }
+    @media (max-width: 600px) {
+      .timeline { flex-direction: column; }
+      .tl-item { border-right: none; border-bottom: 1px solid #ddd; }
+      .tl-item:last-child { border-bottom: none; }
+    }
+
+    /* ── PAYMENT ── */
+    .payment-steps {
+      display: flex;
+      gap: 0;
+      margin-top: 24px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .pay-step {
+      flex: 1;
+      text-align: center;
+      padding: 24px 16px;
+      border-right: 1px solid #ddd;
+    }
+    .pay-step:last-child { border-right: none; }
+    .pay-step:first-child { background: var(--green); color: #fff; }
+    .pay-num {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+    .pay-step:not(:first-child) .pay-num { color: var(--green); }
+    .pay-label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
+    .pay-step:first-child .pay-label { color: rgba(255,255,255,0.7); }
+    .pay-when { font-size: 12px; color: #666; }
+    .pay-step:first-child .pay-when { color: rgba(255,255,255,0.6); }
+    @media (max-width: 600px) {
+      .payment-steps { flex-direction: column; }
+      .pay-step { border-right: none; border-bottom: 1px solid #ddd; }
+      .pay-step:last-child { border-bottom: none; }
+    }
+
+    /* ── WARRANTY / TERMS ── */
+    .terms-box {
+      background: var(--light);
+      border-radius: 6px;
+      padding: 28px 32px;
+      margin-top: 24px;
+      font-size: 14px;
+      color: #444;
+      line-height: 1.75;
+    }
+
+    /* ── SIGNATURE ── */
+    .sig-section {
+      background: var(--green);
+      color: #fff;
+      padding: 72px 72px;
+    }
+    .sig-section .section-label { color: var(--gold); }
+    .sig-section h2 { color: #fff; }
+    .sig-section p { color: rgba(255,255,255,0.75); }
+    .sig-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 40px;
+    }
+    .sig-block { }
+    .sig-line {
+      border-bottom: 1px solid rgba(255,255,255,0.35);
+      height: 48px;
+      margin-bottom: 10px;
+    }
+    .sig-label { font-size: 12px; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 0.1em; }
+    .sig-footer {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    @media (max-width: 700px) {
+      .sig-grid { grid-template-columns: 1fr; }
+      section, .sig-section { padding: 48px 28px; }
+      .cover { padding: 40px 28px; }
+    }
+
+    /* ── SECTION BG ACCENT ── */
+    .bg-light { background: var(--light); }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     COVER
+══════════════════════════════════════════ -->
+<div class="cover">
+  <div class="cover-logo">
+    <img src="./logo.png" alt="Timberline Build Co" />
+  </div>
+  <div class="cover-body">
+    <div class="cover-eyebrow">Project Proposal</div>
+    <h1>Whole Home<br><span>Remodel</span></h1>
+    <p class="cover-sub">A complete transformation — from the foundation up — for Steve &amp; Mila's home in Mission Viejo.</p>
+    <div class="cover-meta">
+      <div><strong>Client</strong>Steve &amp; Mila</div>
+      <div><strong>Address</strong>28711 Via Coronado</div>
+      <div><strong>Prepared By</strong>Justin Sherman · Timberline Build Co</div>
+      <div><strong>Date</strong>May 28, 2026</div>
+      <div><strong>License</strong>#1136140</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     HERO
+══════════════════════════════════════════ -->
+<img class="hero-img" src="./living-render.png" alt="Whole Home Remodel Concept Render" />
+
+<!-- ══════════════════════════════════════════
+     PROJECT OVERVIEW
+══════════════════════════════════════════ -->
+<section>
+  <div class="section-label">Overview</div>
+  <h2>Your Vision. Our Expertise.</h2>
+  <div class="overview-callout">
+    <p>This proposal covers a complete whole-home remodel of your 1,450 sq ft residence at 28711 Via Coronado — including a full kitchen renovation, two bathroom remodels, new flooring throughout, window and door replacement, whole-house electrical updates, interior painting, new baseboards, and a roof replacement with fascia repair. Every detail has been considered to deliver a beautiful, lasting result.</p>
+  </div>
+  <p>Timberline Build Co is a licensed General Contractor based in Orange County. We self-perform and closely supervise all work, with trusted trade partners for specialty scopes. We protect your home, communicate throughout the process, and don't consider the job done until you're fully satisfied.</p>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SCOPE OF WORK
+══════════════════════════════════════════ -->
+<section class="bg-light">
+  <div class="section-label">What's Included</div>
+  <h2>Scope of Work</h2>
+  <div class="scope-grid">
+    <div>
+      <h3>Kitchen</h3>
+      <ul class="scope">
+        <li>Full kitchen demo and removal</li>
+        <li>New cabinetry (allowance — see tiers)</li>
+        <li>Cabinet installation</li>
+        <li>New countertops (allowance — see tiers)</li>
+        <li>Tile backsplash</li>
+        <li>Plumbing — new fixtures and connections</li>
+        <li>Electrical — kitchen circuits and lighting</li>
+        <li>Appliance installation (appliances by owner)</li>
+        <li>Drywall repair and prep</li>
+      </ul>
+
+      <h3>Bathrooms (Both)</h3>
+      <ul class="scope">
+        <li>Guest bath: new tub/shower combo with tile walls, glass enclosure</li>
+        <li>Master bath: walk-in shower with glass enclosure</li>
+        <li>Full tile work — walls and surrounds</li>
+        <li>New vanity and sink (36" each)</li>
+        <li>New plumbing fixtures and connections</li>
+        <li>Vanity accessories — mirrors, faucets, TP holder, towel bars</li>
+        <li>New toilet set in both baths</li>
+        <li>Vent fan replacement — both baths</li>
+        <li>Drywall, waterproofing, and prep</li>
+        <li>Electrical — new circuits and lighting</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Flooring</h3>
+      <ul class="scope">
+        <li>Demo and removal of all existing tile flooring</li>
+        <li>Slab grind throughout (bamboo option only)</li>
+        <li>New flooring throughout entire home</li>
+        <li>New baseboard throughout</li>
+      </ul>
+
+      <h3>Windows &amp; Doors</h3>
+      <ul class="scope">
+        <li>8 new retrofit windows (material + install)</li>
+        <li>2 new sliding glass doors (material + install)</li>
+      </ul>
+
+      <h3>Electrical</h3>
+      <ul class="scope">
+        <li>Replace all outlets throughout home</li>
+        <li>Replace all light switches throughout home</li>
+        <li>New recessed lighting throughout</li>
+      </ul>
+
+      <h3>Paint &amp; Exterior</h3>
+      <ul class="scope">
+        <li>Interior paint — entire home</li>
+        <li>New baseboard — entire home</li>
+        <li>New roof (projected cost)</li>
+        <li>Rotting fascia repair</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     WHAT'S NOT INCLUDED
+══════════════════════════════════════════ -->
+<section>
+  <div class="section-label">Exclusions</div>
+  <h2>What's Not Included</h2>
+  <div class="scope-grid">
+    <ul class="scope not-included">
+      <li>Appliance purchase (installation included)</li>
+      <li>Furniture moving or storage</li>
+      <li>Exterior landscaping or hardscape</li>
+      <li>HVAC replacement or repairs</li>
+    </ul>
+    <ul class="scope not-included">
+      <li>Permits (can be added — see note)</li>
+      <li>Exterior paint</li>
+      <li>Any structural modifications</li>
+      <li>Work outside the defined scope above</li>
+    </ul>
+  </div>
+  <p style="margin-top:20px; font-size:13px; color:var(--muted);">Note: Kitchen and bathroom remodels in most OC cities require permits. Timberline can manage the permit process — ask us about adding this to scope. Typical permit costs range from $500–$2,500 depending on city and scope.</p>
+</section>
+
+<!-- ══════════════════════════════════════════
+     KITCHEN RENDER
+══════════════════════════════════════════ -->
+<section class="bg-light">
+  <div class="section-label">Design Vision</div>
+  <h2>Kitchen Concept</h2>
+  <p>Below is a photorealistic render showing the style direction for your kitchen remodel — white shaker cabinetry, quartz countertops, tile backsplash, and warm pendant lighting. Final selections will be made together at our material appointment.</p>
+  <div class="render-full" style="margin-top:28px;">
+    <img src="./kitchen-render.png" alt="Kitchen Remodel Concept Render" />
+    <p class="render-caption">Concept render — for illustrative purposes. Final finishes subject to client selection.</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     BATHROOM RENDERS
+══════════════════════════════════════════ -->
+<section>
+  <div class="section-label">Design Vision</div>
+  <h2>Bathroom Concepts</h2>
+  <p>Both bathrooms are being fully remodeled. The master features a walk-in shower with frameless glass and a spa-inspired feel. The guest bath gets a fresh tub/shower combo with clean tile and a new vanity.</p>
+  <div class="render-grid">
+    <div>
+      <img src="./master-bath-render.png" alt="Master Bath Concept Render" />
+      <p class="render-caption">Master bath — walk-in shower concept</p>
+    </div>
+    <div>
+      <img src="./guest-bath-render.png" alt="Guest Bath Concept Render" />
+      <p class="render-caption">Guest bath — tub/shower combo concept</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     MATERIAL ALLOWANCES
+══════════════════════════════════════════ -->
+<section class="bg-light">
+  <div class="section-label">Allowances</div>
+  <h2>Material Allowances</h2>
+  <p>The following items have variable costs based on your selections. Allowances are built into each pricing tier. If your selections exceed the allowance, the difference is billed as a change order. If you come in under, you receive the credit.</p>
+  <table class="allowances">
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Budget Tier</th>
+        <th>Mid Tier</th>
+        <th>Premium Tier</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Kitchen Cabinets</td>
+        <td class="amt">$12,000</td>
+        <td class="amt">$21,000</td>
+        <td class="amt">$30,000</td>
+        <td class="note">Semi-custom → Custom</td>
+      </tr>
+      <tr>
+        <td>Kitchen Countertops</td>
+        <td class="amt">$6,000</td>
+        <td class="amt">$8,000</td>
+        <td class="amt">$15,000</td>
+        <td class="note">Quartz → Luxury stone</td>
+      </tr>
+      <tr>
+        <td>Flooring</td>
+        <td class="amt">Bamboo $17,400</td>
+        <td class="amt">Bamboo $17,400</td>
+        <td class="amt">Travertine $29,000</td>
+        <td class="note">Budget/Mid: bamboo installed. Premium: travertine installed.</td>
+      </tr>
+      <tr>
+        <td>Guest Bath Tile Material</td>
+        <td class="amt">$1,000</td>
+        <td class="amt">$1,000</td>
+        <td class="amt">$1,000</td>
+        <td class="note">Standard tile selection</td>
+      </tr>
+      <tr>
+        <td>Master Bath Tile Material</td>
+        <td class="amt">$1,400</td>
+        <td class="amt">$1,400</td>
+        <td class="amt">$1,400</td>
+        <td class="note">Larger shower format</td>
+      </tr>
+      <tr>
+        <td>Guest Bath Vanity + Sink</td>
+        <td class="amt">$800</td>
+        <td class="amt">$800</td>
+        <td class="amt">$800</td>
+        <td class="note">36" vanity</td>
+      </tr>
+      <tr>
+        <td>Master Bath Vanity + Sink</td>
+        <td class="amt">$900</td>
+        <td class="amt">$900</td>
+        <td class="amt">$900</td>
+        <td class="note">36" single sink vanity</td>
+      </tr>
+      <tr>
+        <td>Bath Accessories (ea.)</td>
+        <td class="amt">$400</td>
+        <td class="amt">$400</td>
+        <td class="amt">$400</td>
+        <td class="note">Faucet, mirror, TP holder, towel bar</td>
+      </tr>
+      <tr>
+        <td>Guest Tub</td>
+        <td class="amt">$300</td>
+        <td class="amt">$300</td>
+        <td class="amt">$300</td>
+        <td class="note">Standard soaking tub</td>
+      </tr>
+      <tr>
+        <td>Master Walk-In Shower Fixtures</td>
+        <td class="amt">$600</td>
+        <td class="amt">$600</td>
+        <td class="amt">$600</td>
+        <td class="note">Rainfall head, valve, hand held</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ══════════════════════════════════════════
+     INVESTMENT / PRICING TIERS
+══════════════════════════════════════════ -->
+<section>
+  <div class="section-label">Investment</div>
+  <h2>Your Investment</h2>
+  <p>Three tiers are provided based on finish level. Labor, scope, and quality of workmanship are identical across all tiers — only your material selections differ.</p>
+
+  <div class="investment-tiers">
+
+    <!-- BUDGET -->
+    <div class="tier-card">
+      <div class="tier-header">
+        <div class="tier-badge">Option 1</div>
+        <div class="tier-name">Budget</div>
+      </div>
+      <div class="tier-body">
+        <div class="tier-price">$137,470</div>
+        <ul class="tier-features">
+          <li><strong>Flooring:</strong> Distressed bamboo (installed)</li>
+          <li><strong>Slab grind:</strong> Included</li>
+          <li><strong>Cabinets:</strong> $12,000 allowance</li>
+          <li><strong>Countertops:</strong> $6,000 allowance</li>
+          <li><strong>Bathrooms:</strong> Full remodel, both</li>
+          <li><strong>Windows:</strong> 8 retrofit windows</li>
+          <li><strong>Sliding doors:</strong> 2 new doors</li>
+          <li><strong>Electrical:</strong> Whole house</li>
+          <li><strong>Paint:</strong> Full interior</li>
+          <li><strong>Roof + Fascia:</strong> Included</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- MID — RECOMMENDED -->
+    <div class="tier-card recommended">
+      <div class="tier-header">
+        <div class="tier-badge">★ Most Popular</div>
+        <div class="tier-name">Mid</div>
+      </div>
+      <div class="tier-body">
+        <div class="tier-price">$148,470</div>
+        <ul class="tier-features">
+          <li><strong>Flooring:</strong> Distressed bamboo (installed)</li>
+          <li><strong>Slab grind:</strong> Included</li>
+          <li><strong>Cabinets:</strong> $21,000 allowance</li>
+          <li><strong>Countertops:</strong> $8,000 allowance</li>
+          <li><strong>Bathrooms:</strong> Full remodel, both</li>
+          <li><strong>Windows:</strong> 8 retrofit windows</li>
+          <li><strong>Sliding doors:</strong> 2 new doors          <li><strong>Electrical:</strong> Whole house</li>
+          <li><strong>Paint:</strong> Full interior</li>
+          <li><strong>Roof + Fascia:</strong> Included</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- PREMIUM -->
+    <div class="tier-card">
+      <div class="tier-header">
+        <div class="tier-badge">Option 3</div>
+        <div class="tier-name">Premium</div>
+      </div>
+      <div class="tier-body">
+        <div class="tier-price">$169,980</div>
+        <ul class="tier-features">
+          <li><strong>Flooring:</strong> Travertine (installed)</li>
+          <li><strong>Slab grind:</strong> Not required</li>
+          <li><strong>Cabinets:</strong> $30,000 allowance</li>
+          <li><strong>Countertops:</strong> $15,000 allowance</li>
+          <li><strong>Bathrooms:</strong> Full remodel, both</li>
+          <li><strong>Windows:</strong> 8 retrofit windows</li>
+          <li><strong>Sliding doors:</strong> 2 new doors</li>
+          <li><strong>Electrical:</strong> Whole house</li>
+          <li><strong>Paint:</strong> Full interior</li>
+          <li><strong>Roof + Fascia:</strong> Included</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+  <p style="margin-top:20px; font-size:13px; color:var(--muted);">All pricing includes labor, materials (per allowances above), and Timberline management. Totals shown are the complete investment — no hidden fees. Appliance purchase not included. Change orders for selections exceeding allowances will be presented for written approval prior to any additional charges.</p>
+</section>
+
+<!-- ══════════════════════════════════════════
+     TIMELINE
+══════════════════════════════════════════ -->
+<section class="bg-light">
+  <div class="section-label">Timeline</div>
+  <h2>Project Schedule</h2>
+  <p>Estimated project duration for the full scope is <strong>4–5 months</strong>, pending material lead times. Here's how we typically sequence a whole-home remodel:</p>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-num">1–2</div>
+      <div class="tl-label">Weeks</div>
+      <div class="tl-desc">Demo, framing, rough electrical &amp; plumbing</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-num">3–5</div>
+      <div class="tl-label">Weeks</div>
+      <div class="tl-desc">Drywall, roof, windows &amp; doors</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-num">6–10</div>
+      <div class="tl-label">Weeks</div>
+      <div class="tl-desc">Kitchen, bathrooms, tile work</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-num">11–14</div>
+      <div class="tl-label">Weeks</div>
+      <div class="tl-desc">Flooring, paint, baseboards, fixtures</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-num">15–18</div>
+      <div class="tl-label">Weeks</div>
+      <div class="tl-desc">Punch list, final walk, completion</div>
+    </div>
+  </div>
+  <p style="margin-top:16px; font-size:13px; color:var(--muted);">Timeline is an estimate and may shift based on material lead times and any unforeseen conditions discovered during demo. We communicate proactively on any schedule changes.</p>
+</section>
+
+<!-- ══════════════════════════════════════════
+     PAYMENT TERMS
+══════════════════════════════════════════ -->
+<section>
+  <div class="section-label">Payment Terms</div>
+  <h2>How Payment Works</h2>
+  <p>Timberline uses a milestone-based payment schedule. You only pay as the work is completed — no large upfront sums.</p>
+  <div class="payment-steps">
+    <div class="pay-step">
+      <div class="pay-num">$1,000</div>
+      <div class="pay-label">To Hold Start Date</div>
+      <div class="pay-when">Due at contract signing</div>
+    </div>
+    <div class="pay-step">
+      <div class="pay-num">30%</div>
+      <div class="pay-label">Project Kickoff</div>
+      <div class="pay-when">Day 1 of work (minus $1,000 deposit)</div>
+    </div>
+    <div class="pay-step">
+      <div class="pay-num">40%</div>
+      <div class="pay-label">Midpoint</div>
+      <div class="pay-when">Rough work complete / inspections passed</div>
+    </div>
+    <div class="pay-step">
+      <div class="pay-num">30%</div>
+      <div class="pay-label">Completion</div>
+      <div class="pay-when">Final walk-through &amp; punch list sign-off</div>
+    </div>
+  </div>
+  <p style="margin-top:16px; font-size:13px; color:var(--muted);">Per California B&P Code §7159, no contractor may accept more than $1,000 before a contract is signed. Timberline complies fully with all California contractor regulations.</p>
+</section>
+
+<!-- ══════════════════════════════════════════
+     WARRANTY & TERMS
+══════════════════════════════════════════ -->
+<section class="bg-light">
+  <div class="section-label">Our Commitment</div>
+  <h2>Warranty &amp; Terms</h2>
+  <div class="terms-box">
+    <p><strong>Labor Warranty:</strong> Timberline Build Co warrants all labor for 1 year from the date of project completion. If anything we installed or built fails due to workmanship, we come back and fix it. Period.</p>
+    <p><strong>Material Warranties:</strong> All manufacturer warranties on materials, fixtures, appliances, windows, and doors pass through to you. We document and provide these at project completion.</p>
+    <p><strong>Change Orders:</strong> Any work outside this contract requires a written, signed change order before work begins. No verbal changes. No surprise bills.</p>
+    <p><strong>Lien Waiver:</strong> Upon final payment, Timberline provides a full unconditional lien waiver covering all labor and materials on this project.</p>
+    <p style="margin-bottom:0;"><strong>Licensed &amp; Insured:</strong> Timberline Build Co holds CSLB License #1136140. We carry general liability and workers' compensation insurance. Certificates available upon request.</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SIGNATURE
+══════════════════════════════════════════ -->
+<div class="sig-section">
+  <div class="section-label">Authorization</div>
+  <h2>Ready to Move Forward?</h2>
+  <p>Signing below authorizes Timberline Build Co to proceed with the scope of work described in this proposal under the terms outlined. Please indicate your selected tier.</p>
+  <p style="margin-top:12px;">Selected Tier: &nbsp;&nbsp; ☐ Budget ($137,470) &nbsp;&nbsp; ☐ Mid ($148,470) &nbsp;&nbsp; ☐ Premium ($169,980)</p>
+
+  <div class="sig-grid">
+    <div class="sig-block">
+      <div class="sig-line"></div>
+      <div class="sig-label">Client Signature — Steve</div>
+    </div>
+    <div class="sig-block">
+      <div class="sig-line"></div>
+      <div class="sig-label">Date</div>
+    </div>
+    <div class="sig-block">
+      <div class="sig-line"></div>
+      <div class="sig-label">Client Signature — Mila</div>
+    </div>
+    <div class="sig-block">
+      <div class="sig-line"></div>
+      <div class="sig-label">Date</div>
+    </div>
+    <div class="sig-block">
+      <div class="sig-line"></div>
+      <div class="sig-label">Timberline Build Co — Justin Sherman</div>
+    </div>
+    <div class="sig-block">
+      <div class="sig-line"></div>
+      <div class="sig-label">Date</div>
+    </div>
+  </div>
+
+  <div class="sig-footer">
+    <span>Timberline Build Co · CSLB #1136140 · 949-229-1692</span>
+    <span>28711 Via Coronado · Proposal Date: May 28, 2026</span>
+  </div>
+</div>
+
+</body>
+</html>
