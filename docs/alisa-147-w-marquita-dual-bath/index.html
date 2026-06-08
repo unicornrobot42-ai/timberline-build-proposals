@@ -378,6 +378,48 @@
       color: #555;
     }
 
+    /* ── DUAL-BATH OFFER ── */
+    .offer-box {
+      background: var(--green);
+      color: white;
+      border-radius: 8px;
+      padding: 32px 36px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+    .offer-icon { font-size: 40px; flex-shrink: 0; }
+    .offer-text .offer-title {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 6px;
+      color: var(--gold);
+    }
+    .offer-text p { font-size: 14px; opacity: 0.9; margin: 0; }
+    .offer-text strong { color: var(--gold); }
+
+    .all-in-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+      margin: 20px 0 8px;
+    }
+    .all-in-card {
+      background: white;
+      border: 1px solid #e5e0d8;
+      border-radius: 6px;
+      padding: 20px 22px;
+      text-align: center;
+    }
+    .all-in-card.gold-border { border-top: 3px solid var(--gold); }
+    .all-in-card .aic-label {
+      font-size: 10px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--brown); margin-bottom: 6px;
+    }
+    .all-in-card .aic-amount { font-size: 22px; font-weight: 800; color: var(--green); }
+    .all-in-card .aic-note { font-size: 11px; color: #777; margin-top: 4px; }
+
     /* ── FOOTER ── */
     .proposal-footer {
       background: var(--dark);
@@ -713,25 +755,57 @@
 <div class="section">
   <div class="section-label">06 — Investment</div>
   <div class="section-title">Your Total Project Investment</div>
+
+  <!-- Dual-Bath Offer -->
+  <div class="offer-box">
+    <div class="offer-icon">🏷️</div>
+    <div class="offer-text">
+      <div class="offer-title">10% Off — Book Both Bathrooms</div>
+      <p>Schedule both bathrooms with Timberline — at the same time or back to back — and receive <strong>10% off the combined construction total</strong>. That's a savings of <strong>$3,848</strong> on labor and fixed costs.</p>
+    </div>
+  </div>
+
+  <!-- Construction totals -->
   <div class="inv-breakdown">
     <div class="inv-card">
       <div class="inv-card-label">Guest Bathroom</div>
-      <div class="inv-card-amount">$18,000</div>
-      <div class="inv-card-note">Labor, glass &amp; fixed costs</div>
+      <div class="inv-card-amount">$16,200</div>
+      <div class="inv-card-note">After dual-bath discount</div>
     </div>
     <div class="inv-card">
       <div class="inv-card-label">Master Bathroom</div>
-      <div class="inv-card-amount">$20,475</div>
-      <div class="inv-card-note">Labor, glass, hot mop &amp; pocket door</div>
+      <div class="inv-card-amount">$18,427</div>
+      <div class="inv-card-note">After dual-bath discount</div>
     </div>
     <div class="inv-card highlight">
-      <div class="inv-card-label">Combined Total</div>
-      <div class="inv-card-amount">$38,475</div>
-      <div class="inv-card-note">Both bathrooms complete</div>
+      <div class="inv-card-label">Construction Total</div>
+      <div class="inv-card-amount">$34,627</div>
+      <div class="inv-card-note">Labor &amp; fixed costs — both baths</div>
     </div>
   </div>
+
+  <!-- All-in estimate -->
+  <p style="font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--brown);margin:28px 0 8px;">All-In Estimate — If You Choose Low-End Finishes</p>
+  <div class="all-in-grid">
+    <div class="all-in-card gold-border">
+      <div class="aic-label">Guest Bath</div>
+      <div class="aic-amount">~$18,640</div>
+      <div class="aic-note">Construction + ~$2,440 materials</div>
+    </div>
+    <div class="all-in-card gold-border">
+      <div class="aic-label">Master Bath</div>
+      <div class="aic-amount">~$21,277</div>
+      <div class="aic-note">Construction + ~$2,850 materials</div>
+    </div>
+    <div class="all-in-card gold-border">
+      <div class="aic-label">Combined All-In</div>
+      <div class="aic-amount">~$39,917</div>
+      <div class="aic-note">Low-end finishes, both baths</div>
+    </div>
+  </div>
+
   <div class="investment-note">
-    💡 <strong>Not included in this total:</strong> tile material, vanity cabinets, countertop stone, sinks, faucets, fixtures, mirrors, and accessories — all owner-supplied per the selections guide above. Countertop fabrication labor is included. Paint and permits available as add-ons. Wet room full tile add-on is +$2,100 (labor only).
+    💡 <strong>Not included in construction total:</strong> tile material, vanity cabinets, countertop stone, sinks, faucets, fixtures, mirrors, and accessories — all owner-supplied per the selections guide above. Countertop fabrication labor is included. The all-in estimate above uses low-end OC market pricing for every owner-supplied item. Premium selections will increase material costs. Paint and permits available as add-ons. Wet room full tile add-on is +$2,100 (labor only).
   </div>
 </div>
 
@@ -785,7 +859,7 @@
 <div class="section">
   <div class="section-label">09 — Authorization</div>
   <div class="section-title">Let's Get Started</div>
-  <p>By signing below, you authorize Timberline Build Co to proceed with the scope of work as described in this proposal at a combined investment of <strong>$38,475</strong>. Each bathroom will be scheduled and invoiced separately per the 30/40/30 payment schedule above.</p>
+  <p>By signing below, you authorize Timberline Build Co to proceed with the scope of work as described in this proposal. Construction total for both bathrooms is <strong>$34,627</strong> (10% dual-bath discount applied). Each bathroom will be scheduled and invoiced separately per the 30/40/30 payment schedule above.</p>
   <div class="sig-grid">
     <div class="sig-block">
       <div class="sig-label">Client Signature</div>
