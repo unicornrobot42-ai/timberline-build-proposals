@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contract — Rebecca Holden | Cuccia Construction, Inc.</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --dark: #1a1a1a;
+    --mid: #3a3a3a;
+    --light: #f4f3f1;
+    --border: #d0ccc4;
+    --accent: #4a3b2a;
+    --gold: #8a6e3e;
+    --text: #1a1a1a;
+  }
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: #fff;
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  /* COVER */
+  .cover {
+    background: #fff;
+    border-bottom: 6px solid var(--accent);
+    padding: 60px 60px 48px;
+  }
+  .cover-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 40px;
+  }
+  .company-name {
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    color: var(--dark);
+    text-decoration: underline;
+    text-underline-offset: 6px;
+    margin-bottom: 4px;
+  }
+  .company-sub {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--mid);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .company-address {
+    font-size: 13px;
+    color: #555;
+    line-height: 1.6;
+  }
+  .cover-contact {
+    text-align: right;
+    font-size: 12px;
+    color: #555;
+    line-height: 1.8;
+  }
+  .cover-contact strong { color: var(--dark); font-size: 13px; }
+  .cover-divider {
+    border: none;
+    border-top: 2px solid var(--accent);
+    margin: 24px 0;
+  }
+  .cover-license {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+  .cover-title-block {
+    background: var(--accent);
+    color: #fff;
+    padding: 32px 40px;
+    margin: 0 -60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .cover-title {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+  }
+  .cover-title-sub {
+    font-size: 13px;
+    opacity: 0.8;
+    margin-top: 4px;
+  }
+  .cover-meta-right {
+    text-align: right;
+    font-size: 12px;
+    opacity: 0.85;
+    line-height: 1.9;
+  }
+  .cover-meta-right strong { display: block; font-size: 13px; opacity: 1; }
+  /* BODY */
+  .body { max-width: 860px; margin: 0 auto; padding: 60px 40px 80px; }
+  h2 {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 48px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--border);
+  }
+  h2:first-child { margin-top: 0; }
+  p { margin-bottom: 12px; color: #333; }
+  ul { margin: 8px 0 16px 20px; }
+  ul li { margin-bottom: 6px; color: #333; }
+  /* PARTIES */
+  .parties-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 8px;
+  }
+  .party-box {
+    background: var(--light);
+    border-left: 4px solid var(--accent);
+    padding: 20px 24px;
+    border-radius: 2px;
+  }
+  .party-box .label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .party-box .name { font-weight: 700; font-size: 16px; margin-bottom: 4px; }
+  .party-box .detail { font-size: 13px; color: #555; line-height: 1.6; }
+  /* SCOPE TABLE */
+  .scope-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0 16px;
+    font-size: 13px;
+  }
+  .scope-table thead tr {
+    background: var(--accent);
+    color: #fff;
+  }
+  .scope-table thead th {
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .scope-table tbody tr:nth-child(even) { background: #f9f8f6; }
+  .scope-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #e5e0d8;
+    vertical-align: top;
+  }
+  .scope-table td.price {
+    font-weight: 700;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+  .section-header td {
+    background: #ece8e1 !important;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    text-transform: uppercase;
+    padding: 8px 14px;
+  }
+  /* TOTAL BOX */
+  .total-box {
+    background: var(--accent);
+    color: #fff;
+    border-radius: 4px;
+    padding: 28px 32px;
+    margin: 24px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .total-box .label { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.8; }
+  .total-box .amount { font-size: 40px; font-weight: 800; color: #f5e6c8; }
+  /* PAYMENT TABLE */
+  .payment-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0 16px;
+    font-size: 13px;
+  }
+  .payment-table thead tr { background: var(--dark); color: #fff; }
+  .payment-table thead th {
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .payment-table tbody tr:nth-child(even) { background: #f9f8f6; }
+  .payment-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #e5e0d8;
+  }
+  .payment-table td.amount { font-weight: 700; color: var(--accent); }
+  /* NOTICE BOX */
+  .notice {
+    background: #fdf9f0;
+    border-left: 4px solid var(--gold);
+    padding: 16px 20px;
+    border-radius: 2px;
+    margin: 16px 0;
+    font-size: 13px;
+    color: #5a4a1a;
+  }
+  .notice strong { display: block; margin-bottom: 4px; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; }
+  /* EXCLUSIONS */
+  .exclusions-box {
+    background: #fdf2f2;
+    border-left: 4px solid #c0392b;
+    padding: 16px 20px;
+    border-radius: 2px;
+    margin: 8px 0;
+  }
+  .exclusions-box ul li { color: #5a1a1a; }
+  /* TERMS */
+  .terms { font-size: 12px; color: #555; line-height: 1.8; }
+  /* SIGNATURE */
+  .sig-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 32px;
+  }
+  .sig-block .sig-line {
+    border-bottom: 2px solid #333;
+    height: 52px;
+    margin-bottom: 8px;
+  }
+  .sig-block .sig-label { font-size: 11px; color: #777; letter-spacing: 0.06em; text-transform: uppercase; }
+  .sig-block .sig-name { font-weight: 700; font-size: 14px; margin-top: 4px; }
+  /* FOOTER */
+  .footer {
+    background: var(--dark);
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 24px;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    margin-top: 60px;
+  }
+  .footer strong { color: #fff; }
+  @media print {
+    .cover-title-block { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .total-box { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .section-header td { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .scope-table thead tr { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .payment-table thead tr { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+  @media (max-width: 600px) {
+    .cover { padding: 32px 24px 0; }
+    .cover-top { flex-direction: column; gap: 16px; }
+    .cover-contact { text-align: left; }
+    .cover-title-block { margin: 0 -24px; padding: 24px; flex-direction: column; gap: 16px; }
+    .cover-meta-right { text-align: left; }
+    .body { padding: 40px 20px 60px; }
+    .parties-grid { grid-template-columns: 1fr; }
+    .sig-grid { grid-template-columns: 1fr; }
+    .total-box { flex-direction: column; gap: 8px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-top">
+    <div>
+      <div class="company-name">Cuccia Construction, Inc.</div>
+      <div class="company-sub">General Contracting</div>
+      <div class="company-address">
+        2843 Penasco<br>
+        San Clemente, CA 92673
+      </div>
+    </div>
+    <div class="cover-contact">
+      <strong>(949) 370-9807</strong>
+      Fax: (949) 369-5453<br>
+      Lic. #688651
+    </div>
+  </div>
+  <hr class="cover-divider">
+  <div class="cover-license">California Contractor's License #688651</div>
+
+  <div class="cover-title-block">
+    <div>
+      <div class="cover-title">Construction Contract</div>
+      <div class="cover-title-sub">Bathroom Repairs &amp; Additional Work · 28522 Acapulco, Mission Viejo</div>
+    </div>
+    <div class="cover-meta-right">
+      <strong>Rebecca Holden</strong>
+      28522 Acapulco<br>
+      Mission Viejo, CA 92692<br>
+      June 9, 2026
+    </div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div class="body">
+
+  <!-- PARTIES -->
+  <h2>Parties to This Agreement</h2>
+  <div class="parties-grid">
+    <div class="party-box">
+      <div class="label">Contractor</div>
+      <div class="name">Cuccia Construction, Inc.</div>
+      <div class="detail">
+        Gary Cuccia, General Contractor<br>
+        CSLB License #688651<br>
+        2843 Penasco<br>
+        San Clemente, CA 92673<br>
+        (949) 370-9807
+      </div>
+    </div>
+    <div class="party-box">
+      <div class="label">Client</div>
+      <div class="name">Rebecca Holden</div>
+      <div class="detail">
+        28522 Acapulco<br>
+        Mission Viejo, CA 92692<br>
+        <br>
+        <em>Property Owner</em>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT OVERVIEW -->
+  <h2>Project Overview</h2>
+  <p>This contract covers three distinct scopes of work at the above property: (1) correction and completion of master bathroom and entry repairs left incomplete or improperly executed by a previous contractor, (2) new exterior and bedroom improvements, and (3) sliding door and window replacement. All work to be performed by Cuccia Construction, Inc. per the descriptions below.</p>
+
+  <!-- SCOPE -->
+  <h2>Scope of Work</h2>
+
+  <table class="scope-table">
+    <thead>
+      <tr>
+        <th style="width:34%">Line Item</th>
+        <th>Description</th>
+        <th style="width:16%">Materials</th>
+        <th style="width:10%">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <!-- ORIGINAL SCOPE -->
+      <tr class="section-header"><td colspan="4">Original Scope — Master Bath &amp; Entry Repairs / Corrections</td></tr>
+      <tr>
+        <td>Floor Tile Repair &amp; Regrout</td>
+        <td>Repair/replace broken floor tile; regrout as required. New floor tile was broken when previous contractor attempted to install a stone threshold incorrectly.</td>
+        <td>Owner provided</td>
+        <td class="price" rowspan="12" style="vertical-align:middle; text-align:center; font-size:18px; background:#f9f8f6;">$8,640</td>
+      </tr>
+      <tr>
+        <td>Cabinet Crown Molding &amp; Skin Panels</td>
+        <td>Remove and replace damaged wood crown molding and side skins on custom wood storage cabinet. Previous contractor damaged items cutting miters and side skins incorrectly.</td>
+        <td>Owner provided</td>
+      </tr>
+      <tr>
+        <td>Floor Tile Demo &amp; Reinstall</td>
+        <td>Demo existing floor tile and wood quarter round; install new tile and grout; replace wood quarter round at baseboard; caulk and paint base. Previous contractor installed tile incorrectly — pattern upside down, inconsistent grout lines.</td>
+        <td>Owner provided</td>
+      </tr>
+      <tr>
+        <td>Floor Transition Replacement</td>
+        <td>Demo existing stone transition piece (cut to wrong length, subsequently patched and caulked by previous contractor). Install new wood/vinyl floor transition.</td>
+        <td>Contractor provided</td>
+      </tr>
+      <tr>
+        <td>Stone Surface Sealing</td>
+        <td>Clean and seal all stone surfaces — counter, shower bench, and shower floor. Previous contractor left job site before completing this task.</td>
+        <td>Owner provided</td>
+      </tr>
+      <tr>
+        <td>Backsplash — Cut &amp; Install</td>
+        <td>Remove stone side-splash at counter. Cut and install marble mosaic stone back/side splash. Previous contractor installed backsplash incorrectly and left the job site without returning owner's property.</td>
+        <td>Owner provided</td>
+      </tr>
+      <tr>
+        <td>Mirror Relocation &amp; Second Mirror Install</td>
+        <td>Relocate mirror installed off-center by previous contractor. Install second mirror.</td>
+        <td>Owner provided</td>
+      </tr>
+      <tr>
+        <td>Shower Tile Grout &amp; Caulk Finish</td>
+        <td>Complete grout and/or caulking required to finish edges of shower wall tile. Previous contractor left job site before completing this task.</td>
+        <td>Owner provided</td>
+      </tr>
+      <tr>
+        <td>Grout Color Correction</td>
+        <td>Remove grout and re-grout floor at areas where previous contractor used two different grout colors, avoiding the need to replace floor tiles.</td>
+        <td>Owner provided</td>
+      </tr>
+      <tr>
+        <td>Soffit &amp; Wall Patch / Repair</td>
+        <td>Patch and repair soffit and wall areas where previous contractor left damaged surfaces or created holes.</td>
+        <td>Contractor provided</td>
+      </tr>
+      <tr>
+        <td>Paint — Soffit &amp; Walls</td>
+        <td>Paint final coat on soffit and walls after patch and repairs. Previous contractor left job site before completing this task.</td>
+        <td>Contractor provided</td>
+      </tr>
+      <tr>
+        <td>Threshold Replacement &amp; Base Repair</td>
+        <td>Remove stone threshold cut too long by previous contractor (who damaged and removed wood base attempting to force-fit). Replace with new quartz transition piece. Repair, caulk, and paint wood base.</td>
+        <td>Owner provided</td>
+      </tr>
+
+      <!-- NEW QUOTE 1 -->
+      <tr class="section-header"><td colspan="4">New Work — Quote #1</td></tr>
+      <tr>
+        <td>Exterior Stucco Repair</td>
+        <td>Repair and paint exterior stucco at two small areas above den windows.</td>
+        <td>Contractor provided</td>
+        <td class="price">$400</td>
+      </tr>
+      <tr>
+        <td>Bedroom Laminate Flooring Install</td>
+        <td>Install new wood laminate flooring at bedroom. Remove existing base and replace with new. Paint base.</td>
+        <td>Owner provided (flooring, base, paint)</td>
+        <td class="price">$2,460</td>
+      </tr>
+
+      <!-- NEW QUOTE 2 -->
+      <tr class="section-header"><td colspan="4">New Work — Quote #2</td></tr>
+      <tr>
+        <td>Sliding Door Installation</td>
+        <td>Install one (1) 8' × 8' sliding door (Milgard, vinyl replacement).</td>
+        <td>Owner provided</td>
+        <td class="price">$800</td>
+      </tr>
+      <tr>
+        <td>Window Installation (3)</td>
+        <td>Install three (3) new windows (Milgard, fiberglass).</td>
+        <td>Owner provided</td>
+        <td class="price">$1,650<br><span style="font-size:11px;font-weight:400;color:#888;">($550 × 3)</span></td>
+      </tr>
+      <tr>
+        <td>Stone Window Sills (2)</td>
+        <td>Install two (2) pre-cut stone window sills.</td>
+        <td>Owner provided</td>
+        <td class="price">$400<br><span style="font-size:11px;font-weight:400;color:#888;">($200 × 2)</span></td>
+      </tr>
+
+      <!-- LOWES -->
+      <tr class="section-header"><td colspan="4">Work Paid by Lowe's</td></tr>
+      <tr>
+        <td>Kitchen Cabinet Door</td>
+        <td>Install new cabinet door at kitchen.</td>
+        <td>Provided by Lowe's</td>
+        <td class="price">N/C</td>
+      </tr>
+      <tr>
+        <td>Front Door Touch-Up Paint</td>
+        <td>Touch-up front door paint; damage caused by kitchen demo team.</td>
+        <td>Provided by Lowe's</td>
+        <td class="price">N/C</td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <div class="notice">
+    <strong>Owner-Provided Materials</strong>
+    All items noted as "Owner provided" require client to supply materials on-site prior to the scheduled start of that phase. Cuccia Construction, Inc. is not responsible for defects in owner-supplied materials. Installation of owner-supplied materials does not extend the labor warranty to those materials.
+  </div>
+
+  <!-- EXCLUSIONS -->
+  <h2>What Is NOT Included</h2>
+  <div class="exclusions-box">
+    <ul>
+      <li>Cost of any owner-supplied or Lowe's-supplied materials — labor only unless noted otherwise</li>
+      <li>Building permits unless separately agreed upon in writing</li>
+      <li>Any structural work beyond the scope listed above</li>
+      <li>Work discovered behind walls or under floors not identified prior to commencement (subject to written change order)</li>
+      <li>Appliance or furniture moving not directly related to scope</li>
+    </ul>
+  </div>
+
+  <!-- INVESTMENT -->
+  <h2>Contract Price</h2>
+  <p>The total contract price for all labor, supervision, and contractor-supplied materials as described above is:</p>
+
+  <div class="total-box">
+    <div>
+      <div class="label">Total Contract Price</div>
+      <div style="font-size:13px; opacity:0.7; margin-top:4px;">All scopes · Labor &amp; contractor materials · Owner materials excluded</div>
+    </div>
+    <div class="amount">$14,350</div>
+  </div>
+
+  <!-- PAYMENT -->
+  <h2>Payment Schedule</h2>
+  <p>Payments are due per California B&amp;P Code §7159. No more than $1,000 may be collected prior to contract execution.</p>
+  <table class="payment-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Milestone</th>
+        <th>Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>At contract signature — holds start date</td>
+        <td class="amount">$1,000</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Day 1 of work (balance to reach 30%)</td>
+        <td class="amount">$3,305</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>At midpoint — original repair scope complete</td>
+        <td class="amount">$4,305</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Upon completion — final walk-through and punch list sign-off</td>
+        <td class="amount">$5,740</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="font-size:12px; color:#888; margin-top:-8px;">30% = $4,305 · 30% midpoint = $4,305 · 40% completion = $5,740 · Total = $14,350</p>
+
+  <!-- TIMELINE -->
+  <h2>Estimated Timeline</h2>
+  <p>Project start date: <strong>June 9, 2026</strong> (or upon contract execution). Estimated duration by scope:</p>
+  <ul>
+    <li>Original repair and correction scope (master bath &amp; entry): 2–3 weeks</li>
+    <li>New Quote #1 (stucco + flooring): 1 week, may run concurrently</li>
+    <li>New Quote #2 (sliding door + windows + sills): 1–2 days</li>
+    <li>Lowe's-paid items: scheduled separately</li>
+  </ul>
+  <p>All timelines are estimates and may be affected by material availability, unforeseen conditions, or change orders.</p>
+
+  <!-- WARRANTY -->
+  <h2>Warranty</h2>
+  <p>Cuccia Construction, Inc. warrants all labor for <strong>1 year from project completion</strong>. Manufacturer warranties apply to all contractor-supplied materials and fixtures. Owner-supplied materials carry no labor warranty beyond proper installation.</p>
+
+  <!-- TERMS -->
+  <h2>Terms &amp; Conditions</h2>
+  <div class="terms">
+    <p><strong>Change Orders:</strong> Any work outside the scope described in this contract requires a written change order signed by both parties before work begins. Verbal approvals are not binding. Unforeseen conditions discovered during the course of work (hidden damage, non-code conditions, structural issues, etc.) will be documented and presented as a change order before proceeding.</p>
+    <p><strong>Owner-Supplied Materials:</strong> Client is responsible for the quality, quantity, and timely delivery of all owner-supplied materials. Cuccia Construction, Inc. is not responsible for defects in owner-supplied materials. Installation of owner-supplied materials does not extend the labor warranty to those materials.</p>
+    <p><strong>Access:</strong> Client agrees to provide contractor and subcontractors reasonable access to the property during normal working hours (7:00am–5:00pm, Monday–Saturday).</p>
+    <p><strong>Lien Waiver:</strong> Upon receipt of final payment, Cuccia Construction, Inc. will provide a conditional lien waiver releasing all mechanic's lien rights for work completed under this contract.</p>
+    <p><strong>Dispute Resolution:</strong> Any disputes arising from this contract shall first be subject to good-faith mediation. This contract is governed by the laws of the State of California.</p>
+    <p><strong>License:</strong> Cuccia Construction, Inc. holds California Contractor's License #688651, insured and bonded.</p>
+  </div>
+
+  <!-- SIGNATURE -->
+  <h2>Agreement &amp; Signature</h2>
+  <p>By signing below, both parties agree to the scope, price, payment schedule, and terms set forth in this contract.</p>
+
+  <div class="sig-grid">
+    <div class="sig-block">
+      <div class="sig-line"></div>
+      <div class="sig-label">Contractor Signature</div>
+      <div class="sig-name">Gary Cuccia</div>
+      <div style="font-size:12px; color:#777;">Cuccia Construction, Inc. · CSLB #688651</div>
+      <br>
+      <div class="sig-line" style="width:60%; border-bottom: 1px dashed #aaa; height: 32px;"></div>
+      <div class="sig-label">Date</div>
+    </div>
+    <div class="sig-block">
+      <div class="sig-line"></div>
+      <div class="sig-label">Client Signature</div>
+      <div class="sig-name">Rebecca Holden</div>
+      <div style="font-size:12px; color:#777;">28522 Acapulco, Mission Viejo, CA 92692</div>
+      <br>
+      <div class="sig-line" style="width:60%; border-bottom: 1px dashed #aaa; height: 32px;"></div>
+      <div class="sig-label">Date</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <strong>Cuccia Construction, Inc.</strong> · General Contracting · CSLB #688651 · 2843 Penasco, San Clemente, CA 92673 · (949) 370-9807
+</div>
+
+</body>
+</html>
