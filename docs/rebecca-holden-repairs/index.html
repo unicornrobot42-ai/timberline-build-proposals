@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contract — Rebecca Holden | Timberline Build Co</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --green: #19412c;
+    --brown: #614432;
+    --dark: #312509;
+    --navy: #213245;
+    --gold: #e9af3b;
+    --light: #f8f5f0;
+    --text: #1a1a1a;
+  }
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: #fff;
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  /* COVER */
+  .cover {
+    background: var(--green);
+    color: #fff;
+    padding: 80px 60px 60px;
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .cover-logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 48px;
+  }
+  .cover-logo img {
+    height: 52px;
+    filter: brightness(0) invert(1);
+  }
+  .cover-logo-text {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: #fff;
+    text-transform: uppercase;
+  }
+  .cover-logo-text span {
+    display: block;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    text-transform: uppercase;
+  }
+  .cover-title {
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+  .cover-sub {
+    font-size: 14px;
+    font-weight: 400;
+    opacity: 0.8;
+    letter-spacing: 0.05em;
+  }
+  .cover-meta {
+    margin-top: 40px;
+    display: flex;
+    gap: 48px;
+    font-size: 12px;
+    opacity: 0.75;
+    letter-spacing: 0.05em;
+  }
+  .cover-meta strong { display: block; font-weight: 600; opacity: 1; font-size: 13px; }
+  /* GOLD BAR */
+  .gold-bar { height: 6px; background: var(--gold); }
+  /* BODY */
+  .body { max-width: 860px; margin: 0 auto; padding: 60px 40px 80px; }
+  h2 {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin: 48px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--gold);
+  }
+  h2:first-child { margin-top: 0; }
+  p { margin-bottom: 12px; color: #333; }
+  ul { margin: 8px 0 16px 20px; }
+  ul li { margin-bottom: 6px; color: #333; }
+  /* PARTIES */
+  .parties-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 8px;
+  }
+  .party-box {
+    background: var(--light);
+    border-left: 4px solid var(--green);
+    padding: 20px 24px;
+    border-radius: 2px;
+  }
+  .party-box .label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 8px;
+  }
+  .party-box .name { font-weight: 700; font-size: 16px; margin-bottom: 4px; }
+  .party-box .detail { font-size: 13px; color: #555; line-height: 1.6; }
+  /* SCOPE TABLE */
+  .scope-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0 16px;
+    font-size: 13px;
+  }
+  .scope-table thead tr {
+    background: var(--green);
+    color: #fff;
+  }
+  .scope-table thead th {
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .scope-table tbody tr:nth-child(even) { background: #f9f7f4; }
+  .scope-table tbody tr:hover { background: #f0ece4; }
+  .scope-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #e8e3da;
+    vertical-align: top;
+  }
+  .scope-table td.price {
+    font-weight: 600;
+    color: var(--green);
+    white-space: nowrap;
+  }
+  .section-header td {
+    background: #eae6df !important;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    color: var(--dark);
+    text-transform: uppercase;
+    padding: 8px 14px;
+  }
+  /* TOTAL BOX */
+  .total-box {
+    background: var(--green);
+    color: #fff;
+    border-radius: 4px;
+    padding: 28px 32px;
+    margin: 24px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .total-box .label { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.8; }
+  .total-box .amount { font-size: 36px; font-weight: 800; color: var(--gold); }
+  /* PAYMENT TABLE */
+  .payment-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0 16px;
+    font-size: 13px;
+  }
+  .payment-table thead tr { background: var(--navy); color: #fff; }
+  .payment-table thead th {
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .payment-table tbody tr:nth-child(even) { background: #f9f7f4; }
+  .payment-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #e8e3da;
+  }
+  .payment-table td.amount { font-weight: 700; color: var(--green); }
+  /* NOTICE BOX */
+  .notice {
+    background: #fff8e8;
+    border-left: 4px solid var(--gold);
+    padding: 16px 20px;
+    border-radius: 2px;
+    margin: 16px 0;
+    font-size: 13px;
+    color: #5a4a1a;
+  }
+  .notice strong { display: block; margin-bottom: 4px; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; }
+  /* EXCLUSIONS */
+  .exclusions-box {
+    background: #fdf2f2;
+    border-left: 4px solid #c0392b;
+    padding: 16px 20px;
+    border-radius: 2px;
+    margin: 8px 0;
+  }
+  .exclusions-box ul li { color: #5a1a1a; }
+  /* TERMS */
+  .terms { font-size: 12px; color: #555; line-height: 1.8; }
+  /* SIGNATURE */
+  .sig-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 32px;
+  }
+  .sig-block .sig-line {
+    border-bottom: 2px solid #333;
+    height: 52px;
+    margin-bottom: 8px;
+  }
+  .sig-block .sig-label { font-size: 11px; color: #777; letter-spacing: 0.06em; text-transform: uppercase; }
+  .sig-block .sig-name { font-weight: 700; font-size: 14px; margin-top: 4px; }
+  /* FOOTER */
+  .footer {
+    background: var(--dark);
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 24px;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    margin-top: 60px;
+  }
+  .footer strong { color: #fff; }
+  @media print {
+    .cover { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .gold-bar { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .total-box { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .section-header td { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+  @media (max-width: 600px) {
+    .cover { padding: 40px 24px 40px; }
+    .body { padding: 40px 20px 60px; }
+    .parties-grid { grid-template-columns: 1fr; }
+    .sig-grid { grid-template-columns: 1fr; }
+    .total-box { flex-direction: column; gap: 8px; text-align: center; }
+    .cover-meta { flex-direction: column; gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div>
+    <div class="cover-logo">
+      <img src="./logo.png" alt="Timberline Build Co" onerror="this.style.display='none'">
+      <div class="cover-logo-text">Timberline Build Co<span>Licensed General Contractor · Orange County, CA</span></div>
+    </div>
+    <div class="cover-title">Construction<br>Contract</div>
+    <div class="cover-sub">Bathroom Repairs &amp; Additional Work · 28522 Acapulco, Mission Viejo</div>
+  </div>
+  <div class="cover-meta">
+    <div><strong>Client</strong>Rebecca Holden</div>
+    <div><strong>Property</strong>28522 Acapulco, Mission Viejo, CA 92692</div>
+    <div><strong>Date</strong>June 9, 2026</div>
+    <div><strong>License</strong>CSLB #1136140</div>
+  </div>
+</div>
+<div class="gold-bar"></div>
+
+<!-- BODY -->
+<div class="body">
+
+  <!-- PARTIES -->
+  <h2>Parties to This Agreement</h2>
+  <div class="parties-grid">
+    <div class="party-box">
+      <div class="label">Contractor</div>
+      <div class="name">Timberline Build Co</div>
+      <div class="detail">
+        Justin Sherman, Owner<br>
+        CSLB License #1136140<br>
+        921 Calle Amanecer, Suite O<br>
+        San Clemente, CA<br>
+        949-229-1692
+      </div>
+    </div>
+    <div class="party-box">
+      <div class="label">Client</div>
+      <div class="name">Rebecca Holden</div>
+      <div class="detail">
+        28522 Acapulco<br>
+        Mission Viejo, CA 92692<br>
+        <br>
+        <em>Property Owner</em>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT OVERVIEW -->
+  <h2>Project Overview</h2>
+  <p>This contract covers three distinct scopes of work at the above property: (1) correction and completion of master bathroom and entry repairs left incomplete or improperly executed by a previous contractor, (2) new exterior and bedroom improvements, and (3) sliding door and window replacement. All work to be performed by Timberline Build Co per the descriptions below.</p>
+
+  <!-- SCOPE -->
+  <h2>Scope of Work</h2>
+
+  <table class="scope-table">
+    <thead>
+      <tr>
+        <th style="width:35%">Line Item</th>
+        <th>Description</th>
+        <th style="width:18%">Materials</th>
+        <th style="width:12%">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <!-- ORIGINAL SCOPE -->
+      <tr class="section-header"><td colspan="4">Original Scope — Master Bath &amp; Entry Repairs / Corrections</td></tr>
+      <tr>
+        <td>Floor Tile Repair &amp; Regrout</td>
+        <td>Repair/replace broken floor tile; regrout as required. Previous contractor broke tile attempting to install stone threshold incorrectly.</td>
+        <td>Owner provided</td>
+        <td class="price">—</td>
+      </tr>
+      <tr>
+        <td>Cabinet Crown Molding &amp; Skin Panels</td>
+        <td>Remove and replace damaged wood crown molding and side skins on custom wood storage cabinet. Previous contractor damaged items by cutting miters and side skins incorrectly.</td>
+        <td>Owner provided</td>
+        <td class="price">—</td>
+      </tr>
+      <tr>
+        <td>Floor Tile Demo &amp; Reinstall</td>
+        <td>Demo existing floor tile and wood quarter round; install new tile and grout; replace wood quarter round at baseboard; caulk and paint base. Previous contractor installed tile incorrectly — pattern upside down, inconsistent grout lines.</td>
+        <td>Owner provided</td>
+        <td class="price">—</td>
+      </tr>
+      <tr>
+        <td>Floor Transition Replacement</td>
+        <td>Demo existing stone transition piece (cut to wrong length by previous contractor, subsequently patched and caulked). Install new wood/vinyl floor transition.</td>
+        <td>Contractor provided</td>
+        <td class="price">—</td>
+      </tr>
+      <tr>
+        <td>Stone Surface Sealing</td>
+        <td>Clean and seal all stone surfaces — counter, shower bench, and shower floor. Previous contractor left job site before completing this task.</td>
+        <td>Owner provided</td>
+        <td class="price">—</td>
+      </tr>
+      <tr>
+        <td>Backsplash — Cut &amp; Install</td>
+        <td>Remove stone side-splash at counter. Cut and install marble mosaic stone back/side splash. Previous contractor installed backsplash incorrectly and left the job site without returning owner's property.</td>
+        <td>Owner provided</td>
+        <td class="price">—</td>
+      </tr>
+      <tr>
+        <td>Mirror Relocation &amp; Second Mirror Install</td>
+        <td>Relocate mirror installed off-center by previous contractor. Install second mirror.</td>
+        <td>Owner provided</td>
+        <td class="price">—</td>
+      </tr>
+      <tr>
+        <td>Shower Tile Grout &amp; Caulk Finish</td>
+        <td>Complete grout and/or caulking required to finish edges of shower wall tile. Previous contractor left job site before completing this task.</td>
+        <td>Owner provided</td>
+        <td class="price">—</td>
+      </tr>
+      <tr>
+        <td>Grout Color Correction</td>
+        <td>Remove grout and re-grout floor at areas where previous contractor used two different grout colors, avoiding the need to replace floor tiles.</td>
+        <td>Owner provided</td>
+        <td class="price">—</td>
+      </tr>
+      <tr>
+        <td>Soffit &amp; Wall Patch / Repair</td>
+        <td>Patch and repair soffit and wall areas where previous contractor left damaged surfaces or created holes.</td>
+        <td>Contractor provided</td>
+        <td class="price">—</td>
+      </tr>
+      <tr>
+        <td>Paint — Soffit &amp; Walls</td>
+        <td>Paint final coat on soffit and walls after patch and repairs. Previous contractor left job site before completing this task.</td>
+        <td>Contractor provided</td>
+        <td class="price">—</td>
+      </tr>
+      <tr>
+        <td>Threshold Replacement &amp; Base Repair</td>
+        <td>Remove stone threshold cut too long by previous contractor (who damaged and removed wood base attempting to force fit). Replace with new quartz transition piece. Repair, caulk, and paint wood base.</td>
+        <td>Owner provided (quartz); Owner provided (paint)</td>
+        <td class="price">—</td>
+      </tr>
+
+      <!-- NEW QUOTE 1 -->
+      <tr class="section-header"><td colspan="4">New Work — Quote #1</td></tr>
+      <tr>
+        <td>Exterior Stucco Repair</td>
+        <td>Repair and paint exterior stucco at two small areas above den windows.</td>
+        <td>Contractor provided</td>
+        <td class="price">$400</td>
+      </tr>
+      <tr>
+        <td>Bedroom Laminate Flooring Install</td>
+        <td>Install new wood laminate flooring at bedroom. Remove existing base and replace with new. Paint base.</td>
+        <td>Owner provided (flooring, base, paint)</td>
+        <td class="price">TBD</td>
+      </tr>
+
+      <!-- NEW QUOTE 2 -->
+      <tr class="section-header"><td colspan="4">New Work — Quote #2</td></tr>
+      <tr>
+        <td>Sliding Door Installation</td>
+        <td>Install one (1) 8' × 8' sliding door (Milgard, vinyl replacement).</td>
+        <td>Owner provided</td>
+        <td class="price">$800</td>
+      </tr>
+      <tr>
+        <td>Window Installation (3)</td>
+        <td>Install three (3) new windows (Milgard, fiberglass).</td>
+        <td>Owner provided</td>
+        <td class="price">$1,650<br><span style="font-size:11px;font-weight:400;color:#777;">($550 × 3)</span></td>
+      </tr>
+      <tr>
+        <td>Stone Window Sills (2)</td>
+        <td>Install two (2) stone window sills.</td>
+        <td>Owner provided</td>
+        <td class="price">$400<br><span style="font-size:11px;font-weight:400;color:#777;">($200 × 2)</span></td>
+      </tr>
+
+      <!-- LOWES PAID -->
+      <tr class="section-header"><td colspan="4">Work Paid by Lowe's</td></tr>
+      <tr>
+        <td>Kitchen Cabinet Door</td>
+        <td>Install new cabinet door at kitchen.</td>
+        <td>Provided by Lowe's</td>
+        <td class="price">N/C</td>
+      </tr>
+      <tr>
+        <td>Front Door Touch-Up Paint</td>
+        <td>Touch-up front door paint; damage caused by kitchen demo team.</td>
+        <td>Provided by Lowe's</td>
+        <td class="price">N/C</td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <div class="notice">
+    <strong>Owner-Provided Materials</strong>
+    All items noted as "Owner provided" require client to supply materials on-site prior to the scheduled start of that phase. Timberline Build Co is not responsible for defects in owner-supplied materials. Installation of owner-supplied materials does not extend the labor warranty to those materials.
+  </div>
+
+  <!-- EXCLUSIONS -->
+  <h2>What Is NOT Included</h2>
+  <div class="exclusions-box">
+    <ul>
+      <li>Cost of any owner-supplied or Lowe's-supplied materials — labor only unless noted otherwise</li>
+      <li>Building permits unless separately agreed upon in writing</li>
+      <li>Any structural work beyond the scope listed above</li>
+      <li>Work discovered behind walls or under floors not identified prior to commencement (subject to written change order)</li>
+      <li>Appliance or furniture moving not directly related to scope</li>
+    </ul>
+  </div>
+
+  <!-- INVESTMENT -->
+  <h2>Contract Price</h2>
+  <p>The total contract price for labor, supervision, and contractor-supplied materials as described above is:</p>
+
+  <div class="total-box">
+    <div>
+      <div class="label">Total Contract Price</div>
+      <div style="font-size:13px; opacity:0.7; margin-top:4px;">All scopes · Labor &amp; contractor materials · Owner materials excluded</div>
+    </div>
+    <div class="amount">$[TOTAL PENDING]</div>
+  </div>
+
+  <p style="font-size:12px; color:#777; margin-top:-8px;">Note: Total includes Original Scope, Quote #1 (less bedroom flooring TBD), and Quote #2. Final total to be confirmed upon bedroom flooring pricing.</p>
+
+  <!-- PAYMENT -->
+  <h2>Payment Schedule</h2>
+  <p>Payments are due per California B&amp;P Code §7159. No more than $1,000 may be collected prior to contract execution.</p>
+  <table class="payment-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Milestone</th>
+        <th>Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>At contract signature — holds start date</td>
+        <td class="amount">$1,000</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Day 1 of work (balance to reach 30%)</td>
+        <td class="amount">$[30% − $1,000]</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>At midpoint — original repair scope complete</td>
+        <td class="amount">$[30% of total]</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Upon completion — final walk-through and punch list sign-off</td>
+        <td class="amount">$[40% of total]</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- TIMELINE -->
+  <h2>Estimated Timeline</h2>
+  <p>Project start date: <strong>June 9, 2026</strong> (or upon contract execution). Estimated duration by scope:</p>
+  <ul>
+    <li>Original repair and correction scope (master bath &amp; entry): 2–3 weeks</li>
+    <li>New Quote #1 (stucco + flooring): 1 week, may run concurrently</li>
+    <li>New Quote #2 (sliding door + windows + sills): 1–2 days</li>
+    <li>Lowe's-paid items: scheduled separately</li>
+  </ul>
+  <p>All timelines are estimates and may be affected by material availability, unforeseen conditions, or change orders.</p>
+
+  <!-- WARRANTY -->
+  <h2>Warranty</h2>
+  <p>Timberline Build Co warrants all labor for <strong>1 year from project completion</strong>. Manufacturer warranties apply to all contractor-supplied materials and fixtures. Owner-supplied materials carry no labor warranty beyond proper installation.</p>
+
+  <!-- TERMS -->
+  <h2>Terms &amp; Conditions</h2>
+  <div class="terms">
+    <p><strong>Change Orders:</strong> Any work outside the scope described in this contract requires a written change order signed by both parties before work begins. Verbal approvals are not binding. Unforeseen conditions discovered during the course of work (hidden damage, non-code conditions, structural issues, etc.) will be documented and presented as a change order before proceeding.</p>
+    <p><strong>Owner-Supplied Materials:</strong> Client is responsible for the quality, quantity, and timely delivery of all owner-supplied materials. Timberline Build Co is not responsible for defects in owner-supplied materials. Installation of owner-supplied materials does not extend the labor warranty to those materials.</p>
+    <p><strong>Access:</strong> Client agrees to provide contractor and subcontractors reasonable access to the property during normal working hours (7:00am–5:00pm, Monday–Saturday).</p>
+    <p><strong>Lien Waiver:</strong> Upon receipt of final payment, Timberline Build Co will provide a conditional lien waiver releasing all mechanic's lien rights for work completed under this contract.</p>
+    <p><strong>Dispute Resolution:</strong> Any disputes arising from this contract shall first be subject to good-faith mediation. This contract is governed by the laws of the State of California.</p>
+    <p><strong>License:</strong> Timberline Build Co holds California Contractor's License #1136140, insured and bonded.</p>
+  </div>
+
+  <!-- SIGNATURE -->
+  <h2>Agreement &amp; Signature</h2>
+  <p>By signing below, both parties agree to the scope, price, payment schedule, and terms set forth in this contract.</p>
+
+  <div class="sig-grid">
+    <div class="sig-block">
+      <div class="sig-line"></div>
+      <div class="sig-label">Contractor Signature</div>
+      <div class="sig-name">Justin Sherman</div>
+      <div style="font-size:12px; color:#777;">Timberline Build Co · CSLB #1136140</div>
+      <br>
+      <div class="sig-line" style="width:60%; border-bottom: 1px dashed #aaa; height: 32px;"></div>
+      <div class="sig-label">Date</div>
+    </div>
+    <div class="sig-block">
+      <div class="sig-line"></div>
+      <div class="sig-label">Client Signature</div>
+      <div class="sig-name">Rebecca Holden</div>
+      <div style="font-size:12px; color:#777;">28522 Acapulco, Mission Viejo, CA 92692</div>
+      <br>
+      <div class="sig-line" style="width:60%; border-bottom: 1px dashed #aaa; height: 32px;"></div>
+      <div class="sig-label">Date</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <strong>Timberline Build Co</strong> · Licensed General Contractor · CSLB #1136140 · 921 Calle Amanecer, Suite O, San Clemente, CA · 949-229-1692
+</div>
+
+</body>
+</html>
