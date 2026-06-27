@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Timberline Build Co — Kyle & Wayne Gilbert | Guest Bath + Closet</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green:  #19412c;
+    --brown:  #614432;
+    --dark:   #312509;
+    --navy:   #213245;
+    --gold:   #e9af3b;
+    --cream:  #fdf8f2;
+    --gray:   #f4f4f4;
+    --text:   #1a1a1a;
+    --muted:  #666;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: #fff;
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* ── COVER ─────────────────────────────────────── */
+  .cover {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+  }
+
+  .cover-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=1800&q=80');
+    background-size: cover;
+    background-position: center 30%;
+    filter: brightness(0.55);
+  }
+
+  .cover-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(25,65,44,0.92) 0%, rgba(25,65,44,0.3) 60%, transparent 100%);
+  }
+
+  .cover-content {
+    position: relative;
+    z-index: 2;
+    padding: 60px 64px;
+    max-width: 860px;
+  }
+
+  .cover-logo {
+    height: 48px;
+    margin-bottom: 48px;
+    filter: brightness(0) invert(1);
+    opacity: 0.92;
+  }
+
+  .cover-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  .cover-title {
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+
+  .cover-sub {
+    font-size: 17px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.82);
+    margin-bottom: 40px;
+  }
+
+  .cover-meta {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .cover-meta-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cover-meta-item span:first-child {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .cover-meta-item span:last-child {
+    font-size: 15px;
+    font-weight: 500;
+    color: #fff;
+  }
+
+  /* ── LAYOUT ────────────────────────────────────── */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  /* ── SECTIONS ──────────────────────────────────── */
+  section {
+    padding: 72px 0;
+    border-bottom: 1px solid #e8e8e8;
+  }
+
+  section:last-child { border-bottom: none; }
+
+  .section-eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  h2 {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--green);
+    margin-bottom: 24px;
+    line-height: 1.2;
+  }
+
+  h3 {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 12px;
+    margin-top: 32px;
+  }
+
+  p { margin-bottom: 16px; color: var(--text); }
+  p:last-child { margin-bottom: 0; }
+
+  /* ── HERO IMAGE BAND ───────────────────────────── */
+  .img-band {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .img-band-short {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .img-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin: 32px 0;
+  }
+
+  .img-grid img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .img-grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+    margin: 32px 0;
+  }
+
+  .img-grid-3 img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* ── SCOPE LIST ────────────────────────────────── */
+  .scope-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 32px;
+  }
+
+  .scope-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.5;
+  }
+
+  .scope-list li::before {
+    content: '';
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    background: var(--green);
+    border-radius: 50%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+    background-size: 12px;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  /* ── NOT INCLUDED LIST ─────────────────────────── */
+  .excl-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 32px;
+  }
+
+  .excl-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  .excl-list li::before {
+    content: '—';
+    flex-shrink: 0;
+    color: var(--brown);
+    font-weight: 700;
+    margin-top: 1px;
+  }
+
+  /* ── INVESTMENT BOX ────────────────────────────── */
+  .investment-box {
+    background: var(--green);
+    color: #fff;
+    padding: 52px 56px;
+    text-align: center;
+    margin: 40px 0;
+  }
+
+  .investment-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  .investment-amount {
+    font-size: clamp(44px, 8vw, 68px);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+
+  .investment-note {
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+  }
+
+  /* ── PAYMENT TIMELINE ──────────────────────────── */
+  .payment-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin: 32px 0;
+    border: 1px solid #e0e0e0;
+  }
+
+  .payment-step {
+    padding: 28px 20px;
+    text-align: center;
+    border-right: 1px solid #e0e0e0;
+    background: #fff;
+  }
+
+  .payment-step:last-child { border-right: none; }
+
+  .payment-step-num {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+
+  .payment-step-amount {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--green);
+    margin-bottom: 6px;
+  }
+
+  .payment-step-label {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+
+  /* ── FINISH BUDGET TABLE ───────────────────────── */
+  .finish-section {
+    background: var(--cream);
+    padding: 72px 0;
+  }
+
+  .finish-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin-top: 24px;
+  }
+
+  .finish-table th {
+    background: var(--navy);
+    color: #fff;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 12px 16px;
+    text-align: left;
+  }
+
+  .finish-table th:not(:first-child) { text-align: center; }
+
+  .finish-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #e8e8e8;
+    vertical-align: top;
+  }
+
+  .finish-table td:not(:first-child) { text-align: center; }
+
+  .finish-table tr:nth-child(even) td { background: rgba(0,0,0,0.025); }
+
+  .finish-table .cat-row td {
+    background: var(--green);
+    color: #fff;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 8px 16px;
+  }
+
+  .tier-low  { color: #2a6b3a; font-weight: 600; }
+  .tier-mid  { color: var(--brown); font-weight: 600; }
+  .tier-high { color: var(--navy); font-weight: 700; }
+
+  .finish-note {
+    font-size: 12px;
+    color: var(--muted);
+    font-style: italic;
+    margin-top: 16px;
+  }
+
+  /* ── TIMELINE ──────────────────────────────────── */
+  .timeline {
+    display: flex;
+    gap: 0;
+    margin: 32px 0;
+  }
+
+  .timeline-item {
+    flex: 1;
+    padding: 24px 20px;
+    border-left: 3px solid #e0e0e0;
+    position: relative;
+  }
+
+  .timeline-item:first-child { border-left-color: var(--green); }
+  .timeline-item:nth-child(2) { border-left-color: var(--gold); }
+  .timeline-item:nth-child(3) { border-left-color: var(--brown); }
+  .timeline-item:nth-child(4) { border-left-color: var(--navy); }
+
+  .timeline-week {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+
+  .timeline-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+
+  .timeline-desc {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* ── WARRANTY / TERMS ──────────────────────────── */
+  .callout {
+    background: var(--gray);
+    border-left: 4px solid var(--green);
+    padding: 20px 24px;
+    margin: 24px 0;
+    font-size: 14px;
+    color: var(--text);
+  }
+
+  /* ── SIGNATURE ─────────────────────────────────── */
+  .sig-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 40px;
+  }
+
+  .sig-field {
+    border-top: 2px solid var(--text);
+    padding-top: 10px;
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.5px;
+  }
+
+  /* ── FOOTER ─────────────────────────────────────── */
+  .footer {
+    background: var(--green);
+    color: rgba(255,255,255,0.75);
+    padding: 40px 64px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 12px;
+  }
+
+  .footer img { height: 28px; filter: brightness(0) invert(1); opacity: 0.85; }
+
+  /* ── ACCENT BAR ─────────────────────────────────── */
+  .accent-bar {
+    height: 6px;
+    background: linear-gradient(90deg, var(--green) 0%, var(--gold) 50%, var(--brown) 100%);
+  }
+
+  @media (max-width: 640px) {
+    .cover-content { padding: 40px 24px; }
+    .container { padding: 0 20px; }
+    .scope-list, .excl-list { grid-template-columns: 1fr; }
+    .img-grid, .img-grid-3 { grid-template-columns: 1fr; }
+    .payment-steps { grid-template-columns: 1fr 1fr; }
+    .timeline { flex-direction: column; }
+    .sig-block { grid-template-columns: 1fr; }
+    .footer { padding: 32px 24px; flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ COVER ══════════════════════════════════════════════════════════════ -->
+<div class="cover">
+  <div class="cover-bg"></div>
+  <div class="cover-overlay"></div>
+  <div class="cover-content">
+    <img src="./logo.png" alt="Timberline Build Co" class="cover-logo">
+    <div class="cover-label">Project Proposal</div>
+    <h1 class="cover-title">Guest Bath Renovation<br>+ Walk-In Closet</h1>
+    <div class="cover-sub">650 Avenida Seville &nbsp;·&nbsp; Wayne &amp; Kyle Gilbert</div>
+    <div class="cover-meta">
+      <div class="cover-meta-item">
+        <span>Prepared For</span>
+        <span>Wayne &amp; Kyle Gilbert</span>
+      </div>
+      <div class="cover-meta-item">
+        <span>Prepared By</span>
+        <span>Justin Sherman, GC</span>
+      </div>
+      <div class="cover-meta-item">
+        <span>Date</span>
+        <span>June 26, 2026</span>
+      </div>
+      <div class="cover-meta-item">
+        <span>License #</span>
+        <span>CSLB 1136140</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="accent-bar"></div>
+
+<!-- ═══ PROJECT OVERVIEW ═══════════════════════════════════════════════════ -->
+<section>
+  <div class="container">
+    <div class="section-eyebrow">Overview</div>
+    <h2>A Complete Bathroom Transformation</h2>
+    <p>
+      This proposal covers a full guest bathroom renovation at 650 Avenida Seville, transforming an outdated, compartmentalized layout into a clean, open, spa-caliber space. The project includes a complete gut demo, full plumbing relocation, a freestanding soaking tub, a walk-in shower with glass enclosure, a double vanity, a private toilet compartment, and the addition of a walk-in closet between the bath and bedroom.
+    </p>
+    <p>
+      All work will be performed by Timberline Build Co under Justin Sherman's GC license. Our primary tile and bathroom sub, Jose, will handle all tile installation. We will coordinate permits, inspections, and scheduling from start to finish.
+    </p>
+  </div>
+</section>
+
+<img class="img-band" src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=1800&q=80" alt="Luxury bathroom" loading="lazy">
+
+<!-- ═══ SCOPE OF WORK ═══════════════════════════════════════════════════════ -->
+<section>
+  <div class="container">
+    <div class="section-eyebrow">Scope of Work</div>
+    <h2>What's Included</h2>
+    <p style="margin-bottom:28px;">The following scope is based on the architectural plans dated June 13, 2026, drawn by M.D. All work described below is included in the Investment Summary.</p>
+
+    <h3>Demo &amp; Demolition</h3>
+    <ul class="scope-list" style="margin-bottom:24px;">
+      <li>Full gut demo — existing tile, walls, vanity, shower stall</li>
+      <li>Remove existing single-sink vanity and plumbing</li>
+      <li>Demo existing shower enclosure and surround</li>
+      <li>Remove interior partition walls per new plan layout</li>
+      <li>All debris haul and site cleanup</li>
+    </ul>
+
+    <h3>Framing, Drywall &amp; Insulation</h3>
+    <ul class="scope-list" style="margin-bottom:24px;">
+      <li>Frame new toilet compartment walls</li>
+      <li>Frame new walk-in closet (11'3" × 4'0") from bedroom space</li>
+      <li>Frame new walk-in shower walls and niche</li>
+      <li>Install cement board in all wet areas</li>
+      <li>Drywall throughout bath and closet</li>
+      <li>Insulate exterior closet wall</li>
+    </ul>
+
+    <h3>Shower</h3>
+    <ul class="scope-list" style="margin-bottom:24px;">
+      <li>Hot mop shower pan (required for mud-set pan)</li>
+      <li>Full tile installation — shower walls, floor, niche (Jose)</li>
+      <li>Semi-frameless glass shower enclosure (supply &amp; install)</li>
+      <li>Shower valve and trim installation (finish TBD — see Finish Budget)</li>
+    </ul>
+
+    <h3>Freestanding Tub</h3>
+    <ul class="scope-list" style="margin-bottom:24px;">
+      <li>Freestanding soaking tub installation (tub supply — see Finish Budget)</li>
+      <li>All tub plumbing rough-in and connections</li>
+      <li>Tub faucet/filler installation (floor-mount supply lines)</li>
+    </ul>
+
+    <h3>Plumbing</h3>
+    <ul class="scope-list" style="margin-bottom:24px;">
+      <li>Full plumbing relocation per new plan layout</li>
+      <li>Double vanity drain and supply rough-in (left wall)</li>
+      <li>Tub drain and floor supply rough-in</li>
+      <li>Toilet reconnect in new private compartment</li>
+      <li>All rough and finish plumbing included</li>
+    </ul>
+
+    <h3>Double Vanity Area</h3>
+    <ul class="scope-list" style="margin-bottom:24px;">
+      <li>Bathroom floor tile installation (Jose)</li>
+      <li>Countertop fabrication and installation (stone cost — see Finish Budget)</li>
+      <li>Vanity cabinet installation (cabinet cost — see Finish Budget)</li>
+      <li>Faucet installation (faucet cost — see Finish Budget)</li>
+    </ul>
+
+    <h3>Walk-In Closet</h3>
+    <ul class="scope-list" style="margin-bottom:24px;">
+      <li>Framing, drywall, and insulation (exterior wall)</li>
+      <li>Entry door from bathroom (2'6" × 6'8")</li>
+      <li>Entry door from bedroom (2'6" × 6'8")</li>
+      <li>Paint and trim throughout closet</li>
+    </ul>
+
+    <h3>Electrical</h3>
+    <ul class="scope-list" style="margin-bottom:24px;">
+      <li>Relocate and update all electrical per new layout</li>
+      <li>GFCI outlets at vanity per code</li>
+      <li>Vanity lighting installation (fixture cost — see Finish Budget)</li>
+      <li>New vent fan installation</li>
+    </ul>
+
+    <h3>Doors, Trim &amp; Paint</h3>
+    <ul class="scope-list">
+      <li>Toilet compartment door (supply, hang, and case)</li>
+      <li>Bathroom entry door (supply, hang, and case)</li>
+      <li>Closet door (supply, hang, and case)</li>
+      <li>Door hardware on all three doors</li>
+      <li>Baseboard — labor and material throughout bath and closet</li>
+      <li>Door casing — labor and material, both sides per door</li>
+      <li>Paint — entire bath and closet (walls, ceiling, trim)</li>
+    </ul>
+  </div>
+</section>
+
+<div class="img-grid" style="margin:0;">
+  <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=900&q=80" alt="Modern bathroom" loading="lazy">
+  <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=900&q=80" alt="Freestanding tub" loading="lazy">
+</div>
+
+<!-- ═══ NOT INCLUDED ════════════════════════════════════════════════════════ -->
+<section>
+  <div class="container">
+    <div class="section-eyebrow">Exclusions</div>
+    <h2>What's NOT Included</h2>
+    <p style="margin-bottom:28px;">The following items are <em>not</em> included in the project investment. These are either client-supplied, selected separately, or out of scope.</p>
+    <ul class="excl-list">
+      <li>Tile (shower, floor) — client-supplied or allowance — see Finish Budget</li>
+      <li>Vanity cabinet — client-supplied — see Finish Budget</li>
+      <li>Vanity faucets (×2) — client-supplied — see Finish Budget</li>
+      <li>Countertop stone material — client-supplied — see Finish Budget</li>
+      <li>Freestanding tub — see Finish Budget</li>
+      <li>Shower valve trim kit / handle — see Finish Budget</li>
+      <li>Tub filler / floor-mount faucet — included in estimate</li>
+      <li>Vanity lighting fixtures — client-supplied — see Finish Budget</li>
+      <li>Mirrors — not included</li>
+      <li>Accessories (towel bars, toilet paper holder, robe hooks) — not included</li>
+      <li>Tub surround / decorative tile behind tub — not included</li>
+      <li>Closet shelving system and rods — not included</li>
+      <li>Permit fees — pass-through at cost (not currently included — see note below)</li>
+      <li>Landscaping, furniture moving, or items not listed above</li>
+    </ul>
+    <div class="callout" style="margin-top:28px;">
+      <strong>Permit Note:</strong> Kitchen and bathroom remodels with plumbing relocation in Orange County cities typically require a permit ($800–$1,500 depending on city). Timberline will pull the permit on your behalf; permit fees will be billed at cost as a pass-through. We will confirm the exact fee with the city prior to starting work.
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FINISH BUDGET ════════════════════════════════════════════════════════ -->
+<section class="finish-section">
+  <div class="container">
+    <div class="section-eyebrow">Finish Selections</div>
+    <h2>Finish Budget Guide</h2>
+    <p>
+      The items below are <strong>not included</strong> in the project investment above — they're the finish selections that define the look and feel of your new space. We've provided Low, Mid, and High budget ranges so you can plan accordingly. Justin can help source any of these items or coordinate with your preferred vendors.
+    </p>
+    <p style="margin-bottom: 8px;">
+      <strong>Low tier</strong> = functional, clean, builder-grade &nbsp;|&nbsp;
+      <strong>Mid tier</strong> = elevated finishes, the sweet spot for resale &nbsp;|&nbsp;
+      <strong>High tier</strong> = custom/luxury, showroom-quality
+    </p>
+
+    <table class="finish-table">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Low</th>
+          <th>Mid</th>
+          <th>High</th>
+          <th style="text-align:left;">Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="cat-row"><td colspan="5">SHOWER</td></tr>
+        <tr>
+          <td>Shower Tile — walls + floor (material only)</td>
+          <td class="tier-low">$400–$700</td>
+          <td class="tier-mid">$800–$1,500</td>
+          <td class="tier-high">$1,500–$3,500+</td>
+          <td>Porcelain or ceramic (low); large-format or natural stone (high)</td>
+        </tr>
+        <tr>
+          <td>Shower Valve Trim Kit (handle + plate)</td>
+          <td class="tier-low">$150–$250</td>
+          <td class="tier-mid">$300–$600</td>
+          <td class="tier-high">$700–$1,500+</td>
+          <td>Moen/Delta (low); Kohler/Brizo (mid-high); finish: chrome, MB, brushed nickel, gold</td>
+        </tr>
+        <tr>
+          <td>Showerhead</td>
+          <td class="tier-low">$80–$150</td>
+          <td class="tier-mid">$200–$450</td>
+          <td class="tier-high">$500–$1,200+</td>
+          <td>Rainfall or handheld upgrades add cost</td>
+        </tr>
+
+        <tr class="cat-row"><td colspan="5">FREESTANDING TUB</td></tr>
+        <tr>
+          <td>Freestanding Soaking Tub</td>
+          <td class="tier-low">$900–$1,800</td>
+          <td class="tier-mid">$2,000–$4,000</td>
+          <td class="tier-high">$5,000–$12,000+</td>
+          <td>Acrylic (low); acrylic/composite freestanding (mid); cast iron or stone resin (high)</td>
+        </tr>
+        <tr>
+          <td>Tub Filler / Floor-Mount Faucet</td>
+          <td class="tier-low">$300–$600</td>
+          <td class="tier-mid">$700–$1,200</td>
+          <td class="tier-high">$1,500–$3,000+</td>
+          <td>Floor-mount filler (freestanding tub requires this — not wall-mount)</td>
+        </tr>
+
+        <tr class="cat-row"><td colspan="5">VANITY</td></tr>
+        <tr>
+          <td>Double Vanity Cabinet (60"–72")</td>
+          <td class="tier-low">$600–$1,200</td>
+          <td class="tier-mid">$1,500–$3,000</td>
+          <td class="tier-high">$3,500–$8,000+</td>
+          <td>RTA/stock (low); semi-custom (mid); custom cabinetry (high)</td>
+        </tr>
+        <tr>
+          <td>Countertop Stone Material (client-supplied)</td>
+          <td class="tier-low">$400–$800</td>
+          <td class="tier-mid">$900–$1,800</td>
+          <td class="tier-high">$2,000–$4,500+</td>
+          <td>Cultured marble (low); quartz slab (mid); natural marble/quartzite (high)</td>
+        </tr>
+        <tr>
+          <td>Vanity Faucets (×2)</td>
+          <td class="tier-low">$80–$180 ea.</td>
+          <td class="tier-mid">$200–$450 ea.</td>
+          <td class="tier-high">$500–$1,200+ ea.</td>
+          <td>Match finish to shower valve for cohesive look</td>
+        </tr>
+
+        <tr class="cat-row"><td colspan="5">FLOORING</td></tr>
+        <tr>
+          <td>Bathroom Floor Tile (material only)</td>
+          <td class="tier-low">$200–$500</td>
+          <td class="tier-mid">$600–$1,200</td>
+          <td class="tier-high">$1,500–$3,000+</td>
+          <td>Porcelain or ceramic (low); large-format or patterned (mid); natural stone (high)</td>
+        </tr>
+
+        <tr class="cat-row"><td colspan="5">LIGHTING &amp; MIRRORS</td></tr>
+        <tr>
+          <td>Vanity Light Fixture (above double vanity)</td>
+          <td class="tier-low">$80–$200</td>
+          <td class="tier-mid">$250–$600</td>
+          <td class="tier-high">$700–$2,000+</td>
+          <td>Bar fixture or individual sconces — match metal finish</td>
+        </tr>
+        <tr>
+          <td>Mirrors (×2, or one large framed)</td>
+          <td class="tier-low">$100–$300</td>
+          <td class="tier-mid">$350–$800</td>
+          <td class="tier-high">$900–$2,500+</td>
+          <td>Frameless (low); framed, lighted, or medicine cabinet (high)</td>
+        </tr>
+
+        <tr class="cat-row"><td colspan="5">ACCESSORIES</td></tr>
+        <tr>
+          <td>Towel Bars, Toilet Paper Holder, Robe Hooks</td>
+          <td class="tier-low">$80–$200</td>
+          <td class="tier-mid">$250–$500</td>
+          <td class="tier-high">$600–$1,500+</td>
+          <td>Coordinate finish with faucets and shower valve</td>
+        </tr>
+
+        <tr class="cat-row"><td colspan="5">CLOSET</td></tr>
+        <tr>
+          <td>Closet Shelving + Rod System</td>
+          <td class="tier-low">$200–$500</td>
+          <td class="tier-mid">$600–$1,200</td>
+          <td class="tier-high">$1,500–$5,000+</td>
+          <td>Wire shelving DIY (low); California Closets / custom built-ins (high)</td>
+        </tr>
+
+        <tr style="background: #fdf8f2; font-weight:700;">
+          <td style="padding:16px;"><strong>Estimated Finish Budget Totals</strong></td>
+          <td class="tier-low" style="font-size:15px; padding:16px;"><strong>~$3,500</strong></td>
+          <td class="tier-mid" style="font-size:15px; padding:16px;"><strong>~$9,000</strong></td>
+          <td class="tier-high" style="font-size:15px; padding:16px;"><strong>~$20,000+</strong></td>
+          <td style="font-size:12px; color:#888; padding:16px;">These are material budgets only, not included in project investment</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="finish-note">* All finish estimates are approximate and based on OC market pricing as of 2026. Final costs depend on selections made. Justin is happy to help source any of the above items or connect you with preferred vendors.</p>
+  </div>
+</section>
+
+<img class="img-band-short" src="https://images.unsplash.com/photo-1507652313519-d4e9174996dd?w=1800&q=80" alt="Beautiful bathroom vanity" loading="lazy">
+
+<!-- ═══ TIMELINE ════════════════════════════════════════════════════════════ -->
+<section>
+  <div class="container">
+    <div class="section-eyebrow">Project Timeline</div>
+    <h2>Estimated Schedule</h2>
+    <p style="margin-bottom:28px;">Estimated duration: <strong>5–7 weeks</strong> from permit approval and material delivery. Plumbing relocation requires a permit in OC cities, which can add 2–4 weeks of lead time before construction begins.</p>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-week">Week 1</div>
+        <div class="timeline-title">Demo &amp; Rough Work</div>
+        <div class="timeline-desc">Full gut demo, debris removal, framing for new walls, shower, and closet</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-week">Weeks 2–3</div>
+        <div class="timeline-title">Rough Plumbing &amp; Electrical</div>
+        <div class="timeline-desc">All plumbing relocation, rough-in for tub, double vanity, and shower. Electrical rough-in and inspection</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-week">Weeks 3–5</div>
+        <div class="timeline-title">Tile, Drywall &amp; Finishes</div>
+        <div class="timeline-desc">Cement board, hot mop, tile installation (Jose), drywall, texture, paint</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-week">Weeks 5–7</div>
+        <div class="timeline-title">Finish &amp; Punch List</div>
+        <div class="timeline-desc">Tub set, vanity install, glass enclosure, doors, trim, hardware, final inspection and walk-through</div>
+      </div>
+    </div>
+
+    <div class="callout">
+      All timelines are estimates pending material lead times and permit processing. Timberline will confirm a firm start date once permit is approved and materials are on order.
+    </div>
+  </div>
+</section>
+
+<div class="img-grid-3" style="margin:0;">
+  <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=600&q=80" alt="Bathroom detail" loading="lazy">
+  <img src="https://images.unsplash.com/photo-1545071770-0c76b285d8f8?w=600&q=80" alt="Closet" loading="lazy">
+  <img src="https://images.unsplash.com/photo-1556909172-54557c7e4fb7?w=600&q=80" alt="Shower tile detail" loading="lazy">
+</div>
+
+<!-- ═══ INVESTMENT ══════════════════════════════════════════════════════════ -->
+<section>
+  <div class="container">
+    <div class="section-eyebrow">Investment</div>
+    <h2>Project Investment Summary</h2>
+    <p style="margin-bottom:32px;">The total investment below covers all labor, subcontractors, rough and finish work, doors, trim, paint, insulation, and the items detailed in the Scope of Work. Finish selections (tile, tub, vanity, faucets, etc.) are budgeted separately in the Finish Budget Guide above.</p>
+
+    <div class="investment-box">
+      <div class="investment-label">Total Project Investment</div>
+      <div class="investment-amount">$48,300</div>
+      <div class="investment-note">All labor, subs, and included materials · Permits billed at cost · Finish selections additional</div>
+    </div>
+
+    <h3>Payment Schedule</h3>
+    <div class="payment-steps">
+      <div class="payment-step">
+        <div class="payment-step-num">At Signing</div>
+        <div class="payment-step-amount">$1,000</div>
+        <div class="payment-step-label">Holds your start date</div>
+      </div>
+      <div class="payment-step">
+        <div class="payment-step-num">Day 1 of Work</div>
+        <div class="payment-step-amount">$13,490</div>
+        <div class="payment-step-label">30% of balance minus deposit</div>
+      </div>
+      <div class="payment-step">
+        <div class="payment-step-num">At Midpoint</div>
+        <div class="payment-step-amount">$18,920</div>
+        <div class="payment-step-label">40% · Rough work &amp; inspections complete</div>
+      </div>
+      <div class="payment-step">
+        <div class="payment-step-num">At Completion</div>
+        <div class="payment-step-amount">$14,890</div>
+        <div class="payment-step-label">30% · Final walk-through &amp; sign-off</div>
+      </div>
+    </div>
+    <p style="font-size:12px; color:var(--muted); margin-top:12px;">Per California B&amp;P Code §7159, no more than $1,000 may be collected before a contract is signed. Payment schedule shown above complies with California contractor law.</p>
+  </div>
+</section>
+
+<!-- ═══ WARRANTY & TERMS ══════════════════════════════════════════════════════ -->
+<section>
+  <div class="container">
+    <div class="section-eyebrow">Warranty &amp; Terms</div>
+    <h2>Our Commitment</h2>
+
+    <div class="callout">
+      <strong>Labor Warranty:</strong> Timberline Build Co warrants all labor for 1 year from project completion. Manufacturer warranties apply to all materials, fixtures, and equipment installed.
+    </div>
+
+    <h3>Change Orders</h3>
+    <p>Any changes to scope, materials, or schedule outside of this proposal will be documented in a written change order, signed by both parties before work proceeds. Change orders may affect total price and timeline.</p>
+
+    <h3>Unforeseen Conditions</h3>
+    <p>Remodel projects occasionally reveal hidden conditions (old plumbing, damaged subfloor, non-code wiring, etc.) that cannot be identified prior to demo. If encountered, Timberline will stop work, document the condition, and present options before proceeding. These items are handled via change order.</p>
+
+    <h3>Lien Waiver</h3>
+    <p>Timberline Build Co will provide a conditional lien waiver upon receipt of each progress payment, and an unconditional lien waiver upon final payment.</p>
+  </div>
+</section>
+
+<!-- ═══ SIGNATURE ══════════════════════════════════════════════════════════ -->
+<section>
+  <div class="container">
+    <div class="section-eyebrow">Authorization</div>
+    <h2>Approve This Proposal</h2>
+    <p style="margin-bottom:32px;">Your signature below authorizes Timberline Build Co to proceed with the scope of work described in this proposal at the investment amount stated. By signing, you confirm you have read and agree to the scope, exclusions, payment terms, and warranty described herein.</p>
+
+    <div class="sig-block">
+      <div>
+        <div class="sig-field">Client Signature &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        <p style="margin-top:12px; font-size:13px; color:var(--muted);">Wayne &amp; Kyle Gilbert &nbsp;·&nbsp; Date: _____________</p>
+      </div>
+      <div>
+        <div class="sig-field">Contractor Signature &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        <p style="margin-top:12px; font-size:13px; color:var(--muted);">Justin Sherman, Timberline Build Co &nbsp;·&nbsp; Date: _____________</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ══════════════════════════════════════════════════════════════ -->
+<footer class="footer">
+  <img src="./logo.png" alt="Timberline Build Co">
+  <div>
+    <div>Justin Sherman &nbsp;·&nbsp; CSLB License #1136140</div>
+    <div>949-229-1692 &nbsp;·&nbsp; San Clemente, CA &nbsp;·&nbsp; Serving Orange County</div>
+  </div>
+  <div style="text-align:right; color:rgba(255,255,255,0.5); font-size:11px;">
+    Proposal valid 30 days from date issued.<br>
+    © 2026 Timberline Build Co
+  </div>
+</footer>
+
+</body>
+</html>
