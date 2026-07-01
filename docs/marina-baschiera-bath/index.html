@@ -7,7 +7,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
       --green:  #19412c;
       --brown:  #614432;
@@ -20,16 +19,13 @@
       --pw: 816px;
       --ph: 1056px;
     }
-
     html, body {
       font-family: 'Montserrat', sans-serif;
       background: #888;
       color: #1a1a1a;
       -webkit-font-smoothing: antialiased;
-      margin: 0;
-      padding: 0;
+      margin: 0; padding: 0;
     }
-
     .page {
       width: var(--pw);
       height: var(--ph);
@@ -40,11 +36,9 @@
       display: flex;
       flex-direction: column;
     }
-
     @media screen {
       .page { margin: 16px auto; box-shadow: 0 4px 32px rgba(0,0,0,0.35); }
     }
-
     @media print {
       @page { size: letter; margin: 0; }
       html, body { background: white; }
@@ -56,38 +50,19 @@
       }
       .page:last-child { page-break-after: auto; break-after: auto; }
     }
-
-    /* ─────────── SHARED ATOMS ─────────── */
     .label {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 10px;
+      font-size: 10px; font-weight: 700; letter-spacing: 4px;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 10px;
     }
     .title {
-      font-size: 28px;
-      font-weight: 800;
-      line-height: 1.15;
-      color: var(--green);
-      margin-bottom: 20px;
+      font-size: 28px; font-weight: 800; line-height: 1.15;
+      color: var(--green); margin-bottom: 20px;
     }
     .title-light { color: white; }
-    .gold-bar {
-      width: 48px; height: 3px;
-      background: var(--gold);
-      margin-bottom: 28px;
-    }
-
-    /* ─────────── PAGE 1 · COVER ─────────── */
+    .gold-bar { width: 48px; height: 3px; background: var(--gold); margin-bottom: 28px; }
     .cover {
-      background: var(--green);
-      color: white;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      background: var(--green); color: white; flex: 1;
+      display: flex; flex-direction: column; justify-content: space-between;
       padding: 56px 72px;
     }
     .cover-logo img { height: 64px; filter: brightness(0) invert(1); }
@@ -96,10 +71,7 @@
       font-size: 10px; font-weight: 700; letter-spacing: 4px;
       text-transform: uppercase; color: var(--gold); margin-bottom: 20px;
     }
-    .cover-title {
-      font-size: 48px; font-weight: 900; line-height: 1.0;
-      margin-bottom: 14px;
-    }
+    .cover-title { font-size: 54px; font-weight: 900; line-height: 1.0; margin-bottom: 14px; }
     .cover-sub {
       font-size: 17px; font-weight: 300; opacity: 0.72;
       max-width: 480px; line-height: 1.65; margin-bottom: 40px;
@@ -112,12 +84,9 @@
     }
     .cover-meta-item span { font-size: 15px; font-weight: 600; }
     .cover-foot {
-      font-size: 11px; opacity: 0.38; display: flex;
-      justify-content: space-between;
+      font-size: 11px; opacity: 0.38; display: flex; justify-content: space-between;
       padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.1);
     }
-
-    /* ─────────── PAGE 2 · HERO RENDER ─────────── */
     .hero-page { background: var(--dark); }
     .hero-page img { width: 100%; height: 980px; object-fit: cover; display: block; }
     .hero-cap {
@@ -128,8 +97,6 @@
       font-size: 10px; font-weight: 700; letter-spacing: 4px;
       text-transform: uppercase; color: rgba(255,255,255,0.45);
     }
-
-    /* ─────────── PAGE 3 · OVERVIEW + SCOPE ─────────── */
     .content-page { background: white; flex: 1; display: flex; flex-direction: column; }
     .section-inner { padding: 52px 64px; flex: 1; }
     .sub-header {
@@ -137,7 +104,6 @@
       font-size: 10px; font-weight: 700; letter-spacing: 4px;
       text-transform: uppercase; color: rgba(255,255,255,0.5);
     }
-
     .scope-list { list-style: none; margin-top: 4px; }
     .scope-list li {
       display: flex; align-items: flex-start; gap: 12px;
@@ -150,17 +116,16 @@
       background: var(--gold); margin-top: 6px; flex-shrink: 0;
     }
     .scope-list li span {
-      font-weight: 400; color: #666; font-size: 12px;
-      display: block; margin-top: 2px;
+      font-weight: 400; color: #666; font-size: 12px; display: block; margin-top: 2px;
     }
-
-    /* ─────────── PAGE 4 · EXCLUSIONS + MATERIALS ─────────── */
-    .band-inner {
-      background: var(--green); padding: 48px 64px; color: white;
+    .continued-tag {
+      background: var(--cream); padding: 12px 64px;
+      font-size: 9px; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; color: #aaa;
     }
+    .band-inner { background: var(--green); padding: 52px 64px; color: white; }
     .band-inner .title { color: white; }
     .band-inner p { font-size: 13px; color: rgba(255,255,255,0.68); line-height: 1.7; margin-bottom: 16px; }
-
     .not-list { list-style: none; }
     .not-list li {
       display: flex; align-items: center; gap: 12px;
@@ -169,28 +134,7 @@
     }
     .not-list li:last-child { border-bottom: none; }
     .not-list li::before { content: '—'; color: var(--gold); font-weight: 700; flex-shrink: 0; }
-
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 0 36px; }
-
-    .materials-wrap { padding: 40px 64px; flex: 1; background: var(--cream); }
-    .materials-table { width: 100%; border-collapse: collapse; margin-top: 16px; }
-    .materials-table th {
-      text-align: left; font-size: 9px; font-weight: 700; letter-spacing: 2px;
-      text-transform: uppercase; color: var(--green); padding: 12px 0;
-      border-bottom: 2px solid var(--green);
-    }
-    .materials-table td {
-      padding: 14px 0; border-bottom: 1px solid var(--border);
-      font-size: 13px; color: #333;
-    }
-    .materials-table td:last-child { text-align: right; font-weight: 600; color: var(--navy); }
-    .materials-table tr:last-child td { border-bottom: none; }
-    .materials-table .total-row td {
-      border-top: 2px solid var(--green); font-weight: 700; font-size: 14px;
-      padding-top: 16px; color: var(--green);
-    }
-
-    /* Timeline */
     .timeline-wrap { padding: 44px 64px; flex: 1; background: white; }
     .timeline-steps {
       display: grid; grid-template-columns: repeat(4, 1fr);
@@ -214,34 +158,28 @@
       letter-spacing: 2px; text-transform: uppercase; color: var(--green); margin-bottom: 3px;
     }
     .step-label span { font-size: 11px; color: #666; line-height: 1.5; }
-
-    /* ─────────── PAGE 5 · INVESTMENT ─────────── */
-    .invest-block {
-      background: var(--navy); flex: 1;
-      display: flex; flex-direction: column;
-    }
+    .render-strip img { width: 100%; height: 420px; object-fit: cover; display: block; }
+    .invest-block { background: var(--navy); flex: 1; display: flex; flex-direction: column; }
     .invest-top {
-      padding: 36px 56px; border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding: 28px 56px; border-bottom: 1px solid rgba(255,255,255,0.08);
       display: flex; align-items: center; gap: 48px;
     }
     .invest-top .inv-label {
       font-size: 9px; font-weight: 700; letter-spacing: 3px;
       text-transform: uppercase; color: var(--gold); margin-bottom: 6px;
     }
-    .invest-total { font-size: 56px; font-weight: 900; color: white; line-height: 1; }
-    .invest-note { font-size: 13px; color: rgba(255,255,255,0.45); font-weight: 500; margin-top: 8px; }
-    .invest-payments { display: grid; grid-template-columns: repeat(4, 1fr); flex: 1; }
+    .invest-total { font-size: 52px; font-weight: 900; color: white; line-height: 1; }
+    .invest-note { font-size: 12px; color: rgba(255,255,255,0.38); font-weight: 500; margin-top: 6px; }
+    .invest-payments { display: grid; grid-template-columns: 1fr 1fr 1fr; flex: 1; }
     .pay-block {
-      padding: 24px 20px; border-right: 1px solid rgba(255,255,255,0.06);
+      padding: 24px 36px; border-right: 1px solid rgba(255,255,255,0.06);
       text-align: center; display: flex; flex-direction: column; justify-content: center;
     }
     .pay-block:last-child { border-right: none; }
-    .pay-pct { font-size: 26px; font-weight: 900; color: var(--gold); margin-bottom: 6px; }
+    .pay-pct { font-size: 30px; font-weight: 900; color: var(--gold); margin-bottom: 6px; }
     .pay-phase { font-size: 9px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 6px; }
-    .pay-detail { font-size: 10px; color: rgba(255,255,255,0.28); line-height: 1.5; }
-
-    /* ─────────── PAGE 6 · TERMS + SIGNATURE ─────────── */
-    .terms-wrap { padding: 40px 64px; }
+    .pay-detail { font-size: 11px; color: rgba(255,255,255,0.28); line-height: 1.5; }
+    .terms-wrap { padding: 44px 64px; }
     .terms-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 16px; }
     .terms-card {
       background: white; border: 1px solid var(--border);
@@ -256,102 +194,83 @@
     .terms-card ul li { padding: 5px 0; border-bottom: 1px solid #f0ece4; }
     .terms-card ul li:last-child { border-bottom: none; }
     .terms-card ul li::before { content: '→ '; color: var(--gold); font-weight: 700; }
-
     .sig-wrap {
-      background: var(--green); flex: 1; padding: 32px 64px;
+      background: var(--green); flex: 1; padding: 36px 64px;
       display: flex; flex-direction: column;
     }
     .sig-wrap .label { color: var(--gold); }
     .sig-wrap .title { color: white; margin-bottom: 8px; }
     .sig-wrap > p {
       font-size: 12px; color: rgba(255,255,255,0.55);
-      max-width: 560px; line-height: 1.7; margin-bottom: 24px;
+      max-width: 560px; line-height: 1.7; margin-bottom: 28px;
     }
-    .sig-box {
-      background: white; border-radius: 4px; padding: 32px 44px; flex: 1;
-    }
+    .sig-box { background: white; border-radius: 4px; padding: 36px 44px; flex: 1; }
     .sig-box .label { color: var(--green); margin-bottom: 20px; }
     .sig-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 48px; }
     .sig-field label {
       display: block; font-size: 9px; font-weight: 700;
       letter-spacing: 3px; text-transform: uppercase; color: var(--green); margin-bottom: 10px;
     }
-    .sig-line {
-      border-bottom: 2px solid var(--border); height: 40px; position: relative;
-    }
+    .sig-line { border-bottom: 2px solid var(--border); height: 40px; position: relative; }
     .sig-line::before {
       content: 'X'; position: absolute; bottom: 8px; left: 0;
       font-size: 11px; font-weight: 700; color: #ccc;
     }
-
-    .foot-strip {
-      background: var(--dark); padding: 16px 64px; text-align: center;
-    }
+    .foot-strip { background: var(--dark); padding: 16px 64px; text-align: center; }
     .foot-strip p {
       font-size: 10px; color: rgba(255,255,255,0.25);
       letter-spacing: 0.05em; line-height: 1.9;
     }
     .foot-strip strong { color: rgba(255,255,255,0.45); }
+    .materials-box { background: var(--cream); padding: 36px 64px; }
+    .materials-table { width: 100%; border-collapse: collapse; margin-top: 12px; }
+    .materials-table th {
+      text-align: left; font-size: 9px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--green); padding: 10px 0;
+      border-bottom: 2px solid var(--green);
+    }
+    .materials-table td {
+      padding: 12px 0; border-bottom: 1px solid var(--border); font-size: 13px; color: #333;
+    }
+    .materials-table td:last-child { text-align: right; font-weight: 600; color: var(--navy); }
+    .materials-table tr:last-child td { border-bottom: none; }
+    .materials-table .total-row td {
+      border-top: 2px solid var(--green); font-weight: 700; padding-top: 14px; color: var(--green);
+    }
   </style>
 </head>
 <body>
 
-<!-- ══════════════════════════════════════════════════════════
-     PAGE 1 · COVER
-══════════════════════════════════════════════════════════ -->
+<!-- PAGE 1 · COVER -->
 <div class="page">
   <div class="cover">
-    <div class="cover-logo">
-      <img src="./logo.png" alt="Timberline Build Co" />
-    </div>
-
+    <div class="cover-logo"><img src="./logo.png" alt="Timberline Build Co" /></div>
     <div class="cover-body">
       <div class="gold-bar"></div>
       <div class="cover-tag">Guest Bathroom Remodel Proposal</div>
       <div class="cover-title">2348 Littleton<br>Circle</div>
       <div class="cover-sub">Tub-to-shower conversion with linear drain, frameless glass, new vanity, and complete refresh.<br>All finish materials provided by client.</div>
       <div class="cover-meta">
-        <div class="cover-meta-item">
-          <label>Prepared For</label>
-          <span>Marina Baschiera</span>
-        </div>
-        <div class="cover-meta-item">
-          <label>Date</label>
-          <span>July 2026</span>
-        </div>
-        <div class="cover-meta-item">
-          <label>Total Investment</label>
-          <span>$15,820</span>
-        </div>
-        <div class="cover-meta-item">
-          <label>Contact</label>
-          <span>949-229-1692</span>
-        </div>
+        <div class="cover-meta-item"><label>Prepared For</label><span>Marina Baschiera</span></div>
+        <div class="cover-meta-item"><label>Date</label><span>July 2026</span></div>
+        <div class="cover-meta-item"><label>Total Investment</label><span>$15,820</span></div>
+        <div class="cover-meta-item"><label>Contact</label><span>949-229-1692</span></div>
       </div>
     </div>
-
     <div class="cover-foot">
-      <span>Timberline Build Co &nbsp;·&nbsp; CSLB #1136140 &nbsp;·&nbsp; Orange County, CA</span>
+      <span>Timberline Build Co · CSLB #1136140 · Orange County, CA</span>
       <span>timberlinebuild.co</span>
     </div>
   </div>
 </div>
 
-
-<!-- ══════════════════════════════════════════════════════════
-     PAGE 2 · HERO RENDER
-══════════════════════════════════════════════════════════ -->
+<!-- PAGE 2 · HERO RENDER -->
 <div class="page hero-page">
-  <img src="./render-1.png" alt="Modern bathroom render" />
-  <div class="hero-cap">
-    <span>Timberline Build Co &nbsp;·&nbsp; Sample Bathroom Render &nbsp;·&nbsp; 2348 Littleton Circle, Costa Mesa</span>
-  </div>
+  <img src="./render-1.png" alt="Modern bathroom render" style="width:100%;height:980px;object-fit:cover;display:block;" />
+  <div class="hero-cap"><span>Timberline Build Co · Sample Bathroom Render · 2348 Littleton Circle, Costa Mesa</span></div>
 </div>
 
-
-<!-- ══════════════════════════════════════════════════════════
-     PAGE 3 · PROJECT OVERVIEW + SCOPE
-══════════════════════════════════════════════════════════ -->
+<!-- PAGE 3 · PROJECT OVERVIEW + SCOPE (items 1–7) -->
 <div class="page content-page">
   <div class="section-inner">
     <div class="label">Project Overview</div>
@@ -362,10 +281,8 @@
     <p style="font-size:13px;color:#888;line-height:1.7;max-width:680px;margin-bottom:28px;">
       <strong style="color:#555;">All finish materials are provided by the client</strong> — tile, vanity, countertop, and fixtures. Timberline supplies all labor, rough materials, and installation expertise.
     </p>
-
     <div class="label" style="margin-top:4px;">Scope of Work</div>
     <div class="title" style="font-size:22px;">What's Included</div>
-
     <ul class="scope-list">
       <li>Complete Demolition<span>Remove existing tub, surround, and all existing fixtures. Prep space for shower conversion.</span></li>
       <li>Hot Mop Waterproofing<span>Professional hot mop of shower pan for complete waterproof integrity.</span></li>
@@ -374,6 +291,16 @@
       <li>Recessed Shower Niche<span>Frame and build recessed niche for shampoo storage. Tile billed under tile labor.</span></li>
       <li>Frameless Glass Shower Enclosure<span>Install frameless glass panel or door. Configuration confirmed at site visit.</span></li>
       <li>Vanity Installation (Labor Only)<span>Remove old vanity, install client-supplied vanity, make all plumbing connections.</span></li>
+    </ul>
+  </div>
+  <div class="sub-header">Scope of Work · Continued on next page</div>
+</div>
+
+<!-- PAGE 4 · SCOPE CONTINUED (items 8–13) -->
+<div class="page content-page" style="background:var(--light);">
+  <div class="continued-tag">Scope of Work — Continued</div>
+  <div class="section-inner">
+    <ul class="scope-list">
       <li>Countertop Installation (Labor Only)<span>Install client-supplied countertop with sink cutout and faucet connections.</span></li>
       <li>Plumbing — Shower Valve &amp; Rough-In<span>New shower valve, linear drain rough-in, convert from tub configuration.</span></li>
       <li>Vent Fan with Ducting<span>Install new exhaust fan with proper exterior ducting for code compliance.</span></li>
@@ -382,13 +309,10 @@
       <li>Bathroom Paint<span>Prep and paint entire bathroom — walls and ceiling.</span></li>
     </ul>
   </div>
-  <div class="sub-header">13 line items total &nbsp;·&nbsp; All labor &amp; installation included</div>
+  <div class="sub-header" style="background:var(--green);">13 line items total · All labor &amp; installation included</div>
 </div>
 
-
-<!-- ══════════════════════════════════════════════════════════
-     PAGE 4 · EXCLUSIONS + CLIENT MATERIALS + TIMELINE
-══════════════════════════════════════════════════════════ -->
+<!-- PAGE 5 · EXCLUSIONS + TIMELINE -->
 <div class="page content-page">
   <div class="band-inner">
     <div class="label">Exclusions</div>
@@ -403,84 +327,40 @@
       <li>Any work outside the bathroom</li>
     </ul>
   </div>
-
-  <div class="materials-wrap">
-    <div class="label">Client-Provided Materials</div>
-    <div class="title" style="font-size:20px;margin-bottom:6px;">Budget Guidance</div>
-    <p style="font-size:13px;color:#666;line-height:1.6;margin-bottom:8px;">You'll source these items directly. Here's what to budget:</p>
-    <table class="materials-table">
-      <tr>
-        <th>Item</th>
-        <th>Budget Range</th>
-      </tr>
-      <tr>
-        <td>Tile Material (shower walls, floor, niche)</td>
-        <td>$1,200 – $1,800</td>
-      </tr>
-      <tr>
-        <td>Vanity / Cabinet</td>
-        <td>$600 – $1,200</td>
-      </tr>
-      <tr>
-        <td>Countertop / Top</td>
-        <td>$400 – $1,000</td>
-      </tr>
-      <tr class="total-row">
-        <td>Estimated Total Materials</td>
-        <td>$2,200 – $4,000</td>
-      </tr>
-    </table>
-  </div>
-
-  <div class="timeline-wrap" style="padding-top:32px;padding-bottom:32px;">
+  <div class="timeline-wrap">
     <div class="label">Project Schedule</div>
-    <div class="title" style="font-size:20px;margin-bottom:6px;">Estimated Timeline: 3–4 Weeks</div>
+    <div class="title" style="font-size:22px;margin-bottom:8px;">Estimated Timeline: 3–4 Weeks</div>
     <p style="font-size:12px;color:#666;line-height:1.6;">Pending material availability on-site. Client materials must be delivered before scheduled installation.</p>
-    <div class="timeline-steps" style="margin-top:20px;">
+    <div class="timeline-steps">
       <div class="timeline-step">
         <div class="step-dot">1</div>
-        <div class="step-label">
-          <strong>Sign &amp; Deposit</strong>
-          <span>Contract signed,<br>$1,000 secures date</span>
-        </div>
+        <div class="step-label"><strong>Sign</strong><span>Contract signed,<br>$1,000 holds date</span></div>
       </div>
       <div class="timeline-step">
         <div class="step-dot">2</div>
-        <div class="step-label">
-          <strong>Week 1</strong>
-          <span>Demo, hot mop,<br>rough plumbing</span>
-        </div>
+        <div class="step-label"><strong>Week 1</strong><span>Demo, hot mop,<br>rough plumbing</span></div>
       </div>
       <div class="timeline-step">
         <div class="step-dot">3</div>
-        <div class="step-label">
-          <strong>Week 2–3</strong>
-          <span>Tile, drywall,<br>glass install</span>
-        </div>
+        <div class="step-label"><strong>Week 2–3</strong><span>Tile, drywall,<br>glass install</span></div>
       </div>
       <div class="timeline-step">
         <div class="step-dot">4</div>
-        <div class="step-label">
-          <strong>Week 3–4</strong>
-          <span>Vanity, fan,<br>paint, punch</span>
-        </div>
+        <div class="step-label"><strong>Week 3–4</strong><span>Vanity, fan,<br>paint, punch</span></div>
       </div>
     </div>
   </div>
 </div>
 
-
-<!-- ══════════════════════════════════════════════════════════
-     PAGE 5 · RENDER + INVESTMENT
-══════════════════════════════════════════════════════════ -->
+<!-- PAGE 6 · RENDER + INVESTMENT -->
 <div class="page" style="display:flex;flex-direction:column;">
-  <img src="./render-2.png" alt="Shower detail render" style="width:100%;height:480px;object-fit:cover;display:block;" />
+  <img src="./render-2.png" alt="Shower detail render" style="width:100%;height:420px;object-fit:cover;display:block;" />
   <div class="invest-block">
     <div class="invest-top">
       <div>
         <div class="inv-label">Total Project Investment</div>
         <div class="invest-total">$15,820</div>
-        <div class="invest-note">Labor &amp; installation only &nbsp;·&nbsp; All finish materials provided by client</div>
+        <div class="invest-note">Labor &amp; installation only · All finish materials provided by client</div>
       </div>
     </div>
     <div class="invest-payments">
@@ -490,30 +370,34 @@
         <div class="pay-detail">Secures your start date<br>per CA contractor law</div>
       </div>
       <div class="pay-block">
-        <div class="pay-pct">$3,746</div>
-        <div class="pay-phase">Day 1</div>
-        <div class="pay-detail">30% minus deposit<br>work begins</div>
+        <div class="pay-pct">40%</div>
+        <div class="pay-phase">At Midpoint</div>
+        <div class="pay-detail">Rough work complete,<br>inspections passed</div>
       </div>
       <div class="pay-block">
-        <div class="pay-pct">$6,328</div>
-        <div class="pay-phase">Midpoint</div>
-        <div class="pay-detail">Rough complete<br>inspections passed</div>
-      </div>
-      <div class="pay-block">
-        <div class="pay-pct">$4,746</div>
-        <div class="pay-phase">Completion</div>
-        <div class="pay-detail">Final walkthrough<br>punch list sign-off</div>
+        <div class="pay-pct">30%</div>
+        <div class="pay-phase">At Completion</div>
+        <div class="pay-detail">Final walkthrough &amp;<br>punch list sign-off</div>
       </div>
     </div>
   </div>
 </div>
 
-
-<!-- ══════════════════════════════════════════════════════════
-     PAGE 6 · TERMS + SIGNATURE
-══════════════════════════════════════════════════════════ -->
+<!-- PAGE 7 · CLIENT MATERIALS -->
 <div class="page content-page">
-  <div class="terms-wrap">
+  <div class="materials-box">
+    <div class="label">Client-Provided Materials</div>
+    <div class="title" style="font-size:22px;margin-bottom:6px;">Budget Guidance</div>
+    <p style="font-size:13px;color:#666;line-height:1.6;margin-bottom:4px;">You'll source these items directly. Here's what to budget:</p>
+    <table class="materials-table">
+      <tr><th>Item</th><th>Budget Range</th></tr>
+      <tr><td>Tile Material (shower walls, floor, niche)</td><td>$1,200 – $1,800</td></tr>
+      <tr><td>Vanity / Cabinet</td><td>$600 – $1,200</td></tr>
+      <tr><td>Countertop / Top</td><td>$400 – $1,000</td></tr>
+      <tr class="total-row"><td>Estimated Total Materials</td><td>$2,200 – $4,000</td></tr>
+    </table>
+  </div>
+  <div class="terms-wrap" style="padding-top:32px;">
     <div class="label">Terms &amp; Warranty</div>
     <div class="title" style="font-size:22px;margin-bottom:4px;">Our Commitment</div>
     <div class="terms-grid">
@@ -533,38 +417,28 @@
       </div>
     </div>
   </div>
+</div>
 
-  <div class="sig-wrap">
+<!-- PAGE 8 · SIGNATURE -->
+<div class="page content-page">
+  <div class="sig-wrap" style="flex:1;">
     <div class="label">Authorization</div>
     <div class="title title-light" style="font-size:22px;">Ready to Get Started?</div>
     <p>By signing below, you authorize Timberline Build Co to proceed with the scope of work as described in this proposal at the total investment stated. All change orders require written approval. Client-supplied materials must be on-site prior to scheduled installation.</p>
     <div class="sig-box">
       <div class="label">Signatures</div>
       <div class="sig-grid">
-        <div class="sig-field">
-          <label>Client Signature</label>
-          <div class="sig-line"></div>
-        </div>
-        <div class="sig-field">
-          <label>Date</label>
-          <div class="sig-line"></div>
-        </div>
-        <div class="sig-field">
-          <label>Printed Name</label>
-          <div class="sig-line"></div>
-        </div>
-        <div class="sig-field">
-          <label>Justin Sherman — Timberline Build Co</label>
-          <div class="sig-line"></div>
-        </div>
+        <div class="sig-field"><label>Client Signature</label><div class="sig-line"></div></div>
+        <div class="sig-field"><label>Date</label><div class="sig-line"></div></div>
+        <div class="sig-field"><label>Printed Name</label><div class="sig-line"></div></div>
+        <div class="sig-field"><label>Justin Sherman — Timberline Build Co</label><div class="sig-line"></div></div>
       </div>
     </div>
   </div>
-
   <div class="foot-strip">
     <p>
-      <strong>Timberline Build Co</strong> &nbsp;·&nbsp; Justin Sherman, GC &nbsp;·&nbsp; CSLB #1136140<br>
-      Orange County, CA &nbsp;·&nbsp; <strong>949-229-1692</strong> &nbsp;·&nbsp; timberlinebuild.co<br>
+      <strong>Timberline Build Co</strong> · Justin Sherman, GC · CSLB #1136140<br>
+      Orange County, CA · <strong>949-229-1692</strong> · timberlinebuild.co<br>
       This proposal is valid for 30 days from date of issue. Pricing subject to change after expiration.
     </p>
   </div>
