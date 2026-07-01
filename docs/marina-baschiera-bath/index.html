@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guest Bath Remodel Proposal — Timberline Build Co</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green: #19412c;
+      --brown: #614432;
+      --dark-brown: #312509;
+      --navy: #213245;
+      --gold: #e9af3b;
+      --light: #f8f7f5;
+      --text: #2c2c2c;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #fff;
+      box-shadow: 0 0 40px rgba(0,0,0,0.08);
+    }
+    
+    /* Cover */
+    .cover {
+      background: linear-gradient(135deg, var(--green) 0%, var(--dark-brown) 100%);
+      color: #fff;
+      padding: 60px 50px;
+      text-align: center;
+    }
+    .cover img {
+      max-width: 200px;
+      margin-bottom: 30px;
+    }
+    .cover h1 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+    .cover .subtitle {
+      font-size: 16px;
+      font-weight: 400;
+      opacity: 0.9;
+      margin-bottom: 30px;
+    }
+    .cover .client-info {
+      background: rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 20px;
+      margin-top: 20px;
+    }
+    .cover .client-info p {
+      margin: 5px 0;
+      font-size: 14px;
+    }
+    .cover .date {
+      margin-top: 30px;
+      font-size: 14px;
+      opacity: 0.8;
+    }
+    
+    /* Sections */
+    section {
+      padding: 40px 50px;
+      border-bottom: 1px solid #eee;
+    }
+    section:last-child { border-bottom: none; }
+    
+    h2 {
+      color: var(--green);
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 3px solid var(--gold);
+      display: inline-block;
+    }
+    
+    /* Overview */
+    .overview p {
+      font-size: 15px;
+      color: #444;
+    }
+    
+    /* Scope */
+    .scope-list {
+      list-style: none;
+    }
+    .scope-list li {
+      padding: 12px 0;
+      border-bottom: 1px solid #eee;
+      font-size: 14px;
+      display: flex;
+      align-items: flex-start;
+    }
+    .scope-list li:last-child { border-bottom: none; }
+    .scope-list .check {
+      color: var(--green);
+      font-weight: 700;
+      margin-right: 12px;
+      font-size: 16px;
+    }
+    
+    /* Exclusions */
+    .exclusions {
+      background: #fdf8f4;
+      border-left: 4px solid var(--brown);
+      padding: 20px 25px;
+      margin-top: 10px;
+    }
+    .exclusions h3 {
+      color: var(--brown);
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .exclusions ul {
+      list-style: none;
+      font-size: 13px;
+      color: #555;
+    }
+    .exclusions li {
+      padding: 4px 0;
+    }
+    .exclusions li::before {
+      content: "✕";
+      color: var(--brown);
+      margin-right: 8px;
+      font-weight: 600;
+    }
+    
+    /* Investment */
+    .investment-box {
+      background: var(--green);
+      color: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      text-align: center;
+    }
+    .investment-box .label {
+      font-size: 14px;
+      opacity: 0.9;
+      margin-bottom: 5px;
+    }
+    .investment-box .amount {
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--gold);
+    }
+    .investment-box .note {
+      font-size: 12px;
+      opacity: 0.8;
+      margin-top: 10px;
+    }
+    
+    /* Client Materials */
+    .client-materials {
+      background: #f9f9f9;
+      border: 2px dashed #ddd;
+      border-radius: 8px;
+      padding: 25px;
+      margin-top: 25px;
+    }
+    .client-materials h3 {
+      color: var(--navy);
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+    .client-materials table {
+      width: 100%;
+      font-size: 14px;
+    }
+    .client-materials td {
+      padding: 8px 0;
+      border-bottom: 1px solid #eee;
+    }
+    .client-materials td:last-child {
+      text-align: right;
+      font-weight: 600;
+      color: var(--navy);
+    }
+    .client-materials tr:last-child td {
+      border-bottom: none;
+    }
+    .client-materials .total-row td {
+      border-top: 2px solid var(--navy);
+      padding-top: 12px;
+      font-weight: 700;
+    }
+    
+    /* Timeline */
+    .timeline-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+    .timeline-item {
+      background: #f9f9f9;
+      padding: 15px;
+      border-radius: 6px;
+      border-left: 3px solid var(--gold);
+    }
+    .timeline-item .label {
+      font-size: 12px;
+      color: #777;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .timeline-item .value {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--green);
+      margin-top: 4px;
+    }
+    
+    /* Payment */
+    .payment-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    .payment-table th {
+      background: var(--navy);
+      color: #fff;
+      padding: 12px 15px;
+      text-align: left;
+      font-weight: 600;
+    }
+    .payment-table td {
+      padding: 15px;
+      border-bottom: 1px solid #eee;
+    }
+    .payment-table tr:nth-child(even) {
+      background: #f9f9f9;
+    }
+    .payment-table .amount {
+      font-weight: 600;
+      color: var(--green);
+    }
+    
+    /* Warranty */
+    .warranty {
+      background: #f4f7f5;
+      padding: 20px 25px;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+    .warranty strong {
+      color: var(--green);
+    }
+    
+    /* Signature */
+    .signature-section {
+      background: #fafafa;
+    }
+    .sig-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 30px;
+    }
+    .sig-box {
+      border-bottom: 2px solid #333;
+      padding-bottom: 8px;
+      margin-bottom: 8px;
+    }
+    .sig-label {
+      font-size: 12px;
+      color: #777;
+    }
+    
+    /* Footer */
+    .footer {
+      background: var(--green);
+      color: #fff;
+      padding: 25px 50px;
+      text-align: center;
+      font-size: 13px;
+    }
+    .footer a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+    
+    @media (max-width: 600px) {
+      section { padding: 30px 25px; }
+      .cover { padding: 40px 25px; }
+      .cover h1 { font-size: 22px; }
+      .timeline-grid { grid-template-columns: 1fr; }
+      .sig-grid { grid-template-columns: 1fr; gap: 30px; }
+      .investment-box .amount { font-size: 32px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    
+    <!-- Cover -->
+    <div class="cover">
+      <img src="./logo.png" alt="Timberline Build Co">
+      <h1>Guest Bathroom Remodel</h1>
+      <p class="subtitle">Tub-to-Shower Conversion</p>
+      <div class="client-info">
+        <p><strong>Prepared for:</strong> Marina Baschiera</p>
+        <p>2348 Littleton Circle</p>
+        <p>Costa Mesa, CA 92626</p>
+      </div>
+      <p class="date">July 1, 2026</p>
+    </div>
+    
+    <!-- Overview -->
+    <section class="overview">
+      <h2>Project Overview</h2>
+      <p>Complete guest bathroom remodel featuring a tub-to-shower conversion with linear drain, frameless glass enclosure, new vanity and countertop, recessed niche, updated ventilation, and fresh paint. This transformation will modernize your guest bath with clean lines and a spa-like walk-in shower.</p>
+    </section>
+    
+    <!-- Scope -->
+    <section>
+      <h2>Scope of Work</h2>
+      <ul class="scope-list">
+        <li><span class="check">✓</span> Complete tub and surround demolition</li>
+        <li><span class="check">✓</span> Hot mop waterproofing for shower pan</li>
+        <li><span class="check">✓</span> Linear drain installation with proper slope</li>
+        <li><span class="check">✓</span> Full tile installation — shower walls, floor, and niche</li>
+        <li><span class="check">✓</span> Recessed shower niche (framing and tile)</li>
+        <li><span class="check">✓</span> Frameless glass shower enclosure</li>
+        <li><span class="check">✓</span> Vanity removal and new vanity installation</li>
+        <li><span class="check">✓</span> New countertop installation</li>
+        <li><span class="check">✓</span> Plumbing — new shower valve, linear drain rough-in</li>
+        <li><span class="check">✓</span> New vent fan with dedicated electrical circuit and ducting</li>
+        <li><span class="check">✓</span> Drywall repair (wall modification near vanity)</li>
+        <li><span class="check">✓</span> Complete bathroom paint</li>
+      </ul>
+      
+      <div class="exclusions">
+        <h3>What's Not Included</h3>
+        <ul>
+          <li>Tile material (client-provided — see budget below)</li>
+          <li>Vanity / cabinet (client-provided — see budget below)</li>
+          <li>Countertop (client-provided — see budget below)</li>
+          <li>Permits (can be added if needed — approx. $500–900)</li>
+          <li>Fixtures beyond standard shower valve</li>
+          <li>Any work outside the bathroom</li>
+        </ul>
+      </div>
+    </section>
+    
+    <!-- Investment -->
+    <section>
+      <h2>Investment Summary</h2>
+      <div class="investment-box">
+        <p class="label">Total Labor & Installation</p>
+        <p class="amount">$15,820</p>
+        <p class="note">Does not include client-provided materials (see below)</p>
+      </div>
+      
+      <div class="client-materials">
+        <h3>📦 Client-Provided Materials — Budget Guidance</h3>
+        <p style="font-size: 13px; color: #666; margin-bottom: 15px;">You'll source these items directly. Here's what to budget:</p>
+        <table>
+          <tr>
+            <td>Tile Material (floor, walls, niche)</td>
+            <td>$1,200 – $1,800</td>
+          </tr>
+          <tr>
+            <td>Vanity / Cabinet</td>
+            <td>$600 – $1,200</td>
+          </tr>
+          <tr>
+            <td>Countertop / Top</td>
+            <td>$400 – $1,000</td>
+          </tr>
+          <tr class="total-row">
+            <td>Estimated Material Budget</td>
+            <td>$2,200 – $4,000</td>
+          </tr>
+        </table>
+      </div>
+    </section>
+    
+    <!-- Timeline -->
+    <section>
+      <h2>Timeline</h2>
+      <div class="timeline-grid">
+        <div class="timeline-item">
+          <p class="label">Estimated Duration</p>
+          <p class="value">3–4 Weeks</p>
+        </div>
+        <div class="timeline-item">
+          <p class="label">Start Date</p>
+          <p class="value">Upon Signing</p>
+        </div>
+      </div>
+      <p style="font-size: 13px; color: #777; margin-top: 15px;">*Timeline subject to material availability. Client-provided materials must be on-site before work begins.</p>
+    </section>
+    
+    <!-- Payment -->
+    <section>
+      <h2>Payment Schedule</h2>
+      <table class="payment-table">
+        <tr>
+          <th>Milestone</th>
+          <th>Amount</th>
+          <th>Notes</th>
+        </tr>
+        <tr>
+          <td>At Signing</td>
+          <td class="amount">$1,000</td>
+          <td>Holds your start date (CA law max before work begins)</td>
+        </tr>
+        <tr>
+          <td>Day 1 of Work</td>
+          <td class="amount">$3,746</td>
+          <td>30% minus the $1,000 deposit</td>
+        </tr>
+        <tr>
+          <td>Midpoint</td>
+          <td class="amount">$6,328</td>
+          <td>Rough work complete / inspections passed</td>
+        </tr>
+        <tr>
+          <td>Completion</td>
+          <td class="amount">$4,746</td>
+          <td>Final walk-through and punch list sign-off</td>
+        </tr>
+      </table>
+    </section>
+    
+    <!-- Warranty -->
+    <section>
+      <h2>Warranty</h2>
+      <div class="warranty">
+        <p><strong>Timberline Build Co</strong> warrants all labor for <strong>1 year</strong> from project completion. Manufacturer warranties apply to all materials and fixtures. Any warranty claims will be addressed promptly and professionally.</p>
+      </div>
+    </section>
+    
+    <!-- Signature -->
+    <section class="signature-section">
+      <h2>Authorization</h2>
+      <p style="font-size: 14px; color: #555; margin-bottom: 20px;">By signing below, you authorize Timberline Build Co to proceed with the work described in this proposal at the agreed price. Change orders require separate written approval.</p>
+      <div class="sig-grid">
+        <div>
+          <div class="sig-box"></div>
+          <p class="sig-label">Client Signature</p>
+          <div class="sig-box" style="margin-top: 20px;"></div>
+          <p class="sig-label">Date</p>
+        </div>
+        <div>
+          <div class="sig-box"></div>
+          <p class="sig-label">Contractor Signature</p>
+          <div class="sig-box" style="margin-top: 20px;"></div>
+          <p class="sig-label">Date</p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Footer -->
+    <div class="footer">
+      <p><strong>Timberline Build Co</strong> · CSLB #1136140 · (949) 229-1692</p>
+      <p><a href="https://timberlinebuild.co">timberlinebuild.co</a></p>
+    </div>
+    
+  </div>
+</body>
+</html>
