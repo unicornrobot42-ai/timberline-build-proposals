@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timberline Build Co. | Brett &amp; Vicki Gilman — Dual Bathroom Conversion</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root { --forest: #19412c; --earth: #312509; --navy: #213245; --gold: #e9af3b; --cream: #faf8f4; --white: #ffffff; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Montserrat', sans-serif; color: #333; background: var(--cream); line-height: 1.7; }
+        h1, h2, h3, h4 { font-weight: 700; line-height: 1.2; letter-spacing: -0.5px; }
+        h1 { font-size: 3.2rem; } h2 { font-size: 2rem; } h3 { font-size: 1.3rem; }
+        .label { text-transform: uppercase; font-size: 0.65rem; letter-spacing: 3px; color: var(--gold); font-weight: 800; margin-bottom: 1.2rem; display: block; }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+        .hero { position: relative; min-height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
+        .hero-bg { position: absolute; inset: 0; background-image: url('hero.jpg'); background-size: cover; background-position: center 40%; z-index: 0; }
+        .hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(25,65,44,0.95) 0%, rgba(25,65,44,0.82) 55%, rgba(25,65,44,0.55) 100%); }
+        .hero-top { position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: center; padding: 2.5rem 3rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .logo { height: 52px; mix-blend-mode: lighten; }
+        .hero-date { font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.6); font-weight: 600; }
+        .hero-body { position: relative; z-index: 1; flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 4rem 3rem; animation: fadeUp 0.8s ease both; color: var(--white); }
+        .hero-body h1 { color: var(--white); margin-bottom: 1rem; max-width: 780px; }
+        .hero-body h1 span { color: var(--gold); }
+        .hero-body p { color: rgba(255,255,255,0.7); max-width: 600px; font-size: 0.95rem; }
+        .hero-meta { display: flex; gap: 3rem; margin-top: 3rem; padding-top: 3rem; border-top: 1px solid rgba(255,255,255,0.15); flex-wrap: wrap; }
+        .meta-label { font-size: 0.62rem; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.45); font-weight: 700; margin-bottom: 0.3rem; }
+        .meta-val { font-size: 0.95rem; font-weight: 600; color: var(--white); }
+        .hero-bottom { position: relative; z-index: 1; padding: 2rem 3rem; border-top: 1px solid rgba(255,255,255,0.1); display: flex; gap: 1.2rem; flex-wrap: wrap; }
+        .tag { background: rgba(233,175,59,0.15); border: 1px solid rgba(233,175,59,0.35); color: var(--gold); font-size: 0.68rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 0.4rem 1rem; border-radius: 100px; }
+
+        .quicknav { display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center; padding: 1.2rem 2rem; background: var(--white); border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 50; }
+        .quicknav a { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.5px; color: var(--earth); text-decoration: none; padding: 0.5rem 0.9rem; border-radius: 100px; background: var(--cream); border: 1px solid #eee; white-space: nowrap; }
+        .quicknav a:hover { border-color: var(--gold); color: #7a5c10; }
+
+        .trust-bar { display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; padding: 2rem 3rem; background: var(--cream); border-bottom: 1px solid #ece7dd; }
+        .trust-item { text-align: center; }
+        .trust-val { font-size: 1.3rem; font-weight: 900; color: var(--forest); }
+        .trust-label { font-size: 0.62rem; letter-spacing: 1.5px; text-transform: uppercase; color: #888; font-weight: 700; margin-top: 0.2rem; }
+
+        .section { padding: 5rem 3rem; max-width: 960px; margin: 0 auto; }
+        .section-divider { height: 1px; background: linear-gradient(to right, var(--gold), transparent); margin: 0 3rem; opacity: 0.25; }
+
+        .overview-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 2rem; }
+        .overview-card { background: var(--white); border-radius: 12px; padding: 1.5rem; border: 1px solid #eee; }
+        .overview-card .oc-label { font-size: 0.62rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); font-weight: 800; margin-bottom: 0.4rem; }
+        .overview-card .oc-val { font-size: 1rem; font-weight: 700; color: var(--earth); }
+
+        .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem; }
+        .why-card { background: var(--white); border-radius: 14px; padding: 2rem 1.6rem; border: 1px solid #eee; }
+        .why-card .why-icon { width: 44px; height: 44px; border-radius: 10px; background: rgba(233,175,59,0.15); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 1rem; }
+        .why-card h3 { font-size: 1rem; color: var(--earth); margin-bottom: 0.5rem; }
+        .why-card p { font-size: 0.85rem; color: #666; line-height: 1.7; }
+
+        .phase-card { background: var(--white); border-radius: 16px; overflow: hidden; margin-bottom: 2.5rem; box-shadow: 0 4px 30px rgba(0,0,0,0.07); border: 1px solid #ececec; }
+        .phase-header { display: flex; align-items: center; gap: 1.5rem; padding: 1.8rem 2.5rem; background: var(--forest); color: var(--white); }
+        .phase-card.navy .phase-header { background: var(--navy); }
+        .phase-card.earth .phase-header { background: var(--earth); }
+        .phase-card.brown .phase-header { background: #614432; }
+        .phase-num { width: 48px; height: 48px; border-radius: 50%; background: var(--gold); color: var(--earth); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; font-weight: 900; flex-shrink: 0; }
+        .phase-header-text h3 { font-size: 1.2rem; color: var(--white); margin-bottom: 0.15rem; }
+        .phase-sub { font-size: 0.7rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 2px; font-weight: 600; }
+        .phase-body { padding: 2rem 2.5rem; }
+        .phase-body p { color: #555; font-size: 0.93rem; line-height: 1.8; margin-bottom: 1.2rem; }
+
+        .scope-list { list-style: none; margin: 0.5rem 0 0; }
+        .scope-list li { display: flex; align-items: flex-start; gap: 0.9rem; padding: 0.65rem 0; border-bottom: 1px solid #f0ece5; font-size: 0.88rem; color: #444; line-height: 1.6; }
+        .scope-list li:last-child { border-bottom: none; }
+        .scope-list li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; margin-top: 7px; }
+
+        .supplies-block { background: #fff8eb; border: 1px solid #f0ddb3; border-radius: 12px; padding: 1.5rem 2rem; margin-top: 1.5rem; }
+        .supplies-block h4 { color: var(--earth); font-size: 0.9rem; margin-bottom: 0.6rem; }
+        .supplies-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+        .supplies-list li { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.82rem; color: #666; }
+        .supplies-list li::before { content: '→'; color: var(--gold); font-weight: 700; flex-shrink: 0; }
+
+        .callout { background: var(--navy); border-radius: 12px; padding: 1.5rem 2rem; margin-top: 1.5rem; }
+        .callout p { color: rgba(255,255,255,0.75); font-size: 0.85rem; line-height: 1.7; margin: 0; }
+        .callout strong { color: var(--gold); }
+
+        .not-included-list { list-style: none; margin-top: 1.5rem; display: grid; grid-template-columns: 1fr; gap: 0.75rem; }
+        .not-included-list li { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.88rem; color: #555; line-height: 1.6; }
+        .not-included-list li::before { content: '—'; color: var(--forest); font-weight: 700; flex-shrink: 0; }
+
+        .total-block { background: var(--forest); border-radius: 16px; padding: 3rem; color: var(--white); }
+        .total-phases { display: flex; flex-direction: column; gap: 0; margin: 1.5rem 0; }
+        .total-row { display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; padding: 0.8rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); gap: 1rem; flex-wrap: wrap; }
+        .total-row:last-child { border-bottom: none; }
+        .total-row .tr-label { color: rgba(255,255,255,0.65); font-weight: 500; }
+        .total-row .tr-val { color: var(--white); font-weight: 700; white-space: nowrap; }
+        .total-final { display: flex; justify-content: space-between; align-items: baseline; padding-top: 1.5rem; margin-top: 0.5rem; border-top: 1px solid rgba(255,255,255,0.15); flex-wrap: wrap; gap: 0.5rem; }
+        .tf-label { font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); font-weight: 800; }
+        .tf-range { font-size: 2.4rem; font-weight: 900; color: var(--gold); letter-spacing: -1px; }
+        .total-caveat { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.83rem; color: rgba(255,255,255,0.5); line-height: 1.7; }
+
+        .faq-item { border: 1px solid #eee; border-radius: 12px; margin-bottom: 0.8rem; background: var(--white); overflow: hidden; }
+        .faq-item summary { padding: 1.1rem 1.5rem; font-weight: 700; font-size: 0.92rem; color: var(--earth); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item summary::after { content: '+'; font-size: 1.3rem; color: var(--gold); font-weight: 400; flex-shrink: 0; margin-left: 1rem; }
+        .faq-item[open] summary::after { content: '−'; }
+        .faq-item .faq-body { padding: 0 1.5rem 1.3rem; font-size: 0.87rem; color: #555; line-height: 1.75; }
+
+        .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-top: 2rem; }
+        .step-card { text-align: center; padding: 0 1rem; }
+        .step-num { width: 40px; height: 40px; border-radius: 50%; background: var(--forest); color: var(--gold); font-weight: 900; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 1.05rem; }
+        .step-card h4 { font-size: 0.95rem; color: var(--earth); margin-bottom: 0.4rem; }
+        .step-card p { font-size: 0.82rem; color: #777; line-height: 1.6; }
+
+        .warranty-block { background: var(--navy); border-radius: 16px; padding: 2.5rem 3rem; color: var(--white); }
+        .warranty-block .label { color: var(--gold); }
+        .warranty-block p { color: rgba(255,255,255,0.65); font-size: 0.92rem; line-height: 1.8; }
+
+        .sig-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem 2rem; margin-top: 2rem; }
+        .sig-line { border-bottom: 1.5px solid #333; margin-bottom: 0.5rem; height: 44px; }
+        .sig-label { font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; color: #999; font-weight: 700; }
+
+        .portfolio-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; border-radius: 12px; overflow: hidden; margin-top: 2rem; }
+        .portfolio-grid img { width: 100%; height: 220px; object-fit: cover; object-position: center 30%; display: block; }
+        .portfolio-grid .wide { grid-column: span 2; }
+
+        footer { background: var(--earth); color: var(--white); padding: 3rem; text-align: center; }
+        footer img { height: 44px; margin-bottom: 1.5rem; mix-blend-mode: lighten; opacity: 0.85; }
+        footer p { font-size: 0.83rem; color: rgba(255,255,255,0.45); margin-bottom: 0.4rem; }
+        footer a { color: var(--gold); }
+
+        @media (max-width: 720px) {
+            h1 { font-size: 2rem; }
+            .hero-top, .hero-body, .hero-bottom { padding: 1.5rem; }
+            .section { padding: 3rem 1.5rem; }
+            .not-included-list, .overview-grid, .why-grid, .steps-grid, .supplies-list { grid-template-columns: 1fr; }
+            .hero-meta { flex-direction: column; gap: 1.2rem; }
+            .phase-header, .phase-body { padding: 1.5rem; }
+            .total-block { padding: 2rem 1.5rem; }
+            .tf-range { font-size: 1.8rem; }
+            .sig-grid { grid-template-columns: 1fr; }
+            .portfolio-grid { grid-template-columns: 1fr; }
+            .portfolio-grid .wide { grid-column: span 1; }
+            .quicknav { overflow-x: auto; justify-content: flex-start; padding: 1rem; }
+            .trust-bar { gap: 1.5rem; padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-top">
+        <img src="logo.png" alt="Timberline Build Co." class="logo">
+        <span class="hero-date">July 2026</span>
+    </div>
+    <div class="hero-body">
+        <span class="label">Bathroom Conversion · Proposal</span>
+        <h1>Jack-and-Jill → <span>Two Separate Baths + W/D</span></h1>
+        <p>Converting one shared Jack-and-Jill bathroom into two fully independent bathrooms with a dedicated washer/dryer area. Complete shell and rough-in package — new framing, plumbing, electrical, two custom showers, and a clean finish throughout. You select every finish; we build the bones.</p>
+        <div class="hero-meta">
+            <div>
+                <div class="meta-label">Prepared For</div>
+                <div class="meta-val">Brett &amp; Vicki Gilman</div>
+            </div>
+            <div>
+                <div class="meta-label">Property</div>
+                <div class="meta-val">650 Avenida Sevilla, Unit C · Laguna Woods</div>
+            </div>
+            <div>
+                <div class="meta-label">Total Investment</div>
+                <div class="meta-val">$45,992</div>
+            </div>
+            <div>
+                <div class="meta-label">Contractor</div>
+                <div class="meta-val">Justin Sherman · 949-229-1692</div>
+            </div>
+        </div>
+    </div>
+    <div class="hero-bottom">
+        <span class="tag">Shell &amp; Rough Package</span>
+        <span class="tag">New Dividing Wall</span>
+        <span class="tag">Two Custom Showers</span>
+        <span class="tag">Full Plumbing Rework</span>
+        <span class="tag">Electrical</span>
+        <span class="tag">W/D Rough-In</span>
+        <span class="tag">Manor Alt. Drawings</span>
+    </div>
+</section>
+
+<nav class="quicknav">
+    <a href="#overview">Overview</a>
+    <a href="#scope">Scope of Work</a>
+    <a href="#customer-supplies">What You Supply</a>
+    <a href="#not-included">Not Included</a>
+    <a href="#investment">Investment</a>
+    <a href="#faq">FAQ</a>
+    <a href="#next-steps">Next Steps</a>
+</nav>
+
+<div class="trust-bar">
+    <div class="trust-item">
+        <div class="trust-val">Licensed &amp; Insured</div>
+        <div class="trust-label">CSLB #1136140</div>
+    </div>
+    <div class="trust-item">
+        <div class="trust-val">1-Year</div>
+        <div class="trust-label">Labor Warranty</div>
+    </div>
+    <div class="trust-item">
+        <div class="trust-val">Shell + Rough</div>
+        <div class="trust-label">You Pick Every Finish</div>
+    </div>
+    <div class="trust-item">
+        <div class="trust-val">Daily</div>
+        <div class="trust-label">Site Cleanup</div>
+    </div>
+</div>
+
+<!-- OVERVIEW -->
+<div class="section" id="overview">
+    <span class="label">Project Overview</span>
+    <h2 style="color: var(--earth); margin-bottom: 1rem;">Two Separate Bathrooms + Washer/Dryer</h2>
+    <p style="color: #555; max-width: 720px;">This proposal covers the complete shell and rough-in package to convert your existing Jack-and-Jill bathroom into two fully separate bathrooms, each with its own entrance, shower, vanity, and toilet — plus a dedicated washer/dryer rough-in. All framing is interior and non-load-bearing, so no structural engineering is triggered.</p>
+    <p style="color: #555; max-width: 720px; margin-top: 1rem;">This is a <strong>shell/rough package</strong> — Timberline handles all structural, rough-in, and installation labor. You supply every finish material and fixture, giving you full control over selections and costs.</p>
+
+    <div class="overview-grid">
+        <div class="overview-card">
+            <div class="oc-label">Investment</div>
+            <div class="oc-val">$45,992</div>
+        </div>
+        <div class="overview-card">
+            <div class="oc-label">Scope</div>
+            <div class="oc-val">7 Trades</div>
+        </div>
+        <div class="overview-card">
+            <div class="oc-label">Package Type</div>
+            <div class="oc-val">Shell + Rough</div>
+        </div>
+        <div class="overview-card">
+            <div class="oc-label">Drawings</div>
+            <div class="oc-val">Included</div>
+        </div>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<div class="section">
+    <span class="label">Why Homeowners Choose Us</span>
+    <h2 style="color: var(--earth); margin-bottom: 0.5rem;">What Working With Us Looks Like</h2>
+    <div class="why-grid">
+        <div class="why-card">
+            <div class="why-icon">📞</div>
+            <h3>Real Communication</h3>
+            <p>We pick up the phone, respond to texts, and give updates before you have to ask. You always know what's happening, what's next, and when we'll be done.</p>
+        </div>
+        <div class="why-card">
+            <div class="why-icon">🧹</div>
+            <h3>Clean Every Day</h3>
+            <p>Your home is still your home during construction. We clean up at the end of every single day — no piles of debris, no dust everywhere, no excuses.</p>
+        </div>
+        <div class="why-card">
+            <div class="why-icon">💵</div>
+            <h3>You Control the Finishes</h3>
+            <p>We build the bones — you pick every tile, fixture, and finish. No markup on your materials. You see exactly what you're paying for and choose exactly what goes in your home.</p>
+        </div>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- SCOPE -->
+<div class="section" id="scope">
+    <span class="label">Scope of Work</span>
+    <h2 style="color: var(--earth); margin-bottom: 0.5rem;">What's Included</h2>
+    <p style="color: #888; font-size: 0.85rem; margin-bottom: 2.5rem;">Complete breakdown by trade. This is a shell/rough package — all finish materials and fixtures are customer-supplied. Timberline provides all labor, structural framing, and installation.</p>
+
+    <!-- 1 Framing & Drywall -->
+    <div class="phase-card">
+        <div class="phase-header">
+            <div class="phase-num">1</div>
+            <div class="phase-header-text">
+                <h3>Framing &amp; Drywall</h3>
+                <div class="phase-sub">New Dividing Wall · Reframe Openings · Blocking · Drywall · Insulation</div>
+            </div>
+        </div>
+        <div class="phase-body">
+            <ul class="scope-list">
+                <li>New dividing wall between the two bathrooms — interior, non-load-bearing framing</li>
+                <li>Reframe and close the old shared Jack-and-Jill openings</li>
+                <li>Frame two new separate entrance openings (one per bath)</li>
+                <li>Shower wall blocking for both showers — solid backing for glass, grab bars, and fixtures</li>
+                <li>Full drywall throughout both bathrooms — all new walls finished and ready for paint</li>
+                <li>Interior sound insulation between the two bathrooms</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 2 Plumbing -->
+    <div class="phase-card navy">
+        <div class="phase-header">
+            <div class="phase-num">2</div>
+            <div class="phase-header-text">
+                <h3>Plumbing</h3>
+                <div class="phase-sub">Shower Drains · Slab Trench · Vanities · W/D Rough · Toilets</div>
+            </div>
+        </div>
+        <div class="phase-body">
+            <p>One consolidated plumbing scope covering all rough and finish plumbing for both bathrooms and the washer/dryer area:</p>
+            <ul class="scope-list">
+                <li>Relocate both shower drains to new positions — includes slab cutting and trenching</li>
+                <li>Move supply and waste lines for both single-sink vanities</li>
+                <li>Washer/dryer rough-in — supply, drain, and venting to the new W/D wall</li>
+                <li>Set both toilets (toilets customer-supplied)</li>
+                <li>Final hookup for both vanities once cabinets and tops are set</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 3 Shower -->
+    <div class="phase-card earth">
+        <div class="phase-header">
+            <div class="phase-num">3</div>
+            <div class="phase-header-text">
+                <h3>Showers — Two Custom Builds</h3>
+                <div class="phase-sub">Hot Mop Pans · Tile Labor · Semi-Frameless Glass</div>
+            </div>
+        </div>
+        <div class="phase-body">
+            <ul class="scope-list">
+                <li>Two custom hot-mop mud-set shower pans (36×34 and 56×34) — the critical waterproofing layer</li>
+                <li>Full tile-setting labor for both showers — walls and floors (tile material customer-supplied)</li>
+                <li>Two semi-frameless glass enclosures — measured, fabricated, and installed</li>
+            </ul>
+            <p style="margin-top: 1rem; font-size: 0.85rem; color: #888; font-style: italic;">All tile, trim, grout, shower valves, trim kits, and shower heads are customer-supplied. Timberline installs.</p>
+        </div>
+    </div>
+
+    <!-- 4 Electrical -->
+    <div class="phase-card brown">
+        <div class="phase-header">
+            <div class="phase-num">4</div>
+            <div class="phase-header-text">
+                <h3>Electrical</h3>
+                <div class="phase-sub">240V Dryer · GFCI Outlets · Lighting · Vent Fans</div>
+            </div>
+        </div>
+        <div class="phase-body">
+            <ul class="scope-list">
+                <li>Relocate 240V circuit to the new W/D wall for the dryer</li>
+                <li>GFCI outlets in both bathrooms — code-compliant placement</li>
+                <li>Vanity and bath lighting wiring — customer supplies fixtures, Timberline wires and sets</li>
+                <li>Two vent fans — tied into existing roof penetrations (no new roof work needed)</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 5 Doors -->
+    <div class="phase-card">
+        <div class="phase-header">
+            <div class="phase-num">5</div>
+            <div class="phase-header-text">
+                <h3>Doors &amp; Hardware</h3>
+                <div class="phase-sub">2 New Entrance Doors · Supply &amp; Hang</div>
+            </div>
+        </div>
+        <div class="phase-body">
+            <ul class="scope-list">
+                <li>Two new hollow-core 6-panel entrance doors — one per bathroom, supplied and hung</li>
+                <li>Lockset hardware is customer-provided</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 6 Paint -->
+    <div class="phase-card navy">
+        <div class="phase-header">
+            <div class="phase-num">6</div>
+            <div class="phase-header-text">
+                <h3>Paint &amp; Finish</h3>
+                <div class="phase-sub">Both Baths · Walls · Trim · Complete</div>
+            </div>
+        </div>
+        <div class="phase-body">
+            <ul class="scope-list">
+                <li>Full paint in both bathrooms — walls, ceiling, and all trim</li>
+                <li>Clean, professional finish ready for fixtures and accessories</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 7 Trim & Millwork -->
+    <div class="phase-card earth">
+        <div class="phase-header">
+            <div class="phase-num">7</div>
+            <div class="phase-header-text">
+                <h3>Trim, Millwork &amp; Vanity Set</h3>
+                <div class="phase-sub">Baseboard · Door Casing · Vanity Cabinets &amp; Tops</div>
+            </div>
+        </div>
+        <div class="phase-body">
+            <ul class="scope-list">
+                <li>Baseboard — material and labor throughout both bathrooms</li>
+                <li>Door casing — material and labor for both new entrance doors</li>
+                <li>Set both vanity cabinets and countertops (cabinets and tops customer-supplied; plumber handles final hookup under the plumbing scope)</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 8 Drawings -->
+    <div class="phase-card brown">
+        <div class="phase-header">
+            <div class="phase-num">8</div>
+            <div class="phase-header-text">
+                <h3>Architectural Drawings</h3>
+                <div class="phase-sub">Architectural · Plumbing · Electrical · Manor Alt. Submittal</div>
+            </div>
+        </div>
+        <div class="phase-body">
+            <ul class="scope-list">
+                <li>Complete architectural, plumbing, and electrical drawings prepared for the Manor Alterations submittal</li>
+                <li>Required by United's process — these need to be drawn before any work can begin</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- CUSTOMER SUPPLIES -->
+<div class="section" id="customer-supplies">
+    <span class="label">What You're Responsible For</span>
+    <h2 style="color: var(--earth); margin-bottom: 0.5rem;">Customer-Supplied Items</h2>
+    <p style="color: #888; font-size: 0.85rem; margin-bottom: 1.5rem;">This is a shell/rough package — you purchase all finish materials and fixtures, we install everything. This gives you full control over selections and keeps material costs transparent.</p>
+
+    <div class="supplies-block">
+        <h4>⚠️ You Supply — We Install:</h4>
+        <ul class="supplies-list">
+            <li>All tile and finish materials (both showers + floors)</li>
+            <li>Shower valves, trim kits, and shower heads (both baths)</li>
+            <li>Both vanity cabinets</li>
+            <li>Both vanity countertops and sinks</li>
+            <li>Both faucets</li>
+            <li>Both toilets</li>
+            <li>Washer and dryer</li>
+            <li>All light fixtures (vanity/bath)</li>
+            <li>Door lockset hardware</li>
+        </ul>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- NOT INCLUDED -->
+<div class="section" id="not-included">
+    <span class="label">Exclusions</span>
+    <h2 style="color: var(--earth); margin-bottom: 0.4rem;">What's NOT Included</h2>
+    <p style="color: #888; font-size: 0.85rem; margin-bottom: 0.5rem;">The following are outside Timberline's scope of work.</p>
+    <ul class="not-included-list">
+        <li><strong>Demo, abatement, air clearance, and dumpster</strong> — customer contracts separately (PW Stephens / abatement company). This is explicitly outside Timberline's scope.</li>
+        <li><strong>Mutual Consent &amp; City of Laguna Woods permit fees</strong> — paid by the member per Section 29 §1.1</li>
+        <li><strong>Structural or plumbing engineering</strong> (if required) — by owner</li>
+        <li><strong>Mutual plumbing waste-line inspection &amp; clearance</strong> — member's responsibility per Standard 43 §3.3. This must happen before any demo begins.</li>
+        <li>All customer-supplied finish materials and fixtures listed above</li>
+        <li>Any work not explicitly listed in this proposal</li>
+    </ul>
+
+    <div class="callout">
+        <p><strong>Important:</strong> The plumbing waste-line inspection and clearance (Standard 43 §3.3) must be completed before demo can begin. If this clearance isn't pulled first, you may be responsible for any resulting plumbing repairs. We recommend getting this scheduled as early as possible.</p>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- INVESTMENT -->
+<div class="section" id="investment">
+    <span class="label">Investment Summary</span>
+    <div class="total-block">
+        <span class="label">650 Avenida Sevilla, Unit C · Dual Bathroom Conversion</span>
+        <div class="total-phases">
+            <div class="total-row">
+                <span class="tr-label">Framing &amp; Drywall — Dividing Wall, Reframing, Blocking, Drywall, Insulation</span>
+                <span class="tr-val">$8,820</span>
+            </div>
+            <div class="total-row">
+                <span class="tr-label">Plumbing — All-In (Drains, Slab Trench, Vanities, W/D Rough, Set Toilets)</span>
+                <span class="tr-val">$8,400</span>
+            </div>
+            <div class="total-row">
+                <span class="tr-label">Showers — Hot Mop Pans (×2), Tile Labor, Glass Enclosures (×2)</span>
+                <span class="tr-val">$13,540</span>
+            </div>
+            <div class="total-row">
+                <span class="tr-label">Electrical — 240V Relocation, GFCI, Lighting, Vent Fans</span>
+                <span class="tr-val">$4,480</span>
+            </div>
+            <div class="total-row">
+                <span class="tr-label">Doors — Supply &amp; Hang (×2)</span>
+                <span class="tr-val">$1,960</span>
+            </div>
+            <div class="total-row">
+                <span class="tr-label">Paint — Both Baths Complete (Walls, Ceiling, Trim)</span>
+                <span class="tr-val">$2,240</span>
+            </div>
+            <div class="total-row">
+                <span class="tr-label">Trim &amp; Millwork — Baseboard, Door Casing, Set Vanities &amp; Tops</span>
+                <span class="tr-val">$3,052</span>
+            </div>
+            <div class="total-row">
+                <span class="tr-label">Architectural Drawings — Manor Alt. Submittal (Arch + Plumbing + Electrical)</span>
+                <span class="tr-val">$3,500</span>
+            </div>
+        </div>
+        <div class="total-final">
+            <div>
+                <div class="tf-label">Total Investment</div>
+            </div>
+            <span class="tf-range">$45,992</span>
+        </div>
+        <div class="total-caveat">
+            Shell/rough package — all labor and installation included as described above. All finish materials and fixtures (tile, vanities, countertops, toilets, faucets, shower fixtures, washer/dryer, light fixtures, door hardware) are customer-supplied and not included in this total. Demo, abatement, permit fees, and engineering are outside this scope. Any conditions discovered during construction will be assessed on-site — you'll be informed and written approval obtained before any additional work proceeds.
+        </div>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- FAQ -->
+<div class="section" id="faq">
+    <span class="label">Common Questions</span>
+    <h2 style="color: var(--earth); margin-bottom: 0.5rem;">Frequently Asked Questions</h2>
+    <p style="color: #888; font-size: 0.85rem; margin-bottom: 2rem;">Questions we hear most on projects like this.</p>
+
+    <details class="faq-item">
+        <summary>What does "shell/rough package" mean?</summary>
+        <div class="faq-body">We handle all the structural work, rough-in trades (plumbing, electrical, framing), and installation labor. You purchase every finish material — tile, fixtures, vanities, toilets, etc. — giving you full control over selections and material costs. There's no markup on anything you buy yourself. When your materials arrive, we install them.</div>
+    </details>
+
+    <details class="faq-item">
+        <summary>Why is plumbing one consolidated number?</summary>
+        <div class="faq-body">Because the plumbing scope touches so many areas (two shower drains with slab trenching, two vanity supply/waste relocations, W/D rough-in, and setting two toilets), we price it as one all-in number to avoid double-counting across sub-trades. Everything plumbing-related is in that one line — no hidden extras.</div>
+    </details>
+
+    <details class="faq-item">
+        <summary>What about the waste-line inspection?</summary>
+        <div class="faq-body">Per Standard 43 §3.3, the Mutual plumbing waste-line inspection and clearance must be completed before any demo begins. This is your responsibility as the member. We strongly recommend scheduling this early — if it isn't pulled first, you could be responsible for any resulting plumbing repairs downstream.</div>
+    </details>
+
+    <details class="faq-item">
+        <summary>Who handles demo and abatement?</summary>
+        <div class="faq-body">Demo, abatement, air clearance, and dumpster are outside Timberline's scope. You'll contract that separately (typically PW Stephens or a similar abatement company). Once demo is complete and air clearance is confirmed, we pick up from there.</div>
+    </details>
+
+    <details class="faq-item">
+        <summary>What are the Manor Alteration drawings?</summary>
+        <div class="faq-body">United requires architectural, plumbing, and electrical drawings as part of their Manor Alterations submittal process. These need to be drawn and approved before construction can begin. The $3,500 covers having those drawings prepared and ready for submittal.</div>
+    </details>
+
+    <details class="faq-item">
+        <summary>Is any structural engineering needed?</summary>
+        <div class="faq-body">All framing in this project is interior and non-load-bearing — the new dividing wall, the reframed openings, and the shower blocking. That means no structural engineering is triggered. If something unexpected comes up during construction that requires engineering, that would be the owner's responsibility and priced separately.</div>
+    </details>
+
+    <details class="faq-item">
+        <summary>What's your warranty on the work?</summary>
+        <div class="faq-body">All labor is warrantied for 1 year from project completion. Materials and fixtures carry their manufacturer warranties on top of that.</div>
+    </details>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- PORTFOLIO -->
+<div class="section">
+    <span class="label">Our Work</span>
+    <h2 style="color: var(--earth); margin-bottom: 0.5rem;">Recent Projects</h2>
+    <p style="color: #888; font-size: 0.85rem; margin-bottom: 0; max-width: 640px; line-height: 1.75;">Every photo below is real work done by Timberline Build Co. — no stock photos. Orange County homeowners who trusted us with their kitchens and bathrooms.</p>
+    <div class="portfolio-grid">
+        <img src="portfolio-recent-1.jpg" alt="Recently Completed Bathroom" style="height:300px;">
+        <img src="portfolio-13.jpg" alt="Kitchen — Warm Wood Shaker Cabinets" class="wide" style="height:300px;">
+        <img src="portfolio-8-clean.jpg" alt="Master Bath — Glass Shower" class="wide" style="height:240px;">
+        <img src="portfolio-9-clean.jpg" alt="Master Bath — Double Vanity" style="height:240px;">
+        <img src="portfolio-4-clean.jpg" alt="Kitchen — Open Concept" style="height:220px;">
+        <img src="portfolio-6-clean.jpg" alt="Bathroom — Modern Finishes" style="height:220px;">
+        <img src="portfolio-10-clean.jpg" alt="Master Bath — Freestanding Tub" style="height:220px;">
+    </div>
+    <p style="margin-top: 1rem; font-size: 0.78rem; color: #aaa; text-align: center; font-style: italic;">All photos are actual Timberline Build Co. completed projects · Orange County, CA</p>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- WARRANTY -->
+<div class="section">
+    <div class="warranty-block">
+        <span class="label">Our Commitment</span>
+        <h2 style="color: var(--white); margin-bottom: 1rem;">Warranty &amp; Terms</h2>
+        <p>Timberline Build Co. warrants all labor for <strong style="color: var(--white);">1 year from project completion</strong>. Manufacturer warranties apply to all materials, fixtures, and equipment. All change orders require written, signed approval before any additional work proceeds. This proposal is valid for 30 days from the date of issue.</p>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- NEXT STEPS -->
+<div class="section" id="next-steps">
+    <span class="label">Ready to Move Forward?</span>
+    <h2 style="color: var(--earth); margin-bottom: 0.5rem;">How This Works From Here</h2>
+    <div class="steps-grid">
+        <div class="step-card">
+            <div class="step-num">1</div>
+            <h4>Review &amp; Ask Questions</h4>
+            <p>Read through the scope above. Call or text Justin with anything that needs clarifying before you sign.</p>
+        </div>
+        <div class="step-card">
+            <div class="step-num">2</div>
+            <h4>Sign the Proposal</h4>
+            <p>Signing secures your spot on our schedule. We'll begin with the Manor Alt. drawings while you coordinate demo and abatement.</p>
+        </div>
+        <div class="step-card">
+            <div class="step-num">3</div>
+            <h4>Drawings, Demo &amp; Build</h4>
+            <p>Drawings are submitted, demo/abatement is completed by your team, and we begin construction as soon as the space is cleared.</p>
+        </div>
+    </div>
+
+    <div style="margin-top: 3rem; background: var(--white); border: 1px solid #eee; border-radius: 16px; padding: 2.5rem;">
+        <p style="font-size: 0.9rem; color: #444; margin-bottom: 2rem;">By signing below, you authorize Timberline Build Co. to proceed with the scope of work described in this proposal at the total investment of <strong>$45,992</strong>.</p>
+        <div class="sig-grid">
+            <div>
+                <div class="sig-line"></div>
+                <div class="sig-label">Brett &amp; Vicki Gilman — Date</div>
+            </div>
+            <div>
+                <div class="sig-line"></div>
+                <div class="sig-label">Timberline Build Co. — Date</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <img src="logo.png" alt="Timberline Build Co.">
+    <p>Timberline Build Co. · Licensed General Contractor · CSLB #1136140 · Orange County, CA</p>
+    <p><a href="tel:9492291692">949-229-1692</a></p>
+    <p style="margin-top: 1rem; font-size: 0.72rem; opacity: 0.35;">© 2026 Timberline Build Co. All rights reserved. This proposal is valid for 30 days from the date of issue.</p>
+</footer>
+
+</body>
+</html>
