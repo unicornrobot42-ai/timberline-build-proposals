@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Timberline Build Co — Meyer Guest Bathroom Remodel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --green: #19412c; --brown: #614432; --dark: #312509; --navy: #213245; --gold: #e9af3b; --cream: #f9f6f1; --light: #fdfcfa; }
+    body { font-family: 'Montserrat', sans-serif; background: var(--cream); color: #1a1a1a; line-height: 1.6; }
+
+    .cover { background: var(--green); color: white; min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; padding: 60px 80px; }
+    .cover-logo img { height: 80px; mix-blend-mode: screen; }
+    .cover-body { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+    .cover-tag { font-size: 11px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; }
+    .cover-title { font-size: 56px; font-weight: 800; line-height: 1.1; margin-bottom: 16px; }
+    .cover-subtitle { font-size: 22px; font-weight: 300; opacity: 0.85; margin-bottom: 48px; }
+    .cover-divider { width: 60px; height: 3px; background: var(--gold); margin-bottom: 40px; }
+    .cover-meta { display: flex; gap: 60px; }
+    .cover-meta-item label { display: block; font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+    .cover-meta-item span { font-size: 16px; font-weight: 500; }
+    .cover-footer { font-size: 13px; opacity: 0.6; display: flex; justify-content: space-between; }
+
+    .section { max-width: 900px; margin: 0 auto; padding: 80px 40px; }
+    .section + .section { border-top: 1px solid #e5e0d8; }
+    .section-label { font-size: 10px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+    .section-title { font-size: 32px; font-weight: 800; color: var(--green); margin-bottom: 28px; line-height: 1.2; }
+    .section p { font-size: 16px; font-weight: 400; color: #333; margin-bottom: 16px; max-width: 720px; }
+
+    .scope-list { list-style: none; margin-top: 8px; }
+    .scope-list li { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-bottom: 1px solid #ede8e0; font-size: 15px; color: #2a2a2a; }
+    .scope-list li:last-child { border-bottom: none; }
+    .scope-list li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); margin-top: 8px; flex-shrink: 0; }
+
+    .not-list { list-style: none; margin-top: 8px; }
+    .not-list li { display: flex; align-items: flex-start; gap: 14px; padding: 10px 0; border-bottom: 1px solid #ede8e0; font-size: 15px; color: #555; line-height: 1.6; }
+    .not-list li:last-child { border-bottom: none; }
+    .not-list li::before { content: '—'; color: #aaa; flex-shrink: 0; font-weight: 700; }
+
+    .material-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 8px; }
+    .material-card { background: white; border: 1px solid #e5e0d8; border-radius: 6px; padding: 20px 24px; }
+    .material-card .label { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--brown); margin-bottom: 6px; }
+    .material-card .amount { font-size: 24px; font-weight: 800; color: var(--green); }
+    .material-card .note { font-size: 12px; color: #777; margin-top: 4px; line-height: 1.5; }
+
+    .timeline-bar { display: flex; gap: 0; margin: 24px 0; border-radius: 6px; overflow: hidden; }
+    .timeline-phase { flex: 1; padding: 16px 12px; text-align: center; font-size: 12px; font-weight: 700; }
+    .timeline-phase .week { font-size: 10px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; opacity: 0.7; margin-bottom: 4px; }
+    .tp-1 { background: var(--green); color: white; }
+    .tp-2 { background: var(--brown); color: white; }
+    .tp-3 { background: var(--navy); color: white; }
+    .tp-4 { background: var(--gold); color: var(--dark); }
+
+    .inv-breakdown { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+    .inv-card { background: white; border: 1px solid #e5e0d8; border-radius: 6px; padding: 20px 24px; text-align: center; }
+    .inv-card.highlight { background: var(--green); border-color: var(--green); }
+    .inv-card .inv-card-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--brown); margin-bottom: 8px; }
+    .inv-card.highlight .inv-card-label { color: var(--gold); }
+    .inv-card .inv-card-amount { font-size: 28px; font-weight: 800; color: var(--green); }
+    .inv-card.highlight .inv-card-amount { color: white; }
+    .inv-card .inv-card-note { font-size: 12px; color: #777; margin-top: 4px; }
+    .inv-card.highlight .inv-card-note { color: rgba(255,255,255,0.6); }
+
+    .investment-note { background: #fff8ec; border-left: 4px solid var(--gold); padding: 16px 20px; font-size: 14px; color: #444; border-radius: 0 4px 4px 0; margin-top: 16px; line-height: 1.7; }
+
+    .warranty-box { background: white; border: 1px solid #e5e0d8; border-radius: 6px; padding: 28px 32px; font-size: 15px; color: #333; font-style: italic; }
+    .terms-list { list-style: none; margin-top: 20px; }
+    .terms-list li { padding: 6px 0; font-size: 14px; color: #555; display: flex; align-items: flex-start; gap: 10px; }
+    .terms-list li::before { content: '•'; color: var(--gold); font-weight: 700; flex-shrink: 0; }
+
+    .sig-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 32px; }
+    .sig-block .sig-label { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #999; margin-bottom: 40px; }
+    .sig-block .sig-line { border-top: 2px solid #333; padding-top: 10px; font-size: 13px; color: #555; }
+
+    .portfolio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; border-radius: 8px; overflow: hidden; margin-top: 24px; }
+    .portfolio-grid img { width: 100%; height: 200px; object-fit: cover; display: block; }
+
+    .proposal-footer { background: var(--dark); color: white; text-align: center; padding: 40px; font-size: 14px; opacity: 0.9; }
+
+    @media (max-width: 600px) {
+      .cover { padding: 40px 24px; }
+      .cover-title { font-size: 36px; }
+      .cover-meta { flex-direction: column; gap: 24px; }
+      .section { padding: 48px 24px; }
+      .material-grid, .inv-breakdown, .sig-grid, .portfolio-grid { grid-template-columns: 1fr; }
+      .timeline-bar { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-logo">
+    <img src="./logo-dark.png" alt="Timberline Build Co" />
+  </div>
+  <div class="cover-body">
+    <div class="cover-tag">Project Proposal</div>
+    <div class="cover-title">Guest Bathroom<br>Remodel</div>
+    <div class="cover-subtitle">Double Vanity · Wet Room Opening · New Tub · Tiled Shower</div>
+    <div class="cover-divider"></div>
+    <div class="cover-meta">
+      <div class="cover-meta-item">
+        <label>Prepared For</label>
+        <span>Vanessa &amp; T Meyer</span>
+      </div>
+      <div class="cover-meta-item">
+        <label>Location</label>
+        <span>10 Calle Pastadero, San Clemente</span>
+      </div>
+      <div class="cover-meta-item">
+        <label>Date</label>
+        <span>July 2026</span>
+      </div>
+    </div>
+  </div>
+  <div class="cover-footer">
+    <span>Timberline Build Co &nbsp;·&nbsp; Licensed General Contractor &nbsp;·&nbsp; CSLB #1136140 &nbsp;·&nbsp; Orange County, CA</span>
+    <span>949-229-1692</span>
+  </div>
+</div>
+
+<!-- 01 OVERVIEW -->
+<div class="section">
+  <div class="section-label">01 — Project Overview</div>
+  <div class="section-title">A Complete Guest Bath Transformation</div>
+  <p>This project is a full remodel of the guest bathroom at 10 Calle Pastadero — demo the existing tub surround, flooring, and vanity, open up the wall between the vanity and wet room, and come back with a tiled shower over a new alcove tub, a double-sink vanity with quartz top, and all new plumbing, electrical, and finishes throughout.</p>
+  <p>All work is performed by Timberline Build Co and our trusted trade partners, with Justin Sherman on-site throughout the project.</p>
+  <p><strong>This is a construction-labor proposal.</strong> Timberline handles all demo, framing, rough-in, tile installation, glass, electrical, plumbing, paint, and finish work. You select and purchase all finish materials (tile, fixtures, vanity, tub) — we install everything. Your estimated material budget is broken out separately in Section 05 so you know exactly what to plan for.</p>
+</div>
+
+<!-- 02 SCOPE -->
+<div class="section">
+  <div class="section-label">02 — Scope of Work</div>
+  <div class="section-title">What's Included</div>
+  <ul class="scope-list">
+    <li>Full demo — tub, surround, flooring, and vanity. Existing toilet stays (protected in place). Remove soffit over vanity area</li>
+    <li>Dumpster and haul-away for all demo debris</li>
+    <li>Partial wall removal between vanity area and wet room to open up the space — assumes non-bearing (see note below)</li>
+    <li>Framing — blocking for shower niche, grab bar, and glass mount</li>
+    <li>Drywall — patch ceiling and walls at demo areas, soffit area, wall behind mirror, texture match throughout</li>
+    <li>Tile labor — shower walls (32×60 tub surround, ~105 sf including surround area) and bathroom floor (~45 sf). All tile material customer-supplied</li>
+    <li>Semi-frameless shower glass enclosure — measured, fabricated, and installed</li>
+    <li>Plumbing — all-in: shower valve rough and finish, set new alcove tub, double vanity rough and finish (supply, drain, and faucet hookup), reset existing toilet</li>
+    <li>Countertop fabrication — quartz fabrication labor for double-sink top (×2 sink cutouts). Customer supplies slab material</li>
+    <li>Set vanity cabinet and countertop (cabinet customer-supplied; plumber handles final hookup)</li>
+    <li>Electrical — relocate vanity lighting and outlets from removed wall, add 3 recessed can lights (6"), GFCI outlets at both vanity locations (code), vent fan (new or relocated, tied to existing penetration)</li>
+    <li>Paint — entire bathroom: walls, ceiling, and trim</li>
+    <li>Baseboard — labor and material throughout bathroom</li>
+  </ul>
+
+  <div class="investment-note" style="margin-top: 24px;">
+    <strong>⚠️ Note:</strong> The wall between the vanity and wet room is assumed to be non-bearing. This will be confirmed before any work begins. If it turns out to be load-bearing, structural engineering and a beam/post solution would need to be added — estimated at $1,500–$2,500 additional.
+  </div>
+</div>
+
+<!-- 03 EXCLUSIONS -->
+<div class="section">
+  <div class="section-label">03 — Exclusions</div>
+  <div class="section-title">What's NOT Included</div>
+  <ul class="not-list">
+    <li>All finish materials — tile, vanity cabinet, countertop slab, sinks, faucets, shower fixtures, tub, and light fixtures are customer-supplied (see estimated material budget in Section 05)</li>
+    <li>Permits — not included. Customer is responsible for permits if desired</li>
+    <li>Toilet accessories and hardware — customer to supply</li>
+    <li>Countertop slab material — fabrication labor is included, but stone cost depends on your slab selection (budget $45–90/sf for a ~7' double top)</li>
+    <li>Structural engineering — only required if the wall is determined to be load-bearing</li>
+    <li>Toilet flange height adjustment — existing toilet is being reused; if the new floor tile buildup requires a flange adjustment, that would be priced separately</li>
+    <li>Any work not explicitly listed in this proposal</li>
+  </ul>
+</div>
+
+<!-- 04 WHAT YOU SUPPLY -->
+<div class="section">
+  <div class="section-label">04 — What You Supply</div>
+  <div class="section-title">Customer-Supplied Materials</div>
+  <p>You purchase all finish materials and fixtures — we install everything. This keeps your material costs fully transparent and gives you complete control over selections. No markup on anything you buy.</p>
+  <ul class="scope-list">
+    <li><strong>Shower/tub surround tile</strong> — wall tile for shower area (~80 sf + waste)</li>
+    <li><strong>Floor tile</strong> — bathroom floor (~45 sf + 10% waste ≈ 50 sf)</li>
+    <li><strong>Tile trim and grout</strong></li>
+    <li><strong>Double vanity cabinet</strong></li>
+    <li><strong>Quartz slab material</strong> — for countertop fabrication (Timberline handles cutting and install)</li>
+    <li><strong>Undermount sinks (×2)</strong></li>
+    <li><strong>Vanity faucets (×2)</strong></li>
+    <li><strong>Shower valve, trim kit, and shower head</strong></li>
+    <li><strong>Alcove tub</strong></li>
+    <li><strong>Toilet accessories and hardware</strong></li>
+  </ul>
+</div>
+
+<!-- 05 ESTIMATED MATERIAL BUDGET -->
+<div class="section">
+  <div class="section-label">05 — Estimated Material Budget</div>
+  <div class="section-title">What to Budget for Materials</div>
+  <p>These are mid-range estimates to help you plan. Actual costs depend on your selections. All materials are purchased by you directly — Timberline installs at no additional markup.</p>
+
+  <div class="material-grid">
+    <div class="material-card">
+      <div class="label">Shower / Wall Tile (~80 sf)</div>
+      <div class="amount">~$800</div>
+      <div class="note">Estimated at ~$10/sf. Range: $4–12/sf depending on selection.</div>
+    </div>
+    <div class="material-card">
+      <div class="label">Floor Tile (~50 sf incl. waste)</div>
+      <div class="amount">~$500</div>
+      <div class="note">Estimated at ~$6.50/sf. Range: $4–10/sf.</div>
+    </div>
+    <div class="material-card">
+      <div class="label">Tile Trim &amp; Grout</div>
+      <div class="amount">~$200</div>
+      <div class="note">Bullnose, schluter, grout, and sealer.</div>
+    </div>
+    <div class="material-card">
+      <div class="label">Double Vanity Cabinet</div>
+      <div class="amount">~$1,400</div>
+      <div class="note">Mid-tier estimate. Range: $1,200–3,500.</div>
+    </div>
+    <div class="material-card">
+      <div class="label">Quartz Slab Material</div>
+      <div class="amount">TBD</div>
+      <div class="note">Depends on selection. Budget $45–90/sf installed for a ~7' double top.</div>
+    </div>
+    <div class="material-card">
+      <div class="label">Undermount Sinks (×2)</div>
+      <div class="amount">~$200</div>
+      <div class="note">Estimated at ~$120 ea. Range: $80–200 ea.</div>
+    </div>
+    <div class="material-card">
+      <div class="label">Vanity Faucets (×2)</div>
+      <div class="amount">~$400</div>
+      <div class="note">Estimated at ~$275 ea. Range: $150–450 ea.</div>
+    </div>
+    <div class="material-card">
+      <div class="label">Shower Valve + Trim + Head</div>
+      <div class="amount">~$450</div>
+      <div class="note">Range: $250–800 depending on finish and tier.</div>
+    </div>
+    <div class="material-card">
+      <div class="label">Alcove Tub</div>
+      <div class="amount">~$600</div>
+      <div class="note">~$300 for tub + $300 install allowance. Standard alcove.</div>
+    </div>
+    <div class="material-card">
+      <div class="label">Baseboard Material</div>
+      <div class="amount">~$100</div>
+      <div class="note">Throughout bathroom. Labor included in construction total.</div>
+    </div>
+  </div>
+
+  <div class="investment-note" style="margin-top: 24px;">
+    <strong>Estimated Material Total: ~$4,650</strong> (plus quartz slab TBD on selection). These are estimates — your actual cost may be higher or lower depending on what you choose. Timberline can help source any of these if you'd like guidance.
+  </div>
+</div>
+
+<!-- 06 TIMELINE -->
+<div class="section">
+  <div class="section-label">06 — Timeline</div>
+  <div class="section-title">Estimated Project Schedule</div>
+  <p>This project is estimated at approximately <strong>2–3 weeks of construction</strong>, plus lead time for shower glass fabrication once tile is complete.</p>
+  <div class="timeline-bar">
+    <div class="timeline-phase tp-1">
+      <div class="week">Week 1</div>
+      Demo, Framing, Rough Plumbing &amp; Electrical
+    </div>
+    <div class="timeline-phase tp-2">
+      <div class="week">Week 2</div>
+      Drywall, Tile, Tub Set &amp; Vanity
+    </div>
+    <div class="timeline-phase tp-3">
+      <div class="week">Week 3</div>
+      Paint, Trim, Fixtures &amp; Final Plumbing
+    </div>
+    <div class="timeline-phase tp-4">
+      <div class="week">+ 7–10 Days</div>
+      Glass Fabrication &amp; Install
+    </div>
+  </div>
+  <p style="font-size: 14px; color: #777;">Pending material lead times and your tile/fixture selections. Timberline will communicate any schedule changes promptly.</p>
+</div>
+
+<!-- 07 INVESTMENT -->
+<div class="section">
+  <div class="section-label">07 — Investment</div>
+  <div class="section-title">Your Project Investment</div>
+
+  <div class="inv-breakdown">
+    <div class="inv-card highlight">
+      <div class="inv-card-label">Construction Total</div>
+      <div class="inv-card-amount">$17,760</div>
+      <div class="inv-card-note">All Timberline labor &amp; installation</div>
+    </div>
+    <div class="inv-card">
+      <div class="inv-card-label">Estimated Materials</div>
+      <div class="inv-card-amount">~$4,650</div>
+      <div class="inv-card-note">Customer-purchased (+ quartz slab TBD)</div>
+    </div>
+  </div>
+
+  <div class="investment-note">
+    💡 <strong>The construction total of $17,760 is what you pay Timberline</strong> — this covers all demo, framing, drywall, tile labor, glass, plumbing, electrical, paint, countertop fabrication, trim, and vanity setting. The estimated ~$4,650 in materials is what you purchase directly from suppliers. There is no markup on your materials. Quartz slab material is not yet budgeted — cost depends on your selection ($45–90/sf for a ~7' double top).
+  </div>
+</div>
+
+<!-- 08 WARRANTY -->
+<div class="section">
+  <div class="section-label">08 — Warranty &amp; Terms</div>
+  <div class="section-title">Our Commitment to Your Project</div>
+
+  <div class="warranty-box">
+    "Timberline Build Co warrants all labor for 1 year from project completion. Manufacturer warranties apply to all materials and fixtures."
+  </div>
+
+  <ul class="terms-list">
+    <li>All change orders require written approval before work proceeds</li>
+    <li>Client to select and supply all finish materials prior to the relevant phase of construction</li>
+    <li>Wall between vanity and wet room will be confirmed non-bearing before demo — if bearing, additional scope will be quoted separately</li>
+    <li>Timberline Build Co is licensed and insured in the state of California (CSLB #1136140)</li>
+    <li>A lien waiver will be provided upon final payment</li>
+    <li>This proposal is valid for 30 days from the date of issue</li>
+  </ul>
+</div>
+
+<!-- 09 OUR WORK -->
+<div class="section">
+  <div class="section-label">09 — Our Work</div>
+  <div class="section-title">Recent Projects</div>
+  <p>Every photo below is real work done by Timberline Build Co — no stock photos. Orange County homeowners who trusted us with their bathrooms.</p>
+  <div class="portfolio-grid">
+    <img src="./portfolio-recent-1.jpg" alt="Recently Completed Bathroom" />
+    <img src="./portfolio-8-clean.jpg" alt="Master Bath — Glass Shower" />
+    <img src="./portfolio-9-clean.jpg" alt="Master Bath — Double Vanity" />
+    <img src="./portfolio-10-clean.jpg" alt="Master Bath — Freestanding Tub" />
+  </div>
+  <p style="margin-top: 12px; font-size: 12px; color: #aaa; text-align: center; font-style: italic;">All photos are actual Timberline Build Co completed projects · Orange County, CA</p>
+</div>
+
+<!-- 10 AUTHORIZATION -->
+<div class="section">
+  <div class="section-label">10 — Authorization</div>
+  <div class="section-title">Let's Get Started</div>
+  <p>By signing below, you authorize Timberline Build Co to proceed with the scope of work as described in this proposal at the construction investment of <strong>$17,760</strong>. Materials are purchased separately by the customer as outlined in Section 05.</p>
+
+  <div class="sig-grid">
+    <div class="sig-block">
+      <div class="sig-label">Client Signature</div>
+      <div class="sig-line">Vanessa &amp; T Meyer &nbsp;&nbsp; Date: ___________</div>
+    </div>
+    <div class="sig-block">
+      <div class="sig-label">Timberline Build Co</div>
+      <div class="sig-line">Justin Sherman &nbsp;&nbsp; Date: ___________</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="proposal-footer">
+  <strong>Timberline Build Co</strong> · Licensed General Contractor · CSLB #1136140 · Orange County, CA<br>
+  949-229-1692 · Questions? Call or text Justin directly.
+</div>
+
+</body>
+</html>
