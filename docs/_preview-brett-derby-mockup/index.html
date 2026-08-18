@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timberline Build Co. | Brett Derby — Multi-Scope Project (Mockup)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --forest: #19412c;
+            --earth: #312509;
+            --navy: #213245;
+            --gold: #e9af3b;
+            --cream: #faf8f4;
+            --paper: #f5f1e8;
+            --white: #ffffff;
+            --ink: #1a1a1a;
+            --dim: #7a7a7a;
+            --line: #e8e2d3;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--ink);
+            background: var(--cream);
+            line-height: 1.7;
+            font-weight: 400;
+            font-size: 15px;
+        }
+        .serif { font-family: 'Fraunces', serif; font-weight: 400; letter-spacing: -0.02em; }
+        .mono-label {
+            font-family: 'Inter', sans-serif;
+            text-transform: uppercase;
+            font-size: 0.68rem;
+            letter-spacing: 3px;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        /* ================================================
+           HEADER (kept from existing template)
+           ================================================ */
+        .hero { position: relative; min-height: 100vh; display: flex; flex-direction: column; overflow: hidden; font-family: 'Montserrat', sans-serif; }
+        .hero-bg { position: absolute; inset: 0; background-image: url('hero.jpg'); background-size: cover; background-position: center 40%; z-index: 0; }
+        .hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(25,65,44,0.95) 0%, rgba(25,65,44,0.82) 55%, rgba(25,65,44,0.55) 100%); }
+        .hero-top { position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: center; padding: 2.5rem 3rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .logo { height: 52px; mix-blend-mode: lighten; }
+        .hero-date { font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.6); font-weight: 600; }
+        .hero-body { position: relative; z-index: 1; flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 4rem 3rem; color: var(--white); }
+        .hero-body h1 { color: var(--white); margin-bottom: 1rem; max-width: 780px; font-size: 3.2rem; font-weight: 700; line-height: 1.1; letter-spacing: -0.5px; }
+        .hero-body h1 span { color: var(--gold); }
+        .hero-body p { color: rgba(255,255,255,0.7); max-width: 600px; font-size: 0.95rem; }
+        .hero-body .mono-label { color: var(--gold); margin-bottom: 1.2rem; display: block; }
+        .hero-meta { display: flex; gap: 3rem; margin-top: 3rem; padding-top: 3rem; border-top: 1px solid rgba(255,255,255,0.15); flex-wrap: wrap; }
+        .meta-label { font-size: 0.62rem; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.45); font-weight: 700; margin-bottom: 0.3rem; }
+        .meta-val { font-size: 0.95rem; font-weight: 600; color: var(--white); }
+        .hero-bottom { position: relative; z-index: 1; padding: 2rem 3rem; border-top: 1px solid rgba(255,255,255,0.1); display: flex; gap: 1.2rem; flex-wrap: wrap; }
+        .tag { background: rgba(233,175,59,0.15); border: 1px solid rgba(233,175,59,0.35); color: var(--gold); font-size: 0.68rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 0.4rem 1rem; border-radius: 100px; }
+
+        .quicknav { display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center; padding: 1.2rem 2rem; background: var(--white); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 50; font-family: 'Montserrat', sans-serif; }
+        .quicknav a { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.5px; color: var(--earth); text-decoration: none; padding: 0.5rem 0.9rem; border-radius: 100px; background: var(--cream); border: 1px solid var(--line); white-space: nowrap; }
+        .quicknav a:hover { border-color: var(--gold); color: #7a5c10; }
+
+        /* ================================================
+           NEW BODY: editorial + minimal
+           ================================================ */
+
+        /* Section container — narrower for whitespace */
+        .container {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 7rem 2rem;
+        }
+        .container.wide { max-width: 1040px; }
+
+        /* Big display type — editorial headers */
+        h2.display {
+            font-family: 'Fraunces', serif;
+            font-weight: 400;
+            font-size: 2.6rem;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            color: var(--ink);
+            margin-bottom: 2rem;
+            max-width: 620px;
+        }
+        h2.display em { font-style: italic; color: var(--forest); }
+
+        /* Subtle in-body labels */
+        .eyebrow {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        /* Intro paragraph, wide and quiet */
+        .lede {
+            font-size: 1.15rem;
+            line-height: 1.75;
+            color: #333;
+            max-width: 620px;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+        }
+
+        /* ============ AT-A-GLANCE STRIP ============ */
+        .glance {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+            margin-top: 3rem;
+        }
+        .glance > div {
+            padding: 1.8rem 1.2rem;
+            border-right: 1px solid var(--line);
+        }
+        .glance > div:last-child { border-right: none; }
+        .glance .gl-label {
+            font-size: 0.62rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--dim);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+        .glance .gl-val {
+            font-family: 'Fraunces', serif;
+            font-size: 1.6rem;
+            font-weight: 400;
+            color: var(--ink);
+            letter-spacing: -0.02em;
+        }
+        .glance .gl-sub { font-size: 0.72rem; color: var(--dim); margin-top: 0.2rem; }
+
+        /* ============ SCOPE INDEX (table of contents style) ============ */
+        .scope-index {
+            border-top: 1px solid var(--line);
+            margin-top: 2rem;
+        }
+        .scope-index a {
+            display: grid;
+            grid-template-columns: 60px 1fr auto;
+            gap: 2rem;
+            padding: 1.6rem 0;
+            border-bottom: 1px solid var(--line);
+            color: var(--ink);
+            text-decoration: none;
+            transition: padding-left 0.2s ease, background 0.2s ease;
+        }
+        .scope-index a:hover {
+            padding-left: 1rem;
+            background: rgba(233,175,59,0.05);
+        }
+        .scope-index .si-num {
+            font-family: 'Fraunces', serif;
+            font-size: 1.2rem;
+            color: var(--gold);
+            font-weight: 500;
+        }
+        .scope-index .si-title {
+            font-family: 'Fraunces', serif;
+            font-size: 1.35rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            color: var(--ink);
+        }
+        .scope-index .si-sub {
+            font-size: 0.85rem;
+            color: var(--dim);
+            margin-top: 0.15rem;
+            font-weight: 400;
+        }
+        .scope-index .si-price {
+            font-family: 'Fraunces', serif;
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--forest);
+            align-self: center;
+            white-space: nowrap;
+        }
+
+        /* ============ SCOPE DETAIL BLOCK ============ */
+        .scope-block {
+            padding: 6rem 0;
+            border-bottom: 1px solid var(--line);
+        }
+        .scope-block:last-child { border-bottom: none; }
+        .scope-block .scope-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 2rem;
+            padding-bottom: 2.5rem;
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid var(--line);
+            flex-wrap: wrap;
+        }
+        .scope-block .scope-num {
+            font-family: 'Fraunces', serif;
+            font-size: 0.9rem;
+            color: var(--gold);
+            font-weight: 500;
+            letter-spacing: 1px;
+            margin-bottom: 0.4rem;
+            display: block;
+        }
+        .scope-block h3 {
+            font-family: 'Fraunces', serif;
+            font-size: 2.2rem;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            color: var(--ink);
+            max-width: 500px;
+        }
+        .scope-block .scope-price {
+            font-family: 'Fraunces', serif;
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: var(--forest);
+            white-space: nowrap;
+        }
+        .scope-block .scope-narrative {
+            font-size: 1.02rem;
+            line-height: 1.8;
+            color: #333;
+            font-weight: 400;
+            margin-bottom: 3rem;
+            max-width: 620px;
+        }
+
+        /* Two-column: included vs you supply */
+        .scope-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 2rem;
+        }
+        .scope-column h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.72rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: var(--dim);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid var(--line);
+        }
+        .scope-column h4.included { color: var(--forest); }
+        .scope-column h4.supply { color: var(--earth); }
+        .scope-column ul { list-style: none; }
+        .scope-column li {
+            font-size: 0.92rem;
+            line-height: 1.7;
+            color: #333;
+            padding: 0.5rem 0;
+            font-weight: 400;
+        }
+        .scope-column li::before {
+            content: '—';
+            color: var(--gold);
+            margin-right: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Inline notes / flags */
+        .scope-note {
+            margin-top: 2.5rem;
+            padding: 1.5rem 0 0;
+            border-top: 1px solid var(--line);
+            font-size: 0.85rem;
+            color: var(--dim);
+            font-style: italic;
+            line-height: 1.6;
+        }
+        .scope-note strong { color: var(--forest); font-style: normal; font-weight: 600; }
+
+        /* ============ INVESTMENT TABLE ============ */
+        .investment {
+            background: var(--paper);
+            padding: 5rem 3rem;
+        }
+        .invest-inner { max-width: 780px; margin: 0 auto; }
+        .invest-table { width: 100%; border-collapse: collapse; margin-top: 3rem; }
+        .invest-table tr { border-bottom: 1px solid var(--line); }
+        .invest-table td {
+            padding: 1.4rem 0;
+            font-size: 1rem;
+            vertical-align: baseline;
+        }
+        .invest-table td:first-child {
+            font-family: 'Fraunces', serif;
+            font-size: 1.15rem;
+            font-weight: 400;
+            color: var(--ink);
+        }
+        .invest-table td:last-child {
+            text-align: right;
+            font-family: 'Fraunces', serif;
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: var(--forest);
+            white-space: nowrap;
+        }
+        .invest-table .row-sub { font-size: 0.82rem; color: var(--dim); font-family: 'Inter', sans-serif; font-weight: 400; margin-top: 0.2rem; }
+        .invest-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding-top: 2rem;
+            margin-top: 1rem;
+            border-top: 2px solid var(--ink);
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .invest-total-label {
+            font-size: 0.72rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--dim);
+            font-weight: 600;
+        }
+        .invest-total-value {
+            font-family: 'Fraunces', serif;
+            font-size: 3rem;
+            font-weight: 400;
+            color: var(--ink);
+            letter-spacing: -0.02em;
+        }
+        .invest-caveat {
+            font-size: 0.82rem;
+            color: var(--dim);
+            line-height: 1.7;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--line);
+            max-width: 620px;
+        }
+
+        /* ============ OPEN ITEMS ============ */
+        .open-items {
+            padding: 5rem 3rem;
+            max-width: 780px;
+            margin: 0 auto;
+        }
+        .open-items ul { list-style: none; margin-top: 2rem; }
+        .open-items li {
+            font-size: 0.95rem;
+            line-height: 1.75;
+            color: #333;
+            padding: 1.2rem 0;
+            padding-left: 2rem;
+            position: relative;
+            border-bottom: 1px solid var(--line);
+        }
+        .open-items li::before {
+            content: '·';
+            position: absolute;
+            left: 0;
+            top: 1rem;
+            color: var(--gold);
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+        .open-items li strong { color: var(--forest); font-weight: 600; }
+
+        /* ============ SIGNATURE / CLOSE ============ */
+        .close {
+            padding: 6rem 3rem;
+            max-width: 780px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .close h2 { margin-left: auto; margin-right: auto; }
+        .sig-block {
+            margin-top: 4rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            text-align: left;
+        }
+        .sig-line { border-bottom: 1px solid var(--ink); height: 44px; margin-bottom: 0.5rem; }
+        .sig-label { font-size: 0.62rem; letter-spacing: 2px; text-transform: uppercase; color: var(--dim); font-weight: 600; }
+
+        /* ============ FOOTER ============ */
+        footer {
+            background: var(--ink);
+            color: rgba(255,255,255,0.5);
+            padding: 3rem;
+            text-align: center;
+            font-size: 0.82rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+        footer img { height: 40px; margin-bottom: 1.5rem; mix-blend-mode: lighten; opacity: 0.8; }
+        footer p { margin-bottom: 0.4rem; }
+        footer a { color: var(--gold); text-decoration: none; }
+
+        @media (max-width: 720px) {
+            .container { padding: 4rem 1.5rem; }
+            h2.display { font-size: 1.9rem; }
+            .scope-block { padding: 4rem 0; }
+            .scope-block h3 { font-size: 1.6rem; }
+            .scope-block .scope-price { font-size: 1.4rem; }
+            .scope-columns { grid-template-columns: 1fr; gap: 2.5rem; }
+            .glance { grid-template-columns: repeat(2, 1fr); }
+            .glance > div { border-right: none; border-bottom: 1px solid var(--line); }
+            .glance > div:nth-child(odd) { border-right: 1px solid var(--line); }
+            .glance > div:nth-last-child(-n+2) { border-bottom: none; }
+            .investment, .open-items, .close { padding: 4rem 1.5rem; }
+            .invest-total-value { font-size: 2.2rem; }
+            .sig-block { grid-template-columns: 1fr; gap: 2rem; }
+            .scope-index a { grid-template-columns: 40px 1fr auto; gap: 1rem; }
+            .hero-body h1 { font-size: 2rem; }
+            .hero-top, .hero-body, .hero-bottom { padding: 1.5rem; }
+            .hero-meta { flex-direction: column; gap: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER — kept intentionally the same -->
+<section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-top">
+        <img src="logo.png" alt="Timberline Build Co." class="logo">
+        <span class="hero-date">August 2026</span>
+    </div>
+    <div class="hero-body">
+        <span class="mono-label">Multi-Scope Project · Proposal</span>
+        <h1>Six scopes at <span>9 Emerald Glen</span></h1>
+        <p>Shutters across three rooms, two bathroom remodels, a closet system, a hallway floating desk, and a shiplap soffit — priced independently and moving as one project.</p>
+        <div class="hero-meta">
+            <div>
+                <div class="meta-label">Prepared For</div>
+                <div class="meta-val">Brett Derby</div>
+            </div>
+            <div>
+                <div class="meta-label">Property</div>
+                <div class="meta-val">9 Emerald Glen, Laguna Niguel</div>
+            </div>
+            <div>
+                <div class="meta-label">Total Investment</div>
+                <div class="meta-val">$44,233</div>
+            </div>
+            <div>
+                <div class="meta-label">Contractor</div>
+                <div class="meta-val">Justin Sherman · 949-229-1692</div>
+            </div>
+        </div>
+    </div>
+    <div class="hero-bottom">
+        <span class="tag">6 Scopes of Work</span>
+        <span class="tag">Living Estimate</span>
+        <span class="tag">Two Bathroom Remodels</span>
+        <span class="tag">13 Shutters</span>
+    </div>
+</section>
+
+<nav class="quicknav">
+    <a href="#overview">Overview</a>
+    <a href="#scopes">Scopes</a>
+    <a href="#investment">Investment</a>
+    <a href="#open-items">Open Items</a>
+    <a href="#signature">Sign</a>
+</nav>
+
+<!-- ================================================
+     OPENING: quiet intro + at-a-glance + scope index
+     ================================================ -->
+<section class="container" id="overview">
+    <span class="eyebrow">The Project</span>
+    <h2 class="display">A living estimate <em>for six scopes at 9 Emerald Glen.</em></h2>
+    <p class="lede">This proposal covers six distinct scopes across the home — from window shutters to a full bathroom gut remodel. Each is priced independently, and the total will move as remaining details firm up. Everything below reflects the scope as it stands today.</p>
+    <p class="lede">Timberline provides labor and construction materials. Finish materials — tile, fixtures, cabinets, slabs — are supplied by you unless a scope specifically states otherwise.</p>
+
+    <div class="glance">
+        <div>
+            <div class="gl-label">Total</div>
+            <div class="gl-val">$44,233</div>
+            <div class="gl-sub">Across all six scopes</div>
+        </div>
+        <div>
+            <div class="gl-label">Scopes</div>
+            <div class="gl-val">6</div>
+            <div class="gl-sub">Each priced separately</div>
+        </div>
+        <div>
+            <div class="gl-label">Warranty</div>
+            <div class="gl-val">1 Year</div>
+            <div class="gl-sub">On all labor</div>
+        </div>
+        <div>
+            <div class="gl-label">License</div>
+            <div class="gl-val">CSLB</div>
+            <div class="gl-sub">#1136140</div>
+        </div>
+    </div>
+</section>
+
+<!-- Scope index / table of contents -->
+<section class="container" id="scopes" style="padding-top: 2rem;">
+    <span class="eyebrow">Scopes of Work</span>
+    <h2 class="display">Six scopes, <em>at a glance.</em></h2>
+
+    <nav class="scope-index">
+        <a href="#scope-1">
+            <span class="si-num">01</span>
+            <div>
+                <div class="si-title">Shutters</div>
+                <div class="si-sub">13 windows across office, master bedroom &amp; master bath</div>
+            </div>
+            <span class="si-price">$9,000</span>
+        </a>
+        <a href="#scope-2">
+            <span class="si-num">02</span>
+            <div>
+                <div class="si-title">Boys Bathroom</div>
+                <div class="si-sub">Full gut remodel · 36×45 walk-in shower · glass door</div>
+            </div>
+            <span class="si-price">$17,010</span>
+        </a>
+        <a href="#scope-3">
+            <span class="si-num">03</span>
+            <div>
+                <div class="si-title">Boys Closet</div>
+                <div class="si-sub">Closet system install · at-cost pass-through</div>
+            </div>
+            <span class="si-price">$3,040</span>
+        </a>
+        <a href="#scope-4">
+            <span class="si-num">04</span>
+            <div>
+                <div class="si-title">Girls Bathroom</div>
+                <div class="si-sub">Shower/tub scope only · built-in tub · tile to 108" ceiling</div>
+            </div>
+            <span class="si-price">$11,130</span>
+        </a>
+        <a href="#scope-5">
+            <span class="si-num">05</span>
+            <div>
+                <div class="si-title">Hallway Floating Desk</div>
+                <div class="si-sub">Quartz fabrication &amp; install · near girls' bedroom</div>
+            </div>
+            <span class="si-price">$1,260</span>
+        </a>
+        <a href="#scope-6">
+            <span class="si-num">06</span>
+            <div>
+                <div class="si-title">Shiplap Soffit</div>
+                <div class="si-sub">T&amp;G shiplap · spray-finish paint · ~130 sf</div>
+            </div>
+            <span class="si-price">$2,793</span>
+        </a>
+    </nav>
+</section>
+
+<!-- ================================================
+     SCOPE DETAILS — one long editorial spread
+     ================================================ -->
+<section class="container">
+
+    <!-- SCOPE 1 -->
+    <article class="scope-block" id="scope-1">
+        <header class="scope-header">
+            <div>
+                <span class="scope-num">Scope 01</span>
+                <h3>Shutters, three rooms.</h3>
+            </div>
+            <div class="scope-price">$9,000</div>
+        </header>
+        <p class="scope-narrative">Supply and install shutters across 13 windows total, spanning the office, master bedroom, and master bathroom. Painted wood in white for the office and master bedroom; PVC for the master bath, appropriate for the moisture environment.</p>
+
+        <div class="scope-columns">
+            <div class="scope-column">
+                <h4 class="included">Included</h4>
+                <ul>
+                    <li>Shutter supply — all 13 windows</li>
+                    <li>Installation labor across all three rooms</li>
+                    <li>Painted wood shutters (office &amp; master bedroom)</li>
+                    <li>PVC shutters (master bathroom)</li>
+                </ul>
+            </div>
+            <div class="scope-column">
+                <h4 class="supply">You Supply</h4>
+                <ul>
+                    <li>Nothing — shutters &amp; install both included</li>
+                </ul>
+            </div>
+        </div>
+    </article>
+
+    <!-- SCOPE 2 -->
+    <article class="scope-block" id="scope-2">
+        <header class="scope-header">
+            <div>
+                <span class="scope-num">Scope 02</span>
+                <h3>Boys bathroom, gut to walk-in.</h3>
+            </div>
+            <div class="scope-price">$17,010</div>
+        </header>
+        <p class="scope-narrative">A complete gut remodel converting the space into a walk-in shower with a glass door, plus a new single-sink vanity setup and new tile flooring. Shower measures 36×45 with ~100" ceilings. Fixtures stay in their current locations — all supply, drain, and valve work is being replaced new.</p>
+
+        <div class="scope-columns">
+            <div class="scope-column">
+                <h4 class="included">Included</h4>
+                <ul>
+                    <li>Full gut demolition</li>
+                    <li>All new plumbing (fixtures stay in place)</li>
+                    <li>Toilet reset</li>
+                    <li>Framing &amp; drywall repair as needed</li>
+                    <li>Shower tile labor + full waterproofing</li>
+                    <li>Hot-mopped shower pan</li>
+                    <li>Glass shower door — supplied &amp; installed</li>
+                    <li>New tile flooring install (~74"×33")</li>
+                    <li>GFCI outlets &amp; lighting updates</li>
+                    <li>Vanity install (labor only)</li>
+                    <li>Countertop fabrication &amp; install</li>
+                    <li>Full bathroom paint · baseboard &amp; trim</li>
+                </ul>
+            </div>
+            <div class="scope-column">
+                <h4 class="supply">You Supply</h4>
+                <ul>
+                    <li>All tile — shower &amp; floor</li>
+                    <li>Vanity cabinet</li>
+                    <li>Countertop slab / material</li>
+                    <li>Sink, faucet, shower fixtures</li>
+                    <li>Toilet (if replacing — reset of existing is included)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="scope-note">
+            <strong>Still being defined:</strong> glass shower door style (frameless, semi-frameless, framed) not yet finalized. Full electrical scope for this bathroom still being defined. Tile sq ft is estimated from given dimensions, not final measurement.
+        </div>
+    </article>
+
+    <!-- SCOPE 3 -->
+    <article class="scope-block" id="scope-3">
+        <header class="scope-header">
+            <div>
+                <span class="scope-num">Scope 03</span>
+                <h3>Boys closet system.</h3>
+            </div>
+            <div class="scope-price">$3,040</div>
+        </header>
+        <p class="scope-narrative">Installation of a closet organization system in the boys' room. The closet system itself is passed through at cost — no markup applied on the material. Installation is billed separately.</p>
+
+        <div class="scope-columns">
+            <div class="scope-column">
+                <h4 class="included">Included</h4>
+                <ul>
+                    <li>Closet system (passed through at cost)</li>
+                    <li>Installation labor</li>
+                </ul>
+            </div>
+            <div class="scope-column">
+                <h4 class="supply">You Supply</h4>
+                <ul>
+                    <li>Nothing — both material &amp; install included</li>
+                </ul>
+            </div>
+        </div>
+    </article>
+
+    <!-- SCOPE 4 -->
+    <article class="scope-block" id="scope-4">
+        <header class="scope-header">
+            <div>
+                <span class="scope-num">Scope 04</span>
+                <h3>Girls bathroom — shower &amp; tub only.</h3>
+            </div>
+            <div class="scope-price">$11,130</div>
+        </header>
+        <p class="scope-narrative">A targeted remodel focused on the shower/tub area only. The existing vanity and flooring are staying — they are not being touched, removed, or replaced. The project centers on a new built-in-style tub with a bench area, tile to the 108" ceiling, and a frameless sliding glass door. Shower/tub area measures 30×63.</p>
+
+        <div class="scope-columns">
+            <div class="scope-column">
+                <h4 class="included">Included</h4>
+                <ul>
+                    <li>Removal of existing tub/shower surround</li>
+                    <li>Shower/tub plumbing (valve, drain, finish)</li>
+                    <li>Framing for built-in bench area</li>
+                    <li>Set new tub</li>
+                    <li>Tile surround to 108" ceiling + bench + waterproofing</li>
+                    <li>Frameless sliding glass door — supplied &amp; installed</li>
+                </ul>
+            </div>
+            <div class="scope-column">
+                <h4 class="supply">You Supply</h4>
+                <ul>
+                    <li>The new tub</li>
+                    <li>All tile</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="scope-note">
+            <strong>Explicitly excluded:</strong> existing vanity &amp; existing flooring stay untouched. Tile sq ft is estimated from given dimensions, not final measurement.
+        </div>
+    </article>
+
+    <!-- SCOPE 5 -->
+    <article class="scope-block" id="scope-5">
+        <header class="scope-header">
+            <div>
+                <span class="scope-num">Scope 05</span>
+                <h3>Hallway floating desk.</h3>
+            </div>
+            <div class="scope-price">$1,260</div>
+        </header>
+        <p class="scope-narrative">Fabrication and installation of a floating quartz countertop/desk in the hallway near the girls' bedroom.</p>
+
+        <div class="scope-columns">
+            <div class="scope-column">
+                <h4 class="included">Included</h4>
+                <ul>
+                    <li>Quartz fabrication</li>
+                    <li>Installation (mounting brackets, level set)</li>
+                </ul>
+            </div>
+            <div class="scope-column">
+                <h4 class="supply">You Supply</h4>
+                <ul>
+                    <li>Quartz material</li>
+                </ul>
+            </div>
+        </div>
+    </article>
+
+    <!-- SCOPE 6 -->
+    <article class="scope-block" id="scope-6">
+        <header class="scope-header">
+            <div>
+                <span class="scope-num">Scope 06</span>
+                <h3>Shiplap soffit.</h3>
+            </div>
+            <div class="scope-price">$2,793</div>
+        </header>
+        <p class="scope-narrative">Installation of white tongue-and-groove shiplap in the recessed soffit area (153×123", roughly 131 sq ft), followed by a spray-finish paint application. Overhead work — careful site protection of the surrounding area is included.</p>
+
+        <div class="scope-columns">
+            <div class="scope-column">
+                <h4 class="included">Included</h4>
+                <ul>
+                    <li>Shiplap material (Timberline-supplied)</li>
+                    <li>Shiplap installation labor</li>
+                    <li>Paint material (Timberline-supplied)</li>
+                    <li>Spray-finish paint application</li>
+                    <li>Site protection during install</li>
+                </ul>
+            </div>
+            <div class="scope-column">
+                <h4 class="supply">You Supply</h4>
+                <ul>
+                    <li>Nothing — shiplap &amp; paint both included</li>
+                </ul>
+            </div>
+        </div>
+    </article>
+
+</section>
+
+<!-- ================================================
+     INVESTMENT — quiet, tabular
+     ================================================ -->
+<section class="investment" id="investment">
+    <div class="invest-inner">
+        <span class="eyebrow">Investment</span>
+        <h2 class="display">The <em>bottom line.</em></h2>
+        <p class="lede">Each scope stands on its own — remove or adjust any line and the total moves with it. This reflects the project as it stands today; the estimate will evolve with the project.</p>
+
+        <table class="invest-table">
+            <tr>
+                <td>Shutters<div class="row-sub">Office, master bedroom &amp; bath · 13 windows</div></td>
+                <td>$9,000</td>
+            </tr>
+            <tr>
+                <td>Boys Bathroom<div class="row-sub">Full gut remodel to walk-in shower</div></td>
+                <td>$17,010</td>
+            </tr>
+            <tr>
+                <td>Boys Closet<div class="row-sub">Closet system at cost + install</div></td>
+                <td>$3,040</td>
+            </tr>
+            <tr>
+                <td>Girls Bathroom<div class="row-sub">Shower/tub scope only</div></td>
+                <td>$11,130</td>
+            </tr>
+            <tr>
+                <td>Hallway Floating Desk<div class="row-sub">Quartz fabrication &amp; install</div></td>
+                <td>$1,260</td>
+            </tr>
+            <tr>
+                <td>Shiplap Soffit<div class="row-sub">T&amp;G install + spray-finish paint</div></td>
+                <td>$2,793</td>
+            </tr>
+        </table>
+
+        <div class="invest-total">
+            <div class="invest-total-label">Total Investment</div>
+            <div class="invest-total-value">$44,233</div>
+        </div>
+
+        <p class="invest-caveat">Labor and construction materials only. Finish materials are customer-supplied unless a scope specifically states otherwise. No permits or permit fees included; if required, they are the owner's responsibility. This is a living estimate — the total will move as remaining scope details firm up. All labor warrantied for 1 year from project completion.</p>
+    </div>
+</section>
+
+<!-- ================================================
+     OPEN ITEMS
+     ================================================ -->
+<section class="open-items" id="open-items">
+    <span class="eyebrow">Still Being Refined</span>
+    <h2 class="display">A few open <em>items to firm up.</em></h2>
+    <ul>
+        <li><strong>Boys shower door style</strong> — frameless, semi-frameless, or framed not yet decided.</li>
+        <li><strong>Tile sq footage</strong> — boys shower &amp; girls tub surround estimated from given dimensions, not final measurements.</li>
+        <li><strong>Full electrical scope for the boys' bathroom</strong> — still being defined.</li>
+        <li><strong>Additional scope items</strong> — as this is a living estimate, more may be added as design and site walks progress.</li>
+    </ul>
+</section>
+
+<!-- ================================================
+     CLOSE / SIGNATURE
+     ================================================ -->
+<section class="close" id="signature">
+    <span class="eyebrow">Ready?</span>
+    <h2 class="display">When you're ready, <em>sign below.</em></h2>
+    <p class="lede" style="margin-left:auto; margin-right:auto;">Signing authorizes Timberline Build Co. to proceed with the scopes described above at the total investment of $44,233. Because this is a living estimate, additional scope items added later will be documented and priced via signed change orders.</p>
+
+    <div class="sig-block">
+        <div>
+            <div class="sig-line"></div>
+            <div class="sig-label">Brett Derby — Date</div>
+        </div>
+        <div>
+            <div class="sig-line"></div>
+            <div class="sig-label">Timberline Build Co. — Date</div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <img src="logo.png" alt="Timberline Build Co.">
+    <p>Timberline Build Co. · Licensed General Contractor · CSLB #1136140 · Orange County, CA</p>
+    <p><a href="tel:9492291692">949-229-1692</a></p>
+    <p style="margin-top: 1rem; font-size: 0.72rem; opacity: 0.5;">© 2026 Timberline Build Co. Proposal valid for 30 days from date of issue.</p>
+</footer>
+
+</body>
+</html>
