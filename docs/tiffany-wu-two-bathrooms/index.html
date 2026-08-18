@@ -103,6 +103,16 @@
         .timeline-hours-item .th-label { font-size: 0.62rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); font-weight: 800; margin-bottom: 0.3rem; }
         .timeline-hours-item .th-val { font-size: 0.95rem; font-weight: 700; color: var(--earth); }
 
+        .references-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
+        .reference-card { background: var(--white); border: 1px solid #eee; border-radius: 12px; padding: 1.4rem 1.6rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+        .reference-card .ref-name { font-size: 0.95rem; font-weight: 700; color: var(--earth); }
+        .reference-card .ref-phone { font-size: 0.85rem; color: var(--forest); font-weight: 600; text-decoration: none; white-space: nowrap; }
+        .reference-card .ref-phone:hover { color: var(--gold); }
+        .gmb-card { background: var(--forest); border-radius: 14px; padding: 1.8rem 2rem; margin-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+        .gmb-card .gmb-info h3 { color: var(--white); font-size: 1rem; margin-bottom: 0.3rem; }
+        .gmb-card .gmb-info p { color: rgba(255,255,255,0.65); font-size: 0.85rem; }
+        .gmb-card a.gmb-btn { background: var(--gold); color: var(--earth); font-weight: 800; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; padding: 0.8rem 1.6rem; border-radius: 100px; text-decoration: none; white-space: nowrap; }
+
         .pending-card { background: #fff8eb; border: 2px dashed #e9c988; border-radius: 14px; padding: 1.8rem 2rem; margin-top: 1.5rem; }
         .pending-card h3 { font-size: 1rem; color: var(--earth); margin-bottom: 0.5rem; }
         .pending-card p { font-size: 0.87rem; color: #666; line-height: 1.7; margin-bottom: 0.5rem; }
@@ -156,7 +166,7 @@
             h1 { font-size: 2rem; }
             .hero-top, .hero-body, .hero-bottom { padding: 1.5rem; }
             .section { padding: 3rem 1.5rem; }
-            .not-included-list, .overview-grid, .why-grid, .steps-grid, .room-summary-grid { grid-template-columns: 1fr; }
+            .not-included-list, .overview-grid, .why-grid, .steps-grid, .room-summary-grid, .references-grid { grid-template-columns: 1fr; }
             .hero-meta { flex-direction: column; gap: 1.2rem; }
             .phase-header, .phase-body { padding: 1.5rem; }
             .total-block { padding: 2rem 1.5rem; }
@@ -218,6 +228,7 @@
     <a href="#pending">Pending Items</a>
     <a href="#customer-supplies">What You Supply</a>
     <a href="#not-included">Not Included</a>
+    <a href="#references">References</a>
     <a href="#investment">Investment</a>
     <a href="#faq">FAQ</a>
     <a href="#next-steps">Next Steps</a>
@@ -752,6 +763,42 @@
         <li>Tankless water heater conversion — pricing to follow after site inspection</li>
         <li>Any work not explicitly listed in this proposal</li>
     </ul>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- REFERENCES -->
+<div class="section" id="references">
+    <span class="label">References</span>
+    <h2 style="color: var(--earth); margin-bottom: 0.5rem;">Hear It From Past Clients</h2>
+    <p style="color: #888; font-size: 0.85rem; margin-bottom: 0.5rem;">Feel free to reach out to any of these past clients directly to hear about their experience working with Timberline Build Co.</p>
+
+    <div class="references-grid">
+        <div class="reference-card">
+            <span class="ref-name">Vicki Gilman</span>
+            <a href="tel:+17029948882" class="ref-phone">+1 (702) 994-8882</a>
+        </div>
+        <div class="reference-card">
+            <span class="ref-name">Dan Deeney</span>
+            <a href="tel:+19083433622" class="ref-phone">+1 (908) 343-3622</a>
+        </div>
+        <div class="reference-card">
+            <span class="ref-name">Bob Scholart</span>
+            <a href="tel:+12819952252" class="ref-phone">+1 (281) 995-2252</a>
+        </div>
+        <div class="reference-card">
+            <span class="ref-name">Tris Jacobs</span>
+            <a href="tel:+19492854909" class="ref-phone">(949) 285-4909</a>
+        </div>
+    </div>
+
+    <div class="gmb-card">
+        <div class="gmb-info">
+            <h3>See All Our Reviews</h3>
+            <p>Read what other homeowners have said about working with us on Google.</p>
+        </div>
+        <a href="https://share.google/S7F4G8TyxlGZYFWfq" class="gmb-btn" target="_blank" rel="noopener">View Reviews</a>
+    </div>
 </div>
 
 <div class="section-divider"></div>
