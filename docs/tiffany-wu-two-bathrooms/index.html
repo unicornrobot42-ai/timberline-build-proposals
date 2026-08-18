@@ -90,6 +90,19 @@
         .callout p { color: rgba(255,255,255,0.75); font-size: 0.85rem; line-height: 1.7; margin: 0; }
         .callout strong { color: var(--gold); }
 
+        .timeline-table { width: 100%; border-collapse: collapse; margin-top: 1.5rem; background: var(--white); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+        .timeline-table th { background: var(--forest); color: var(--white); font-size: 0.72rem; letter-spacing: 1px; text-transform: uppercase; font-weight: 700; padding: 0.9rem 1.2rem; text-align: left; }
+        .timeline-table td { padding: 0.8rem 1.2rem; font-size: 0.87rem; color: #444; border-bottom: 1px solid #f0ece5; }
+        .timeline-table tr:last-child td { border-bottom: none; }
+        .timeline-table tr:nth-child(even) td { background: var(--cream); }
+        .timeline-table .tt-day { font-weight: 800; color: var(--forest); white-space: nowrap; }
+        .timeline-table .tt-dow { color: var(--gold); font-weight: 700; font-size: 0.78rem; text-transform: uppercase; white-space: nowrap; }
+        .timeline-table .tt-week-row td { background: var(--earth); color: var(--white); font-weight: 800; font-size: 0.75rem; letter-spacing: 1px; text-transform: uppercase; padding: 0.6rem 1.2rem; }
+        .timeline-hours { display: flex; gap: 2rem; margin-top: 1.5rem; flex-wrap: wrap; }
+        .timeline-hours-item { background: var(--white); border: 1px solid #eee; border-radius: 10px; padding: 1rem 1.5rem; }
+        .timeline-hours-item .th-label { font-size: 0.62rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); font-weight: 800; margin-bottom: 0.3rem; }
+        .timeline-hours-item .th-val { font-size: 0.95rem; font-weight: 700; color: var(--earth); }
+
         .pending-card { background: #fff8eb; border: 2px dashed #e9c988; border-radius: 14px; padding: 1.8rem 2rem; margin-top: 1.5rem; }
         .pending-card h3 { font-size: 1rem; color: var(--earth); margin-bottom: 0.5rem; }
         .pending-card p { font-size: 0.87rem; color: #666; line-height: 1.7; margin-bottom: 0.5rem; }
@@ -137,6 +150,9 @@
         footer a { color: var(--gold); }
 
         @media (max-width: 720px) {
+            .timeline-table { font-size: 0.8rem; }
+            .timeline-table th, .timeline-table td { padding: 0.6rem 0.7rem; }
+            .timeline-hours { flex-direction: column; gap: 0.8rem; }
             h1 { font-size: 2rem; }
             .hero-top, .hero-body, .hero-bottom { padding: 1.5rem; }
             .section { padding: 3rem 1.5rem; }
@@ -198,6 +214,7 @@
     <a href="#overview">Overview</a>
     <a href="#sons-bath">Son's Bath</a>
     <a href="#daughters-bath">Daughter's Bath</a>
+    <a href="#timeline">Timeline</a>
     <a href="#pending">Pending Items</a>
     <a href="#customer-supplies">What You Supply</a>
     <a href="#not-included">Not Included</a>
@@ -589,6 +606,79 @@
                 <li>Install finish hardware — TP holder, towel racks (customer-supplied, Timberline installs)</li>
             </ul>
         </div>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- TIMELINE -->
+<div class="section" id="timeline">
+    <span class="label">Estimated Project Timeline</span>
+    <h2 style="color: var(--earth); margin-bottom: 0.5rem;">Day-by-Day Schedule — 3 Weeks Each</h2>
+    <p style="color: #888; font-size: 0.85rem; margin-bottom: 0.5rem;">Since these are two separate, sequential projects, each bathroom gets its own 3-week schedule. Below is our estimated day-by-day plan for each.</p>
+
+    <div class="timeline-hours">
+        <div class="timeline-hours-item">
+            <div class="th-label">Work Days</div>
+            <div class="th-val">Monday – Friday</div>
+        </div>
+        <div class="timeline-hours-item">
+            <div class="th-label">Typical Hours</div>
+            <div class="th-val">8:00 AM – 4:00 PM</div>
+        </div>
+        <div class="timeline-hours-item">
+            <div class="th-label">Estimated Duration</div>
+            <div class="th-val">3 Weeks per Bathroom</div>
+        </div>
+    </div>
+
+    <h3 style="color: var(--forest); margin-top: 2.5rem; margin-bottom: 0.5rem; font-size: 1.1rem;">Son's Bathroom — 3-Week Schedule</h3>
+    <table class="timeline-table">
+        <tr><th style="width: 90px;">Day</th><th style="width: 100px;">Day of Week</th><th>Work Planned</th></tr>
+        <tr class="tt-week-row"><td colspan="3">Week 1</td></tr>
+        <tr><td class="tt-day">Day 1</td><td class="tt-dow">Mon</td><td>Demo</td></tr>
+        <tr><td class="tt-day">Day 2</td><td class="tt-dow">Tue</td><td>Rough plumbing</td></tr>
+        <tr><td class="tt-day">Day 3</td><td class="tt-dow">Wed</td><td>Rough electrical</td></tr>
+        <tr><td class="tt-day">Day 4</td><td class="tt-dow">Thu</td><td>Hot mop</td></tr>
+        <tr><td class="tt-day">Day 5</td><td class="tt-dow">Fri</td><td>Drywall repair; vanity set</td></tr>
+        <tr class="tt-week-row"><td colspan="3">Week 2</td></tr>
+        <tr><td class="tt-day">Day 6</td><td class="tt-dow">Mon</td><td>Tile work</td></tr>
+        <tr><td class="tt-day">Day 7</td><td class="tt-dow">Tue</td><td>Tile work</td></tr>
+        <tr><td class="tt-day">Day 8</td><td class="tt-dow">Wed</td><td>Tile work</td></tr>
+        <tr><td class="tt-day">Day 9</td><td class="tt-dow">Thu</td><td>Tile work</td></tr>
+        <tr><td class="tt-day">Day 10</td><td class="tt-dow">Fri</td><td>Install finish plumbing fixtures</td></tr>
+        <tr class="tt-week-row"><td colspan="3">Week 3</td></tr>
+        <tr><td class="tt-day">Day 11</td><td class="tt-dow">Mon</td><td>Countertops</td></tr>
+        <tr><td class="tt-day">Day 12</td><td class="tt-dow">Tue</td><td>Paint</td></tr>
+        <tr><td class="tt-day">Day 13</td><td class="tt-dow">Wed</td><td>Finish work — mirror, towel racks, TP holder</td></tr>
+        <tr><td class="tt-day">Days 14–15</td><td class="tt-dow">Thu–Fri</td><td>Buffer / punch list / final walkthrough</td></tr>
+    </table>
+
+    <h3 style="color: var(--forest); margin-top: 3rem; margin-bottom: 0.5rem; font-size: 1.1rem;">Daughter's Bathroom — 3-Week Schedule</h3>
+    <table class="timeline-table">
+        <tr><th style="width: 90px;">Day</th><th style="width: 100px;">Day of Week</th><th>Work Planned</th></tr>
+        <tr class="tt-week-row"><td colspan="3">Week 1</td></tr>
+        <tr><td class="tt-day">Day 1</td><td class="tt-dow">Mon</td><td>Demo</td></tr>
+        <tr><td class="tt-day">Day 2</td><td class="tt-dow">Tue</td><td>Framing</td></tr>
+        <tr><td class="tt-day">Day 3</td><td class="tt-dow">Wed</td><td>Rough plumbing + tub</td></tr>
+        <tr><td class="tt-day">Day 4</td><td class="tt-dow">Thu</td><td>Rough electrical</td></tr>
+        <tr><td class="tt-day">Day 5</td><td class="tt-dow">Fri</td><td>Hot mop</td></tr>
+        <tr class="tt-week-row"><td colspan="3">Week 2</td></tr>
+        <tr><td class="tt-day">Day 6</td><td class="tt-dow">Mon</td><td>Drywall repair; vanity set</td></tr>
+        <tr><td class="tt-day">Day 7</td><td class="tt-dow">Tue</td><td>Tile work</td></tr>
+        <tr><td class="tt-day">Day 8</td><td class="tt-dow">Wed</td><td>Tile work</td></tr>
+        <tr><td class="tt-day">Day 9</td><td class="tt-dow">Thu</td><td>Tile work</td></tr>
+        <tr><td class="tt-day">Day 10</td><td class="tt-dow">Fri</td><td>Tile work</td></tr>
+        <tr class="tt-week-row"><td colspan="3">Week 3</td></tr>
+        <tr><td class="tt-day">Day 11</td><td class="tt-dow">Mon</td><td>Install finish plumbing fixtures</td></tr>
+        <tr><td class="tt-day">Day 12</td><td class="tt-dow">Tue</td><td>Countertops</td></tr>
+        <tr><td class="tt-day">Day 13</td><td class="tt-dow">Wed</td><td>Paint</td></tr>
+        <tr><td class="tt-day">Day 14</td><td class="tt-dow">Thu</td><td>Finish work — mirror, towel racks, TP holder</td></tr>
+        <tr><td class="tt-day">Day 15</td><td class="tt-dow">Fri</td><td>Buffer / punch list / final walkthrough</td></tr>
+    </table>
+
+    <div class="callout" style="margin-top: 2rem;">
+        <p><strong>Please keep in mind:</strong> this schedule is our best estimate based on a normal work week. Things happen — crew members get sick, call out, or emergencies come up on other jobs — so while we build this timeline in good faith and do everything we can to stick to it, some flex should be expected. We'll keep you updated in real time if anything shifts.</p>
     </div>
 </div>
 
