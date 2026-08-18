@@ -6,7 +6,7 @@
     <title>Timberline Build Co. | Brett Derby — Multi-Scope Project (Mockup)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --forest: #19412c;
@@ -30,7 +30,7 @@
             font-weight: 400;
             font-size: 15px;
         }
-        .serif { font-family: 'Fraunces', serif; font-weight: 400; letter-spacing: -0.02em; }
+        .serif { font-family: 'Space Grotesk', sans-serif; font-weight: 500; letter-spacing: -0.02em; }
         .mono-label {
             font-family: 'Inter', sans-serif;
             text-transform: uppercase;
@@ -78,7 +78,7 @@
 
         /* Big display type — editorial headers */
         h2.display {
-            font-family: 'Fraunces', serif;
+            font-family: 'Space Grotesk', sans-serif;
             font-weight: 400;
             font-size: 2.6rem;
             line-height: 1.1;
@@ -87,7 +87,7 @@
             margin-bottom: 2rem;
             max-width: 620px;
         }
-        h2.display em { font-style: italic; color: var(--forest); }
+        h2.display em { font-style: normal; font-weight: 600; color: var(--forest); }
 
         /* Subtle in-body labels */
         .eyebrow {
@@ -133,7 +133,7 @@
             margin-bottom: 0.5rem;
         }
         .glance .gl-val {
-            font-family: 'Fraunces', serif;
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 1.6rem;
             font-weight: 400;
             color: var(--ink);
@@ -161,13 +161,13 @@
             background: rgba(233,175,59,0.05);
         }
         .scope-index .si-num {
-            font-family: 'Fraunces', serif;
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 1.2rem;
             color: var(--gold);
             font-weight: 500;
         }
         .scope-index .si-title {
-            font-family: 'Fraunces', serif;
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 1.35rem;
             font-weight: 500;
             letter-spacing: -0.01em;
@@ -180,7 +180,7 @@
             font-weight: 400;
         }
         .scope-index .si-price {
-            font-family: 'Fraunces', serif;
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 1.2rem;
             font-weight: 500;
             color: var(--forest);
@@ -205,7 +205,7 @@
             flex-wrap: wrap;
         }
         .scope-block .scope-num {
-            font-family: 'Fraunces', serif;
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 0.9rem;
             color: var(--gold);
             font-weight: 500;
@@ -214,7 +214,7 @@
             display: block;
         }
         .scope-block h3 {
-            font-family: 'Fraunces', serif;
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 2.2rem;
             font-weight: 400;
             letter-spacing: -0.02em;
@@ -223,7 +223,7 @@
             max-width: 500px;
         }
         .scope-block .scope-price {
-            font-family: 'Fraunces', serif;
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 1.8rem;
             font-weight: 500;
             color: var(--forest);
@@ -285,6 +285,19 @@
         }
         .scope-note strong { color: var(--forest); font-style: normal; font-weight: 600; }
 
+        .scope-image { margin: 2.5rem 0; }
+        .scope-image img { width: 100%; border-radius: 4px; display: block; }
+        .scope-image .img-caption { font-size: 0.75rem; color: var(--dim); margin-top: 0.8rem; font-style: italic; }
+        .scope-image-placeholder {
+            margin: 2.5rem 0;
+            border: 1px dashed var(--line);
+            border-radius: 4px;
+            padding: 3rem 2rem;
+            text-align: center;
+            background: var(--paper);
+        }
+        .scope-image-placeholder p { font-size: 0.82rem; color: var(--dim); }
+
         /* ============ INVESTMENT TABLE ============ */
         .investment {
             background: var(--paper);
@@ -299,14 +312,14 @@
             vertical-align: baseline;
         }
         .invest-table td:first-child {
-            font-family: 'Fraunces', serif;
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 1.15rem;
             font-weight: 400;
             color: var(--ink);
         }
         .invest-table td:last-child {
             text-align: right;
-            font-family: 'Fraunces', serif;
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 1.15rem;
             font-weight: 500;
             color: var(--forest);
@@ -331,7 +344,7 @@
             font-weight: 600;
         }
         .invest-total-value {
-            font-family: 'Fraunces', serif;
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 3rem;
             font-weight: 400;
             color: var(--ink);
@@ -407,6 +420,8 @@
         footer a { color: var(--gold); text-decoration: none; }
 
         @media (max-width: 720px) {
+            .scope-image, .scope-image-placeholder { margin: 1.8rem 0; }
+            .scope-image-placeholder { padding: 2rem 1.2rem; }
             .container { padding: 4rem 1.5rem; }
             h2.display { font-size: 1.9rem; }
             .scope-block { padding: 4rem 0; }
@@ -471,8 +486,6 @@
     <a href="#overview">Overview</a>
     <a href="#scopes">Scopes</a>
     <a href="#investment">Investment</a>
-    <a href="#open-items">Open Items</a>
-    <a href="#signature">Sign</a>
 </nav>
 
 <!-- ================================================
@@ -526,7 +539,7 @@
             <span class="si-num">02</span>
             <div>
                 <div class="si-title">Boys Bathroom</div>
-                <div class="si-sub">Full gut remodel · 36×45 walk-in shower · glass door</div>
+                <div class="si-sub">Full gut remodel · 36×45 walk-in shower refresh · glass door</div>
             </div>
             <span class="si-price">$17,010</span>
         </a>
@@ -581,6 +594,10 @@
         </header>
         <p class="scope-narrative">Supply and install shutters across 13 windows total, spanning the office, master bedroom, and master bathroom. Painted wood in white for the office and master bedroom; PVC for the master bath, appropriate for the moisture environment.</p>
 
+        <div class="scope-image-placeholder">
+            <p>Reference photo pending — we'll add a shot from a comparable shutter install here.</p>
+        </div>
+
         <div class="scope-columns">
             <div class="scope-column">
                 <h4 class="included">Included</h4>
@@ -605,11 +622,16 @@
         <header class="scope-header">
             <div>
                 <span class="scope-num">Scope 02</span>
-                <h3>Boys bathroom, gut to walk-in.</h3>
+                <h3>Boys bathroom, full gut remodel.</h3>
             </div>
             <div class="scope-price">$17,010</div>
         </header>
-        <p class="scope-narrative">A complete gut remodel converting the space into a walk-in shower with a glass door, plus a new single-sink vanity setup and new tile flooring. Shower measures 36×45 with ~100" ceilings. Fixtures stay in their current locations — all supply, drain, and valve work is being replaced new.</p>
+        <p class="scope-narrative">A complete gut remodel of the existing walk-in shower bathroom, plus a new single-sink vanity setup and new tile flooring. Shower measures 36×45 with ~100" ceilings. Fixtures stay in their current locations — all supply, drain, and valve work is being replaced new.</p>
+
+        <div class="scope-image">
+            <img src="portfolio-8-clean.jpg" alt="Glass-enclosed walk-in shower, Timberline Build Co. project">
+            <p class="img-caption">A completed walk-in shower from a recent Timberline project — for reference on finish quality, not a rendering of this specific bathroom.</p>
+        </div>
 
         <div class="scope-columns">
             <div class="scope-column">
@@ -641,9 +663,6 @@
             </div>
         </div>
 
-        <div class="scope-note">
-            <strong>Still being defined:</strong> glass shower door style (frameless, semi-frameless, framed) not yet finalized. Full electrical scope for this bathroom still being defined. Tile sq ft is estimated from given dimensions, not final measurement.
-        </div>
     </article>
 
     <!-- SCOPE 3 -->
@@ -656,6 +675,10 @@
             <div class="scope-price">$3,040</div>
         </header>
         <p class="scope-narrative">Installation of a closet organization system in the boys' room. The closet system itself is passed through at cost — no markup applied on the material. Installation is billed separately.</p>
+
+        <div class="scope-image-placeholder">
+            <p>Reference photo pending — we'll add a shot from a comparable closet system install here.</p>
+        </div>
 
         <div class="scope-columns">
             <div class="scope-column">
@@ -685,6 +708,11 @@
         </header>
         <p class="scope-narrative">A targeted remodel focused on the shower/tub area only. The existing vanity and flooring are staying — they are not being touched, removed, or replaced. The project centers on a new built-in-style tub with a bench area, tile to the 108" ceiling, and a frameless sliding glass door. Shower/tub area measures 30×63.</p>
 
+        <div class="scope-image">
+            <img src="portfolio-9-clean.jpg" alt="Tiled bathtub surround, Timberline Build Co. project">
+            <p class="img-caption">A completed tile surround from a recent Timberline project — for reference on finish quality, not a rendering of this specific bathroom.</p>
+        </div>
+
         <div class="scope-columns">
             <div class="scope-column">
                 <h4 class="included">Included</h4>
@@ -707,7 +735,7 @@
         </div>
 
         <div class="scope-note">
-            <strong>Explicitly excluded:</strong> existing vanity &amp; existing flooring stay untouched. Tile sq ft is estimated from given dimensions, not final measurement.
+            <strong>Explicitly excluded:</strong> existing vanity &amp; existing flooring stay untouched.
         </div>
     </article>
 
@@ -721,6 +749,10 @@
             <div class="scope-price">$1,260</div>
         </header>
         <p class="scope-narrative">Fabrication and installation of a floating quartz countertop/desk in the hallway near the girls' bedroom.</p>
+
+        <div class="scope-image-placeholder">
+            <p>Reference photo pending — we'll add a shot from a comparable floating desk/countertop install here.</p>
+        </div>
 
         <div class="scope-columns">
             <div class="scope-column">
@@ -749,6 +781,10 @@
             <div class="scope-price">$2,793</div>
         </header>
         <p class="scope-narrative">Installation of white tongue-and-groove shiplap in the recessed soffit area (153×123", roughly 131 sq ft), followed by a spray-finish paint application. Overhead work — careful site protection of the surrounding area is included.</p>
+
+        <div class="scope-image-placeholder">
+            <p>Reference photo pending — we'll add a shot from a comparable shiplap soffit install here.</p>
+        </div>
 
         <div class="scope-columns">
             <div class="scope-column">
@@ -813,41 +849,7 @@
             <div class="invest-total-value">$44,233</div>
         </div>
 
-        <p class="invest-caveat">Labor and construction materials only. Finish materials are customer-supplied unless a scope specifically states otherwise. No permits or permit fees included; if required, they are the owner's responsibility. This is a living estimate — the total will move as remaining scope details firm up. All labor warrantied for 1 year from project completion.</p>
-    </div>
-</section>
-
-<!-- ================================================
-     OPEN ITEMS
-     ================================================ -->
-<section class="open-items" id="open-items">
-    <span class="eyebrow">Still Being Refined</span>
-    <h2 class="display">A few open <em>items to firm up.</em></h2>
-    <ul>
-        <li><strong>Boys shower door style</strong> — frameless, semi-frameless, or framed not yet decided.</li>
-        <li><strong>Tile sq footage</strong> — boys shower &amp; girls tub surround estimated from given dimensions, not final measurements.</li>
-        <li><strong>Full electrical scope for the boys' bathroom</strong> — still being defined.</li>
-        <li><strong>Additional scope items</strong> — as this is a living estimate, more may be added as design and site walks progress.</li>
-    </ul>
-</section>
-
-<!-- ================================================
-     CLOSE / SIGNATURE
-     ================================================ -->
-<section class="close" id="signature">
-    <span class="eyebrow">Ready?</span>
-    <h2 class="display">When you're ready, <em>sign below.</em></h2>
-    <p class="lede" style="margin-left:auto; margin-right:auto;">Signing authorizes Timberline Build Co. to proceed with the scopes described above at the total investment of $44,233. Because this is a living estimate, additional scope items added later will be documented and priced via signed change orders.</p>
-
-    <div class="sig-block">
-        <div>
-            <div class="sig-line"></div>
-            <div class="sig-label">Brett Derby — Date</div>
-        </div>
-        <div>
-            <div class="sig-line"></div>
-            <div class="sig-label">Timberline Build Co. — Date</div>
-        </div>
+        <p class="invest-caveat">Labor and construction materials only. Finish materials are customer-supplied unless a scope specifically states otherwise. No permits or permit fees included; if required, they are the owner's responsibility. This is a living estimate — additional scope items may be added as design and site walks progress, and the total will move accordingly. All labor warrantied for 1 year from project completion.</p>
     </div>
 </section>
 
