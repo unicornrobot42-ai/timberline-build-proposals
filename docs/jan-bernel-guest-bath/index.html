@@ -6,155 +6,170 @@
     <title>Timberline Build Co. | Jan Bernel — Guest Bath Remodel</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        :root { --forest: #19412c; --earth: #312509; --navy: #213245; --gold: #e9af3b; --cream: #faf8f4; --white: #ffffff; }
+        :root {
+            --forest: #19412c;
+            --earth: #312509;
+            --navy: #213245;
+            --gold: #e9af3b;
+            --cream: #faf8f4;
+            --paper: #f5f1e8;
+            --white: #ffffff;
+            --ink: #1a1a1a;
+            --dim: #7a7a7a;
+            --line: #e8e2d3;
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-        body { font-family: 'Montserrat', sans-serif; color: #333; background: var(--cream); line-height: 1.7; }
-        h1, h2, h3, h4 { font-weight: 700; line-height: 1.2; letter-spacing: -0.5px; }
-        h1 { font-size: 3.2rem; } h2 { font-size: 2rem; } h3 { font-size: 1.3rem; }
-        .label { text-transform: uppercase; font-size: 0.65rem; letter-spacing: 3px; color: var(--gold); font-weight: 800; margin-bottom: 1.2rem; display: block; }
-        @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--ink);
+            background: var(--cream);
+            line-height: 1.7;
+            font-weight: 400;
+            font-size: 15px;
+        }
+        .mono-label {
+            font-family: 'Inter', sans-serif;
+            text-transform: uppercase;
+            font-size: 0.68rem;
+            letter-spacing: 3px;
+            color: var(--gold);
+            font-weight: 600;
+        }
 
-        .hero { position: relative; min-height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
+        /* ================================================
+           HEADER
+           ================================================ */
+        .hero { position: relative; min-height: 100vh; display: flex; flex-direction: column; overflow: hidden; font-family: 'Montserrat', sans-serif; }
         .hero-bg { position: absolute; inset: 0; background-image: url('hero.jpg'); background-size: cover; background-position: center 40%; z-index: 0; }
         .hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(25,65,44,0.95) 0%, rgba(25,65,44,0.82) 55%, rgba(25,65,44,0.55) 100%); }
         .hero-top { position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: center; padding: 2.5rem 3rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
         .logo { height: 52px; mix-blend-mode: lighten; }
         .hero-date { font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.6); font-weight: 600; }
-        .hero-body { position: relative; z-index: 1; flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 4rem 3rem; animation: fadeUp 0.8s ease both; color: var(--white); }
-        .hero-body h1 { color: var(--white); margin-bottom: 1rem; max-width: 780px; }
+        .hero-body { position: relative; z-index: 1; flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 4rem 3rem; color: var(--white); }
+        .hero-body h1 { color: var(--white); margin-bottom: 1rem; max-width: 780px; font-size: 3.2rem; font-weight: 700; line-height: 1.1; letter-spacing: -0.5px; }
         .hero-body h1 span { color: var(--gold); }
         .hero-body p { color: rgba(255,255,255,0.7); max-width: 600px; font-size: 0.95rem; }
+        .hero-body .mono-label { color: var(--gold); margin-bottom: 1.2rem; display: block; }
         .hero-meta { display: flex; gap: 3rem; margin-top: 3rem; padding-top: 3rem; border-top: 1px solid rgba(255,255,255,0.15); flex-wrap: wrap; }
         .meta-label { font-size: 0.62rem; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.45); font-weight: 700; margin-bottom: 0.3rem; }
         .meta-val { font-size: 0.95rem; font-weight: 600; color: var(--white); }
         .hero-bottom { position: relative; z-index: 1; padding: 2rem 3rem; border-top: 1px solid rgba(255,255,255,0.1); display: flex; gap: 1.2rem; flex-wrap: wrap; }
         .tag { background: rgba(233,175,59,0.15); border: 1px solid rgba(233,175,59,0.35); color: var(--gold); font-size: 0.68rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 0.4rem 1rem; border-radius: 100px; }
 
-        .quicknav { display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center; padding: 1.2rem 2rem; background: var(--white); border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 50; }
-        .quicknav a { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.5px; color: var(--earth); text-decoration: none; padding: 0.5rem 0.9rem; border-radius: 100px; background: var(--cream); border: 1px solid #eee; white-space: nowrap; }
+        .quicknav { display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center; padding: 1.2rem 2rem; background: var(--white); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 50; font-family: 'Montserrat', sans-serif; }
+        .quicknav a { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.5px; color: var(--earth); text-decoration: none; padding: 0.5rem 0.9rem; border-radius: 100px; background: var(--cream); border: 1px solid var(--line); white-space: nowrap; }
         .quicknav a:hover { border-color: var(--gold); color: #7a5c10; }
 
-        .trust-bar { display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; padding: 2rem 3rem; background: var(--cream); border-bottom: 1px solid #ece7dd; }
-        .trust-item { text-align: center; }
-        .trust-val { font-size: 1.3rem; font-weight: 900; color: var(--forest); }
-        .trust-label { font-size: 0.62rem; letter-spacing: 1.5px; text-transform: uppercase; color: #888; font-weight: 700; margin-top: 0.2rem; }
+        /* ================================================
+           BODY: editorial + minimal
+           ================================================ */
+        .container { max-width: 780px; margin: 0 auto; padding: 7rem 2rem; }
 
-        .section { padding: 5rem 3rem; max-width: 960px; margin: 0 auto; }
-        .section-divider { height: 1px; background: linear-gradient(to right, var(--gold), transparent); margin: 0 3rem; opacity: 0.25; }
+        h2.display {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 500;
+            font-size: 2.6rem;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            color: var(--ink);
+            margin-bottom: 2rem;
+            max-width: 620px;
+        }
+        h2.display em { font-style: normal; font-weight: 600; color: var(--forest); }
 
-        .overview-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 2rem; }
-        .overview-card { background: var(--white); border-radius: 12px; padding: 1.5rem; border: 1px solid #eee; }
-        .overview-card .oc-label { font-size: 0.62rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); font-weight: 800; margin-bottom: 0.4rem; }
-        .overview-card .oc-val { font-size: 1rem; font-weight: 700; color: var(--earth); }
+        .eyebrow { font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 1.5rem; display: block; }
 
-        .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem; }
-        .why-card { background: var(--white); border-radius: 14px; padding: 2rem 1.6rem; border: 1px solid #eee; }
-        .why-card .why-icon { width: 44px; height: 44px; border-radius: 10px; background: rgba(233,175,59,0.15); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 1rem; }
-        .why-card h3 { font-size: 1rem; color: var(--earth); margin-bottom: 0.5rem; }
-        .why-card p { font-size: 0.85rem; color: #666; line-height: 1.7; }
+        .lede { font-size: 1.15rem; line-height: 1.75; color: #333; max-width: 620px; font-weight: 300; margin-bottom: 1.5rem; }
 
-        .phase-card { background: var(--white); border-radius: 16px; overflow: hidden; margin-bottom: 2.5rem; box-shadow: 0 4px 30px rgba(0,0,0,0.07); border: 1px solid #ececec; }
-        .phase-header { display: flex; align-items: center; gap: 1.5rem; padding: 1.8rem 2.5rem; background: var(--forest); color: var(--white); }
-        .phase-card.navy .phase-header { background: var(--navy); }
-        .phase-card.earth .phase-header { background: var(--earth); }
-        .phase-card.brown .phase-header { background: #614432; }
-        .phase-num { width: 48px; height: 48px; border-radius: 50%; background: var(--gold); color: var(--earth); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; font-weight: 900; flex-shrink: 0; }
-        .phase-header-text h3 { font-size: 1.2rem; color: var(--white); margin-bottom: 0.15rem; }
-        .phase-sub { font-size: 0.7rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 2px; font-weight: 600; }
-        .phase-body { padding: 2rem 2.5rem; }
-        .phase-body p { color: #555; font-size: 0.93rem; line-height: 1.8; margin-bottom: 1.2rem; }
+        /* ============ AT-A-GLANCE STRIP ============ */
+        .glance { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin-top: 3rem; }
+        .glance > div { padding: 1.8rem 1.2rem; border-right: 1px solid var(--line); }
+        .glance > div:last-child { border-right: none; }
+        .glance .gl-label { font-size: 0.62rem; letter-spacing: 2px; text-transform: uppercase; color: var(--dim); font-weight: 500; margin-bottom: 0.5rem; }
+        .glance .gl-val { font-family: 'Space Grotesk', sans-serif; font-size: 1.6rem; font-weight: 400; color: var(--ink); letter-spacing: -0.02em; }
+        .glance .gl-sub { font-size: 0.72rem; color: var(--dim); margin-top: 0.2rem; }
 
-        .scope-list { list-style: none; margin: 0.5rem 0 0; }
-        .scope-list li { display: flex; align-items: flex-start; gap: 0.9rem; padding: 0.65rem 0; border-bottom: 1px solid #f0ece5; font-size: 0.88rem; color: #444; line-height: 1.6; }
-        .scope-list li:last-child { border-bottom: none; }
-        .scope-list li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; margin-top: 7px; }
+        /* ============ SCOPE DETAIL BLOCK ============ */
+        .scope-block { padding: 4rem 0; }
+        .scope-block .scope-header { display: flex; justify-content: space-between; align-items: baseline; gap: 2rem; padding-bottom: 2.5rem; margin-bottom: 2.5rem; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+        .scope-block h3 { font-family: 'Space Grotesk', sans-serif; font-size: 2.2rem; font-weight: 400; letter-spacing: -0.02em; line-height: 1.1; color: var(--ink); max-width: 500px; }
+        .scope-block .scope-price { font-family: 'Space Grotesk', sans-serif; font-size: 1.8rem; font-weight: 500; color: var(--forest); white-space: nowrap; }
+        .scope-block .scope-narrative { font-size: 1.02rem; line-height: 1.8; color: #333; font-weight: 400; margin-bottom: 3rem; max-width: 620px; }
 
-        .not-included-list { list-style: none; margin-top: 1.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
-        .not-included-list li { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.88rem; color: #555; }
-        .not-included-list li::before { content: '—'; color: var(--forest); font-weight: 700; flex-shrink: 0; }
+        .scope-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 2rem; }
+        .scope-column h4 { font-family: 'Inter', sans-serif; font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; color: var(--dim); margin-bottom: 1.5rem; padding-bottom: 0.8rem; border-bottom: 1px solid var(--line); }
+        .scope-column h4.included { color: var(--forest); }
+        .scope-column h4.supply { color: var(--earth); }
+        .scope-column ul { list-style: none; }
+        .scope-column li { font-size: 0.92rem; line-height: 1.7; color: #333; padding: 0.5rem 0; font-weight: 400; }
+        .scope-column li::before { content: '—'; color: var(--gold); margin-right: 0.8rem; font-weight: 500; }
 
-        .callout { background: var(--navy); border-radius: 12px; padding: 1.5rem 2rem; margin-top: 1.5rem; }
-        .callout p { color: rgba(255,255,255,0.75); font-size: 0.85rem; line-height: 1.7; margin: 0; }
-        .callout strong { color: var(--gold); }
+        .scope-note { margin-top: 2.5rem; padding: 1.5rem 0 0; border-top: 1px solid var(--line); font-size: 0.85rem; color: var(--dim); font-style: italic; line-height: 1.6; }
+        .scope-note strong { color: var(--forest); font-style: normal; font-weight: 600; }
 
-        .tile-table { width: 100%; border-collapse: collapse; margin-top: 1.5rem; background: var(--white); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
-        .tile-table th { background: var(--forest); color: var(--white); font-size: 0.72rem; letter-spacing: 1px; text-transform: uppercase; font-weight: 700; padding: 0.9rem 1.2rem; text-align: left; }
-        .tile-table td { padding: 0.8rem 1.2rem; font-size: 0.87rem; color: #444; border-bottom: 1px solid #f0ece5; }
+        /* ============ TILE QUANTITIES TABLE ============ */
+        .tile-table { width: 100%; border-collapse: collapse; margin-top: 2rem; }
+        .tile-table th { text-align: left; font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; color: var(--dim); font-weight: 600; padding: 0.8rem 0; border-bottom: 1px solid var(--ink); }
+        .tile-table td { padding: 1rem 0; font-size: 0.92rem; color: #333; border-bottom: 1px solid var(--line); }
         .tile-table tr:last-child td { border-bottom: none; }
-        .tile-table tr:nth-child(even) td { background: var(--cream); }
-        .tile-table .tt-total-row td { background: var(--earth); color: var(--white); font-weight: 800; }
-        .buying-target-card { background: #fff8eb; border: 1px solid #f0ddb3; border-radius: 12px; padding: 1.5rem 2rem; margin-top: 1.5rem; }
-        .buying-target-card h4 { color: var(--earth); font-size: 0.9rem; margin-bottom: 0.6rem; }
-        .buying-target-card .bt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 1rem; }
-        .buying-target-card .bt-item { text-align: center; }
-        .buying-target-card .bt-val { font-size: 1.4rem; font-weight: 900; color: var(--forest); }
-        .buying-target-card .bt-label { font-size: 0.7rem; color: #888; text-transform: uppercase; letter-spacing: 1px; margin-top: 0.2rem; }
+        .tile-table td:last-child { text-align: right; font-family: 'Space Grotesk', sans-serif; font-weight: 500; color: var(--forest); }
+        .tile-table tr.tt-total td { font-weight: 600; color: var(--ink); border-top: 1px solid var(--ink); border-bottom: none; padding-top: 1.2rem; }
+        .tile-table tr.tt-total td:last-child { color: var(--forest); }
 
-        .total-block { background: var(--forest); border-radius: 16px; padding: 3rem; color: var(--white); }
-        .total-phases { display: flex; flex-direction: column; gap: 0; margin: 1.5rem 0; }
-        .total-row { display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; padding: 0.8rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); gap: 1rem; flex-wrap: wrap; }
-        .total-row:last-child { border-bottom: none; }
-        .total-row .tr-label { color: rgba(255,255,255,0.65); font-weight: 500; }
-        .total-row .tr-val { color: var(--white); font-weight: 700; white-space: nowrap; }
-        .total-final { display: flex; justify-content: space-between; align-items: baseline; padding-top: 1.5rem; margin-top: 0.5rem; border-top: 1px solid rgba(255,255,255,0.15); flex-wrap: wrap; gap: 0.5rem; }
-        .tf-label { font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); font-weight: 800; }
-        .tf-range { font-size: 2.4rem; font-weight: 900; color: var(--gold); letter-spacing: -1px; }
-        .total-caveat { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.83rem; color: rgba(255,255,255,0.5); line-height: 1.7; }
+        .buying-target { background: var(--paper); border-radius: 4px; padding: 2rem 2.2rem; margin-top: 2.5rem; }
+        .buying-target h4 { font-family: 'Space Grotesk', sans-serif; font-size: 1rem; font-weight: 600; color: var(--earth); margin-bottom: 0.8rem; }
+        .buying-target p { font-size: 0.9rem; color: #555; line-height: 1.75; margin-bottom: 1.5rem; }
+        .buying-target .bt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+        .buying-target .bt-item { border-top: 1px solid var(--line); padding-top: 1rem; }
+        .buying-target .bt-val { font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 500; color: var(--forest); }
+        .buying-target .bt-label { font-size: 0.72rem; color: var(--dim); text-transform: uppercase; letter-spacing: 1px; margin-top: 0.3rem; }
 
-        .faq-item { border: 1px solid #eee; border-radius: 12px; margin-bottom: 0.8rem; background: var(--white); overflow: hidden; }
-        .faq-item summary { padding: 1.1rem 1.5rem; font-weight: 700; font-size: 0.92rem; color: var(--earth); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; }
-        .faq-item summary::-webkit-details-marker { display: none; }
-        .faq-item summary::after { content: '+'; font-size: 1.3rem; color: var(--gold); font-weight: 400; flex-shrink: 0; margin-left: 1rem; }
-        .faq-item[open] summary::after { content: '−'; }
-        .faq-item .faq-body { padding: 0 1.5rem 1.3rem; font-size: 0.87rem; color: #555; line-height: 1.75; }
+        /* ============ INVESTMENT ============ */
+        .investment { background: var(--paper); padding: 5rem 3rem; }
+        .invest-inner { max-width: 780px; margin: 0 auto; }
+        .invest-table { width: 100%; border-collapse: collapse; margin-top: 3rem; }
+        .invest-table tr { border-bottom: 1px solid var(--line); }
+        .invest-table td { padding: 1.4rem 0; font-size: 1rem; vertical-align: baseline; }
+        .invest-table td:first-child { font-family: 'Space Grotesk', sans-serif; font-size: 1.15rem; font-weight: 400; color: var(--ink); }
+        .invest-table td:last-child { text-align: right; font-family: 'Space Grotesk', sans-serif; font-size: 1.15rem; font-weight: 500; color: var(--forest); white-space: nowrap; }
+        .invest-table .row-sub { font-size: 0.82rem; color: var(--dim); font-family: 'Inter', sans-serif; font-weight: 400; margin-top: 0.2rem; }
+        .invest-total { display: flex; justify-content: space-between; align-items: baseline; padding-top: 2rem; margin-top: 1rem; border-top: 2px solid var(--ink); gap: 1rem; flex-wrap: wrap; }
+        .invest-total-label { font-size: 0.72rem; letter-spacing: 3px; text-transform: uppercase; color: var(--dim); font-weight: 600; }
+        .invest-total-value { font-family: 'Space Grotesk', sans-serif; font-size: 3rem; font-weight: 400; color: var(--ink); letter-spacing: -0.02em; }
+        .invest-caveat { font-size: 0.82rem; color: var(--dim); line-height: 1.7; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--line); max-width: 620px; }
 
-        .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-top: 2rem; }
-        .step-card { text-align: center; padding: 0 1rem; }
-        .step-num { width: 40px; height: 40px; border-radius: 50%; background: var(--forest); color: var(--gold); font-weight: 900; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 1.05rem; }
-        .step-card h4 { font-size: 0.95rem; color: var(--earth); margin-bottom: 0.4rem; }
-        .step-card p { font-size: 0.82rem; color: #777; line-height: 1.6; }
-
-        .warranty-block { background: var(--navy); border-radius: 16px; padding: 2.5rem 3rem; color: var(--white); }
-        .warranty-block .label { color: var(--gold); }
-        .warranty-block p { color: rgba(255,255,255,0.65); font-size: 0.92rem; line-height: 1.8; }
-
-        .sig-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem 2rem; margin-top: 2rem; }
-        .sig-line { border-bottom: 1.5px solid #333; margin-bottom: 0.5rem; height: 44px; }
-        .sig-label { font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; color: #999; font-weight: 700; }
-
-        .portfolio-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; border-radius: 12px; overflow: hidden; margin-top: 2rem; }
-        .portfolio-grid img { width: 100%; height: 220px; object-fit: cover; object-position: center 30%; display: block; }
-        .portfolio-grid .wide { grid-column: span 2; }
-
-        footer { background: var(--earth); color: var(--white); padding: 3rem; text-align: center; }
-        footer img { height: 44px; margin-bottom: 1.5rem; mix-blend-mode: lighten; opacity: 0.85; }
-        footer p { font-size: 0.83rem; color: rgba(255,255,255,0.45); margin-bottom: 0.4rem; }
-        footer a { color: var(--gold); }
+        /* ============ FOOTER ============ */
+        footer { background: var(--ink); color: rgba(255,255,255,0.5); padding: 3rem; text-align: center; font-size: 0.82rem; font-family: 'Montserrat', sans-serif; }
+        footer img { height: 40px; margin-bottom: 1.5rem; mix-blend-mode: lighten; opacity: 0.8; }
+        footer p { margin-bottom: 0.4rem; }
+        footer a { color: var(--gold); text-decoration: none; }
 
         @media (max-width: 720px) {
-            h1 { font-size: 2rem; }
+            .container { padding: 4rem 1.5rem; }
+            h2.display { font-size: 1.9rem; }
+            .scope-block { padding: 3rem 0; }
+            .scope-block h3 { font-size: 1.6rem; }
+            .scope-block .scope-price { font-size: 1.4rem; }
+            .scope-columns { grid-template-columns: 1fr; gap: 2.5rem; }
+            .glance { grid-template-columns: repeat(2, 1fr); }
+            .glance > div { border-right: none; border-bottom: 1px solid var(--line); }
+            .glance > div:nth-child(odd) { border-right: 1px solid var(--line); }
+            .glance > div:nth-last-child(-n+2) { border-bottom: none; }
+            .investment { padding: 4rem 1.5rem; }
+            .invest-total-value { font-size: 2.2rem; }
+            .buying-target .bt-grid { grid-template-columns: 1fr; gap: 1rem; }
+            .hero-body h1 { font-size: 2rem; }
             .hero-top, .hero-body, .hero-bottom { padding: 1.5rem; }
-            .section { padding: 3rem 1.5rem; }
-            .not-included-list, .overview-grid, .why-grid, .steps-grid, .buying-target-card .bt-grid { grid-template-columns: 1fr; }
             .hero-meta { flex-direction: column; gap: 1.2rem; }
-            .phase-header, .phase-body { padding: 1.5rem; }
-            .total-block { padding: 2rem 1.5rem; }
-            .tf-range { font-size: 1.8rem; }
-            .sig-grid { grid-template-columns: 1fr; }
-            .portfolio-grid { grid-template-columns: 1fr; }
-            .portfolio-grid .wide { grid-column: span 1; }
-            .quicknav { overflow-x: auto; justify-content: flex-start; padding: 1rem; }
-            .trust-bar { gap: 1.5rem; padding: 1.5rem; }
-            .tile-table { font-size: 0.8rem; }
-            .tile-table th, .tile-table td { padding: 0.6rem 0.7rem; }
         }
     </style>
 </head>
 <body>
 
+<!-- HEADER -->
 <section class="hero">
     <div class="hero-bg"></div>
     <div class="hero-top">
@@ -162,9 +177,9 @@
         <span class="hero-date">August 2026</span>
     </div>
     <div class="hero-body">
-        <span class="label">Guest Bathroom · Proposal</span>
-        <h1>Tub to <span>Walk-In Shower</span> Conversion</h1>
-        <p>Converting your guest bathroom's existing tub into a full walk-in shower — frameless glass, hot mop, tile to the ceiling, and a fresh vanity and finishes throughout.</p>
+        <span class="mono-label">Guest Bathroom · Proposal</span>
+        <h1>Tub to <span>walk-in shower</span> conversion.</h1>
+        <p>Converting your guest bathroom's existing tub into a full walk-in shower — frameless glass, hot mop, full waterproofing, and a fresh vanity throughout.</p>
         <div class="hero-meta">
             <div>
                 <div class="meta-label">Prepared For</div>
@@ -194,227 +209,95 @@
 
 <nav class="quicknav">
     <a href="#overview">Overview</a>
-    <a href="#scope">Scope of Work</a>
+    <a href="#scope">Scope</a>
     <a href="#tile-quantities">Tile Quantities</a>
-    <a href="#customer-supplies">What You Supply</a>
-    <a href="#not-included">Not Included</a>
     <a href="#investment">Investment</a>
-    <a href="#faq">FAQ</a>
-    <a href="#next-steps">Next Steps</a>
 </nav>
 
-<div class="trust-bar">
-    <div class="trust-item">
-        <div class="trust-val">Licensed &amp; Insured</div>
-        <div class="trust-label">Orange County, CA</div>
-    </div>
-    <div class="trust-item">
-        <div class="trust-val">1-Year</div>
-        <div class="trust-label">Labor Warranty</div>
-    </div>
-    <div class="trust-item">
-        <div class="trust-val">Fixed-Price</div>
-        <div class="trust-label">No Surprise Fees</div>
-    </div>
-    <div class="trust-item">
-        <div class="trust-val">Daily</div>
-        <div class="trust-label">Site Cleanup</div>
-    </div>
-</div>
-
 <!-- OVERVIEW -->
-<div class="section" id="overview">
-    <span class="label">Project Overview</span>
-    <h2 style="color: var(--earth); margin-bottom: 1rem;">A Full Tub-to-Shower Conversion</h2>
-    <p style="color: #555; max-width: 720px;">This proposal covers converting your guest bathroom's existing tub into a full walk-in shower — from demo through finish plumbing, tile, and paint. The shower gets full waterproofing, a hot-mopped pan, and a frameless glass door, with new tile flooring throughout the bathroom and a refreshed vanity setup.</p>
-    <p style="color: #555; max-width: 720px; margin-top: 1rem;">All labor and construction materials are included in the price below. You supply all finish materials and fixtures — tile, vanity, countertop, sink, faucet, mirror, light fixture, toilet, and shower trim — and we install everything.</p>
+<section class="container" id="overview">
+    <span class="eyebrow">The Project</span>
+    <h2 class="display">A full tub-to-shower <em>conversion.</em></h2>
+    <p class="lede">This proposal covers converting your guest bathroom's existing tub into a full walk-in shower — from demo through finish plumbing, tile, and paint. The shower gets full waterproofing, a hot-mopped pan, and a frameless glass door, with new tile flooring and a refreshed vanity setup.</p>
+    <p class="lede">Timberline provides labor and construction materials. Finish materials — tile, vanity, countertop, sink, faucet, mirror, light fixture, toilet, and shower trim — are supplied by you.</p>
 
-    <div class="overview-grid">
-        <div class="overview-card">
-            <div class="oc-label">Total Investment</div>
-            <div class="oc-val">$14,200</div>
+    <div class="glance">
+        <div>
+            <div class="gl-label">Total</div>
+            <div class="gl-val">$14,200</div>
+            <div class="gl-sub">Labor &amp; construction materials</div>
         </div>
-        <div class="overview-card">
-            <div class="oc-label">Scope</div>
-            <div class="oc-val">Tub-to-Shower Conversion</div>
+        <div>
+            <div class="gl-label">Scope</div>
+            <div class="gl-val">Conversion</div>
+            <div class="gl-sub">Tub to walk-in shower</div>
         </div>
-        <div class="overview-card">
-            <div class="oc-label">Shower Door</div>
-            <div class="oc-val">Frameless Glass</div>
+        <div>
+            <div class="gl-label">Shower Door</div>
+            <div class="gl-val">Frameless</div>
+            <div class="gl-sub">Supplied &amp; installed</div>
         </div>
-        <div class="overview-card">
-            <div class="oc-label">Vanity</div>
-            <div class="oc-val">Up to 34" Single Sink</div>
+        <div>
+            <div class="gl-label">Vanity</div>
+            <div class="gl-val">Up to 34"</div>
+            <div class="gl-sub">Single-sink, install only</div>
         </div>
     </div>
-</div>
-
-<div class="section-divider"></div>
-
-<div class="section">
-    <span class="label">Why Homeowners Choose Us</span>
-    <h2 style="color: var(--earth); margin-bottom: 0.5rem;">What Working With Us Looks Like</h2>
-    <div class="why-grid">
-        <div class="why-card">
-            <div class="why-icon">📞</div>
-            <h3>Real Communication</h3>
-            <p>We pick up the phone, respond to texts, and give updates before you have to ask. You always know what's happening, what's next, and when we'll be done.</p>
-        </div>
-        <div class="why-card">
-            <div class="why-icon">🧹</div>
-            <h3>Clean Every Day</h3>
-            <p>Your home is still your home during construction. We clean up at the end of every single day — no piles of debris, no dust everywhere, no excuses.</p>
-        </div>
-        <div class="why-card">
-            <div class="why-icon">💵</div>
-            <h3>Transparent Pricing</h3>
-            <p>You supply the finishes, we handle all the labor — no markup on anything you buy. Fixed price on our side, full control on yours.</p>
-        </div>
-    </div>
-</div>
-
-<div class="section-divider"></div>
+</section>
 
 <!-- SCOPE -->
-<div class="section" id="scope">
-    <span class="label">Scope of Work</span>
-    <h2 style="color: var(--earth); margin-bottom: 0.5rem;">What's Included</h2>
-    <p style="color: #888; font-size: 0.85rem; margin-bottom: 2.5rem;">Complete breakdown by category. All finish materials and fixtures are customer-supplied unless noted otherwise.</p>
+<section class="container" style="padding-top: 0;" id="scope">
+    <article class="scope-block">
+        <header class="scope-header">
+            <div>
+                <span class="eyebrow" style="margin-bottom: 0.4rem;">Scope of Work</span>
+                <h3>Demo through finish.</h3>
+            </div>
+            <div class="scope-price">$14,200</div>
+        </header>
+        <p class="scope-narrative">The existing tub is removed and the space prepped for conversion. All plumbing needed for the shower and vanity — valve, drain, and rough/finish work — is completed as one consolidated scope. Framing is added for the shower curb/enclosure, with minor drywall repair throughout. The shower walls and floor are fully tiled and waterproofed, with a hot-mopped pan and a frameless glass door supplied and installed. New tile flooring goes in throughout the bathroom. The existing vent fan is replaced, outlets are updated (GFCI/outlet work), and the existing light fixture is swapped for your supplied fixture. A single-sink vanity up to 34" wide is set — installation only — and your mirror is hung. Minor touch-up painting finishes the space.</p>
 
-    <div class="phase-card">
-        <div class="phase-header">
-            <div class="phase-num">1</div>
-            <div class="phase-header-text">
-                <h3>Demolition</h3>
-                <div class="phase-sub">Remove Existing Tub · Prep for Conversion</div>
+        <div class="scope-columns">
+            <div class="scope-column">
+                <h4 class="included">Included</h4>
+                <ul>
+                    <li>Demo &amp; prep for conversion</li>
+                    <li>Shower valve, drain, rough &amp; finish plumbing</li>
+                    <li>Vanity rough &amp; finish plumbing</li>
+                    <li>Shower curb/enclosure framing</li>
+                    <li>Minor drywall repair</li>
+                    <li>Full shower tile &amp; waterproofing labor</li>
+                    <li>Hot-mopped shower pan</li>
+                    <li>Frameless glass shower door — supplied &amp; installed</li>
+                    <li>New bathroom floor tile — install labor</li>
+                    <li>Vent fan replacement</li>
+                    <li>Outlet updates (GFCI/outlet work)</li>
+                    <li>Light fixture install</li>
+                    <li>Vanity install (up to 34")</li>
+                    <li>Mirror hang</li>
+                    <li>Minor touch-up paint</li>
+                </ul>
+            </div>
+            <div class="scope-column">
+                <h4 class="supply">You Supply</h4>
+                <ul>
+                    <li>All tile — shower walls, shower floor &amp; bathroom floor</li>
+                    <li>Vanity cabinet, countertop, sink &amp; faucet</li>
+                    <li>Mirror</li>
+                    <li>Light fixture</li>
+                    <li>Toilet and shower valve/trim, if applicable</li>
+                    <li>Permits &amp; fees, if required</li>
+                </ul>
             </div>
         </div>
-        <div class="phase-body">
-            <ul class="scope-list">
-                <li>Remove the existing tub and prep the space for conversion to a walk-in shower</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="phase-card navy">
-        <div class="phase-header">
-            <div class="phase-num">2</div>
-            <div class="phase-header-text">
-                <h3>Plumbing</h3>
-                <div class="phase-sub">Shower Valve · Drain · Vanity Rough &amp; Finish</div>
-            </div>
-        </div>
-        <div class="phase-body">
-            <ul class="scope-list">
-                <li>All plumbing needed for the conversion, consolidated into one scope — shower valve, drain, and rough and finish plumbing for the vanity</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="phase-card earth">
-        <div class="phase-header">
-            <div class="phase-num">3</div>
-            <div class="phase-header-text">
-                <h3>Framing &amp; Drywall</h3>
-                <div class="phase-sub">Shower Curb/Enclosure · Minor Repair</div>
-            </div>
-        </div>
-        <div class="phase-body">
-            <ul class="scope-list">
-                <li>Framing added as needed for the shower curb/enclosure to support the walk-in conversion</li>
-                <li>Minor drywall repair included throughout the space</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="phase-card brown">
-        <div class="phase-header">
-            <div class="phase-num">4</div>
-            <div class="phase-header-text">
-                <h3>Shower</h3>
-                <div class="phase-sub">Full Tile &amp; Waterproofing · Hot Mop · Frameless Glass</div>
-            </div>
-        </div>
-        <div class="phase-body">
-            <ul class="scope-list">
-                <li>Shower walls and floor fully tiled with complete waterproofing (tile customer-supplied)</li>
-                <li>Hot-mopped shower pan included</li>
-                <li>Frameless glass shower door — supplied and installed</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="phase-card">
-        <div class="phase-header">
-            <div class="phase-num">5</div>
-            <div class="phase-header-text">
-                <h3>Flooring</h3>
-                <div class="phase-sub">New Tile Throughout</div>
-            </div>
-        </div>
-        <div class="phase-body">
-            <ul class="scope-list">
-                <li>Install new tile flooring throughout the bathroom floor (tile customer-supplied)</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="phase-card navy">
-        <div class="phase-header">
-            <div class="phase-num">6</div>
-            <div class="phase-header-text">
-                <h3>Electrical</h3>
-                <div class="phase-sub">Vent Fan · Outlets · Light Fixture</div>
-            </div>
-        </div>
-        <div class="phase-body">
-            <ul class="scope-list">
-                <li>Replace the existing vent fan</li>
-                <li>Update outlets throughout the bathroom (GFCI/outlet work)</li>
-                <li>Replace the existing light fixture with your supplied fixture</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="phase-card earth">
-        <div class="phase-header">
-            <div class="phase-num">7</div>
-            <div class="phase-header-text">
-                <h3>Vanity</h3>
-                <div class="phase-sub">Up to 34" Single Sink · Mirror Hang</div>
-            </div>
-        </div>
-        <div class="phase-body">
-            <ul class="scope-list">
-                <li>Set a single-sink vanity, up to 34" wide — installation only (cabinet customer-supplied)</li>
-                <li>Hang your supplied mirror</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="phase-card brown">
-        <div class="phase-header">
-            <div class="phase-num">8</div>
-            <div class="phase-header-text">
-                <h3>Paint</h3>
-                <div class="phase-sub">Minor Touch-Up Throughout</div>
-            </div>
-        </div>
-        <div class="phase-body">
-            <ul class="scope-list">
-                <li>Minor touch-up painting included throughout the bathroom</li>
-            </ul>
-        </div>
-    </div>
-</div>
-
-<div class="section-divider"></div>
+    </article>
+</section>
 
 <!-- TILE QUANTITIES -->
-<div class="section" id="tile-quantities">
-    <span class="label">Sourcing Help</span>
-    <h2 style="color: var(--earth); margin-bottom: 0.5rem;">Tile Quantities You'll Need</h2>
-    <p style="color: #888; font-size: 0.85rem; margin-bottom: 0.5rem;">Since you're sourcing the tile, here are the exact square footages based on confirmed measurements — this should make shopping for tile straightforward.</p>
+<section class="container" style="padding-top: 0;" id="tile-quantities">
+    <span class="eyebrow">Sourcing Help</span>
+    <h2 class="display">Tile quantities <em>you'll need.</em></h2>
+    <p class="lede">Since you're sourcing the tile, here are the exact square footages based on confirmed measurements — this should make shopping for tile straightforward.</p>
 
     <table class="tile-table">
         <tr><th>Area</th><th>Dimensions</th><th>Sq Ft</th></tr>
@@ -422,13 +305,13 @@
         <tr><td>Shower — Wall 2</td><td>108" × 32"</td><td>24.0 sq ft</td></tr>
         <tr><td>Shower — Wall 3 (largest)</td><td>108" × 60"</td><td>45.0 sq ft</td></tr>
         <tr><td>Shower — Floor</td><td>60" × 32"</td><td>13.3 sq ft</td></tr>
-        <tr class="tt-total-row"><td colspan="2">Shower Total (Walls + Floor)</td><td>~106.3 sq ft</td></tr>
+        <tr class="tt-total"><td colspan="2">Shower Total (Walls + Floor)</td><td>~106.3 sq ft</td></tr>
         <tr><td>Bathroom Floor</td><td>65" × 60"</td><td>27.1 sq ft</td></tr>
     </table>
 
-    <div class="buying-target-card">
+    <div class="buying-target">
         <h4>A Note on Buying Extra</h4>
-        <p style="font-size: 0.85rem; color: #666; line-height: 1.7;">It's standard practice to buy 10–15% more tile than the exact square footage to account for cuts, waste, and pattern matching — especially here, since the shower has three separate wall panels plus a floor at a different plane. This is guidance to help you shop, not a hard requirement — the actual amount of overage really depends on the tile size and pattern you choose.</p>
+        <p>It's standard practice to buy 10–15% more tile than the exact square footage to account for cuts, waste, and pattern matching — especially here, since the shower has three separate wall panels plus a floor at a different plane. This is guidance to help you shop, not a hard requirement — the actual amount of overage really depends on the tile size and pattern you choose.</p>
         <div class="bt-grid">
             <div class="bt-item">
                 <div class="bt-val">~120–122 sq ft</div>
@@ -440,173 +323,36 @@
             </div>
         </div>
     </div>
-</div>
-
-<div class="section-divider"></div>
-
-<!-- CUSTOMER SUPPLIES -->
-<div class="section" id="customer-supplies">
-    <span class="label">What You're Responsible For</span>
-    <h2 style="color: var(--earth); margin-bottom: 0.5rem;">Customer-Supplied Items</h2>
-    <p style="color: #888; font-size: 0.85rem; margin-bottom: 1.5rem;">Simple rule of thumb: you cover the cost of all finish items, we install them. No markup on anything you purchase — full control over your selections.</p>
-
-    <div style="background: var(--white); border-radius: 12px; padding: 1.5rem 2rem; border: 1px solid #eee;">
-        <ul class="scope-list" style="margin: 0;">
-            <li>All tile — shower walls, shower floor, and bathroom floor (see quantities above)</li>
-            <li>Vanity cabinet, countertop, sink, and faucet</li>
-            <li>Mirror</li>
-            <li>Light fixture</li>
-            <li>Toilet and shower valve/trim, if applicable</li>
-            <li>Any permits and fees, if required</li>
-        </ul>
-    </div>
-</div>
-
-<div class="section-divider"></div>
-
-<!-- NOT INCLUDED -->
-<div class="section" id="not-included">
-    <span class="label">Exclusions</span>
-    <h2 style="color: var(--earth); margin-bottom: 0.4rem;">What's NOT Included</h2>
-    <p style="color: #888; font-size: 0.85rem; margin-bottom: 0.5rem;">The following are excluded unless added via written change order.</p>
-    <ul class="not-included-list">
-        <li>All customer-supplied finish materials and fixtures listed above</li>
-        <li>Permits — not included; owner's responsibility if required</li>
-        <li>Any work not explicitly listed in this proposal</li>
-    </ul>
-</div>
-
-<div class="section-divider"></div>
+</section>
 
 <!-- INVESTMENT -->
-<div class="section" id="investment">
-    <span class="label">Investment Summary</span>
-    <div class="total-block">
-        <span class="label">23 Bretagne · Guest Bath Remodel</span>
-        <div class="total-phases">
-            <div class="total-row">
-                <span class="tr-label">Demolition, Plumbing &amp; Framing</span>
-                <span class="tr-val">Included</span>
-            </div>
-            <div class="total-row">
-                <span class="tr-label">Shower — Tile, Waterproofing, Hot Mop &amp; Frameless Glass</span>
-                <span class="tr-val">Included</span>
-            </div>
-            <div class="total-row">
-                <span class="tr-label">Flooring, Electrical, Vanity Set &amp; Paint</span>
-                <span class="tr-val">Included</span>
-            </div>
+<section class="investment" id="investment">
+    <div class="invest-inner">
+        <span class="eyebrow">Investment</span>
+        <h2 class="display">The <em>bottom line.</em></h2>
+        <p class="lede">One consolidated scope, one total. All finish materials — tile, vanity, fixtures — are on you; everything else is on us.</p>
+
+        <table class="invest-table">
+            <tr>
+                <td>Guest Bath — Tub to Walk-In Shower<div class="row-sub">Demo, plumbing, framing, shower, flooring, electrical, vanity &amp; paint</div></td>
+                <td>$14,200</td>
+            </tr>
+        </table>
+
+        <div class="invest-total">
+            <div class="invest-total-label">Total Investment</div>
+            <div class="invest-total-value">$14,200</div>
         </div>
-        <div class="total-final">
-            <div>
-                <div class="tf-label">Total Investment</div>
-            </div>
-            <span class="tf-range">$14,200</span>
-        </div>
-        <div class="total-caveat">
-            Pricing covers labor and construction materials only. All finish materials and fixtures are customer-supplied, as listed above. Permits are not included and are the owner's responsibility if required.
-        </div>
+
+        <p class="invest-caveat">Labor and construction materials only. Finish materials are customer-supplied, as listed above. No permits or permit fees included; if required, they are the owner's responsibility. All labor warrantied for 1 year from project completion. This proposal is valid for 30 days from the date of issue.</p>
     </div>
-</div>
-
-<div class="section-divider"></div>
-
-<!-- FAQ -->
-<div class="section" id="faq">
-    <span class="label">Common Questions</span>
-    <h2 style="color: var(--earth); margin-bottom: 0.5rem;">Frequently Asked Questions</h2>
-    <p style="color: #888; font-size: 0.85rem; margin-bottom: 2rem;">Questions we hear most on projects like this.</p>
-
-    <details class="faq-item">
-        <summary>Why do I need to buy extra tile?</summary>
-        <div class="faq-body">Tile always has some waste — cuts around edges, corners, and fixtures, plus extra for pattern matching if your tile has any veining or directionality. With three separate shower wall panels plus a floor at a different plane, a bit of buffer keeps you from running short mid-install and having to special-order more (which can delay the job if it's out of stock). 10–15% over the exact square footage is a reasonable target, but it varies by tile size and layout.</div>
-    </details>
-
-    <details class="faq-item">
-        <summary>Why do I supply my own tile, vanity, and fixtures?</summary>
-        <div class="faq-body">This keeps your costs transparent and gives you full control over what goes into your home. You pick exactly what you want and pay exactly what it costs — no markup from us. Our price covers all the labor to install everything correctly.</div>
-    </details>
-
-    <details class="faq-item">
-        <summary>What's your warranty on the work?</summary>
-        <div class="faq-body">All labor is warrantied for 1 year from project completion. Materials and fixtures carry their manufacturer warranties on top of that.</div>
-    </details>
-</div>
-
-<div class="section-divider"></div>
-
-<!-- OUR WORK -->
-<div class="section">
-    <span class="label">Our Work</span>
-    <h2 style="color: var(--earth); margin-bottom: 0.5rem;">Recent Projects</h2>
-    <p style="color: #888; font-size: 0.85rem; margin-bottom: 0; max-width: 640px; line-height: 1.75;">Every photo below is real work done by Timberline Build Co. — no stock photos. Orange County homeowners who trusted us with their kitchens and bathrooms.</p>
-    <div class="portfolio-grid">
-        <img src="portfolio-recent-1.jpg" alt="Recently Completed Bathroom" style="height:300px;">
-        <img src="portfolio-13.jpg" alt="Kitchen — Warm Wood Shaker Cabinets" class="wide" style="height:300px;">
-        <img src="portfolio-8-clean.jpg" alt="Master Bath — Glass Shower" class="wide" style="height:240px;">
-        <img src="portfolio-9-clean.jpg" alt="Master Bath — Double Vanity" style="height:240px;">
-        <img src="portfolio-4-clean.jpg" alt="Kitchen — Open Concept" style="height:220px;">
-        <img src="portfolio-6-clean.jpg" alt="Bathroom — Modern Finishes" style="height:220px;">
-        <img src="portfolio-10-clean.jpg" alt="Master Bath — Freestanding Tub" style="height:220px;">
-    </div>
-    <p style="margin-top: 1rem; font-size: 0.78rem; color: #aaa; text-align: center; font-style: italic;">All photos are actual Timberline Build Co. completed projects · Orange County, CA</p>
-</div>
-
-<div class="section-divider"></div>
-
-<!-- WARRANTY -->
-<div class="section">
-    <div class="warranty-block">
-        <span class="label">Our Commitment</span>
-        <h2 style="color: var(--white); margin-bottom: 1rem;">Warranty &amp; Terms</h2>
-        <p>Timberline Build Co. warrants all labor for <strong style="color: var(--white);">1 year from project completion</strong>. Manufacturer warranties apply to all materials, fixtures, and equipment. All change orders require written, signed approval before any additional work proceeds. This proposal is valid for 30 days from the date of issue.</p>
-    </div>
-</div>
-
-<div class="section-divider"></div>
-
-<!-- NEXT STEPS -->
-<div class="section" id="next-steps">
-    <span class="label">Ready to Move Forward?</span>
-    <h2 style="color: var(--earth); margin-bottom: 0.5rem;">How This Works From Here</h2>
-    <div class="steps-grid">
-        <div class="step-card">
-            <div class="step-num">1</div>
-            <h4>Review &amp; Ask Questions</h4>
-            <p>Read through the scope above. Call or text Justin with anything that needs clarifying before you sign.</p>
-        </div>
-        <div class="step-card">
-            <div class="step-num">2</div>
-            <h4>Sign the Proposal</h4>
-            <p>Signing secures your spot on our schedule and lets us start planning material timelines together.</p>
-        </div>
-        <div class="step-card">
-            <div class="step-num">3</div>
-            <h4>Selections &amp; Scheduling</h4>
-            <p>Finalize your tile, vanity, and fixture selections and we'll lock in your start date.</p>
-        </div>
-    </div>
-
-    <div style="margin-top: 3rem; background: var(--white); border: 1px solid #eee; border-radius: 16px; padding: 2.5rem;">
-        <p style="font-size: 0.9rem; color: #444; margin-bottom: 2rem;">By signing below, you authorize Timberline Build Co. to proceed with the scope of work described in this proposal at the total investment of <strong>$14,200</strong>.</p>
-        <div class="sig-grid">
-            <div>
-                <div class="sig-line"></div>
-                <div class="sig-label">Jan Bernel — Date</div>
-            </div>
-            <div>
-                <div class="sig-line"></div>
-                <div class="sig-label">Timberline Build Co. — Date</div>
-            </div>
-        </div>
-    </div>
-</div>
+</section>
 
 <footer>
     <img src="logo.png" alt="Timberline Build Co.">
     <p>Timberline Build Co. · Licensed General Contractor · Orange County, CA</p>
     <p><a href="tel:9492291692">949-229-1692</a></p>
-    <p style="margin-top: 1rem; font-size: 0.72rem; opacity: 0.35;">© 2026 Timberline Build Co. All rights reserved. This proposal is valid for 30 days from the date of issue.</p>
+    <p style="margin-top: 1rem; font-size: 0.72rem; opacity: 0.5;">© 2026 Timberline Build Co. Proposal valid for 30 days from date of issue.</p>
 </footer>
 
 </body>
