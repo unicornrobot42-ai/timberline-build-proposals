@@ -127,14 +127,6 @@
         .buying-target .bt-val { font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 500; color: var(--forest); }
         .buying-target .bt-label { font-size: 0.72rem; color: var(--dim); text-transform: uppercase; letter-spacing: 1px; margin-top: 0.3rem; }
 
-        .equation { display: flex; align-items: baseline; justify-content: center; gap: 1.2rem; flex-wrap: wrap; padding: 1.8rem 0; }
-        .equation .eq-num { font-family: 'Space Grotesk', sans-serif; font-size: 1.7rem; font-weight: 500; color: var(--ink); }
-        .equation .eq-num.result { color: var(--forest); font-weight: 600; }
-        .equation .eq-op { font-family: 'Space Grotesk', sans-serif; font-size: 1.2rem; font-weight: 400; color: var(--gold); }
-        .equation-label { font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; color: var(--dim); font-weight: 600; text-align: center; margin-top: -0.5rem; }
-        .equation-block { border-top: 1px solid var(--line); padding-top: 0.5rem; margin-top: 1rem; }
-        .equation-block:first-child { margin-top: 0; }
-
         /* ============ INVESTMENT ============ */
         .investment { background: var(--paper); padding: 5rem 3rem; }
         .invest-inner { max-width: 780px; margin: 0 auto; }
@@ -168,9 +160,6 @@
             .glance > div:nth-last-child(-n+2) { border-bottom: none; }
             .investment { padding: 4rem 1.5rem; }
             .invest-total-value { font-size: 2.2rem; }
-            .equation { gap: 0.6rem; }
-            .equation .eq-num { font-size: 1.3rem; }
-            .equation .eq-op { font-size: 1rem; }
             .hero-body h1 { font-size: 2rem; }
             .hero-top, .hero-body, .hero-bottom { padding: 1.5rem; }
             .hero-meta { flex-direction: column; gap: 1.2rem; }
@@ -307,41 +296,21 @@
 <section class="container" style="padding-top: 0;" id="tile-quantities">
     <span class="eyebrow">Sourcing Help</span>
     <h2 class="display">Tile quantities <em>you'll need.</em></h2>
-    <p class="lede">Since you're sourcing the tile, here are the exact square footages based on confirmed measurements — this should make shopping for tile straightforward.</p>
+    <p class="lede">Since you're sourcing the tile, here are the exact square footages based on confirmed measurements, plus how much to actually buy — each area includes 15% extra to account for cuts, waste, and pattern matching.</p>
 
     <table class="tile-table">
-        <tr><th>Area</th><th>Sq Ft</th></tr>
-        <tr><td>Shower Walls (all 3 panels combined)</td><td>93.0 sq ft</td></tr>
-        <tr><td>Shower Floor</td><td>13.3 sq ft</td></tr>
-        <tr class="tt-total"><td>Shower Total (Walls + Floor)</td><td>106.3 sq ft</td></tr>
-        <tr><td>Niche — if same tile as bathroom floor</td><td>5.0 sq ft</td></tr>
-        <tr><td>Bathroom Floor</td><td>27.1 sq ft</td></tr>
-        <tr class="tt-total"><td>Floor Total (Bathroom Floor + Niche)</td><td>32.1 sq ft</td></tr>
+        <tr><th>Area</th><th>Current Sq Ft</th><th>Amount to Buy (+15%)</th></tr>
+        <tr><td>Shower Walls (all 3 panels combined)</td><td>93.0 sq ft</td><td>106.9 sq ft</td></tr>
+        <tr><td>Shower Floor</td><td>13.3 sq ft</td><td>15.3 sq ft</td></tr>
+        <tr class="tt-total"><td>Shower Total (Walls + Floor)</td><td>106.3 sq ft</td><td>122.2 sq ft</td></tr>
+        <tr><td>Niche — if same tile as bathroom floor</td><td>5.0 sq ft</td><td>5.8 sq ft</td></tr>
+        <tr><td>Bathroom Floor</td><td>27.1 sq ft</td><td>31.2 sq ft</td></tr>
+        <tr class="tt-total"><td>Floor Total (Bathroom Floor + Niche)</td><td>32.1 sq ft</td><td>36.9 sq ft</td></tr>
     </table>
 
     <div class="buying-target">
         <h4>A Note on Buying Extra</h4>
-        <p>It's standard practice to buy 15% more tile than the exact square footage to account for cuts, waste, and pattern matching — especially here, since the shower has three separate wall panels plus a floor at a different plane. This is guidance to help you shop, not a hard requirement — the actual amount of overage really depends on the tile size and pattern you choose.</p>
-
-        <div class="equation-block">
-            <div class="equation">
-                <span class="eq-num">106.3 sq ft</span>
-                <span class="eq-op">+15%</span>
-                <span class="eq-op">=</span>
-                <span class="eq-num result">122.2 sq ft</span>
-            </div>
-            <div class="equation-label">Suggested Shower Tile Target (Walls + Floor)</div>
-        </div>
-
-        <div class="equation-block">
-            <div class="equation">
-                <span class="eq-num">32.1 sq ft</span>
-                <span class="eq-op">+15%</span>
-                <span class="eq-op">=</span>
-                <span class="eq-num result">36.9 sq ft</span>
-            </div>
-            <div class="equation-label">Suggested Floor Tile Target (Bathroom Floor + Niche)</div>
-        </div>
+        <p style="margin-bottom: 0;">The "Amount to Buy" column already includes the recommended 15% overage — this is guidance to help you shop, not a hard requirement. The actual amount of overage really depends on the tile size and pattern you choose.</p>
     </div>
 </section>
 
