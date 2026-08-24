@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timberline Build Co. | Steve Simmons — Master + Guest Bath Remodel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --forest: #19412c;
+            --earth: #312509;
+            --navy: #213245;
+            --gold: #e9af3b;
+            --cream: #faf8f4;
+            --paper: #f5f1e8;
+            --white: #ffffff;
+            --ink: #1a1a1a;
+            --dim: #7a7a7a;
+            --line: #e8e2d3;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; color: var(--ink); background: var(--cream); line-height: 1.7; font-weight: 400; font-size: 15px; }
+        .mono-label { font-family: 'Inter', sans-serif; text-transform: uppercase; font-size: 0.68rem; letter-spacing: 3px; color: var(--gold); font-weight: 600; }
+
+        .hero { position: relative; min-height: 100vh; display: flex; flex-direction: column; overflow: hidden; font-family: 'Montserrat', sans-serif; }
+        .hero-bg { position: absolute; inset: 0; background-image: url('hero.jpg'); background-size: cover; background-position: center 40%; z-index: 0; }
+        .hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(25,65,44,0.95) 0%, rgba(25,65,44,0.82) 55%, rgba(25,65,44,0.55) 100%); }
+        .hero-top { position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: center; padding: 2.5rem 3rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .logo { height: 52px; mix-blend-mode: lighten; }
+        .hero-date { font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.6); font-weight: 600; }
+        .hero-body { position: relative; z-index: 1; flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 4rem 3rem; color: var(--white); }
+        .hero-body h1 { color: var(--white); margin-bottom: 1rem; max-width: 780px; font-size: 3.2rem; font-weight: 700; line-height: 1.1; letter-spacing: -0.5px; }
+        .hero-body h1 span { color: var(--gold); }
+        .hero-body p { color: rgba(255,255,255,0.7); max-width: 600px; font-size: 0.95rem; }
+        .hero-body .mono-label { color: var(--gold); margin-bottom: 1.2rem; display: block; }
+        .hero-meta { display: flex; gap: 3rem; margin-top: 3rem; padding-top: 3rem; border-top: 1px solid rgba(255,255,255,0.15); flex-wrap: wrap; }
+        .meta-label { font-size: 0.62rem; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.45); font-weight: 700; margin-bottom: 0.3rem; }
+        .meta-val { font-size: 0.95rem; font-weight: 600; color: var(--white); }
+        .hero-bottom { position: relative; z-index: 1; padding: 2rem 3rem; border-top: 1px solid rgba(255,255,255,0.1); display: flex; gap: 1.2rem; flex-wrap: wrap; }
+        .tag { background: rgba(233,175,59,0.15); border: 1px solid rgba(233,175,59,0.35); color: var(--gold); font-size: 0.68rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 0.4rem 1rem; border-radius: 100px; }
+
+        .quicknav { display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center; padding: 1.2rem 2rem; background: var(--white); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 50; font-family: 'Montserrat', sans-serif; }
+        .quicknav a { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.5px; color: var(--earth); text-decoration: none; padding: 0.5rem 0.9rem; border-radius: 100px; background: var(--cream); border: 1px solid var(--line); white-space: nowrap; }
+        .quicknav a:hover { border-color: var(--gold); color: #7a5c10; }
+
+        .container { max-width: 780px; margin: 0 auto; padding: 7rem 2rem; }
+
+        h2.display { font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 2.6rem; line-height: 1.1; letter-spacing: -0.03em; color: var(--ink); margin-bottom: 2rem; max-width: 620px; }
+        h2.display em { font-style: normal; font-weight: 600; color: var(--forest); }
+
+        .eyebrow { font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 1.5rem; display: block; }
+        .lede { font-size: 1.15rem; line-height: 1.75; color: #333; max-width: 620px; font-weight: 300; margin-bottom: 1.5rem; }
+
+        .glance { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin-top: 3rem; }
+        .glance > div { padding: 1.8rem 1.2rem; border-right: 1px solid var(--line); }
+        .glance > div:last-child { border-right: none; }
+        .glance .gl-label { font-size: 0.62rem; letter-spacing: 2px; text-transform: uppercase; color: var(--dim); font-weight: 500; margin-bottom: 0.5rem; }
+        .glance .gl-val { font-family: 'Space Grotesk', sans-serif; font-size: 1.6rem; font-weight: 400; color: var(--ink); letter-spacing: -0.02em; }
+        .glance .gl-sub { font-size: 0.72rem; color: var(--dim); margin-top: 0.2rem; }
+
+        .room-divider { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; padding-bottom: 1.5rem; margin-bottom: 0; border-bottom: 2px solid var(--ink); }
+        .room-divider .rd-eyebrow { font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 0.4rem; display: block; }
+        .room-divider h2 { font-family: 'Space Grotesk', sans-serif; font-size: 1.8rem; font-weight: 500; color: var(--ink); }
+        .room-divider .rd-price { font-family: 'Space Grotesk', sans-serif; font-size: 1.8rem; font-weight: 600; color: var(--forest); white-space: nowrap; }
+
+        .scope-block { padding: 3rem 0 4rem; border-bottom: 1px solid var(--line); }
+        .scope-block:last-of-type { border-bottom: none; }
+        .scope-block .scope-narrative { font-size: 1.02rem; line-height: 1.8; color: #333; font-weight: 400; margin-bottom: 3rem; max-width: 620px; }
+
+        .scope-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 2rem; }
+        .scope-column h4 { font-family: 'Inter', sans-serif; font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; color: var(--dim); margin-bottom: 1.5rem; padding-bottom: 0.8rem; border-bottom: 1px solid var(--line); }
+        .scope-column h4.included { color: var(--forest); }
+        .scope-column h4.supply { color: var(--earth); }
+        .scope-column ul { list-style: none; }
+        .scope-column li { font-size: 0.92rem; line-height: 1.7; color: #333; padding: 0.5rem 0; font-weight: 400; }
+        .scope-column li::before { content: '—'; color: var(--gold); margin-right: 0.8rem; font-weight: 500; }
+
+        .scope-note { margin-top: 2.5rem; padding: 1.5rem 0 0; border-top: 1px solid var(--line); font-size: 0.85rem; color: var(--dim); font-style: italic; line-height: 1.6; }
+        .scope-note strong { color: var(--forest); font-style: normal; font-weight: 600; }
+
+        .open-items-block { margin-top: 2.5rem; padding: 1.8rem 2rem; background: var(--paper); border-radius: 4px; }
+        .open-items-block h4 { font-family: 'Space Grotesk', sans-serif; font-size: 0.9rem; font-weight: 600; color: var(--earth); margin-bottom: 1rem; }
+        .open-items-block ul { list-style: none; }
+        .open-items-block li { font-size: 0.87rem; line-height: 1.7; color: #444; padding: 0.6rem 0; border-bottom: 1px solid var(--line); }
+        .open-items-block li:last-child { border-bottom: none; }
+        .open-items-block li strong { color: var(--forest); font-weight: 600; }
+
+        .investment { background: var(--paper); padding: 5rem 3rem; }
+        .invest-inner { max-width: 780px; margin: 0 auto; }
+        .invest-table { width: 100%; border-collapse: collapse; margin-top: 3rem; }
+        .invest-table tr { border-bottom: 1px solid var(--line); }
+        .invest-table td { padding: 1.4rem 0; font-size: 1rem; vertical-align: baseline; }
+        .invest-table td:first-child { font-family: 'Space Grotesk', sans-serif; font-size: 1.15rem; font-weight: 400; color: var(--ink); }
+        .invest-table td:last-child { text-align: right; font-family: 'Space Grotesk', sans-serif; font-size: 1.15rem; font-weight: 500; color: var(--forest); white-space: nowrap; }
+        .invest-table .row-sub { font-size: 0.82rem; color: var(--dim); font-family: 'Inter', sans-serif; font-weight: 400; margin-top: 0.2rem; }
+        .invest-total { display: flex; justify-content: space-between; align-items: baseline; padding-top: 2rem; margin-top: 1rem; border-top: 2px solid var(--ink); gap: 1rem; flex-wrap: wrap; }
+        .invest-total-label { font-size: 0.72rem; letter-spacing: 3px; text-transform: uppercase; color: var(--dim); font-weight: 600; }
+        .invest-total-value { font-family: 'Space Grotesk', sans-serif; font-size: 3rem; font-weight: 400; color: var(--ink); letter-spacing: -0.02em; }
+        .invest-caveat { font-size: 0.82rem; color: var(--dim); line-height: 1.7; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--line); max-width: 620px; }
+
+        footer { background: var(--ink); color: rgba(255,255,255,0.5); padding: 3rem; text-align: center; font-size: 0.82rem; font-family: 'Montserrat', sans-serif; }
+        footer img { height: 40px; margin-bottom: 1.5rem; mix-blend-mode: lighten; opacity: 0.8; }
+        footer p { margin-bottom: 0.4rem; }
+        footer a { color: var(--gold); text-decoration: none; }
+
+        @media (max-width: 720px) {
+            .container { padding: 4rem 1.5rem; }
+            h2.display { font-size: 1.9rem; }
+            .room-divider h2, .room-divider .rd-price { font-size: 1.4rem; }
+            .scope-block { padding: 2.5rem 0 3rem; }
+            .scope-columns { grid-template-columns: 1fr; gap: 2.5rem; }
+            .glance { grid-template-columns: repeat(2, 1fr); }
+            .glance > div { border-right: none; border-bottom: 1px solid var(--line); }
+            .glance > div:nth-child(odd) { border-right: 1px solid var(--line); }
+            .glance > div:nth-last-child(-n+2) { border-bottom: none; }
+            .investment { padding: 4rem 1.5rem; }
+            .invest-total-value { font-size: 2.2rem; }
+            .hero-body h1 { font-size: 2rem; }
+            .hero-top, .hero-body, .hero-bottom { padding: 1.5rem; }
+            .hero-meta { flex-direction: column; gap: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-top">
+        <img src="logo.png" alt="Timberline Build Co." class="logo">
+        <span class="hero-date">August 2026</span>
+    </div>
+    <div class="hero-body">
+        <span class="mono-label">Master + Guest Bath · Proposal</span>
+        <h1>A curbless master shower, <span>and a walk-in guest bath.</span></h1>
+        <p>Converting the master's old toilet room into a curbless walk-in shower with a pony wall, plus a full tub-to-shower conversion in the guest bath.</p>
+        <div class="hero-meta">
+            <div>
+                <div class="meta-label">Prepared For</div>
+                <div class="meta-val">Steve Simmons</div>
+            </div>
+            <div>
+                <div class="meta-label">Property</div>
+                <div class="meta-val">33776 Bayside Ln #241, Dana Point</div>
+            </div>
+            <div>
+                <div class="meta-label">Total Investment</div>
+                <div class="meta-val">$38,697.50</div>
+            </div>
+            <div>
+                <div class="meta-label">Contractor</div>
+                <div class="meta-val">Justin Sherman · 949-229-1692</div>
+            </div>
+        </div>
+    </div>
+    <div class="hero-bottom">
+        <span class="tag">Curbless Walk-In Shower</span>
+        <span class="tag">Layout Change</span>
+        <span class="tag">Double Vanity + Quartz</span>
+        <span class="tag">Tub-to-Shower Conversion</span>
+    </div>
+</section>
+
+<nav class="quicknav">
+    <a href="#overview">Overview</a>
+    <a href="#master-bath">Master Bath</a>
+    <a href="#guest-bath">Guest Bath</a>
+    <a href="#investment">Investment</a>
+</nav>
+
+<!-- OVERVIEW -->
+<section class="container" id="overview">
+    <span class="eyebrow">The Project</span>
+    <h2 class="display">Two bathrooms, <em>two different scopes.</em></h2>
+    <p class="lede">The master bath is a genuine layout change — the old toilet room becomes a curbless walk-in shower behind a new pony wall, and the toilet relocates elsewhere in the room. The guest bath is a more straightforward tub-to-shower conversion with a frameless glass door.</p>
+    <p class="lede">Timberline provides labor and construction materials. Finish materials — tile, vanities, countertops, sinks, faucets, fixtures — are supplied by you.</p>
+
+    <div class="glance">
+        <div>
+            <div class="gl-label">Total</div>
+            <div class="gl-val">$38,697.50</div>
+            <div class="gl-sub">Both bathrooms combined</div>
+        </div>
+        <div>
+            <div class="gl-label">Master Bath</div>
+            <div class="gl-val">$24,815</div>
+            <div class="gl-sub">Curbless shower + layout change</div>
+        </div>
+        <div>
+            <div class="gl-label">Guest Bath</div>
+            <div class="gl-val">$13,882.50</div>
+            <div class="gl-sub">Tub-to-shower conversion</div>
+        </div>
+        <div>
+            <div class="gl-label">Warranty</div>
+            <div class="gl-val">1 Year</div>
+            <div class="gl-sub">On all labor</div>
+        </div>
+    </div>
+</section>
+
+<!-- MASTER BATH -->
+<section class="container" style="padding-top: 0;" id="master-bath">
+    <div class="room-divider">
+        <div>
+            <span class="rd-eyebrow">Bathroom 1</span>
+            <h2>Master Bath — Full Remodel</h2>
+        </div>
+        <div class="rd-price">$24,815</div>
+    </div>
+
+    <article class="scope-block">
+        <p class="scope-narrative">A full remodel with a real layout change: the existing toilet room is being converted into a curbless walk-in shower behind a new pony wall, and the toilet relocates elsewhere in the master bathroom. The shower measures 60"×36" with a 96" ceiling, tiled floor to ceiling. A new 60" double-sink vanity with a quartz countertop is installed, along with new flooring, recessed lighting, and paint throughout.</p>
+
+        <div class="scope-columns">
+            <div class="scope-column">
+                <h4 class="included">Included</h4>
+                <ul>
+                    <li>Site prep (demo already complete)</li>
+                    <li>Remove toilet room wall; frame new pony wall</li>
+                    <li>Drywall repair/patch throughout</li>
+                    <li>Plumbing — relocate shower valve &amp; drain, relocate toilet, double-vanity rough &amp; finish</li>
+                    <li>Curbless shower — walls, pony wall &amp; floor tiled to ceiling, full waterproofing</li>
+                    <li>Linear drain &amp; sloped substrate for curbless shower pan</li>
+                    <li>New tile flooring — install, full bathroom</li>
+                    <li>60" double-sink vanity — install only</li>
+                    <li>Quartz countertop — fabrication &amp; install</li>
+                    <li>Recessed lighting (~4–5 fixtures)</li>
+                    <li>Outlet/GFCI updates</li>
+                    <li>Full bathroom paint, baseboard &amp; trim</li>
+                </ul>
+            </div>
+            <div class="scope-column">
+                <h4 class="supply">You Supply</h4>
+                <ul>
+                    <li>All tile — shower &amp; floor</li>
+                    <li>Vanity cabinet</li>
+                    <li>Quartz countertop material</li>
+                    <li>Both sinks &amp; faucets</li>
+                    <li>Toilet (Timberline resets it in the new location)</li>
+                    <li>Shower valve/head/trim</li>
+                    <li>Light fixtures (Timberline installs the recessed housings)</li>
+                    <li>Permits &amp; fees, if required</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="scope-note">
+            <strong>Curbless upcharge:</strong> a $2,000 upcharge applies specifically for the curbless shower conversion — it's already reflected in the $24,815 price above. Curbless showers require a linear drain and sloped substrate, which takes more precise waterproofing than a standard shower pan.
+        </div>
+
+        <div class="open-items-block">
+            <h4>Still Being Confirmed</h4>
+            <ul>
+                <li><strong>Shower tile square footage</strong> is currently an estimate (~100 sq ft) pending confirmation of the exact wall count and pony wall height.</li>
+                <li><strong>Overall bathroom floor square footage</strong> hasn't been provided yet — final flooring cost may vary based on the tile/material you choose.</li>
+                <li><strong>No glass panel</strong> is included above the pony wall — this design assumes a fully open curbless shower. If you'd like a glass panel added, that would be an addition to scope.</li>
+            </ul>
+        </div>
+    </article>
+</section>
+
+<!-- GUEST BATH -->
+<section class="container" style="padding-top: 0;" id="guest-bath">
+    <div class="room-divider">
+        <div>
+            <span class="rd-eyebrow">Bathroom 2</span>
+            <h2>Guest Bath — Tub to Walk-In Shower</h2>
+        </div>
+        <div class="rd-price">$13,882.50</div>
+    </div>
+
+    <article class="scope-block">
+        <p class="scope-narrative">A full remodel converting the existing tub to a walk-in shower with a frameless glass door, along with new flooring, a single-sink vanity, and a full repaint of the bathroom.</p>
+
+        <div class="scope-columns">
+            <div class="scope-column">
+                <h4 class="included">Included</h4>
+                <ul>
+                    <li>Site prep (tub already removed)</li>
+                    <li>Plumbing — shower valve, drain, angle stops, vanity rough &amp; finish</li>
+                    <li>Framing for shower curb/enclosure</li>
+                    <li>Minor drywall repair</li>
+                    <li>Full shower tile &amp; waterproofing</li>
+                    <li>Hot-mopped shower pan</li>
+                    <li>Frameless glass shower door — supplied &amp; installed</li>
+                    <li>New tile flooring — install, full bathroom</li>
+                    <li>Vent fan replacement</li>
+                    <li>Outlet/GFCI updates</li>
+                    <li>Light fixture install</li>
+                    <li>Single-sink vanity (up to 34") — install only</li>
+                    <li>Mirror hang</li>
+                    <li>Full bathroom paint</li>
+                </ul>
+            </div>
+            <div class="scope-column">
+                <h4 class="supply">You Supply</h4>
+                <ul>
+                    <li>All tile — shower &amp; floor</li>
+                    <li>Vanity cabinet, countertop, sink &amp; faucet</li>
+                    <li>Mirror</li>
+                    <li>Light fixture</li>
+                    <li>Toilet and shower valve/trim, if applicable</li>
+                    <li>Permits &amp; fees, if required</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="open-items-block">
+            <h4>Still Being Confirmed</h4>
+            <ul>
+                <li><strong>All dimensions in this bathroom are placeholders</strong> — shower tile, floor tile, and vanity size are carried over from a comparable job as a starting point and need to be confirmed on-site before this portion of the proposal is finalized.</li>
+            </ul>
+        </div>
+    </article>
+</section>
+
+<!-- INVESTMENT -->
+<section class="investment" id="investment">
+    <div class="invest-inner">
+        <span class="eyebrow">Investment</span>
+        <h2 class="display">The <em>bottom line.</em></h2>
+        <p class="lede">Two bathrooms, priced separately, combined into one total below.</p>
+
+        <table class="invest-table">
+            <tr>
+                <td>Master Bath<div class="row-sub">Full remodel — curbless shower, layout change, double vanity</div></td>
+                <td>$24,815.00</td>
+            </tr>
+            <tr>
+                <td>Guest Bath<div class="row-sub">Tub-to-shower conversion, frameless glass</div></td>
+                <td>$13,882.50</td>
+            </tr>
+        </table>
+
+        <div class="invest-total">
+            <div class="invest-total-label">Total Investment</div>
+            <div class="invest-total-value">$38,697.50</div>
+        </div>
+
+        <p class="invest-caveat">Labor and construction materials only. Finish materials are customer-supplied, as listed above. No permits or permit fees included; if required, they are the owner's responsibility. Guest bath dimensions are still being confirmed on-site and may adjust that portion of the price. All labor warrantied for 1 year from project completion. This proposal is valid for 30 days from the date of issue.</p>
+    </div>
+</section>
+
+<footer>
+    <img src="logo.png" alt="Timberline Build Co.">
+    <p>Timberline Build Co. · Licensed General Contractor · Orange County, CA</p>
+    <p><a href="tel:9492291692">949-229-1692</a></p>
+    <p style="margin-top: 1rem; font-size: 0.72rem; opacity: 0.5;">© 2026 Timberline Build Co. Proposal valid for 30 days from date of issue.</p>
+</footer>
+
+</body>
+</html>
