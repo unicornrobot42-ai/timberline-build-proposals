@@ -88,6 +88,10 @@
         .design-image img { width: 100%; border-radius: 4px; display: block; }
         .design-image .img-caption { font-size: 0.8rem; color: var(--dim); margin-top: 1rem; line-height: 1.6; }
         .design-disclaimer { font-size: 0.78rem; color: var(--dim); font-style: italic; margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--line); line-height: 1.6; }
+
+        .design-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 2.5rem 0; }
+        .design-gallery img { width: 100%; border-radius: 4px; display: block; }
+        .design-gallery .img-caption { font-size: 0.8rem; color: var(--dim); margin-top: 0.8rem; line-height: 1.6; }
         .open-items-block li strong { color: var(--forest); font-weight: 600; }
 
         .investment { background: var(--paper); padding: 5rem 3rem; }
@@ -115,6 +119,7 @@
             .scope-block h3 { font-size: 1.6rem; }
             .scope-block .scope-price { font-size: 1.4rem; }
             .scope-columns { grid-template-columns: 1fr; gap: 2.5rem; }
+            .design-gallery { grid-template-columns: 1fr; gap: 2rem; }
             .glance { grid-template-columns: repeat(2, 1fr); }
             .glance > div { border-right: none; border-bottom: 1px solid var(--line); }
             .glance > div:nth-child(odd) { border-right: 1px solid var(--line); }
@@ -272,6 +277,17 @@
     <div class="design-image">
         <img src="design-style-options.jpg" alt="Three design direction concepts for a bathroom with wainscot and wallpaper">
         <p class="img-caption">Three different style directions using the same layout — warm modern organic, moody and sophisticated, or light and airy coastal. Useful as a starting point for choosing your wallpaper, paint color, and hardware finish.</p>
+    </div>
+
+    <div class="design-gallery">
+        <div>
+            <img src="design-sage-green.jpg" alt="Bathroom concept with sage green wainscot and leaf wallpaper">
+            <p class="img-caption">Sage green wainscot with a leafy botanical wallpaper and arched mirror.</p>
+        </div>
+        <div>
+            <img src="design-coastal.jpg" alt="Bathroom concept with light coastal wallpaper and round woven mirror">
+            <p class="img-caption">A lighter, coastal-inspired direction with a woven round mirror and soft blue-grey wallpaper.</p>
+        </div>
     </div>
 
     <p class="design-disclaimer">These renders are AI-generated design concepts for inspiration purposes only — they don't reflect your bathroom's actual layout, dimensions, or fixtures, and aren't a guarantee of the finished result. Final look depends on the specific materials, colors, and finishes you select.</p>
