@@ -89,6 +89,16 @@
         .not-in-plan-block h4 { font-family: 'Space Grotesk', sans-serif; font-size: 0.9rem; font-weight: 600; color: #7a5c10; margin-bottom: 0.8rem; }
         .not-in-plan-block p { font-size: 0.9rem; color: #555; line-height: 1.75; margin: 0; }
 
+        .references-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
+        .reference-card { background: var(--white); border: 1px solid var(--line); border-radius: 4px; padding: 1.3rem 1.5rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+        .reference-card .ref-name { font-family: 'Space Grotesk', sans-serif; font-size: 1rem; font-weight: 500; color: var(--ink); }
+        .reference-card .ref-phone { font-size: 0.85rem; color: var(--forest); font-weight: 600; text-decoration: none; white-space: nowrap; }
+        .reference-card .ref-phone:hover { color: var(--gold); }
+        .gmb-card { background: var(--ink); border-radius: 4px; padding: 1.6rem 1.8rem; margin-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+        .gmb-card .gmb-info h4 { font-family: 'Space Grotesk', sans-serif; color: var(--white); font-size: 1rem; font-weight: 500; margin-bottom: 0.3rem; }
+        .gmb-card .gmb-info p { color: rgba(255,255,255,0.6); font-size: 0.85rem; }
+        .gmb-card a.gmb-btn { background: var(--gold); color: var(--ink); font-weight: 700; font-size: 0.72rem; letter-spacing: 1px; text-transform: uppercase; padding: 0.7rem 1.4rem; border-radius: 100px; text-decoration: none; white-space: nowrap; }
+
         .investment { background: var(--paper); padding: 5rem 3rem; }
         .invest-inner { max-width: 780px; margin: 0 auto; }
         .invest-table { width: 100%; border-collapse: collapse; margin-top: 3rem; }
@@ -115,6 +125,7 @@
             .scope-block .scope-price { font-size: 1.4rem; }
             .scope-columns { grid-template-columns: 1fr; gap: 2.5rem; }
             .glance { grid-template-columns: repeat(2, 1fr); }
+            .references-grid { grid-template-columns: 1fr; }
             .glance > div { border-right: none; border-bottom: 1px solid var(--line); }
             .glance > div:nth-child(odd) { border-right: 1px solid var(--line); }
             .glance > div:nth-last-child(-n+2) { border-bottom: none; }
@@ -168,6 +179,7 @@
 <nav class="quicknav">
     <a href="#overview">Overview</a>
     <a href="#scope">Scope</a>
+    <a href="#references">References</a>
     <a href="#investment">Investment</a>
 </nav>
 
@@ -269,6 +281,40 @@
             </ul>
         </div>
     </article>
+</section>
+
+<!-- REFERENCES -->
+<section class="container" style="padding-top: 0;" id="references">
+    <span class="eyebrow">References</span>
+    <h2 class="display">Hear it from <em>past clients.</em></h2>
+    <p class="lede">Feel free to reach out to any of these past clients directly to hear about their experience working with Timberline Build Co.</p>
+
+    <div class="references-grid">
+        <div class="reference-card">
+            <span class="ref-name">Vicki Gilman</span>
+            <a href="tel:+17029948882" class="ref-phone">+1 (702) 994-8882</a>
+        </div>
+        <div class="reference-card">
+            <span class="ref-name">Dan Deeney</span>
+            <a href="tel:+19083433622" class="ref-phone">+1 (908) 343-3622</a>
+        </div>
+        <div class="reference-card">
+            <span class="ref-name">Bob Scholart</span>
+            <a href="tel:+12819952252" class="ref-phone">+1 (281) 995-2252</a>
+        </div>
+        <div class="reference-card">
+            <span class="ref-name">Tris Jacobs</span>
+            <a href="tel:+19492854909" class="ref-phone">(949) 285-4909</a>
+        </div>
+    </div>
+
+    <div class="gmb-card">
+        <div class="gmb-info">
+            <h4>See All Our Reviews</h4>
+            <p>Read what other homeowners have said about working with us on Google.</p>
+        </div>
+        <a href="https://share.google/S7F4G8TyxlGZYFWfq" class="gmb-btn" target="_blank" rel="noopener">View Reviews</a>
+    </div>
 </section>
 
 <!-- INVESTMENT -->
