@@ -83,6 +83,29 @@
         .open-items-block ul { list-style: none; }
         .open-items-block li { font-size: 0.87rem; line-height: 1.7; color: #444; padding: 0.6rem 0; border-bottom: 1px solid var(--line); }
         .open-items-block li:last-child { border-bottom: none; }
+
+        .vanity-note-block { margin-top: 2.5rem; padding: 1.8rem 2rem; background: #fff8eb; border: 1px solid #f0ddb3; border-radius: 4px; }
+        .vanity-note-block h4 { font-family: 'Space Grotesk', sans-serif; font-size: 0.9rem; font-weight: 600; color: #7a5c10; margin-bottom: 0.8rem; }
+        .vanity-note-block p { font-size: 0.9rem; color: #555; line-height: 1.75; margin: 0; }
+
+        .timeline-table { width: 100%; border-collapse: collapse; margin-top: 2rem; }
+        .timeline-table th { text-align: left; font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; color: var(--dim); font-weight: 600; padding: 0.8rem 0; border-bottom: 1px solid var(--ink); }
+        .timeline-table td { padding: 1.2rem 0; font-size: 0.92rem; color: #333; border-bottom: 1px solid var(--line); vertical-align: top; }
+        .timeline-table tr:last-child td { border-bottom: none; }
+        .timeline-table .tt-week { font-family: 'Space Grotesk', sans-serif; font-weight: 500; color: var(--forest); white-space: nowrap; padding-right: 1.5rem; }
+        .timeline-table .tt-stage { font-weight: 600; color: var(--ink); margin-bottom: 0.3rem; }
+        .timeline-table .tt-desc { color: #666; font-size: 0.87rem; line-height: 1.6; }
+        .timeline-caveat { font-size: 0.82rem; color: var(--dim); line-height: 1.7; margin-top: 1.5rem; font-style: italic; }
+
+        .references-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
+        .reference-card { background: var(--white); border: 1px solid var(--line); border-radius: 4px; padding: 1.3rem 1.5rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+        .reference-card .ref-name { font-family: 'Space Grotesk', sans-serif; font-size: 1rem; font-weight: 500; color: var(--ink); }
+        .reference-card .ref-phone { font-size: 0.85rem; color: var(--forest); font-weight: 600; text-decoration: none; white-space: nowrap; }
+        .reference-card .ref-phone:hover { color: var(--gold); }
+        .gmb-card { background: var(--ink); border-radius: 4px; padding: 1.6rem 1.8rem; margin-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+        .gmb-card .gmb-info h4 { font-family: 'Space Grotesk', sans-serif; color: var(--white); font-size: 1rem; font-weight: 500; margin-bottom: 0.3rem; }
+        .gmb-card .gmb-info p { color: rgba(255,255,255,0.6); font-size: 0.85rem; }
+        .gmb-card a.gmb-btn { background: var(--gold); color: var(--ink); font-weight: 700; font-size: 0.72rem; letter-spacing: 1px; text-transform: uppercase; padding: 0.7rem 1.4rem; border-radius: 100px; text-decoration: none; white-space: nowrap; }
         .open-items-block li strong { color: var(--forest); font-weight: 600; }
 
         .investment { background: var(--paper); padding: 5rem 3rem; }
@@ -111,6 +134,9 @@
             .scope-block .scope-price { font-size: 1.4rem; }
             .scope-columns { grid-template-columns: 1fr; gap: 2.5rem; }
             .glance { grid-template-columns: repeat(2, 1fr); }
+            .references-grid { grid-template-columns: 1fr; }
+            .timeline-table td { padding: 0.9rem 0; }
+            .timeline-table .tt-week { display: block; padding-bottom: 0.3rem; }
             .glance > div { border-right: none; border-bottom: 1px solid var(--line); }
             .glance > div:nth-child(odd) { border-right: 1px solid var(--line); }
             .glance > div:nth-last-child(-n+2) { border-bottom: none; }
@@ -164,6 +190,8 @@
 <nav class="quicknav">
     <a href="#overview">Overview</a>
     <a href="#scope">Scope</a>
+    <a href="#timeline">Timeline</a>
+    <a href="#references">References</a>
     <a href="#investment">Investment</a>
 </nav>
 
@@ -264,13 +292,15 @@
             </div>
         </div>
 
+        <div class="vanity-note-block">
+            <h4>About the Custom Vanity</h4>
+            <p>The custom vanity construction (shaker-style white oak doors, not including stain/finish) is a direct quote of $7,500 from our carpenter. If you'd prefer to use your own carpenter for this piece, that $7,500 can be credited back and the total adjusted accordingly — just let us know.</p>
+        </div>
+
         <div class="open-items-block">
             <h4>Still Being Confirmed</h4>
             <ul>
-                <li><strong>Floor tile (~170 sq ft) and shower tile (~97 sq ft)</strong> are based on a dimensioned hand sketch of the space, not a full professional measurement — grounded in real numbers, but the room's irregular footprint leaves a small margin of estimation.</li>
-                <li><strong>Utilities behind the shower soffit</strong> are not being relocated as part of this scope — worth confirming this doesn't create a conflict once the soffit is actually opened up.</li>
-                <li><strong>Storage closet shelving</strong> is still an estimate pending a formal quote from the cabinet maker.</li>
-                <li><strong>Shower glass enclosure</strong> pricing is a rough placeholder — wraparound/frameless glass pricing varies significantly by style and hardware, and should be confirmed with a real glass shop quote.</li>
+
                 <li><strong>Recessed lighting count</strong> (~9 fixtures) is an estimate for a room this size — no formal electrical layout has been drawn yet. The two new open shelving lines are estimated the same way.</li>
                 <li><strong>Wall column removal</strong> is priced as demo and drywall repair only, not structural work, at your direction.</li>
                 <li><strong>Shower drain</strong> is staying in its current location — no relocation is priced or included in this scope.</li>
@@ -278,6 +308,83 @@
             </ul>
         </div>
     </article>
+</section>
+
+<!-- TIMELINE -->
+<section class="container" style="padding-top: 0;" id="timeline">
+    <span class="eyebrow">Estimated Project Timeline</span>
+    <h2 class="display">Four weeks, <em>stage by stage.</em></h2>
+    <p class="lede">A general outline of how this project is expected to move. Actual pacing can shift depending on material lead times (especially the shower glass and vanity) and what's found once demo starts.</p>
+
+    <table class="timeline-table">
+        <tr><th>Week</th><th>Stage</th></tr>
+        <tr>
+            <td class="tt-week">Week 1</td>
+            <td>
+                <div class="tt-stage">Demo &amp; Rough-In</div>
+                <div class="tt-desc">Full demo — vanity, tub, floor tile, medicine cabinets, makeup nook, archway, both soffits, and the wall column. Drywall repair throughout. Rough plumbing and rough electrical, including the bidet outlet and vent fan.</div>
+            </td>
+        </tr>
+        <tr>
+            <td class="tt-week">Week 2</td>
+            <td>
+                <div class="tt-stage">Shower Build &amp; Tile</div>
+                <div class="tt-desc">Shower blocking, dam, bench, and niche framed and built. Hot mop and waterproofing. Floor tile and shower tile installed throughout.</div>
+            </td>
+        </tr>
+        <tr>
+            <td class="tt-week">Week 3</td>
+            <td>
+                <div class="tt-stage">Carpentry &amp; Fixtures</div>
+                <div class="tt-desc">Custom vanity, storage closet shelving, and open shelving installed. Countertop fabricated and installed. Tub and toilet set. Shower glass enclosure installed. Finish plumbing.</div>
+            </td>
+        </tr>
+        <tr>
+            <td class="tt-week">Week 4</td>
+            <td>
+                <div class="tt-stage">Finish &amp; Trim-Out</div>
+                <div class="tt-desc">Baseboard, mirrors, and hardware installed. Full room paint. Punch list and final walkthrough.</div>
+            </td>
+        </tr>
+    </table>
+
+    <p class="timeline-caveat">This is a general estimate, not a guaranteed schedule — timing can move based on material availability and what we find once the space is opened up.</p>
+</section>
+
+<div class="section-divider" style="border-top: 1px solid var(--line); max-width: 780px; margin: 0 auto;"></div>
+
+<!-- REFERENCES -->
+<section class="container" style="padding-top: 5rem;" id="references">
+    <span class="eyebrow">References</span>
+    <h2 class="display">Hear it from <em>past clients.</em></h2>
+    <p class="lede">Feel free to reach out to any of these past clients directly to hear about their experience working with Timberline Build Co.</p>
+
+    <div class="references-grid">
+        <div class="reference-card">
+            <span class="ref-name">Vicki Gilman</span>
+            <a href="tel:+17029948882" class="ref-phone">+1 (702) 994-8882</a>
+        </div>
+        <div class="reference-card">
+            <span class="ref-name">Dan Deeney</span>
+            <a href="tel:+19083433622" class="ref-phone">+1 (908) 343-3622</a>
+        </div>
+        <div class="reference-card">
+            <span class="ref-name">Bob Scholart</span>
+            <a href="tel:+12819952252" class="ref-phone">+1 (281) 995-2252</a>
+        </div>
+        <div class="reference-card">
+            <span class="ref-name">Tris Jacobs</span>
+            <a href="tel:+19492854909" class="ref-phone">(949) 285-4909</a>
+        </div>
+    </div>
+
+    <div class="gmb-card">
+        <div class="gmb-info">
+            <h4>See All Our Reviews</h4>
+            <p>Read what other homeowners have said about working with us on Google.</p>
+        </div>
+        <a href="https://share.google/S7F4G8TyxlGZYFWfq" class="gmb-btn" target="_blank" rel="noopener">View Reviews</a>
+    </div>
 </section>
 
 <!-- INVESTMENT -->
