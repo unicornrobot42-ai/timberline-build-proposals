@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timberline Build Co. | George Meyet — Kitchen Remodel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <meta property="og:title" content="Timberline Build Co. — Kitchen Remodel">
+    <meta property="og:description" content="Proposal for George Meyet — 3041 Calle Frontera, San Clemente">
+    <meta property="og:image" content="https://proposals.timberlinebuild.co/george-meyet-kitchen/hero.jpg">
+    <meta property="og:url" content="https://proposals.timberlinebuild.co/george-meyet-kitchen/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Timberline Build Co. — Kitchen Remodel">
+    <meta name="twitter:description" content="Proposal for George Meyet — 3041 Calle Frontera, San Clemente">
+    <meta name="twitter:image" content="https://proposals.timberlinebuild.co/george-meyet-kitchen/hero.jpg">
+
+    <style>
+        :root {
+            --forest: #19412c; --earth: #312509; --navy: #213245; --gold: #e9af3b;
+            --cream: #faf8f4; --paper: #f5f1e8; --white: #ffffff; --ink: #1a1a1a;
+            --dim: #7a7a7a; --line: #e8e2d3;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; color: var(--ink); background: var(--cream); line-height: 1.7; font-weight: 400; font-size: 15px; }
+        .mono-label { font-family: 'Inter', sans-serif; text-transform: uppercase; font-size: 0.68rem; letter-spacing: 3px; color: var(--gold); font-weight: 600; }
+
+        .hero { position: relative; min-height: 100vh; display: flex; flex-direction: column; overflow: hidden; font-family: 'Montserrat', sans-serif; }
+        .hero-bg { position: absolute; inset: 0; background-image: url('hero.jpg'); background-size: cover; background-position: center 40%; z-index: 0; }
+        .hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(25,65,44,0.95) 0%, rgba(25,65,44,0.82) 55%, rgba(25,65,44,0.55) 100%); }
+        .hero-top { position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: center; padding: 2.5rem 3rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .logo { height: 52px; mix-blend-mode: lighten; }
+        .hero-date { font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.6); font-weight: 600; }
+        .hero-body { position: relative; z-index: 1; flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 4rem 3rem; color: var(--white); }
+        .hero-body h1 { color: var(--white); margin-bottom: 1rem; max-width: 780px; font-size: 3.2rem; font-weight: 700; line-height: 1.1; letter-spacing: -0.5px; }
+        .hero-body h1 span { color: var(--gold); }
+        .hero-body p { color: rgba(255,255,255,0.7); max-width: 600px; font-size: 0.95rem; }
+        .hero-body .mono-label { color: var(--gold); margin-bottom: 1.2rem; display: block; }
+        .hero-meta { display: flex; gap: 3rem; margin-top: 3rem; padding-top: 3rem; border-top: 1px solid rgba(255,255,255,0.15); flex-wrap: wrap; }
+        .meta-label { font-size: 0.62rem; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.45); font-weight: 700; margin-bottom: 0.3rem; }
+        .meta-val { font-size: 0.95rem; font-weight: 600; color: var(--white); }
+        .hero-bottom { position: relative; z-index: 1; padding: 2rem 3rem; border-top: 1px solid rgba(255,255,255,0.1); display: flex; gap: 1.2rem; flex-wrap: wrap; }
+        .tag { background: rgba(233,175,59,0.15); border: 1px solid rgba(233,175,59,0.35); color: var(--gold); font-size: 0.68rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 0.4rem 1rem; border-radius: 100px; }
+
+        .quicknav { display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center; padding: 1.2rem 2rem; background: var(--white); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 50; font-family: 'Montserrat', sans-serif; }
+        .quicknav a { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.5px; color: var(--earth); text-decoration: none; padding: 0.5rem 0.9rem; border-radius: 100px; background: var(--cream); border: 1px solid var(--line); white-space: nowrap; }
+        .quicknav a:hover { border-color: var(--gold); color: #7a5c10; }
+
+        .container { max-width: 780px; margin: 0 auto; padding: 7rem 2rem; }
+
+        h2.display { font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 2.6rem; line-height: 1.1; letter-spacing: -0.03em; color: var(--ink); margin-bottom: 2rem; max-width: 620px; }
+        h2.display em { font-style: normal; font-weight: 600; color: var(--forest); }
+        .eyebrow { font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 1.5rem; display: block; }
+        .lede { font-size: 1.15rem; line-height: 1.75; color: #333; max-width: 620px; font-weight: 300; margin-bottom: 1.5rem; }
+
+        .glance { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin-top: 3rem; }
+        .glance > div { padding: 1.8rem 1.2rem; border-right: 1px solid var(--line); }
+        .glance > div:last-child { border-right: none; }
+        .glance .gl-label { font-size: 0.62rem; letter-spacing: 2px; text-transform: uppercase; color: var(--dim); font-weight: 500; margin-bottom: 0.5rem; }
+        .glance .gl-val { font-family: 'Space Grotesk', sans-serif; font-size: 1.6rem; font-weight: 400; color: var(--ink); letter-spacing: -0.02em; }
+        .glance .gl-sub { font-size: 0.72rem; color: var(--dim); margin-top: 0.2rem; }
+
+        .scope-block { padding: 4rem 0; }
+        .scope-block .scope-header { display: flex; justify-content: space-between; align-items: baseline; gap: 2rem; padding-bottom: 2.5rem; margin-bottom: 2.5rem; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+        .scope-block h3 { font-family: 'Space Grotesk', sans-serif; font-size: 2.2rem; font-weight: 400; letter-spacing: -0.02em; line-height: 1.1; color: var(--ink); max-width: 500px; }
+        .scope-block .scope-price { font-family: 'Space Grotesk', sans-serif; font-size: 1.8rem; font-weight: 500; color: var(--forest); white-space: nowrap; }
+        .scope-block .scope-narrative { font-size: 1.02rem; line-height: 1.8; color: #333; font-weight: 400; margin-bottom: 3rem; max-width: 620px; }
+
+        .scope-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 2rem; }
+        .scope-column h4 { font-family: 'Inter', sans-serif; font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; color: var(--dim); margin-bottom: 1.5rem; padding-bottom: 0.8rem; border-bottom: 1px solid var(--line); }
+        .scope-column h4.included { color: var(--forest); }
+        .scope-column h4.supply { color: var(--earth); }
+        .scope-column ul { list-style: none; }
+        .scope-column li { font-size: 0.92rem; line-height: 1.7; color: #333; padding: 0.5rem 0; font-weight: 400; }
+        .scope-column li::before { content: '—'; color: var(--gold); margin-right: 0.8rem; font-weight: 500; }
+
+        .open-items-block { margin-top: 2.5rem; padding: 1.8rem 2rem; background: var(--paper); border-radius: 4px; }
+        .open-items-block h4 { font-family: 'Space Grotesk', sans-serif; font-size: 0.9rem; font-weight: 600; color: var(--earth); margin-bottom: 1rem; }
+        .open-items-block ul { list-style: none; }
+        .open-items-block li { font-size: 0.87rem; line-height: 1.7; color: #444; padding: 0.6rem 0; border-bottom: 1px solid var(--line); }
+        .open-items-block li:last-child { border-bottom: none; }
+
+        .vanity-note-block { margin-top: 2.5rem; padding: 1.8rem 2rem; background: #fff8eb; border: 1px solid #f0ddb3; border-radius: 4px; }
+        .vanity-note-block h4 { font-family: 'Space Grotesk', sans-serif; font-size: 0.9rem; font-weight: 600; color: #7a5c10; margin-bottom: 0.8rem; }
+        .vanity-note-block p { font-size: 0.9rem; color: #555; line-height: 1.75; margin: 0; }
+        .vanity-note-block ul { list-style: none; margin-top: 0.5rem; }
+        .vanity-note-block ul li { font-size: 0.9rem; color: #555; line-height: 1.75; padding: 0.4rem 0; }
+        .vanity-note-block ul li::before { content: '—'; color: #e9af3b; margin-right: 0.7rem; font-weight: 600; }
+        .vanity-note-block ul li strong { color: var(--forest); font-weight: 600; }
+
+        .timeline-table { width: 100%; border-collapse: collapse; margin-top: 2rem; }
+        .timeline-table th { text-align: left; font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; color: var(--dim); font-weight: 600; padding: 0.8rem 0; border-bottom: 1px solid var(--ink); }
+        .timeline-table td { padding: 1.2rem 0; font-size: 0.92rem; color: #333; border-bottom: 1px solid var(--line); vertical-align: top; }
+        .timeline-table tr:last-child td { border-bottom: none; }
+        .timeline-table .tt-week { font-family: 'Space Grotesk', sans-serif; font-weight: 500; color: var(--forest); white-space: nowrap; padding-right: 1.5rem; }
+        .timeline-table .tt-stage { font-weight: 600; color: var(--ink); margin-bottom: 0.3rem; }
+        .timeline-table .tt-desc { color: #666; font-size: 0.87rem; line-height: 1.6; }
+        .timeline-caveat { font-size: 0.82rem; color: var(--dim); line-height: 1.7; margin-top: 1.5rem; font-style: italic; }
+
+        .references-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
+        .reference-card { background: var(--white); border: 1px solid var(--line); border-radius: 4px; padding: 1.3rem 1.5rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+        .reference-card .ref-name { font-family: 'Space Grotesk', sans-serif; font-size: 1rem; font-weight: 500; color: var(--ink); }
+        .reference-card .ref-phone { font-size: 0.85rem; color: var(--forest); font-weight: 600; text-decoration: none; white-space: nowrap; }
+        .reference-card .ref-phone:hover { color: var(--gold); }
+        .gmb-card { background: var(--ink); border-radius: 4px; padding: 1.6rem 1.8rem; margin-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+        .gmb-card .gmb-info h4 { font-family: 'Space Grotesk', sans-serif; color: var(--white); font-size: 1rem; font-weight: 500; margin-bottom: 0.3rem; }
+        .gmb-card .gmb-info p { color: rgba(255,255,255,0.6); font-size: 0.85rem; }
+        .gmb-card a.gmb-btn { background: var(--gold); color: var(--ink); font-weight: 700; font-size: 0.72rem; letter-spacing: 1px; text-transform: uppercase; padding: 0.7rem 1.4rem; border-radius: 100px; text-decoration: none; white-space: nowrap; }
+        .open-items-block li strong { color: var(--forest); font-weight: 600; }
+
+        .investment { background: var(--paper); padding: 5rem 3rem; }
+        .invest-inner { max-width: 780px; margin: 0 auto; }
+        .invest-table { width: 100%; border-collapse: collapse; margin-top: 3rem; }
+        .invest-table tr { border-bottom: 1px solid var(--line); }
+        .invest-table td { padding: 1.4rem 0; font-size: 1rem; vertical-align: baseline; }
+        .invest-table td:first-child { font-family: 'Space Grotesk', sans-serif; font-size: 1.15rem; font-weight: 400; color: var(--ink); }
+        .invest-table td:last-child { text-align: right; font-family: 'Space Grotesk', sans-serif; font-size: 1.15rem; font-weight: 500; color: var(--forest); white-space: nowrap; }
+        .invest-table .row-sub { font-size: 0.82rem; color: var(--dim); font-family: 'Inter', sans-serif; font-weight: 400; margin-top: 0.2rem; }
+        .invest-total { display: flex; justify-content: space-between; align-items: baseline; padding-top: 2rem; margin-top: 1rem; border-top: 2px solid var(--ink); gap: 1rem; flex-wrap: wrap; }
+        .invest-total-label { font-size: 0.72rem; letter-spacing: 3px; text-transform: uppercase; color: var(--dim); font-weight: 600; }
+        .invest-total-value { font-family: 'Space Grotesk', sans-serif; font-size: 3rem; font-weight: 400; color: var(--ink); letter-spacing: -0.02em; }
+        .invest-caveat { font-size: 0.82rem; color: var(--dim); line-height: 1.7; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--line); max-width: 620px; }
+
+        footer { background: var(--ink); color: rgba(255,255,255,0.5); padding: 3rem; text-align: center; font-size: 0.82rem; font-family: 'Montserrat', sans-serif; }
+        footer img { height: 40px; margin-bottom: 1.5rem; mix-blend-mode: lighten; opacity: 0.8; }
+        footer p { margin-bottom: 0.4rem; }
+        footer a { color: var(--gold); text-decoration: none; }
+
+        @media (max-width: 720px) {
+            .container { padding: 4rem 1.5rem; }
+            h2.display { font-size: 1.9rem; }
+            .scope-block { padding: 3rem 0; }
+            .scope-block h3 { font-size: 1.6rem; }
+            .scope-block .scope-price { font-size: 1.4rem; }
+            .scope-columns { grid-template-columns: 1fr; gap: 2.5rem; }
+            .glance { grid-template-columns: repeat(2, 1fr); }
+            .references-grid { grid-template-columns: 1fr; }
+            .timeline-table td { padding: 0.9rem 0; }
+            .timeline-table .tt-week { display: block; padding-bottom: 0.3rem; }
+            .glance > div { border-right: none; border-bottom: 1px solid var(--line); }
+            .glance > div:nth-child(odd) { border-right: 1px solid var(--line); }
+            .glance > div:nth-last-child(-n+2) { border-bottom: none; }
+            .investment { padding: 4rem 1.5rem; }
+            .invest-total-value { font-size: 2.2rem; }
+            .hero-body h1 { font-size: 2rem; }
+            .hero-top, .hero-body, .hero-bottom { padding: 1.5rem; }
+            .hero-meta { flex-direction: column; gap: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-top">
+        <img src="logo.png" alt="Timberline Build Co." class="logo">
+        <span class="hero-date">October 2026</span>
+    </div>
+    <div class="hero-body">
+        <span class="mono-label">Kitchen · Proposal</span>
+        <h1>Kitchen Remodel — <span>A Modern Refresh</span></h1>
+        <p>New cabinets, countertops, tile backsplash and flooring, with your appliances set and the plumbing and electrical reconnected. The layout stays the same. Everything else gets a fresh, modern look.</p>
+        <div class="hero-meta">
+            <div><div class="meta-label">Prepared For</div><div class="meta-val">George Meyet</div></div>
+            <div><div class="meta-label">Property</div><div class="meta-val">3041 Calle Frontera, San Clemente</div></div>
+            <div><div class="meta-label">Total Investment</div><div class="meta-val">$36,679</div></div>
+            <div><div class="meta-label">Contractor</div><div class="meta-val">Justin Sherman · 949-229-1692</div></div>
+        </div>
+    </div>
+    <div class="hero-bottom">
+        <span class="tag">Full Kitchen Remodel</span>
+        <span class="tag">New Cabinets &amp; Counters</span>
+        <span class="tag">LVP Flooring</span>
+        <span class="tag">Tile Backsplash</span>
+    </div>
+</section>
+
+<nav class="quicknav">
+    <a href="#overview">Overview</a>
+    <a href="#scope">Scope</a>
+    <a href="#references">References</a>
+    <a href="#investment">Investment</a>
+</nav>
+
+<section class="container" id="overview">
+    <span class="eyebrow">The Project</span>
+    <h2 class="display">A modern refresh, <em>same footprint.</em></h2>
+    <p class="lede">We remove the maple-glaze raised-panel cabinets, the granite countertops and full-height granite backsplash, and the travertine tile floor with its gold diamond inserts. In their place go new pre-fab cabinets, new countertops, a new tile backsplash and new LVP flooring, in the style of the reference you shared.</p>
+    <p class="lede">The sink stays under the garden window, the recessed ceiling lights stay, and the layout doesn't change. Timberline provides labor and construction materials. Finish materials, appliances and fixtures are supplied by you, and we install everything you supply.</p>
+
+    <div class="glance">
+        <div><div class="gl-label">Total</div><div class="gl-val">$36,679</div><div class="gl-sub">Includes cabinet allowance</div></div>
+        <div><div class="gl-label">Cabinets</div><div class="gl-val">Pre-Fab</div><div class="gl-sub">$11,500 allowance, at cost</div></div>
+        <div><div class="gl-label">Countertops</div><div class="gl-val">~50 sq ft</div><div class="gl-sub">Fabricated &amp; installed</div></div>
+        <div><div class="gl-label">Flooring</div><div class="gl-val">LVP</div><div class="gl-sub">~140 sq ft, install only</div></div>
+    </div>
+</section>
+
+<section class="container" style="padding-top: 0;" id="scope">
+    <article class="scope-block">
+        <header class="scope-header">
+            <div>
+                <span class="eyebrow" style="margin-bottom: 0.4rem;">Scope of Work</span>
+                <h3>Full kitchen, start to finish.</h3>
+            </div>
+            <div class="scope-price">$36,679</div>
+        </header>
+        <p class="scope-narrative">The kitchen is a peninsula layout open to the bay-window dining nook, with a double sink under a garden window, a gas cooktop with hood, a double wall oven, and the fridge in a cased opening. All of that stays where it is. We demo down to the slab, build the new kitchen back up, and set your appliances.</p>
+
+        <div class="scope-columns">
+            <div class="scope-column">
+                <h4 class="included">Included</h4>
+                <ul>
+                    <li>Protect work area and adjacent rooms — plastic sheeting and dust barriers</li>
+                    <li>Disconnect and remove sink, faucet, disposal, dishwasher, cooktop, hood and wall oven</li>
+                    <li>Demo all upper and base cabinets, including the tall oven unit and flanking pantry cabinets</li>
+                    <li>Demo granite countertops and full-height granite backsplash</li>
+                    <li>Demo travertine tile floor, including the mortar bed</li>
+                    <li>Haul away all debris</li>
+                    <li>Grind slab smooth after travertine removal</li>
+                    <li>6 mil vapor barrier over the prepared slab</li>
+                    <li>Install LVP flooring in the kitchen (~140 sq ft)</li>
+                    <li>New baseboard and trim</li>
+                    <li>Reset sink, faucet, disposal and dishwasher</li>
+                    <li>Reconnect gas line to the cooktop</li>
+                    <li>Reconnect oven, cooktop, hood, dishwasher and disposal electrically</li>
+                    <li>Set outlets and switches at the new cabinets and backsplash</li>
+                    <li>Install under-cabinet lighting</li>
+                    <li>Drywall patch and repair where the backsplash, cabinets and ceiling transitions were disturbed; prep walls for tile and paint</li>
+                    <li>Pre-fab cabinets — base, wall, tall units, fridge surround, trim and fillers (allowance — see below)</li>
+                    <li>Cabinet installation — base, wall and tall units, with crown and fillers</li>
+                    <li>Install your pulls and knobs</li>
+                    <li>Countertop template, fabrication and install (~50 sq ft, including the peninsula)</li>
+                    <li>Cutouts for sink and cooktop; mount your undermount sink</li>
+                    <li>Tile backsplash install (~35 sq ft), including setting materials and grout</li>
+                    <li>Set cooktop, hood, double wall oven, dishwasher and refrigerator</li>
+                    <li>Hook up fridge water line to the existing line</li>
+                    <li>Paint walls, touch up ceiling, paint cabinet crown and trim</li>
+                </ul>
+            </div>
+            <div class="scope-column">
+                <h4 class="supply">You Supply</h4>
+                <ul>
+                    <li>All appliances — cooktop, hood, double wall oven, dishwasher, refrigerator</li>
+                    <li>Kitchen sink and faucet</li>
+                    <li>LVP flooring material</li>
+                    <li>Backsplash tile</li>
+                    <li>Cabinet hardware — pulls and knobs</li>
+                    <li>Countertop stone — you pay cost for the stone you choose; we fabricate and install it</li>
+                    <li>Permits and fees, if required</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="vanity-note-block">
+            <h4>About the Cabinet Allowance</h4>
+            <p>The $11,500 for pre-fab cabinets is an allowance, carried at our cost with no markup. You choose the style and finish, and the final amount is adjusted to the actual supplier invoice, up or down. Installation is priced separately and is included in the total.</p>
+        </div>
+
+        <div class="open-items-block">
+            <h4>Not Included</h4>
+            <ul>
+                <li>Relocating or extending the fridge water line. We hook up to the existing one only.</li>
+                <li>Gas line, hood duct or electrical changes beyond reconnecting the existing items.</li>
+                <li>Any change to the kitchen layout, such as moving walls, the sink, the cooktop or the peninsula.</li>
+                <li>Floor transitions. None are expected, so none are included.</li>
+                <li>Stone, tile, LVP, hardware and appliances, as listed under You Supply.</li>
+            </ul>
+        </div>
+
+        <div class="open-items-block">
+            <h4>Good to Know</h4>
+            <ul>
+                <li><strong>Quantities are estimated from photos</strong> (cabinets ~24 LF base, ~18 LF wall and 3 tall units; ~50 sq ft countertop; ~35 sq ft backsplash; ~140 sq ft flooring). We confirm everything by field measurement before ordering.</li>
+                <li><strong>Slab condition:</strong> the grind-down price assumes a normal slab. Anything unforeseen in the slab or subfloor once the travertine comes up is handled by change order.</li>
+                <li><strong>Your selections:</strong> cabinet style and finish, countertop stone, LVP and backsplash tile are your choices. The reference you shared shows the general look.</li>
+                <li><strong>Changes in scope</strong> are handled by written change order.</li>
+            </ul>
+        </div>
+    </article>
+</section>
+
+<!-- REFERENCES -->
+<section class="container" style="padding-top: 5rem;" id="references">
+    <span class="eyebrow">References</span>
+    <h2 class="display">Hear it from <em>past clients.</em></h2>
+    <p class="lede">Feel free to reach out to any of these past clients directly to hear about their experience working with Timberline Build Co.</p>
+
+    <div class="references-grid">
+        <div class="reference-card">
+            <span class="ref-name">Vicki Gilman</span>
+            <a href="tel:+17029948882" class="ref-phone">+1 (702) 994-8882</a>
+        </div>
+        <div class="reference-card">
+            <span class="ref-name">Dan Deeney</span>
+            <a href="tel:+19083433622" class="ref-phone">+1 (908) 343-3622</a>
+        </div>
+        <div class="reference-card">
+            <span class="ref-name">Bob Scholart</span>
+            <a href="tel:+12819952252" class="ref-phone">+1 (281) 995-2252</a>
+        </div>
+        <div class="reference-card">
+            <span class="ref-name">Tris Jacobs</span>
+            <a href="tel:+19492854909" class="ref-phone">(949) 285-4909</a>
+        </div>
+    </div>
+
+    <div class="gmb-card">
+        <div class="gmb-info">
+            <h4>See All Our Reviews</h4>
+            <p>Read what other homeowners have said about working with us on Google.</p>
+        </div>
+        <a href="https://share.google/S7F4G8TyxlGZYFWfq" class="gmb-btn" target="_blank" rel="noopener">View Reviews</a>
+    </div>
+</section>
+
+<!-- INVESTMENT -->
+<section class="investment" id="investment">
+    <div class="invest-inner">
+        <span class="eyebrow">Investment</span>
+        <h2 class="display">The <em>bottom line.</em></h2>
+        <p class="lede">One consolidated scope, one total.</p>
+
+        <table class="invest-table">
+            <tr>
+                <td>Kitchen Remodel<div class="row-sub">Demo, flooring, plumbing, electrical, drywall, cabinets, countertops, backsplash, appliance install, paint</div></td>
+                <td>$36,679</td>
+            </tr>
+        </table>
+
+        <div class="invest-total">
+            <div class="invest-total-label">Total Investment</div>
+            <div class="invest-total-value">$36,679</div>
+        </div>
+
+        <p class="invest-caveat">Includes the $11,500 cabinet allowance, which is adjusted to the actual supplier invoice. Labor and construction materials only. Countertop stone is paid at cost. Appliances, sink and faucet, LVP, backsplash tile and cabinet hardware are customer-supplied. No permits or permit fees included; if required, they are the owner's responsibility. Quantities are confirmed by field measurement before ordering.</p>
+    </div>
+</section>
+
+<footer>
+    <img src="logo.png" alt="Timberline Build Co.">
+    <p>Timberline Build Co. · Licensed General Contractor · Orange County, CA</p>
+    <p><a href="tel:9492291692">949-229-1692</a></p>
+    <p style="margin-top: 1rem; font-size: 0.72rem; opacity: 0.5;">© 2026 Timberline Build Co. Proposal valid for 30 days from date of issue.</p>
+</footer>
+
+</body>
+</html>
